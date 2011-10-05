@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+   employer_id: 
+  seeker_id: 
+  date: 2011-10-05
+  interested: 
+
+two:
+   employer_id: 
+  seeker_id: 
+  date: 2011-10-05
+  interested: 

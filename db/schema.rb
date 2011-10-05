@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004201304) do
+ActiveRecord::Schema.define(:version => 20111005171543) do
+
+  create_table "biddings", :force => true do |t|
+    t.integer  "employer_id"
+    t.integer  "seeker_id"
+    t.date     "date"
+    t.integer  "interested"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                        :null => false

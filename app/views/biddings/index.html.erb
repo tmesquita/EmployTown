@@ -1,0 +1,29 @@
+<h1>Listing biddings</h1>
+
+<table>
+  <tr>
+    <th> employer</th>
+    <th>Seeker</th>
+    <th>Date</th>
+    <th>Interested</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @biddings.each do |bidding| %>
+  <tr>
+    <td><%= bidding. employer_id %></td>
+    <td><%= bidding.seeker_id %></td>
+    <td><%= bidding.date %></td>
+    <td><%= bidding.interested %></td>
+    <td><%= link_to 'Show', bidding %></td>
+    <td><%= link_to 'Edit', edit_bidding_path(bidding) %></td>
+    <td><%= link_to 'Destroy', bidding, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bidding', new_bidding_path %>
