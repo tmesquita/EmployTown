@@ -10,17 +10,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111005170015) do
 
   create_table "roles", :force => true do |t|
     t.string   "name",                       :null => false
     t.string   "description"
     t.integer  "users_count", :default => 0
+=======
+ActiveRecord::Schema.define(:version => 20111005171543) do
+
+  create_table "biddings", :force => true do |t|
+    t.integer  "employer_id"
+    t.integer  "seeker_id"
+    t.date     "date"
+    t.integer  "interested"
+>>>>>>> a8fc900605aaf43830d8f36aaf955ec1a68d267c
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
+=======
+  create_table "tags", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> a8fc900605aaf43830d8f36aaf955ec1a68d267c
 
   create_table "users", :force => true do |t|
     t.string   "email",                        :null => false

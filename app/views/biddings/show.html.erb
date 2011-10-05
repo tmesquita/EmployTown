@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b> employer:</b>
+  <%= @bidding.employer_id %>
+</p>
+
+<p>
+  <b>Seeker:</b>
+  <%= @bidding.seeker_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @bidding.date %>
+</p>
+
+<p>
+  <b>Interested:</b>
+  <%= @bidding.interested %>
+</p>
+
+
+<%= link_to 'Edit', edit_bidding_path(@bidding) %> |
+<%= link_to 'Back', biddings_path %>

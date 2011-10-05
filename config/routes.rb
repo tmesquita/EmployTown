@@ -1,4 +1,8 @@
 EmployTown::Application.routes.draw do
+  resources :biddings
+
+  resources :tags
+
   root :controller => "home", :action => "index"
   
   get "sessions/new"

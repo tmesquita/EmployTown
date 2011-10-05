@@ -1,0 +1,33 @@
+<%= form_for(@bidding) do |f| %>
+  <% if @bidding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bidding.errors.count, "error") %> prohibited this bidding from being saved:</h2>
+
+      <ul>
+      <% @bidding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :employer_id %><br />
+    <%= f.text_field :employer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :seeker_id %><br />
+    <%= f.text_field :seeker_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :interested %><br />
+    <%= f.text_field :interested %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

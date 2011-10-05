@@ -416,6 +416,7 @@ Started GET "/login" for 127.0.0.1 at Wed Oct 05 10:32:04 -0600 2011
   Processing by SessionsController#new as HTML
 Rendered sessions/new.html.haml within layouts/application (6.0ms)
 Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
 DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
 DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
 DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
@@ -441,6 +442,133 @@ Migrating to CreateRoles (20111005170015)
   [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_roles_on_name" ON "roles" ("name")[0m
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111005170015')
   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+=======
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 10:58:15 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 250ms (Views: 249.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 10:58:15 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Wed Oct 05 10:58:18 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__260415981_69834366577360_1080510 at /home/thomas/Documents/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (46.3ms)
+Rendered users/new.html.haml within layouts/application (50.1ms)
+Completed 200 OK in 68ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 05 10:58:55 -0600 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"wLcXIzG28ExypZYTx4vylofQEf++yqr7SUK2bcEYnp8=", "utf8"=>"✓", "user"=>{"seeking"=>"Bitches and Hos", "password_confirmation"=>"[FILTERED]", "user_url"=>"pimpT", "last_name"=>"Mesquita", "password"=>"[FILTERED]", "email"=>"tmesquit@mines.edu", "first_name"=>"Thomas"}}
+WARNING: Can't mass-assign protected attributes: seeking, user_url, last_name, first_name
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'tmesquit@mines.edu') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("salt", "last_name", "updated_at", "email", "remember_me_token_expires_at", "remember_me_token", "seeking", "created_at", "crypted_password", "user_url", "first_name") VALUES ('e83f87111c8a5e6172767a41d0035c50e807b049', NULL, '2011-10-05 16:58:56.113055', 'tmesquit@mines.edu', NULL, NULL, NULL, '2011-10-05 16:58:56.113055', '$2a$10$wgX6jf.7zEDASJKggX4BBu5hAgZqA2Xojv.mPa2ClLU.wGrL98J0u', NULL, NULL)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 299ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 10:58:56 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 05 10:58:59 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Wed Oct 05 10:59:09 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"wLcXIzG28ExypZYTx4vylofQEf++yqr7SUK2bcEYnp8=", "utf8"=>"✓", "password"=>"[FILTERED]", "email"=>"tmesquit@mines.edu"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE (email = 'tmesquit@mines.edu') LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 182ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 10:59:09 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.haml within layouts/application (4.1ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateTags (20111005171248)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateTags (20111005171248)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "tag" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111005171248')
+Migrating to CreateBiddings (20111005171543)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateTags (20111005171248)
+Migrating to CreateBiddings (20111005171543)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/thomas/Documents/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateTags (20111005171248)
+Migrating to CreateBiddings (20111005171543)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "biddings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employer_id" integer, "seeker_id" integer, "date" date, "interested" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111005171543')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+>>>>>>> a8fc900605aaf43830d8f36aaf955ec1a68d267c
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -449,12 +577,18 @@ Migrating to CreateRoles (20111005170015)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
+<<<<<<< HEAD
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("roles")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_roles_on_name')[0m
+=======
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("biddings")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+>>>>>>> a8fc900605aaf43830d8f36aaf955ec1a68d267c
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
 
 
+<<<<<<< HEAD
 Started GET "/user" for 127.0.0.1 at Wed Oct 05 11:13:38 -0600 2011
 
 ActionController::RoutingError (No route matches "/user"):
@@ -485,3 +619,218 @@ AbstractController::ActionNotFound (The action 'show' could not be found for Use
   
 
 Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
+=======
+Started GET "/bidding" for 127.0.0.1 at Wed Oct 05 11:24:20 -0600 2011
+
+ActionController::RoutingError (No route matches "/bidding"):
+  
+
+Rendered gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/biddings" for 127.0.0.1 at Wed Oct 05 11:24:23 -0600 2011
+  Processing by BiddingsController#index as HTML
+  [1m[36mBidding Load (0.5ms)[0m  [1mSELECT "biddings".* FROM "biddings"[0m
+Rendered biddings/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 26ms (Views: 7.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/biddings/new" for 127.0.0.1 at Wed Oct 05 11:24:26 -0600 2011
+  Processing by BiddingsController#new as HTML
+ERROR: compiling _app_views_biddings__form_html_erb__397312862_69832199908140_1080510 RAISED compile error
+/home/thomas/Documents/EmployTown/app/views/biddings/_form.html.erb:15: syntax error, unexpected ':', expecting ')'
+...put_buffer.append= ( f.label : employer_id );@output_buffer....
+                              ^
+/home/thomas/Documents/EmployTown/app/views/biddings/_form.html.erb:16: syntax error, unexpected ':', expecting ')'
+...uffer.append= ( f.text_field : employer_id );@output_buffer....
+                              ^
+Function body:           def _app_views_biddings__form_html_erb__397312862_69832199908140_1080510(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "biddings/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@bidding) do |f| @output_buffer.safe_concat('
+');   if @bidding.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@bidding.errors.count, "error") );@output_buffer.safe_concat(' prohibited this bidding from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @bidding.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label : employer_id );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field : employer_id );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :seeker_id );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :seeker_id );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.date_select :date );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="field">
+    ');@output_buffer.append= ( f.label :interested );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :interested );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/thomas/Documents/EmployTown/app/views/biddings/_form.html.erb:37:in `compile'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:333:in `render_partial'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:262:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:260:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:378:in `_render_partial'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:31:in `render_without_haml'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/haml-3.1.3/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/thomas/Documents/EmployTown/app/views/biddings/new.html.erb:3:in `_app_views_biddings_new_html_erb___547389388_69832199921520_0'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `send'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `_render_template'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render_without_haml'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/haml-3.1.3/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/thomas/Documents/EmployTown/app/controllers/biddings_controller.rb:29:in `new'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__1900509587__process_action__943997142__callbacks'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `send'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `send'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `action'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/sass-3.1.7/lib/sass/../sass/plugin/rack.rb:54:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/methodoverride.rb:24:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/sendfile.rb:106:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/runtime.rb:17:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/lock.rb:11:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/lock.rb:11:in `synchronize'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/lock.rb:11:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `send'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/content_length.rb:13:in `call'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/handler/webrick.rb:13:in `run'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/rack-1.2.4/lib/rack/server.rb:217:in `start'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/commands/server.rb:65:in `start'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/commands.rb:30
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27:in `tap'
+/home/thomas/Documents/EmployTown/gems/ruby/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered biddings/_form.html.erb (1.7ms)
+Rendered biddings/new.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (compile error
+/home/thomas/Documents/EmployTown/app/views/biddings/_form.html.erb:15: syntax error, unexpected ':', expecting ')'
+...put_buffer.append= ( f.label : employer_id );@output_buffer....
+                              ^
+/home/thomas/Documents/EmployTown/app/views/biddings/_form.html.erb:16: syntax error, unexpected ':', expecting ')'
+...uffer.append= ( f.text_field : employer_id );@output_buffer....
+                              ^):
+    12:   <% end %>
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label : employer_id %><br />
+    16:     <%= f.text_field : employer_id %>
+    17:   </div>
+    18:   <div class="field">
+  app/views/biddings/_form.html.erb:37:in `compile'
+  app/views/biddings/new.html.erb:3:in `_app_views_biddings_new_html_erb___547389388_69832199921520_0'
+  app/controllers/biddings_controller.rb:29:in `new'
+
+Rendered gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+Rendered gems/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+>>>>>>> a8fc900605aaf43830d8f36aaf955ec1a68d267c
