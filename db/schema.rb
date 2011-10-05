@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20111005171543) do
 
-  create_table "roles", :force => true do |t|
-    t.string   "name",                        :null => false
-    t.string   "description"
-    t.integer  "users_count", :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-  
-  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
-
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
     t.integer  "seeker_id"
@@ -30,7 +20,17 @@ ActiveRecord::Schema.define(:version => 20111005171543) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",                       :null => false
+    t.string   "description"
+    t.integer  "users_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
+
   create_table "tags", :force => true do |t|
     t.integer  "user_id"
     t.string   "tag"
