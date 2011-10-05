@@ -9,8 +9,9 @@ authorization do
   end
   
   role :seeker do
-    has_permission_on :home, :to => :read
-    has_permission_on :home, :to => :secret
+    has_permission_on :seekers_users, :to => :update
+    has_permission_on :seekers_tags, :to => :manage
+    has_permission_on :seekers_seekers, :to => :manage
   end
   
   role :employer do

@@ -24,6 +24,7 @@ EmployTown::Application.routes.draw do
   
   namespace :seekers do
     resources :tags
-    resources :users
+    resources :users, :only => [:edit, :show]
+    root :controller => "seekers", :action => "index"
   end
 end
