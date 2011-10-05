@@ -11,13 +11,14 @@
     %th  
 
 - @biddings.each do |bidding|
-  %tr
-    %td= bidding.employer_id  
-    %td= bidding.seeker_id  
-    %td= bidding.date  
-    %td= bidding.interested  
-    %td= link_to 'Show', bidding  
-    %td= link_to 'Edit', edit_bidding_path(bidding)  
-    %td= link_to 'Destroy', bidding, :confirm => 'Are you sure?', :method => :delete  
+  %p
+    %tr
+      %td= bidding.employer_id 
+      %td= bidding.seeker_id  
+      %td= bidding.date  
+      %td= bidding.interested  
+      %td= link_to 'Show', bidding  
+      %td= link_to 'Edit', edit_bidding_path(bidding)  
+      %td= link_to 'Destroy', bidding, :confirm => 'Are you sure?', :method => :delete  
 
-= link_to 'New Bidding', new_bidding_path
+%p= link_to 'New Bidding', new_bidding_path
