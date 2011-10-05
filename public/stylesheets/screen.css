@@ -1,0 +1,25 @@
+html, body {
+  margin: 0;
+  font-family: helvetica, arial, sans-serif; }
+
+.clear {
+  clear: both; }
+
+.container {
+  margin: 0 auto;
+  width: 80%; }
+  .container .header {
+    background-color: #aaaaaa;
+    padding: 1em; }
+    .container .header .nav {
+      padding: 2.5em 0 0 0;
+      float: right; }
+    .container .header h1 {
+      font-size: 4em;
+      float: left; }
+  .container .body {
+    background-color: #cccccc;
+    padding: 2em; }
+  .container .footer {
+    padding: 1em;
+    background-color: #aaaaaa; }
