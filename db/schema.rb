@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111005171543) do
+ActiveRecord::Schema.define(:version => 20111005174829) do
 
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20111005171543) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.integer  "role_id"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

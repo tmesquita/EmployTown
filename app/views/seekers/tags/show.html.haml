@@ -1,0 +1,14 @@
+%p{:id => 'notice'}
+  = notice
+
+%p
+  %b user:
+  = @tag.user_id  
+
+%p
+  %b Tag:
+  = @tag.tag  
+
+
+= link_to 'Edit', edit_tag_path(@tag)   |
+= link_to 'Back', tags_path  

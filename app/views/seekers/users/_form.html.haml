@@ -1,0 +1,36 @@
+- form_for [:seekers, @user] do |f|
+  %p
+    - if @user.errors.any?
+      - for message in @user.errors.full_messages
+        = message
+  
+  %p
+    = f.label :email
+    = f.text_field :email
+  
+  %p
+    = f.label :password
+    = f.password_field :password
+  
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  
+  %p
+    = f.label :first_name
+    = f.text_field :first_name
+  
+  %p
+    = f.label :last_name
+    = f.text_field :last_name
+  
+  %p
+    = f.label :seeking
+    = f.text_field :seeking
+  
+  %p
+    = f.label :user_url
+    = f.text_field :user_url
+
+  %p
+    = f.submit

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :role_id
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
@@ -15,9 +15,7 @@ class User < ActiveRecord::Base
   before_create :assign_role
   
   def role_symbols
-    roles.map do |role|
-      role.name.underscore.to_sym
-    end
+    [role.name.downcase.to_sym]
   end
   
   protected

@@ -868,3 +868,510 @@ Migrating to CreateBiddings (20111005171543)
   [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateRoles (20111005170015)
+Migrating to CreateTags (20111005171248)
+Migrating to CreateBiddings (20111005171543)
+Migrating to AddRoleIdToUsers (20111005174829)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "users" ADD "role_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111005174829')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("biddings")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_roles_on_name')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.8ms)[0m  [1mCREATE TABLE "biddings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employer_id" integer, "seeker_id" integer, "date" date, "interested" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.2ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "description" varchar(255), "users_count" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("roles")
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE UNIQUE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "tag" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255), "salt" varchar(255), "user_url" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "seeking" varchar(255), "created_at" datetime, "updated_at" datetime, "remember_me_token" varchar(255), "remember_me_token_expires_at" datetime, "role_id" integer) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (2.3ms)[0m  [1mCREATE INDEX "index_users_on_remember_me_token" ON "users" ("remember_me_token")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111005174829')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004201303')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111004201304')
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111005170015')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111005171248')
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111005171543')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (86.9ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "roles" WHERE ("roles"."name" = 'developer') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "roles" ("description", "updated_at", "created_at", "users_count", "name") VALUES ('The system developer. There is no higher access level.', '2011-10-05 17:49:57.253298', '2011-10-05 17:49:57.253298', 0, 'developer')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "roles" WHERE ("roles"."name" = 'administrator') LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "roles" ("description", "updated_at", "created_at", "users_count", "name") VALUES ('A system administrator. Full access to all features.', '2011-10-05 17:49:57.262281', '2011-10-05 17:49:57.262281', 0, 'administrator')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "roles" WHERE ("roles"."name" = 'seeker') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "roles" ("description", "updated_at", "created_at", "users_count", "name") VALUES ('A typical job seeker on the site.', '2011-10-05 17:49:57.268675', '2011-10-05 17:49:57.268675', 0, 'seeker')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "roles" WHERE ("roles"."name" = 'employer') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "roles" ("description", "updated_at", "created_at", "users_count", "name") VALUES ('A typical employer on the site.', '2011-10-05 17:49:57.275417', '2011-10-05 17:49:57.275417', 0, 'employer')
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:54:18 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Completed 500 Internal Server Error in 184ms
+
+NameError (undefined local variable or method `roles' for #<User:0x11162b530>):
+  app/models/user.rb:18:in `role_symbols'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 05 11:54:29 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Wed Oct 05 11:54:34 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"dvqUuMorH4ewIwue98GMXryr0TA1ub0k+9j3gSwmico=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"cmckenna@mines.edu"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'cmckenna@mines.edu') LIMIT 1
+Rendered sessions/new.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 46ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Wed Oct 05 11:54:40 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"dvqUuMorH4ewIwue98GMXryr0TA1ub0k+9j3gSwmico=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"chad.mckenna@gmail.com"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'chad.mckenna@gmail.com') LIMIT 1[0m
+Redirected to http://localhost:3000/home/secret
+Completed 302 Found in 212ms
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:54:40 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Completed 500 Internal Server Error in 119ms
+
+NameError (undefined local variable or method `roles' for #<User:0x111644170>):
+  app/models/user.rb:18:in `role_symbols'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:55:12 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Completed 500 Internal Server Error in 33ms
+
+NameError (undefined local variable or method `roles' for #<User:0x110f67af0>):
+  app/models/user.rb:18:in `role_symbols'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:57:16 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError (undefined method `map' for "seeker":Role):
+  app/models/user.rb:18:in `role_symbols'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:58:16 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 89ms
+
+ActiveRecord::ConfigurationError (Association named 'role' was not found; perhaps you misspelled it?):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 11:58:23 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Completed 500 Internal Server Error in 33ms
+
+NameError (undefined local variable or method `roles' for #<User:0x11110d4b8>):
+  app/models/user.rb:18:in `role_symbols'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.8ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 12:01:03 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for secret for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:secret], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 116ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 123ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 128ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 39ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:04 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 116ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 115ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 125ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:05 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 36ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:01:06 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for index for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:index], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:03:29 -0600 2011
+  Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+Authorization::Reader::DSLSyntaxError (Illegal DSL syntax: undefined method `privileges' for #<Authorization::Reader::AuthorizationRulesReader:0x11139b130>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:03:49 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Rendered home/index.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 50ms (Views: 15.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 12:03:57 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Permission denied: No matching rules found for secret for #<User id: 1, email: "chad.mckenna@gmail.com", crypted_password: "$2a$10$qYOQvrGczCY3oIuptxLLHu9wsJJY/LXYogQfEg3YyXrH...", salt: "b14f2cdd635d4f03f78350133c6b0cadcd829aa2", user_url: nil, first_name: nil, last_name: nil, seeking: nil, created_at: "2011-10-05 17:50:31", updated_at: "2011-10-05 17:50:31", remember_me_token: nil, remember_me_token_expires_at: nil, role_id: 3> (roles [:seeker], privileges [:secret], context :home).
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 12:03:57 -0600 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Rendered home/index.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 122ms (Views: 13.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/home/secret" for 127.0.0.1 at Wed Oct 05 12:04:40 -0600 2011
+  Processing by HomeController#secret as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Rendered home/secret.html.haml within layouts/application (3.5ms)
+Completed 200 OK in 46ms (Views: 13.1ms | ActiveRecord: 0.5ms)
