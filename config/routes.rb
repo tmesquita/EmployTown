@@ -12,6 +12,8 @@ EmployTown::Application.routes.draw do
   resources :users
   resources :sessions
   resources :home
+  resources :biddings
+  resources :companies
   
   namespace :administrators do
     resources :users
@@ -24,6 +26,7 @@ EmployTown::Application.routes.draw do
   
   namespace :seekers do
     resources :tags
+    resources :biddings
     resources :users, :only => [:edit, :show]
     root :controller => "seekers", :action => "index"
   end

@@ -1,0 +1,25 @@
+%p{:id => 'notice'}= notice   
+
+%p
+  %b employer: 
+  = @bidding.employer_id  
+ 
+
+%p
+  %bSeeker: 
+  = @bidding.seeker_id  
+ 
+
+%p
+  %bDate: 
+  = @bidding.date  
+ 
+
+%p
+  %bInterested: 
+  = @bidding.interested  
+ 
+
+
+= link_to 'Edit', edit_bidding_path(@bidding)   |
+= link_to 'Back', biddings_path  
