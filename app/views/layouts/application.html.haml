@@ -11,12 +11,14 @@
     = csrf_meta_tag
 	
   %body
-    .container
-      .header
+    .header
+      .body
         %h1 EmployTown
         = render :partial => "layouts/nav"
-        .clear
+      .clear
+    .container
       .body
         = yield
-      .footer
+    .footer
+      .body
         %p Developed by the K4TZ

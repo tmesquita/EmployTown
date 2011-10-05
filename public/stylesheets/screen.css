@@ -5,21 +5,65 @@ html, body {
 .clear {
   clear: both; }
 
+.body {
+  width: 80%;
+  margin: 0 auto; }
+
+.header {
+  background-color: #b1d3eb;
+  padding: 1em;
+  border-top: solid 0.4em #0a477a;
+  box-shadow: 0 0 5px 2px #aaaaaa;
+  z-index: -20; }
+  .header ul, .header li {
+    margin: 0;
+    padding: 0; }
+  .header ul {
+    list-style: none; }
+    .header ul li {
+      display: inline-block;
+      padding: 0 0.3em 0 0.3em; }
+  .header .nav {
+    padding: 1em 0 0 0;
+    float: right; }
+    .header .nav a {
+      color: #1e74bb;
+      text-decoration: none; }
+    .header .nav a:hover {
+      color: #0a477a;
+      text-shadow: 0 1px 0 #eeeeee; }
+  .header h1 {
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    float: left;
+    color: #0a477a;
+    text-shadow: 0 1px 0 #eeeeee;
+    font-weight: 100; }
+
 .container {
-  margin: 0 auto;
-  width: 80%; }
-  .container .header {
-    background-color: #aaaaaa;
+  padding: 2em 0 2em 0;
+  margin: 0 0 4em 0; }
+  .container h1, .container h2, .container h3 {
+    margin: 0;
+    padding: 0; }
+  .container form {
     padding: 1em; }
-    .container .header .nav {
-      padding: 2.5em 0 0 0;
-      float: right; }
-    .container .header h1 {
-      font-size: 4em;
-      float: left; }
-  .container .body {
-    background-color: #cccccc;
-    padding: 2em; }
-  .container .footer {
-    padding: 1em;
-    background-color: #aaaaaa; }
+    .container form input[type=text], .container form input[type=password] {
+      padding: 0.75em;
+      border: solid 0.1em #999999;
+      box-shadow: 0 0 3px #aaaaaa;
+      margin: 0; }
+    .container form input[type=submit] {
+      margin-left: 32%;
+      font-size: 1em; }
+    .container form label {
+      text-align: right;
+      padding-right: 1em;
+      float: left;
+      width: 30%;
+      font-size: 1.2em; }
+
+.footer {
+  padding: 1em 0 1em 0;
+  border-top: solid 0.2em #b1d3eb; }
