@@ -5,6 +5,7 @@ gem 'haml'
 gem 'sass'
 gem 'nifty-generators', :group => :development
 gem 'sorcery'
+gem 'declarative_authorization'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

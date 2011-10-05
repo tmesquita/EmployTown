@@ -33,6 +33,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
+    declarative_authorization (0.5.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.7.5)
@@ -96,6 +97,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  declarative_authorization
   haml
   nifty-generators
   rails (= 3.0.9)

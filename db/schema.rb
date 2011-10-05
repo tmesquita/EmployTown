@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004201304) do
+ActiveRecord::Schema.define(:version => 20111005170015) do
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",                       :null => false
+    t.string   "description"
+    t.integer  "users_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                        :null => false

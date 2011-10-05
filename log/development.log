@@ -416,3 +416,72 @@ Started GET "/login" for 127.0.0.1 at Wed Oct 05 10:32:04 -0600 2011
   Processing by SessionsController#new as HTML
 Rendered sessions/new.html.haml within layouts/application (6.0ms)
 Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to SorceryCore (20111004201303)
+Migrating to SorceryRememberMe (20111004201304)
+Migrating to CreateRoles (20111005170015)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "description" varchar(255), "users_count" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("roles")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111005170015')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("roles")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_roles_on_name')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
+
+
+Started GET "/user" for 127.0.0.1 at Wed Oct 05 11:13:38 -0600 2011
+
+ActionController::RoutingError (No route matches "/user"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 05 11:13:42 -0600 2011
+
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
+
+
+Started GET "/user/1" for 127.0.0.1 at Wed Oct 05 11:13:49 -0600 2011
+
+ActionController::RoutingError (No route matches "/user/1"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Wed Oct 05 11:13:53 -0600 2011
+
+AbstractController::ActionNotFound (The action 'show' could not be found for UsersController):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
