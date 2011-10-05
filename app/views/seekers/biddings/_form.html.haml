@@ -1,0 +1,21 @@
+- form_for [:seekers, @bidding] do |f|
+
+  .field
+    = f.label :employer_id
+    = f.text_field :employer_id
+       
+  .field
+    = f.label :seeker_id
+    = f.text_field :seeker_id
+   
+  .field
+    = f.label :date
+    = f.date_select :date
+   
+  .field
+    = f.label :interested
+    = f.text_field :interested
+   
+  .actions
+    = f.submit
+
