@@ -9,6 +9,13 @@ html, body
   margin: 0
   font-family: helvetica, arial, sans-serif
 
+a
+  color: $primary
+  text-decoration: none
+  &:hover
+    color: $dark_accent
+    text-decoration: underline
+
 .clear
   clear: both
   
@@ -21,7 +28,6 @@ html, body
   padding: 1em
   border-top: solid .4em $dark_accent
   box-shadow: 0 0 5px 2px #aaa
-  z-index: -20
   
   ul, li
     margin: 0
@@ -59,27 +65,48 @@ html, body
   margin: 0 0 4em 0
   
   h1, h2, h3
-    margin: 0
+    margin: .5em 0 1em 0
     padding: 0
+    font-weight: 100
     
   form
+    margin: 1em 0 1em 0
     padding: 1em
-    
+    width: 60%
+    background-color: $background
+    font-weight: 100
+    outline: solid .15em $primary
+
     input[type=text], input[type=password]
       padding: .75em
       border: solid .1em #999
       box-shadow: 0 0 3px #aaa
       margin: 0
+      width: 40%
     input[type=submit]
-      margin-left: 32%
+      margin-left: 42%
       font-size: 1em
     label
       text-align: right
-      padding-right: 1em
+      padding: .25em 1em 0 0
       float: left
-      width: 30%
+      width: 40%
       font-size: 1.2em
     
 .footer
   padding: 1em 0 1em 0
   border-top: solid .2em $light
+  background-color: $background
+  .triple-column
+    width: 30%
+    ul, li
+      margin: 0
+      padding: .15em 0 .15em 0
+    ul
+      list-style: none
+  #left, #center
+    float: left
+  #center
+    margin: 0 5%
+  #right
+    float: right

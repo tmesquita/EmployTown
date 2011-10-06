@@ -6605,3 +6605,890 @@ Started GET "/" for 127.0.0.1 at Wed Oct 05 17:01:45 -0600 2011
 Rendered layouts/_nav.html.haml (4.8ms)
 Rendered home/index.html.haml within layouts/application (17.4ms)
 Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/cmckenna/Documents/EmployTown/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.5ms)[0m  [1mCREATE TABLE "biddings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employer_id" integer, "seeker_id" integer, "date" date, "interested" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.3ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "description" varchar(255), "users_count" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("roles")
+  [1m[36mSQL (2.2ms)[0m  [1mCREATE UNIQUE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.3ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "tag" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255), "salt" varchar(255), "user_url" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "seeking" varchar(255), "created_at" datetime, "updated_at" datetime, "remember_me_token" varchar(255), "remember_me_token_expires_at" datetime, "role_id" integer) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (2.2ms)[0m  [1mCREATE INDEX "index_users_on_remember_me_token" ON "users" ("remember_me_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111005191302')
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111004201303')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111004201304')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111005170015')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111005171248')
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111005171543')[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111005174829')
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "roles" WHERE ("roles"."name" = 'developer') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "roles" ("name", "created_at", "description", "users_count", "updated_at") VALUES ('developer', '2011-10-05 23:04:31.598987', 'The system developer. There is no higher access level.', 0, '2011-10-05 23:04:31.598987')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "roles" WHERE ("roles"."name" = 'administrator') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "roles" ("name", "created_at", "description", "users_count", "updated_at") VALUES ('administrator', '2011-10-05 23:04:31.608716', 'A system administrator. Full access to all features.', 0, '2011-10-05 23:04:31.608716')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "roles" WHERE ("roles"."name" = 'seeker') LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "roles" ("name", "created_at", "description", "users_count", "updated_at") VALUES ('seeker', '2011-10-05 23:04:31.614947', 'A typical job seeker on the site.', 0, '2011-10-05 23:04:31.614947')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "roles" WHERE ("roles"."name" = 'employer') LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "roles" ("name", "created_at", "description", "users_count", "updated_at") VALUES ('employer', '2011-10-05 23:04:31.622183', 'A typical employer on the site.', 0, '2011-10-05 23:04:31.622183')[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 17:05:00 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered home/index.html.haml within layouts/application (17.0ms)
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 05 17:05:12 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (4.9ms)
+Rendered sessions/new.html.haml within layouts/application (20.6ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Wed Oct 05 17:05:23 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"XMq8svRrLb6kW08dksntVgX48HQ/H1+svKPyQwF8e5o=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"chad.mckenna@gmail.com"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'chad.mckenna@gmail.com') LIMIT 1[0m
+Rendered layouts/_nav.html.haml (7.0ms)
+Rendered sessions/new.html.haml within layouts/application (22.9ms)
+Completed 200 OK in 143ms (Views: 31.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 17:05:27 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered home/index.html.haml within layouts/application (16.5ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Wed Oct 05 17:05:29 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2171994580_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (111.2ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered users/new.html.haml within layouts/application (129.4ms)
+Completed 200 OK in 150ms (Views: 138.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 05 17:05:43 -0600 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Sign up!", "authenticity_token"=>"XMq8svRrLb6kW08dksntVgX48HQ/H1+svKPyQwF8e5o=", "utf8"=>"\342\234\223", "user"=>{"seeking"=>"", "password_confirmation"=>"[FILTERED]", "user_url"=>"chad.mckenna", "last_name"=>"McKenna", "password"=>"[FILTERED]", "email"=>"chad.mckenna@gmail.com", "first_name"=>"Chad"}}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'chad.mckenna@gmail.com') LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'seeker' LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "users" ("updated_at", "salt", "first_name", "remember_me_token", "user_url", "remember_me_token_expires_at", "crypted_password", "role_id", "seeking", "email", "last_name", "created_at") VALUES ('2011-10-05 23:05:43.505519', 'df2acc0ab3a05fe36c227f876ba4c22a310ff930', 'Chad', NULL, 'chad.mckenna', NULL, '$2a$10$0o4dqe3DQ5fBzKTv0FBMo.LKwnuL.NCGwKVTPFKPdZtCOn7v1lcim', 3, '', 'chad.mckenna@gmail.com', 'McKenna', '2011-10-05 23:05:43.505519')
+Redirected to http://localhost:3000/
+Completed 302 Found in 247ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 17:05:43 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered home/index.html.haml within layouts/application (102.0ms)
+Completed 200 OK in 112ms (Views: 111.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 05 17:05:47 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered sessions/new.html.haml within layouts/application (26.4ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Wed Oct 05 17:05:52 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"XMq8svRrLb6kW08dksntVgX48HQ/H1+svKPyQwF8e5o=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"chad.mckenna@gmail.com"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'chad.mckenna@gmail.com') LIMIT 1[0m
+Redirected to http://localhost:3000/seekers
+Completed 302 Found in 215ms
+
+
+Started GET "/seekers" for 127.0.0.1 at Wed Oct 05 17:05:52 -0600 2011
+  Processing by Seekers::SeekersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered seekers/seekers/index.html.haml within layouts/application (16.8ms)
+Completed 200 OK in 69ms (Views: 26.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/seekers/users/1/edit" for 127.0.0.1 at Wed Oct 05 17:05:54 -0600 2011
+  Processing by Seekers::UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_seekers_users__form_html_haml__1354093016_2176101920_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/seekers/users/_form.html.haml:1)
+Rendered seekers/users/_form.html.haml (17.4ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered seekers/users/edit.html.haml within layouts/application (37.2ms)
+Completed 200 OK in 169ms (Views: 50.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seekers" for 127.0.0.1 at Wed Oct 05 17:06:01 -0600 2011
+  Processing by Seekers::SeekersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Rendered layouts/_nav.html.haml (92.6ms)
+Rendered seekers/seekers/index.html.haml within layouts/application (104.5ms)
+Completed 200 OK in 151ms (Views: 114.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 05 17:06:03 -0600 2011
+  Processing by SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 05 17:06:03 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered home/index.html.haml within layouts/application (17.1ms)
+Completed 200 OK in 27ms (Views: 26.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Wed Oct 05 17:24:14 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176209860_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (26.2ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered users/new.html.haml within layouts/application (46.4ms)
+Completed 200 OK in 163ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:16:28 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (7.7ms)
+Rendered home/index.html.haml within layouts/application (45.3ms)
+Completed 200 OK in 110ms (Views: 109.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:17:03 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered home/index.html.haml within layouts/application (16.4ms)
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:17:06 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered home/index.html.haml within layouts/application (16.6ms)
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:17:07 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (88.4ms)
+Rendered home/index.html.haml within layouts/application (100.8ms)
+Completed 200 OK in 110ms (Views: 109.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:17:49 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.3ms)
+Rendered home/index.html.haml within layouts/application (17.3ms)
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:25:36 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered home/index.html.haml within layouts/application (19.2ms)
+Completed 200 OK in 30ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:26:10 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (6.7ms)
+Rendered home/index.html.haml within layouts/application (21.3ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:26:42 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered home/index.html.haml within layouts/application (18.2ms)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:26:53 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (6.3ms)
+Rendered home/index.html.haml within layouts/application (20.7ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:27:18 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered home/index.html.haml within layouts/application (102.8ms)
+Completed 200 OK in 117ms (Views: 116.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:27:57 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.9ms)
+Rendered home/index.html.haml within layouts/application (18.8ms)
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:28:17 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (6.4ms)
+Rendered home/index.html.haml within layouts/application (22.2ms)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:28:32 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.8ms)
+Rendered home/index.html.haml within layouts/application (19.3ms)
+Completed 200 OK in 113ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:29:02 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered home/index.html.haml within layouts/application (26.2ms)
+Completed 200 OK in 35ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:31:50 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered home/index.html.haml within layouts/application (31.7ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `homes_path' for #<#<Class:0x103340b58>:0x10332b578>):
+    23:       .body
+    24:         .triple-column{:id => "left"}
+    25:           %h3 About Us
+    26:           = link_to "Link 1", homes_path
+    27:           = link_to "Link 2", homes_path
+    28:           = link_to "Link 3", homes_path
+    29:         .triple-column{:id => "center"}
+  app/views/layouts/application.html.haml:26:in `_app_views_layouts_application_html_haml__1892364678_2174274440_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:32:10 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered home/index.html.haml within layouts/application (21.0ms)
+Completed 500 Internal Server Error in 115ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"home"}):
+    23:       .body
+    24:         .triple-column{:id => "left"}
+    25:           %h3 About Us
+    26:           = link_to "Link 1", home_path
+    27:           = link_to "Link 2", home_path
+    28:           = link_to "Link 3", home_path
+    29:         .triple-column{:id => "center"}
+  app/views/layouts/application.html.haml:26:in `_app_views_layouts_application_html_haml__1892364678_2172345040_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:32:32 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered home/index.html.haml within layouts/application (21.6ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:33:05 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.haml within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (Illegal nesting: content can't be both given on the same line as %h3 and nested within it.):
+    29:             %li= link_to "Link 3", root_url
+    30:         .triple-column{:id => "center"}
+    31:           %h3 Contact Us
+    32:             %li= link_to "Link 1", root_url
+    33:             %li= link_to "Link 2", root_url
+    34:         .triple-column{:id => "right"}
+    35:           %h3 Login
+  app/views/layouts/application.html.haml:32
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:33:21 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered home/index.html.haml within layouts/application (22.2ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:34:43 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.9ms)
+Rendered home/index.html.haml within layouts/application (26.4ms)
+Completed 200 OK in 37ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:35:00 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered home/index.html.haml within layouts/application (23.2ms)
+Completed 200 OK in 127ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:35:01 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered home/index.html.haml within layouts/application (22.3ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:35:25 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered home/index.html.haml within layouts/application (29.8ms)
+Completed 200 OK in 40ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:35:47 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.8ms)
+Rendered home/index.html.haml within layouts/application (28.8ms)
+Completed 200 OK in 120ms (Views: 119.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 13:36:18 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (8.7ms)
+Rendered home/index.html.haml within layouts/application (27.9ms)
+Completed 200 OK in 37ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 13:36:31 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered sessions/new.html.haml within layouts/application (26.1ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:36:33 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172146200_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (108.3ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (140.4ms)
+Completed 200 OK in 183ms (Views: 163.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:38:21 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172007040_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (109.6ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (135.1ms)
+Completed 200 OK in 158ms (Views: 147.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:39:13 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172074720_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (113.7ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (137.3ms)
+Completed 200 OK in 158ms (Views: 148.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:39:42 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172190440_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (113.1ms)
+Rendered layouts/_nav.html.haml (5.4ms)
+Rendered users/new.html.haml within layouts/application (138.7ms)
+Completed 200 OK in 160ms (Views: 149.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:40:01 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176464120_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (28.1ms)
+Rendered layouts/_nav.html.haml (8.0ms)
+Rendered users/new.html.haml within layouts/application (57.4ms)
+Completed 200 OK in 170ms (Views: 154.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:40:31 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176089500_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.8ms)
+Rendered layouts/_nav.html.haml (4.4ms)
+Rendered users/new.html.haml within layouts/application (47.3ms)
+Completed 200 OK in 156ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:40:50 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176301660_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.4ms)
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered users/new.html.haml within layouts/application (47.6ms)
+Completed 200 OK in 151ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:41:08 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2175681460_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.4ms)
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered users/new.html.haml within layouts/application (48.1ms)
+Completed 200 OK in 70ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:41:23 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174198840_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.1ms)
+Rendered layouts/_nav.html.haml (5.0ms)
+Rendered users/new.html.haml within layouts/application (48.5ms)
+Completed 200 OK in 68ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:42:54 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173943300_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.7ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered users/new.html.haml within layouts/application (46.7ms)
+Completed 200 OK in 66ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:42:57 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2175022060_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.9ms)
+Rendered layouts/_nav.html.haml (7.6ms)
+Rendered users/new.html.haml within layouts/application (51.9ms)
+Completed 200 OK in 75ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:43:06 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173878040_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (25.9ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered users/new.html.haml within layouts/application (53.1ms)
+Completed 200 OK in 73ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:43:18 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173806760_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (25.6ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (52.5ms)
+Completed 200 OK in 72ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:43:30 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173490300_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.8ms)
+Rendered layouts/_nav.html.haml (94.0ms)
+Rendered users/new.html.haml within layouts/application (140.9ms)
+Completed 200 OK in 163ms (Views: 152.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:44:28 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172726600_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.4ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered users/new.html.haml within layouts/application (129.9ms)
+Completed 200 OK in 152ms (Views: 141.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:44:43 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172055340_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (111.2ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (136.1ms)
+Completed 200 OK in 161ms (Views: 146.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:44:50 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172058000_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (115.1ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (139.3ms)
+Completed 200 OK in 163ms (Views: 152.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:45:09 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2171611120_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (113.9ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered users/new.html.haml within layouts/application (138.7ms)
+Completed 200 OK in 161ms (Views: 149.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:45:15 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176294900_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.9ms)
+Rendered layouts/_nav.html.haml (5.9ms)
+Rendered users/new.html.haml within layouts/application (54.6ms)
+Completed 200 OK in 163ms (Views: 63.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 13:45:44 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2175321300_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.3ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered users/new.html.haml within layouts/application (46.5ms)
+Completed 200 OK in 68ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:02:52 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173931340_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.3ms)
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered users/new.html.haml within layouts/application (46.6ms)
+Completed 200 OK in 67ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:03:26 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173861100_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (25.3ms)
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered users/new.html.haml within layouts/application (48.9ms)
+Completed 200 OK in 70ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:03:49 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173163260_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (24.8ms)
+Rendered layouts/_nav.html.haml (5.5ms)
+Rendered users/new.html.haml within layouts/application (54.4ms)
+Completed 200 OK in 78ms (Views: 68.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:07:14 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174108340_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.4ms)
+Rendered layouts/_nav.html.haml (6.1ms)
+Rendered users/new.html.haml within layouts/application (52.1ms)
+Completed 200 OK in 71ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:07:32 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174498320_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (29.7ms)
+Rendered layouts/_nav.html.haml (7.4ms)
+Rendered users/new.html.haml within layouts/application (56.7ms)
+Completed 200 OK in 77ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:07:33 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174904640_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.6ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered users/new.html.haml within layouts/application (47.9ms)
+Completed 200 OK in 69ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:07:59 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2175045060_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (27.6ms)
+Rendered layouts/_nav.html.haml (7.3ms)
+Rendered users/new.html.haml within layouts/application (54.4ms)
+Completed 200 OK in 74ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:08:16 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174208900_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (24.4ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered users/new.html.haml within layouts/application (49.0ms)
+Completed 200 OK in 68ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:08:48 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173248860_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.3ms)
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered users/new.html.haml within layouts/application (46.7ms)
+Completed 200 OK in 71ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:08:59 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173296860_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (24.5ms)
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered users/new.html.haml within layouts/application (48.5ms)
+Completed 200 OK in 70ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:09:15 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172878940_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (25.4ms)
+Rendered layouts/_nav.html.haml (86.4ms)
+Rendered users/new.html.haml within layouts/application (132.8ms)
+Completed 200 OK in 158ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:09:32 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172192960_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.5ms)
+Rendered layouts/_nav.html.haml (4.9ms)
+Rendered users/new.html.haml within layouts/application (138.8ms)
+Completed 200 OK in 160ms (Views: 147.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:10:16 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172215780_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (112.9ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered users/new.html.haml within layouts/application (137.7ms)
+Completed 200 OK in 159ms (Views: 148.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:10:32 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2171638820_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (108.4ms)
+Rendered layouts/_nav.html.haml (4.9ms)
+Rendered users/new.html.haml within layouts/application (133.0ms)
+Completed 200 OK in 155ms (Views: 144.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:11:54 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172138740_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (113.2ms)
+Rendered layouts/_nav.html.haml (4.5ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered users/new.html.haml within layouts/application (141.1ms)
+Completed 200 OK in 166ms (Views: 150.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:12:24 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2172326460_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (111.1ms)
+Rendered layouts/_nav.html.haml (4.4ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered users/new.html.haml within layouts/application (138.3ms)
+Completed 200 OK in 158ms (Views: 147.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:12:52 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2171420180_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (115.7ms)
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered layouts/_footer.html.haml (12.8ms)
+Rendered users/new.html.haml within layouts/application (149.2ms)
+Completed 200 OK in 171ms (Views: 158.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:13:05 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176027320_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.3ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered layouts/_footer.html.haml (8.2ms)
+Rendered users/new.html.haml within layouts/application (51.7ms)
+Completed 200 OK in 165ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:13:35 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174852320_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.4ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (8.1ms)
+Rendered users/new.html.haml within layouts/application (50.7ms)
+Completed 200 OK in 73ms (Views: 60.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:13:42 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173936560_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.5ms)
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered users/new.html.haml within layouts/application (51.1ms)
+Completed 200 OK in 70ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:14:05 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173703780_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (26.7ms)
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered users/new.html.haml within layouts/application (55.0ms)
+Completed 200 OK in 80ms (Views: 66.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:14:34 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered home/index.html.haml within layouts/application (26.8ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:14:37 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered layouts/_footer.html.haml (100.0ms)
+Rendered sessions/new.html.haml within layouts/application (121.9ms)
+Completed 200 OK in 132ms (Views: 131.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:15:58 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174506720_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.9ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (7.4ms)
+Rendered users/new.html.haml within layouts/application (50.1ms)
+Completed 200 OK in 75ms (Views: 59.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:16:18 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174647660_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.1ms)
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered users/new.html.haml within layouts/application (50.1ms)
+Completed 200 OK in 69ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:16:28 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2174464960_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.2ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (8.1ms)
+Rendered users/new.html.haml within layouts/application (50.6ms)
+Completed 200 OK in 71ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:16:45 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173439200_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (24.9ms)
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered layouts/_footer.html.haml (7.2ms)
+Rendered users/new.html.haml within layouts/application (51.3ms)
+Completed 200 OK in 71ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:17:05 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2173547560_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (24.0ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (92.4ms)
+Rendered users/new.html.haml within layouts/application (140.4ms)
+Completed 200 OK in 163ms (Views: 153.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:18:38 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered layouts/_footer.html.haml (7.9ms)
+Rendered home/index.html.haml within layouts/application (26.3ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:22:57 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176081440_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (23.7ms)
+Rendered layouts/_nav.html.haml (4.1ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered users/new.html.haml within layouts/application (50.9ms)
+Completed 200 OK in 164ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:23:15 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__2042490177_2176309400_905150 at /Users/cmckenna/Documents/EmployTown/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (22.9ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (7.5ms)
+Rendered users/new.html.haml within layouts/application (49.9ms)
+Completed 200 OK in 158ms (Views: 58.8ms | ActiveRecord: 0.0ms)
