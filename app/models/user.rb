@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   
   before_create :assign_role
   
+  def to_s
+    self.first_name + ' ' + self.last_name
+  end
+  
   def role_symbols
     [role.name.downcase.to_sym]
   end
