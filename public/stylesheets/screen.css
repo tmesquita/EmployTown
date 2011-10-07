@@ -1,6 +1,13 @@
+/* Standard Variables */
+/* Color Variables */
+/* Style Variables */
+/* General Page Styles */
 html, body {
   margin: 0;
   font-family: helvetica, arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100; }
 
 a {
   color: #1e74bb;
@@ -15,10 +22,13 @@ a {
 .body {
   width: 80%;
   margin: 0 auto; }
+  .body p {
+    line-height: 140%;
+    font-weight: 100; }
 
 .header {
   background-color: #b1d3eb;
-  padding: 1em;
+  padding: 1.5em 0 1.5em 0;
   border-top: solid 0.4em #0a477a;
   box-shadow: 0 0 5px 2px #aaaaaa; }
   .header ul, .header li {
@@ -28,18 +38,33 @@ a {
     list-style: none; }
     .header ul li {
       display: inline-block;
-      padding: 0 0.3em 0 0.3em; }
+      padding: 0 0 0 0.6em; }
   .header .nav {
-    padding: 1em 0 0 0;
+    padding: 1.5em 0 0 0;
     float: right; }
     .header .nav a {
       color: #1e74bb;
       text-decoration: none; }
-    .header .nav a:hover {
+      .header .nav a:hover {
+        color: #0a477a;
+        text-shadow: 0 1px 0 #eeeeee; }
+  .header .quick-nav {
+    top: 0;
+    right: 10%;
+    font-size: 0.9em;
+    position: absolute;
+    padding: 0.25em;
+    margin: 0.6em 0.3em 0 0;
+    border-bottom: solid 0.3em #0a477a; }
+    .header .quick-nav a {
+      padding: 0 0.2em 0 0.2em;
       color: #0a477a;
       text-shadow: 0 1px 0 #eeeeee; }
+      .header .quick-nav a:hover {
+        color: #1e74bb;
+        text-decoration: none; }
   .header h1 {
-    font-size: 3em;
+    font-size: 3.3em;
     padding: 0;
     margin: 0;
     float: left;
@@ -52,8 +77,7 @@ a {
   margin: 0 0 4em 0; }
   .container h1, .container h2, .container h3 {
     margin: 0.5em 0 1em 0;
-    padding: 0;
-    font-weight: 100; }
+    padding: 0; }
   .container form {
     margin: 1em 0 1em 0;
     padding: 1em;
@@ -80,7 +104,8 @@ a {
 .footer {
   padding: 1em 0 1em 0;
   border-top: solid 0.2em #b1d3eb;
-  background-color: #f0f0f0; }
+  background-color: #f0f0f0;
+  font-weight: 100; }
   .footer .triple-column {
     width: 30%; }
     .footer .triple-column ul, .footer .triple-column li {

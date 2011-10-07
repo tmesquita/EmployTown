@@ -1,13 +1,23 @@
+/* Standard Variables */
+
+/* Color Variables */
 $primary: #1e74bb
 $secondary: #529EDD
 $light_accent: #77AFDD
 $dark_accent: #0A477A
 $light: #B1D3EB
 $background: #f0f0f0
+/* Style Variables */
+$std_weight: 100
 
+
+/* General Page Styles */
 html, body
   margin: 0
   font-family: helvetica, arial, sans-serif
+
+h1, h2, h3, h4, h5, h6
+  font-weight: $std_weight
 
 a
   color: $primary
@@ -22,10 +32,14 @@ a
 .body
   width: 80%
   margin: 0 auto
+  
+  p
+    line-height: 140%
+    font-weight: $std_weight
 
 .header
   background-color: $light
-  padding: 1em
+  padding: 1.5em 0 1.5em 0
   border-top: solid .4em $dark_accent
   box-shadow: 0 0 5px 2px #aaa
   
@@ -35,30 +49,45 @@ a
     
   ul
     list-style: none
-    
     li
       display: inline-block
-      padding: 0 .3em 0 .3em
-  
+      padding: 0 0 0 .6em
+      
   .nav
-    padding: 1em 0 0 0
+    padding: 1.5em 0 0 0
     float: right
     
     a
       color: $primary
       text-decoration: none
-    a:hover
+      &:hover
+        color: $dark_accent
+        text-shadow: 0 1px 0 #eee
+      
+  .quick-nav
+    top: 0
+    right: 10%
+    font-size: .9em
+    position: absolute
+    padding: .25em
+    margin: .6em .3em 0 0
+    border-bottom: solid .3em $dark_accent
+    
+    a
+      padding: 0 .2em 0 .2em
       color: $dark_accent
       text-shadow: 0 1px 0 #eee
-  
+      &:hover
+        color: $primary
+        text-decoration: none
   h1
-    font-size: 3em
+    font-size: 3.3em
     padding: 0
     margin: 0
     float: left
     color: $dark_accent
     text-shadow: 0 1px 0 #eee
-    font-weight: 100
+    font-weight: $std_weight
     
 .container 
   padding: 2em 0 2em 0
@@ -67,25 +96,26 @@ a
   h1, h2, h3
     margin: .5em 0 1em 0
     padding: 0
-    font-weight: 100
     
   form
     margin: 1em 0 1em 0
     padding: 1em
     width: 60%
     background-color: $background
-    font-weight: 100
+    font-weight: $std_weight
     outline: solid .15em $primary
-
+    
     input[type=text], input[type=password]
       padding: .75em
       border: solid .1em #999
       box-shadow: 0 0 3px #aaa
       margin: 0
       width: 40%
+      
     input[type=submit]
       margin-left: 42%
       font-size: 1em
+      
     label
       text-align: right
       padding: .25em 1em 0 0
@@ -97,16 +127,22 @@ a
   padding: 1em 0 1em 0
   border-top: solid .2em $light
   background-color: $background
+  font-weight: $std_weight
+  
   .triple-column
     width: 30%
+    
     ul, li
       margin: 0
       padding: .15em 0 .15em 0
     ul
       list-style: none
+      
   #left, #center
     float: left
+    
   #center
     margin: 0 5%
+    
   #right
     float: right
