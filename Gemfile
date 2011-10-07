@@ -6,7 +6,10 @@ gem 'sass'
 gem 'nifty-generators', :group => :development
 gem 'sorcery'
 gem 'declarative_authorization'
-gem "compass", ">= 0.11.5"
+gem 'compass', ">= 0.11.5"
+gem 'paperclip', "~> 2.4"
+gem 'aws-s3'
+gem 'rmagick'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
