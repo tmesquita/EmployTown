@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
   
   belongs_to :role
+  has_many :biddings
   
   default_scope :include => :role
   

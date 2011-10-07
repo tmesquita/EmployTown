@@ -2,7 +2,7 @@ class Seekers::SeekersController < ApplicationController
   filter_access_to :all
   
   def index
-    
+    @user = current_user
   end
   
   protected

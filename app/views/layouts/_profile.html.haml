@@ -1,0 +1,7 @@
+%h2= @user.to_s + "'s Profile"
+
+%p
+  = image_tag @user.photo.url(:regular)
+  
+%p
+  = link_to "View My Resume", @user.resume.url
