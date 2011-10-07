@@ -1,20 +1,32 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
-  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url
+  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume
   
-  #validates_confirmation_of :password
-  #validates_presence_of :password, :on => :create
-  #validates_presence_of :email
-  #validates_uniqueness_of :email
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
   
   belongs_to :role
   
   default_scope :include => :role
   
   before_create :assign_role
+  
+  has_attached_file :photo, 
+                    :styles => { :thumb => "150x150>", :regular => "300x300>" },
+                    :url => "/assets/:class/:attachment/:id/:style.:extension",
+                    :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:style.:extension",
+                    :default_url => "/images/default_:style.jpg",
+                    :storage => :s3,
+                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+                    
+  has_attached_file :resume,
+                    :url => "/assets/:class/:attachment/:id/:style.:extension",
+                    :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:style.:extension",
+                    :storage => :s3,
+                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
   
   def get_role
     self.role.name.downcase
