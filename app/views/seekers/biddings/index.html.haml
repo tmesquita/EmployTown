@@ -17,8 +17,8 @@
       %td= bidding.seeker_id  
       %td= bidding.date  
       %td= bidding.interested  
-      %td= link_to 'Show', bidding  
+      %td= link_to 'Show', seekers_bidding_path(bidding)  
       %td= link_to 'Edit', edit_bidding_path(bidding)  
-      %td= link_to 'Destroy', bidding, :confirm => 'Are you sure?', :method => :delete  
+      %td= link_to 'Destroy', seekers_bidding_path(bidding), :confirm => 'Are you sure?', :method => :delete  
 
-%p= link_to 'New Bidding', new_bidding_path
+%p= link_to 'New Bidding', new_seekers_bidding_path

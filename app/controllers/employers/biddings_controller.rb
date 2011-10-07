@@ -44,7 +44,7 @@ class Employers::BiddingsController < Employers::EmployersController
 
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(@bidding, :notice => 'Bidding was successfully created.') }
+        format.html { redirect_to(employers_bidding_path(@bidding), :notice => 'Bidding was successfully created.') }
         format.xml  { render :xml => @bidding, :status => :created, :location => @bidding }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class Employers::BiddingsController < Employers::EmployersController
 
     respond_to do |format|
       if @bidding.update_attributes(params[:bidding])
-        format.html { redirect_to(@bidding, :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(employers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Employers::BiddingsController < Employers::EmployersController
     @bidding.destroy
 
     respond_to do |format|
-      format.html { redirect_to(biddings_url) }
+      format.html { redirect_to(employers_biddings_path) }
       format.xml  { head :ok }
     end
   end

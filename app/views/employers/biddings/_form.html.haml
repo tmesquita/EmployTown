@@ -1,28 +1,27 @@
 = form_for [:employers, @bidding] do |f|  
   - if @bidding.errors.any?  
-    %div{:id="error_explanation"}
-      %h2= pluralize(@bidding.errors.count, "error")
-        prohibited this bidding from being saved:
+    %div{:id => "error_explanation"}
+      %h2= pluralize(@bidding.errors.count, "error") + "prohibited this bidding from being saved:"
       %ul
         - @bidding.errors.full_messages.each do |msg|  
-        %li= msg 
+          %li= msg 
 
-  .field
+  %p
     = f.label :employer_id   
     = f.text_field :employer_id  
    
-  .field
+  %p
     = f.label :seeker_id   
     = f.text_field :seeker_id  
    
-  .field
+  %p
     = f.label :date   
     = f.date_select :date  
    
-  .field
+  %p
     = f.label :interested   
     = f.text_field :interested  
    
-  .actions
+  %p
     = f.submit  
 

@@ -16,6 +16,22 @@ class User < ActiveRecord::Base
   
   before_create :assign_role
   
+  def get_role
+    self.role.name.downcase
+  end
+  
+  def is_seeker?
+    self.get_role.eql? "seeker"
+  end
+  
+  def is_employer?
+    self.get_role.eql? "employer"
+  end
+  
+  def is_administrator?
+    self.get_role.eql? "administrator"
+  end
+  
   def to_s
     self.first_name + ' ' + self.last_name
   end

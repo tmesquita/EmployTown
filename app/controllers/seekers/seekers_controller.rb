@@ -10,7 +10,15 @@ class Seekers::SeekersController < ApplicationController
     def permission_denied
       flash[:error] = "You do not have access to #{request.path}."
       respond_to do |format|
-        format.html { redirect_to seekers_root_url }
+        format.html { 
+          if current_user.is_seeker?
+            redirect_to seekers_root_url
+          elsif current_user.is_employer?
+            redirect_to employers_root_url
+          else
+            redirect_ot root_url
+          end
+          }
         format.xml { head :unauthorized }
         format.js { head :unauthorized }
       end
