@@ -11988,3 +11988,34 @@ Rendered layouts/_userquicknav.html.haml (2.3ms)
 Rendered layouts/_footer.html.haml (9.9ms)
 Rendered seekers/seekers/index.html.haml within layouts/application (33.3ms)
 Completed 200 OK in 171ms (Views: 42.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seekers" for 127.0.0.1 at Thu Oct 06 21:19:42 -0600 2011
+  Processing by Seekers::SeekersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Rendered layouts/_usernav.html.haml (4.7ms)
+Rendered layouts/_userquicknav.html.haml (3.6ms)
+Rendered layouts/_footer.html.haml (9.1ms)
+Rendered seekers/seekers/index.html.haml within layouts/application (43.8ms)
+Completed 200 OK in 215ms (Views: 54.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Thu Oct 06 21:19:52 -0600 2011
+  Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE "users" SET "remember_me_token_expires_at" = NULL, "updated_at" = '2011-10-07 03:19:52.553561', "remember_me_token" = NULL WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 21:19:52 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_guestnav.html.haml (3.6ms)
+Rendered layouts/_guestquicknav.html.haml (2.5ms)
+Rendered layouts/_footer.html.haml (8.0ms)
+Rendered home/index.html.haml within layouts/application (32.5ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 1.4ms)
