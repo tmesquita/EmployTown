@@ -28,7 +28,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
 
     respond_to do |format|
       if @bidding.update_attributes(params[:bidding])
-        format.html { redirect_to(@bidding, :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -44,7 +44,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.destroy
 
     respond_to do |format|
-      format.html { redirect_to(biddings_url) }
+      format.html { redirect_to(seekers_biddings_path) }
       format.xml  { head :ok }
     end
   end

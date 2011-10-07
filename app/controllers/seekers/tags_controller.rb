@@ -44,7 +44,7 @@ class Seekers::TagsController < Seekers::SeekersController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to(@tag, :notice => 'Tag was successfully created.') }
+        format.html { redirect_to(seekers_tag_path(@tag), :notice => 'Tag was successfully created.') }
         format.xml  { render :xml => @tag, :status => :created, :location => @tag }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class Seekers::TagsController < Seekers::SeekersController
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to(@tag, :notice => 'Tag was successfully updated.') }
+        format.html { redirect_to(seekers_tag_path(@tag), :notice => 'Tag was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +76,7 @@ class Seekers::TagsController < Seekers::SeekersController
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to(tags_url) }
+      format.html { redirect_to(seekers_tags_path) }
       format.xml  { head :ok }
     end
   end

@@ -21,14 +21,15 @@ EmployTown::Application.routes.draw do
   
   namespace :employers do
     resources :biddings
+    resources :companies
     resources :users
+    root :to => "employers#index"
   end
   
   namespace :seekers do
     resources :tags
     resources :biddings
     resources :users, :only => [:edit, :show, :update]
-    #root :controller => "seekers", :action => "index"
     root :to => "seekers#index"
   end
 end

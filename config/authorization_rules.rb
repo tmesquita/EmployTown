@@ -16,7 +16,10 @@ authorization do
   end
   
   role :employer do
-    
+    has_permission_on :employers_users, :to => :update
+    has_permission_on :employers_biddings, :to => :manage
+    has_permission_on :employers_companies, :to => :manage
+    has_permission_on :employers_employers, :to => :manage
   end
 end
 
@@ -26,8 +29,4 @@ privileges do
   privilege :create, :includes => :new
   privilege :update, :includes => [:edit]
   privilege :delete, :includes => :destroy
-  privilege :add_caregiver, :includes => :add_caregiver
-  privilege :hide, :includes => [:hide_request, :hide_all_by_household]
-  privilege :search, :includes => :search
-  privilege :delete_account, :includes => :delete_account
 end

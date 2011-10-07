@@ -1,4 +1,4 @@
-<h1>Listing tags
+%h1 Listing tags
 
 %table
   %tr
@@ -8,12 +8,12 @@
     %th
     %th
 
-- @tags.each do |tag|  
-  %tr
-    %td= tag.user_id
-    %td= tag.tag
-    %td= link_to 'Show', tag
-    %td= link_to 'Edit', edit_seekers_tag_path(tag) 
-    %td= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete
+  - @tags.each do |tag|  
+    %tr
+      %td= tag.user_id
+      %td= tag.tag
+      %td= link_to 'Show', seekers_tag_path(tag)
+      %td= link_to 'Edit', edit_seekers_tag_path(tag) 
+      %td= link_to 'Destroy', seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete
 
 = link_to 'New Tag', new_seekers_tag_path  
