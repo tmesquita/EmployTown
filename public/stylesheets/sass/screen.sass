@@ -38,7 +38,8 @@ a
     font-weight: $std_weight
 
 .header
-  background-color: $light
+  //background-color: $light
+  background: url(/images/web_pattern.png)
   padding: 1.5em 0 1.5em 0
   border-top: solid .4em $dark_accent
   box-shadow: 0 0 5px 2px #aaa
@@ -52,6 +53,11 @@ a
     li
       display: inline-block
       padding: 0 0 0 .6em
+  h1#logo
+    a
+      text-decoration: none
+      &:hover
+        color: $primary
       
   .nav
     padding: 1.5em 0 0 0
