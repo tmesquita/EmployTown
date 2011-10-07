@@ -21,38 +21,6 @@ class Seekers::BiddingsController < Seekers::SeekersController
     end
   end
 
-  # GET /biddings/new
-  # GET /biddings/new.xml
-  def new
-    @bidding = Bidding.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @bidding }
-    end
-  end
-
-  # GET /biddings/1/edit
-  def edit
-    @bidding = Bidding.find(params[:id])
-  end
-
-  # POST /biddings
-  # POST /biddings.xml
-  def create
-    @bidding = Bidding.new(params[:bidding])
-
-    respond_to do |format|
-      if @bidding.save
-        format.html { redirect_to(@bidding, :notice => 'Bidding was successfully created.') }
-        format.xml  { render :xml => @bidding, :status => :created, :location => @bidding }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
   # PUT /biddings/1
   # PUT /biddings/1.xml
   def update

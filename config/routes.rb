@@ -28,6 +28,7 @@ EmployTown::Application.routes.draw do
     resources :tags
     resources :biddings
     resources :users, :only => [:edit, :show, :update]
-    root :controller => "seekers", :action => "index"
+    #root :controller => "seekers", :action => "index"
+    root :to => "seekers#index"
   end
 end

@@ -106,6 +106,8 @@ a {
   border-top: solid 0.2em #b1d3eb;
   background-color: #f0f0f0;
   font-weight: 100; }
+  .footer .body {
+    width: 60%; }
   .footer .triple-column {
     width: 30%; }
     .footer .triple-column ul, .footer .triple-column li {

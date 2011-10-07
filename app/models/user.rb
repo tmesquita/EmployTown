@@ -3,10 +3,12 @@ class User < ActiveRecord::Base
   
   attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url
   
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  #validates_confirmation_of :password
+  #validates_presence_of :password, :on => :create
+  #validates_presence_of :email
+  #validates_uniqueness_of :email
+  validates :password, :confirmation => true, :presence => true, :on => :create
+  validates :email, :presence => true, :uniqueness => true
   
   belongs_to :role
   
@@ -26,6 +28,6 @@ class User < ActiveRecord::Base
   
   def assign_role
     # This needs to change. Using 'Seeker' as default
-    self.role = Role.find_by_name('seeker') if role.nil?
+    self.role = Role.find_by_name(self.seeking) if role.nil?
   end
 end
