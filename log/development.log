@@ -9005,3 +9005,84 @@ Rendered layouts/_userquicknav.html.haml (2.7ms)
 Rendered layouts/_footer.html.haml (7.5ms)
 Rendered seekers/users/edit.html.haml within layouts/application (140.4ms)
 Completed 200 OK in 192ms (Views: 153.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seekers" for 127.0.0.1 at Thu Oct 06 16:10:05 -0600 2011
+  Processing by Seekers::SeekersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+Rendered layouts/_nav.html.haml (92.9ms)
+Rendered layouts/_userquicknav.html.haml (2.6ms)
+Rendered layouts/_footer.html.haml (8.0ms)
+Rendered seekers/seekers/index.html.haml within layouts/application (119.4ms)
+Completed 200 OK in 165ms (Views: 128.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Thu Oct 06 16:10:14 -0600 2011
+  Processing by SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "remember_me_token" = NULL, "updated_at" = '2011-10-06 22:10:14.347967', "remember_me_token_expires_at" = NULL WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 39ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 16:10:14 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (3.7ms)
+Rendered layouts/_guestquicknav.html.haml (2.5ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered home/index.html.haml within layouts/application (29.2ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 16:32:26 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (3.5ms)
+Rendered layouts/_guestquicknav.html.haml (2.2ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered sessions/new.html.haml within layouts/application (33.0ms)
+Completed 200 OK in 42ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Thu Oct 06 16:32:35 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "remember_me"=>"1", "authenticity_token"=>"09sxzyBcO2rS1bIFtlyVJyHgzJ7qYPLvFYE79x9O5uc=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"chad.mckenna@gmail.com"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'chad.mckenna@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "remember_me_token" = '5c052af5a78edba16e2751e3142d29b4cddbe118', "remember_me_token_expires_at" = '2011-10-13 22:32:35.701601', "updated_at" = '2011-10-06 22:32:35.702085' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/seekers
+Completed 302 Found in 213ms
+
+
+Started GET "/seekers" for 127.0.0.1 at Thu Oct 06 16:32:35 -0600 2011
+  Processing by Seekers::SeekersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+Rendered layouts/_nav.html.haml (3.7ms)
+Rendered layouts/_userquicknav.html.haml (2.8ms)
+Rendered layouts/_footer.html.haml (7.5ms)
+Rendered seekers/seekers/index.html.haml within layouts/application (31.1ms)
+Completed 200 OK in 77ms (Views: 40.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Thu Oct 06 16:32:49 -0600 2011
+  Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/cmckenna/Documents/EmployTown/EmployTown/app/models/role.rb:13)
+  [1m[35mRole Load (0.2ms)[0m  SELECT "roles".* FROM "roles" WHERE ("roles"."id" = 3)
+  [1m[36mAREL (1.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-10-06 22:32:49.872150', "remember_me_token_expires_at" = NULL, "remember_me_token" = NULL WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 16:32:49 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (3.5ms)
+Rendered layouts/_guestquicknav.html.haml (2.6ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered home/index.html.haml within layouts/application (31.9ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 1.6ms)
