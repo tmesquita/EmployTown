@@ -7492,3 +7492,274 @@ Rendered layouts/_nav.html.haml (4.7ms)
 Rendered layouts/_footer.html.haml (7.5ms)
 Rendered users/new.html.haml within layouts/application (49.9ms)
 Completed 200 OK in 158ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/Jerel/Documents/Websites/EmployTown/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/Jerel/Documents/Websites/EmployTown/config/environment.rb:5)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (32.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to SorceryCore (20111004201303)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255), "salt" varchar(255), "user_url" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "seeking" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111004201303')
+Migrating to SorceryRememberMe (20111004201304)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "users" ADD "remember_me_token" varchar(255) DEFAULT NULL[0m
+  [1m[35mSQL (0.3ms)[0m  ALTER TABLE "users" ADD "remember_me_token_expires_at" datetime DEFAULT NULL
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE INDEX "index_users_on_remember_me_token" ON "users" ("remember_me_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111004201304')[0m
+Migrating to CreateRoles (20111005170015)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "description" varchar(255), "users_count" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35mSQL (52.7ms)[0m  CREATE UNIQUE INDEX "index_roles_on_name" ON "roles" ("name")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111005170015')[0m
+Migrating to CreateTags (20111005171248)
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "tag" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111005171248')[0m
+Migrating to CreateBiddings (20111005171543)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "biddings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employer_id" integer, "seeker_id" integer, "date" date, "interested" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111005171543')[0m
+Migrating to AddRoleIdToUsers (20111005174829)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "role_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111005174829')[0m
+Migrating to CreateCompanies (20111005191302)
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111005191302')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("biddings")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("companies")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("roles")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_roles_on_name')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_remember_me_token')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/Jerel/Documents/Websites/EmployTown/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:43:04 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.4ms)
+Rendered layouts/_footer.html.haml (8.7ms)
+Rendered home/index.html.haml within layouts/application (28.1ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:43:07 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__1691758105_2236724440_1078750 at /Users/Jerel/Documents/Websites/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (70.9ms)
+Rendered layouts/_nav.html.haml (4.8ms)
+Rendered layouts/_footer.html.haml (8.8ms)
+Rendered users/new.html.haml within layouts/application (101.6ms)
+Completed 200 OK in 309ms (Views: 111.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:43:18 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (5.1ms)
+Rendered layouts/_footer.html.haml (8.2ms)
+Rendered sessions/new.html.haml within layouts/application (107.0ms)
+Completed 200 OK in 117ms (Views: 116.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:47:14 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.4ms)
+Rendered layouts/_footer.html.haml (80.4ms)
+Rendered home/index.html.haml within layouts/application (99.4ms)
+Completed 200 OK in 110ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:47:57 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (5.6ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered sessions/new.html.haml within layouts/application (31.0ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:48:00 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.0ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered home/index.html.haml within layouts/application (26.9ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:48:02 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__1691758105_2237226540_1078750 at /Users/Jerel/Documents/Websites/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (31.3ms)
+Rendered layouts/_nav.html.haml (7.5ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered users/new.html.haml within layouts/application (133.6ms)
+Completed 200 OK in 169ms (Views: 159.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:48:06 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (12.8ms)
+Rendered layouts/_footer.html.haml (109.0ms)
+Rendered home/index.html.haml within layouts/application (166.8ms)
+Completed 200 OK in 179ms (Views: 177.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:48:40 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered home/index.html.haml within layouts/application (28.1ms)
+Completed 200 OK in 40ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:48:42 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (6.9ms)
+Rendered layouts/_footer.html.haml (8.6ms)
+Rendered home/index.html.haml within layouts/application (49.3ms)
+Completed 200 OK in 112ms (Views: 111.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:48:44 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (6.0ms)
+Rendered layouts/_footer.html.haml (8.8ms)
+Rendered home/index.html.haml within layouts/application (30.9ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:49:52 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (5.1ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered sessions/new.html.haml within layouts/application (31.6ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:49:57 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.4ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered home/index.html.haml within layouts/application (95.9ms)
+Completed 200 OK in 106ms (Views: 105.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:50:00 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__1691758105_2234792080_1078750 at /Users/Jerel/Documents/Websites/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (34.8ms)
+Rendered layouts/_nav.html.haml (5.3ms)
+Rendered layouts/_footer.html.haml (102.6ms)
+Rendered users/new.html.haml within layouts/application (166.6ms)
+Completed 200 OK in 257ms (Views: 245.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Thu Oct 06 14:50:20 -0600 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Sign up!", "authenticity_token"=>"lrveJ+C4s1G71xrcoRifOKlPtInMPerNqAhhx5pDicA=", "utf8"=>"\342\234\223", "user"=>{"seeking"=>"test", "password_confirmation"=>"[FILTERED]", "user_url"=>"test", "last_name"=>"test", "password"=>"[FILTERED]", "email"=>"thetest@test.com", "first_name"=>"test"}}
+  [1m[36mSQL (14.3ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'thetest@test.com') LIMIT 1[0m
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/Jerel/Documents/Websites/EmployTown/app/models/role.rb:13)
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mRole Load (12.6ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'seeker' LIMIT 1[0m
+  [1m[35mAREL (20.1ms)[0m  INSERT INTO "users" ("first_name", "remember_me_token", "salt", "crypted_password", "user_url", "email", "remember_me_token_expires_at", "role_id", "updated_at", "seeking", "last_name", "created_at") VALUES ('test', NULL, '77616cdf960e015d077f7736334428cc6b35ef58', '$2a$10$j4qcysGU1uUGFScu9CKBe.x/B8ewo2sF4tWSFHT0iwgcU51ofEor.', 'test', 'thetest@test.com', NULL, NULL, '2011-10-06 20:50:21.735159', 'test', 'test', '2011-10-06 20:50:21.735159')
+Redirected to http://localhost:3000/
+Completed 302 Found in 1344ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:50:21 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.6ms)
+Rendered layouts/_footer.html.haml (7.6ms)
+Rendered home/index.html.haml within layouts/application (104.3ms)
+Completed 200 OK in 116ms (Views: 115.5ms | ActiveRecord: 47.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:50:27 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (4.3ms)
+Rendered layouts/_footer.html.haml (7.5ms)
+Rendered sessions/new.html.haml within layouts/application (30.2ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Thu Oct 06 14:50:35 -0600 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Log In", "authenticity_token"=>"lrveJ+C4s1G71xrcoRifOKlPtInMPerNqAhhx5pDicA=", "utf8"=>"\342\234\223", "password"=>"[FILTERED]", "email"=>"test@test.com"}
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/Jerel/Documents/Websites/EmployTown/app/models/role.rb:13)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" AS t0_r0, "users"."email" AS t0_r1, "users"."crypted_password" AS t0_r2, "users"."salt" AS t0_r3, "users"."user_url" AS t0_r4, "users"."first_name" AS t0_r5, "users"."last_name" AS t0_r6, "users"."seeking" AS t0_r7, "users"."created_at" AS t0_r8, "users"."updated_at" AS t0_r9, "users"."remember_me_token" AS t0_r10, "users"."remember_me_token_expires_at" AS t0_r11, "users"."role_id" AS t0_r12, "roles"."id" AS t1_r0, "roles"."name" AS t1_r1, "roles"."description" AS t1_r2, "roles"."users_count" AS t1_r3, "roles"."created_at" AS t1_r4, "roles"."updated_at" AS t1_r5 FROM "users" LEFT OUTER JOIN "roles" ON "roles"."id" = "users"."role_id" WHERE (email = 'test@test.com') LIMIT 1[0m
+Rendered layouts/_nav.html.haml (5.2ms)
+Rendered layouts/_footer.html.haml (7.7ms)
+Rendered sessions/new.html.haml within layouts/application (31.6ms)
+Completed 200 OK in 145ms (Views: 41.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at Thu Oct 06 14:55:48 -0600 2011
+  Processing by SessionsController#new as HTML
+Rendered layouts/_nav.html.haml (502.4ms)
+Rendered layouts/_footer.html.haml (9.7ms)
+Rendered sessions/new.html.haml within layouts/application (630.3ms)
+Completed 200 OK in 643ms (Views: 642.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Oct 06 14:55:59 -0600 2011
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_users__form_html_haml__1691758105_2234540940_1078750 at /Users/Jerel/Documents/Websites/EmployTown/app/views/users/_form.html.haml:1)
+Rendered users/_form.html.haml (172.5ms)
+Rendered layouts/_nav.html.haml (4.7ms)
+Rendered layouts/_footer.html.haml (7.8ms)
+Rendered users/new.html.haml within layouts/application (203.3ms)
+Completed 200 OK in 311ms (Views: 265.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Thu Oct 06 14:56:51 -0600 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Sign up!", "authenticity_token"=>"lrveJ+C4s1G71xrcoRifOKlPtInMPerNqAhhx5pDicA=", "utf8"=>"\342\234\223", "user"=>{"seeking"=>"thenew", "password_confirmation"=>"[FILTERED]", "user_url"=>"thenew", "last_name"=>"thenew", "password"=>"[FILTERED]", "email"=>"thenew@new.com", "first_name"=>"thenew"}}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'thenew@new.com') LIMIT 1
+DEPRECATION WARNING: Base#after_initialize has been deprecated, please use Base.after_initialize :method instead. (called from /Users/Jerel/Documents/Websites/EmployTown/app/models/role.rb:13)
+  [1m[36mRole Load (24.7ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'seeker' LIMIT 1[0m
+  [1m[35mAREL (19.4ms)[0m  INSERT INTO "users" ("email", "role_id", "crypted_password", "user_url", "remember_me_token_expires_at", "seeking", "first_name", "remember_me_token", "updated_at", "last_name", "created_at", "salt") VALUES ('thenew@new.com', NULL, '$2a$10$dwMTFXqiMER8OnED7T2Ms./brC770N1Us0PS5OTSziqClcmKOAKUK', 'thenew', NULL, 'thenew', 'thenew', NULL, '2011-10-06 20:56:52.037392', 'thenew', '2011-10-06 20:56:52.037392', 'c9d022d9e45e302f1ce2a57a5afbcdb0ee2486f6')
+Redirected to http://localhost:3000/
+Completed 302 Found in 339ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 14:56:52 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.0ms)
+Rendered layouts/_footer.html.haml (7.9ms)
+Rendered home/index.html.haml within layouts/application (106.6ms)
+Completed 200 OK in 152ms (Views: 151.5ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 19:41:06 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (5.1ms)
+Rendered layouts/_footer.html.haml (8.8ms)
+Rendered home/index.html.haml within layouts/application (73.1ms)
+Completed 200 OK in 281ms (Views: 280.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 06 19:42:29 -0600 2011
+  Processing by HomeController#index as HTML
+Rendered layouts/_nav.html.haml (4.2ms)
+Rendered layouts/_footer.html.haml (7.5ms)
+Rendered home/index.html.haml within layouts/application (26.3ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
