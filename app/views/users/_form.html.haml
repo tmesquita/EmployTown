@@ -25,12 +25,12 @@
     = f.text_field :last_name
   
   %p
-    = f.label :seeking
-    = f.text_field :seeking
-  
-  %p
-    = f.label :user_url
-    = f.text_field :user_url
+    = f.label :profile_type
+    = f.radio_button :seeking, "seeker", {:checked => true}
+    Job Seeker&nbsp;&nbsp;&nbsp;
+    = f.radio_button :seeking, "employer"
+    Employer
+
 
   %p
     = f.submit "Sign up!"
