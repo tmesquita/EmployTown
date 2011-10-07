@@ -2,7 +2,7 @@ class Seekers::TagsController < Seekers::SeekersController
   # GET /tags
   # GET /tags.xml
   def index
-    @tags = Tag.all
+    @tags = Tag.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +24,7 @@ class Seekers::TagsController < Seekers::SeekersController
   # GET /tags/new
   # GET /tags/new.xml
   def new
+    @tags = Tag.find_all_by_user_id(current_user.id)
     @tag = Tag.new
 
     respond_to do |format|
@@ -41,16 +42,34 @@ class Seekers::TagsController < Seekers::SeekersController
   # POST /tags.xml
   def create
     @tag = Tag.new(params[:tag])
+    @tag.user = current_user
 
+    @tags = @tag.tag.split(",")
+    
+    saved = false
+    
+    for tag_name in @tags do
+      tag = Tag.new(:user => current_user, :tag => tag_name)
+      saved = true if tag.save   
+    end
+    
     respond_to do |format|
-      if @tag.save
-        format.html { redirect_to(seekers_tag_path(@tag), :notice => 'Tag was successfully created.') }
-        format.xml  { render :xml => @tag, :status => :created, :location => @tag }
+      if saved
+        format.html { redirect_to new_seekers_tag_path, :notice => 'Tag(s) were successfully created'}
+        #format.xml { render :xml => @tag, :status }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
       end
     end
+    #respond_to do |format|
+    #  if @tag.save
+    #    format.html { redirect_to(seekers_tag_path(@tag), :notice => 'Tag was successfully created.') }
+    #    format.xml  { render :xml => @tag, :status => :created, :location => @tag }
+    #  else
+    #    format.html { render :action => "new" }
+    #    format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PUT /tags/1
@@ -76,7 +95,7 @@ class Seekers::TagsController < Seekers::SeekersController
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to(seekers_tags_path) }
+      format.html { redirect_to(new_seekers_tag_path) }
       format.xml  { head :ok }
     end
   end

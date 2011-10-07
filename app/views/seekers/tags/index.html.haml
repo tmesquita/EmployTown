@@ -1,19 +1,8 @@
-%h1 Listing tags
+%h1 Your Tags
 
-%table
-  %tr
-    %th user
-    %th Tag
-    %th
-    %th
-    %th
-
-  - @tags.each do |tag|  
-    %tr
-      %td= tag.user_id
-      %td= tag.tag
-      %td= link_to 'Show', seekers_tag_path(tag)
-      %td= link_to 'Edit', edit_seekers_tag_path(tag) 
-      %td= link_to 'Destroy', seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete
+%p
+  - @tags.each do |tag|
+    = link_to tag.tag, edit_seekers_tag_path(tag) + " "
+    = link_to('(delete)', seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete) + ", "
 
 = link_to 'New Tag', new_seekers_tag_path  

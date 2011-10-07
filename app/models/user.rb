@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   belongs_to :role
   has_many :biddings
+  has_many :tags
   
   default_scope :include => :role
   
