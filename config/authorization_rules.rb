@@ -20,6 +20,7 @@ authorization do
     has_permission_on :employers_biddings, :to => :manage
     has_permission_on :employers_companies, :to => :manage
     has_permission_on :employers_employers, :to => :manage
+    has_permission_on :employers_search, :to => :manage
   end
 end
 

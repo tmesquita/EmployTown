@@ -1,4 +1,6 @@
 EmployTown::Application.routes.draw do
+  get "search/search"
+
   root :controller => "home", :action => "index"
   
   get "sessions/new"
@@ -23,6 +25,7 @@ EmployTown::Application.routes.draw do
     resources :biddings
     resources :companies
     resources :users
+    resources :search
     root :to => "employers#index"
   end
   
