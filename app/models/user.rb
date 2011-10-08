@@ -53,6 +53,15 @@ class User < ActiveRecord::Base
   def role_symbols
     [role.name.downcase.to_sym]
   end
+
+  def self.search(search)
+    if search
+      search.upcase
+      find(:all, :conditions => ['first_name LIKE UPPER(?)', "%#{search}%"])
+    else
+      return false
+    end
+  end
   
   protected
   

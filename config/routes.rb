@@ -25,7 +25,7 @@ EmployTown::Application.routes.draw do
     resources :biddings
     resources :companies
     resources :users
-    resources :search
+    resources :search, :to => "search#index"
     root :to => "employers#index"
   end
   
