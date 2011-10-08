@@ -1,8 +1,9 @@
 class Employers::SearchController < Employers::EmployersController
-  def search
+  def index
+  	puts("here")
   	unless params[:search].blank?
+  		puts params[:search]
   		@users = User.search(params[:search])
-  		puts here
   	end
   end
 
