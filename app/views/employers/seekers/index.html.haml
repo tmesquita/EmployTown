@@ -1,0 +1,16 @@
+%h1 Listing Seekers 
+
+%table
+  %tr
+    %th F Name 
+    %th L Name 
+    %th  
+    %th  
+    %th  
+
+  - @seekers.each do |seeker|
+    %tr
+      %th=  seeker.first_name   
+      %th=  seeker.last_name   
+      %th=  link_to 'Show', employers_seeker_path(seeker)   
+
