@@ -21,6 +21,7 @@ authorization do
     has_permission_on :employers_companies, :to => :manage
     has_permission_on :employers_employers, :to => :manage
     has_permission_on :employers_search, :to => :read
+    has_permission_on :employers_seekers, :to => :read
   end
 end
 

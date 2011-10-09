@@ -56,7 +56,6 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     #if search
-      puts("HERE I AM")
       search.upcase
       find(:all, :conditions => ['first_name LIKE UPPER(?)', "%#{search}%"])
     #else
