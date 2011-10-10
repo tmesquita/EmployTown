@@ -7,5 +7,6 @@
       User Name:
       = user.first_name
       = user.last_name
-      %th=  link_to 'Show', employers_seeker_path(user)   
+      = link_to 'Show', employers_seeker_path(user)   
+      = link_to 'New Bidding', new_employers_bidding_path
       <br />

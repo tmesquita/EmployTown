@@ -41,7 +41,9 @@ class Employers::BiddingsController < Employers::EmployersController
   # POST /biddings.xml
   def create
     @bidding = Bidding.new(params[:bidding])
-
+    @bidding.seeker_id = params[:seeker_id]
+    @bidding.employer_id = current_user.id
+    @bidding.date = Time.now
     respond_to do |format|
       if @bidding.save
         format.html { redirect_to(employers_bidding_path(@bidding), :notice => 'Bidding was successfully created.') }
