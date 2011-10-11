@@ -5,20 +5,22 @@
     %th employer 
     %th Seeker 
     %th Date 
+    %th Comment
     %th Interested 
     %th  
     %th  
-    %th  
 
-- @biddings.each do |bidding|
-  %p
+  - @biddings.each do |bidding|
     %tr
-      %td= bidding.employer_id 
+      %td= bidding.employer_id  
       %td= bidding.seeker_id  
       %td= bidding.date  
+      %td= bidding.comment
       %td= bidding.interested  
-      %td= link_to 'Show', seekers_bidding_path(bidding)  
-      %td= link_to 'Edit', edit_bidding_path(bidding)  
-      %td= link_to 'Destroy', seekers_bidding_path(bidding), :confirm => 'Are you sure?', :method => :delete  
+      %td= link_to 'Show', employers_bidding_path(bidding)  
+      %td= link_to 'Edit', edit_employers_bidding_path(bidding)  
+      %td= link_to 'Destroy', employers_bidding_path(bidding), :confirm => 'Are you sure?', :method => :delete
+    
+%br
 
-%p= link_to 'New Bidding', new_seekers_bidding_path
+= link_to 'New Bidding', new_employers_bidding_path
