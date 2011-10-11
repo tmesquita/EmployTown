@@ -1,0 +1,7 @@
+%h2= @seeker.to_s + "'s Profile"
+
+%p
+  = image_tag @seeker.photo.url(:regular)
+  
+%p
+  = link_to "View My Resume", @seeker.resume.url
