@@ -62,7 +62,15 @@ class User < ActiveRecord::Base
      # return false
     #end
   end
+
+  def get_my_seeker_biddings
+    return Bidding.find(:all, :conditions => {:seeker_id => self.id})
+  end
   
+  def get_my_employer_biddings
+    return Bidding.find(:all, :conditions => {:employer_id => self.id})
+  end
+
   protected
   
   def assign_role

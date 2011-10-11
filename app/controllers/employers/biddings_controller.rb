@@ -2,7 +2,7 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings
   # GET /biddings.xml
   def index
-    @biddings = Bidding.all
+    @biddings = current_user.get_my_employer_biddings
 
     respond_to do |format|
       format.html # index.html.erb

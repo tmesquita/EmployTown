@@ -2,7 +2,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
   # GET /biddings
   # GET /biddings.xml
   def index
-    @biddings = Bidding.all
+    @biddings = current_user.get_my_seeker_biddings
 
     respond_to do |format|
       format.html # index.html.erb
