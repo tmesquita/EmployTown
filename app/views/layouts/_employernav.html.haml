@@ -5,6 +5,6 @@
     %li= link_to "Bids", employers_biddings_path
     %p
       .search 
-        - form_tag 'employers/search', :method => 'get' do
+        - form_tag 'search', :method => 'get' do
           = text_field_tag :search, params[:search]
           = submit_tag "Search", :name => nil
