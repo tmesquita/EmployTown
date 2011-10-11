@@ -8,5 +8,6 @@
       = user.first_name
       = user.last_name
       = link_to 'Show', employers_seeker_path(user)   
-      = link_to 'New Bidding', new_employers_bidding_path
       <br />
+  -else
+    No users found with that search criteria
