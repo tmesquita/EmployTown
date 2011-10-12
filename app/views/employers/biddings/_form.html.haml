@@ -5,8 +5,6 @@
       %ul
         - @bidding.errors.full_messages.each do |msg|  
           %li= msg 
-  -puts @seeker_id
-  -puts ("HELLO")
   %p
     = f.label :comment   
     = f.text_area :comment, :size => "30x8"  

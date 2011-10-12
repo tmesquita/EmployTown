@@ -2,7 +2,11 @@
 
 %p
   = image_tag @seeker.photo.url(:regular)
-  
+
+%p
+  About Me:
+  = @seeker.about_me
+   
 %p
 - if @seeker.resume_file_name.eql? nil
   This User has not Uploaded a resume
