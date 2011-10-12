@@ -1,5 +1,5 @@
 .user
-  .view-profile= link_to 'View Profile', employers_seeker_path(@tag.user)
+  .options= link_to 'View Profile', employers_seeker_path(@tag.user)
   = image_tag @tag.user.photo.url(:thumb)
   %p= @tag.user.to_s
   %p= @tag.user.email
