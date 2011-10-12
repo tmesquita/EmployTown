@@ -4,4 +4,9 @@ class Tag < ActiveRecord::Base
   def to_s
     self.tag.titleize + ", "
   end
+
+  def self.search(search)
+      search.upcase
+      find(:all, :conditions => ['tag LIKE UPPER(?)', "%#{search}%"])
+  end
 end
