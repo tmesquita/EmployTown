@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
-  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :photo_content_type
+  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :photo_content_type, :company_id
   
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
   
   belongs_to :role
+  belongs_to :company
   has_many :biddings
   has_many :tags
   
@@ -69,6 +70,15 @@ class User < ActiveRecord::Base
   
   def get_my_employer_biddings
     return Bidding.find(:all, :conditions => {:employer_id => self.id})
+  end
+  
+  def add_company(company_id)
+    self.company_id = company_id
+    self.save
+  end
+  
+  def belongs_to_company?
+    !self.company_id.eql? nil
   end
 
   protected

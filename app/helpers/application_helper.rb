@@ -24,4 +24,12 @@ def quick_nav(user)
   end
 end
 
+def search(user)
+  if user
+    if user.is_employer?
+      render :partial => "layouts/search"
+    end
+  end
+end
+
 end

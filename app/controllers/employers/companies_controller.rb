@@ -1,4 +1,6 @@
 class Employers::CompaniesController < Employers::EmployersController
+  before_filter :employer_action_redirect, :only => [:index, :show]
+  
   # GET /companies
   # GET /companies.xml
   def index
@@ -44,6 +46,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
     respond_to do |format|
       if @company.save
+        current_user.add_company(@company.id)
         format.html { redirect_to(employers_company_path(@company), :notice => 'Company was successfully created.') }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
@@ -57,7 +60,8 @@ class Employers::CompaniesController < Employers::EmployersController
   # PUT /companies/1.xml
   def update
     @company = Company.find(params[:id])
-
+    
+    current_user.add_company(params[:id])
     respond_to do |format|
       if @company.update_attributes(params[:company])
         format.html { redirect_to(employers_company_path(@company), :notice => 'Company was successfully updated.') }
@@ -80,4 +84,13 @@ class Employers::CompaniesController < Employers::EmployersController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+    def employer_action_redirect
+      if current_user.belongs_to_company?
+        redirect_to edit_employers_company_path(current_user.company), :notice => "This is the company you currently work for."
+      else
+        redirect_to new_employers_company_path, :notice => "You don't belong to a company, please create a new one."
+      end
+    end
 end

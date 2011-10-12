@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20111011201443) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
+    t.integer  "company_id"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

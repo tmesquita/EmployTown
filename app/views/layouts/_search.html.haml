@@ -1,0 +1,4 @@
+.search 
+  - form_tag 'search', :method => 'get' do
+    = text_field_tag :search, params[:search], :value => "Search EmployTown"
+    = submit_tag "Search", :name => nil

@@ -10,6 +10,14 @@ $background: #f0f0f0
 /* Style Variables */
 $std_weight: 100
 
+/* Mixins */
+@mixin std_box_shadow
+  box-shadow: 0 0 5px 2px #aaa
+  
+@mixin std_form_input
+  border: solid .1em #999
+  box-shadow: 0 0 3px #aaa
+  margin: 0
 
 /* General Page Styles */
 html, body
@@ -39,10 +47,11 @@ a
 
 .header
   //background-color: $light
+  position: relative
   background: url(/images/web_pattern.png)
   padding: 1.5em 0 1.5em 0
   border-top: solid .4em $dark_accent
-  box-shadow: 0 0 5px 2px #aaa
+  @include std_box_shadow
   
   ul, li
     margin: 0
@@ -60,7 +69,7 @@ a
         color: $primary
       
   .nav
-    padding: 1.5em 0 0 0
+    padding: 2.3em 0 0 0
     float: right
     
     a
@@ -95,6 +104,14 @@ a
     text-shadow: 0 1px 0 #eee
     font-weight: $std_weight
     
+  .search
+    position: absolute
+    bottom: -2.3em
+    right: 10%
+    input[type=text]
+      padding: .40em
+      @include std_form_input
+    
 .container 
   padding: 2em 0 2em 0
   margin: 0 0 4em 0
@@ -113,9 +130,7 @@ a
     
     input[type=text], input[type=password]
       padding: .75em
-      border: solid .1em #999
-      box-shadow: 0 0 3px #aaa
-      margin: 0
+      @include std_form_input
       width: 40%
       
     input[type=submit]
