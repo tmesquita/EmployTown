@@ -56,12 +56,8 @@ class User < ActiveRecord::Base
   end
 
   def self.search(search)
-    #if search
       search.upcase
       find(:all, :conditions => ['first_name LIKE UPPER(?) OR last_name LIKE UPPER(?)', "%#{search}%", "%#{search}%"])
-    #else
-     # return false
-    #end
   end
 
   def get_my_seeker_biddings
