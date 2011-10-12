@@ -18,6 +18,27 @@ $std_weight: 100
   border: solid .1em #999
   box-shadow: 0 0 3px #aaa
   margin: 0
+  
+@mixin std_button_link
+  color: #fff
+  font-weight: 300
+  
+  background: $light
+  background: -moz-linear-gradient(top, $light 0%, $light_accent 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $light), color-stop(100%, $light_accent))
+  background: -webkit-linear-gradient(top, $light 0%, $light_accent 100%)
+  background: -o-linear-gradient(top, $light 0%, $light_accent 100%)
+  background: -ms-linear-gradient(top, $light 0%, $light_accent 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 )
+  background: linear-gradient(top, $light 0%, $light_accent 100%)
+  
+  border-bottom: solid 1px $secondary
+  border-radius: 7px
+  text-shadow: 0 -1px 1px $secondary
+  box-shadow: 0 1px 3px $light
+  
+  font-size: .9em
+  padding: .4em .7em .3em .7em
 
 /* General Page Styles */
 html, body
@@ -116,16 +137,18 @@ a
   padding: 2em 0 2em 0
   margin: 0 0 4em 0
   
-  .user
+  .user, .bidding
     outline: solid 1px $primary
     padding: 1em
     margin: .5em 0 .5em 0
     p
       margin: 0
       padding: 0
-    .view-profile
+    .options
       float: right
       font-weight: $std_weight
+      a
+        @include std_button_link
     img
       max-height: 75px
       float: left

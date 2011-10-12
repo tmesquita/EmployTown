@@ -33,6 +33,7 @@ EmployTown::Application.routes.draw do
   namespace :seekers do
     resources :tags
     resources :biddings
+    resources :companies, :only => [:show]
     resources :users, :only => [:edit, :show, :update]
     root :to => "seekers#index"
   end

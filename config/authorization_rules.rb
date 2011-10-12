@@ -13,6 +13,7 @@ authorization do
     has_permission_on :seekers_tags, :to => :manage
     has_permission_on :seekers_seekers, :to => :manage
     has_permission_on :seekers_biddings, :to => :manage
+    has_permission_on :seekers_companies, :to => :read
   end
   
   role :employer do
