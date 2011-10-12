@@ -4,5 +4,6 @@
 
 %p
   = link_to 'Send Bid', {:controller => "biddings", :action => "create", :seeker_id => @seeker.id}, :method => :post
+  = link_to 'create bid', {:controller => "biddings", :action => "new"}, :method => :post
 
 = link_to 'Back', employers_seekers_path
