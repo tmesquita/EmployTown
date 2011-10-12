@@ -2,6 +2,8 @@
 
 %p
   = image_tag @user.photo.url(:regular)
-  
-%p
-  = link_to "View My Resume", @user.resume.url
+- if current_user.resume_file_name.eql? nil
+  = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
+-else
+  %p
+    = link_to "View My Resume", @user.resume.url

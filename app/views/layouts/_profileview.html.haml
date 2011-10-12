@@ -4,4 +4,8 @@
   = image_tag @seeker.photo.url(:regular)
   
 %p
-  = link_to "View My Resume", @seeker.resume.url
+- if @seeker.resume_file_name.eql? nil
+  This User has not Uploaded a resume
+-else
+  %p
+    = link_to "View My Resume", @seeker.resume.url
