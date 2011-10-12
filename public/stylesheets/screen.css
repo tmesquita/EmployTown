@@ -90,17 +90,34 @@ a {
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0; }
-  .container .user {
+  .container .user, .container .bidding {
     outline: solid 1px #1e74bb;
     padding: 1em;
     margin: 0.5em 0 0.5em 0; }
-    .container .user p {
+    .container .user p, .container .bidding p {
       margin: 0;
       padding: 0; }
-    .container .user .view-profile {
+    .container .user .options, .container .bidding .options {
       float: right;
       font-weight: 100; }
-    .container .user img {
+      .container .user .options a, .container .bidding .options a {
+        color: white;
+        font-weight: 300;
+        background: #b1d3eb;
+        background: -moz-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b1d3eb), color-stop(100%, #77afdd));
+        background: -webkit-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+        background: -o-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+        background: -ms-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 );
+        background: linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+        border-bottom: solid 1px #529edd;
+        border-radius: 7px;
+        text-shadow: 0 -1px 1px #529edd;
+        box-shadow: 0 1px 3px #b1d3eb;
+        font-size: 0.9em;
+        padding: 0.4em 0.7em 0.3em 0.7em; }
+    .container .user img, .container .bidding img {
       max-height: 75px;
       float: left;
       padding: 0 1em 0 0; }
