@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
                     :styles => { :thumb => "150x150>", :regular => "300x300>" },
                     :url => "/assets/:class/:attachment/:id/:style.:extension",
                     :path => "#{RAILS_ROOT}/public/assets/:class/:attachment/:id/:style.:extension",
-                    :default_url => "/images/default_:style.jpg",
+                    :default_url => "/images/default_profile.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
                     
