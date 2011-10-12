@@ -22,5 +22,5 @@
 -#      %td= link_to 'Destroy', employers_bidding_path(bidding), :confirm => 'Are you sure?', :method => :delete
 -#
 -#= link_to 'New Bidding', new_employers_bidding_path
-
-= render :partial => "bidding"
+- @biddings.each do |@bidding|
+  = render :partial => "bidding"
