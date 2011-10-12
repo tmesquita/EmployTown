@@ -1,0 +1,10 @@
+.user
+  .view-profile= link_to 'View Profile', employers_seeker_path(@user)
+  = image_tag @user.photo.url(:thumb)
+  %p= @user.to_s
+  %p= @user.email
+  %p
+    %b Tags:
+    - for tag in @user.tags
+      = tag.to_s
+  .clear

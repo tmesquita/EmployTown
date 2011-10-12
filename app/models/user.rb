@@ -84,7 +84,6 @@ class User < ActiveRecord::Base
   protected
   
   def assign_role
-    # This needs to change. Using 'Seeker' as default
     self.role = Role.find_by_name(self.seeking) if role.nil?
   end
 end

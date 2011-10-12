@@ -90,6 +90,20 @@ a {
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0; }
+  .container .user {
+    outline: solid 1px #1e74bb;
+    padding: 1em;
+    margin: 0.5em 0 0.5em 0; }
+    .container .user p {
+      margin: 0;
+      padding: 0; }
+    .container .user .view-profile {
+      float: right;
+      font-weight: 100; }
+    .container .user img {
+      max-height: 75px;
+      float: left;
+      padding: 0 1em 0 0; }
   .container h1, .container h2, .container h3 {
     margin: 0.5em 0 1em 0;
     padding: 0; }

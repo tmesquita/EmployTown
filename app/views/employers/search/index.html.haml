@@ -1,13 +1,8 @@
 %h1 Search for potential employees
-=render 'form'
 
 - unless params[:search].blank?
   - unless @users.count == 0
-    - for user in @users
-      User Name:
-      = user.first_name
-      = user.last_name
-      = link_to 'Show', employers_seeker_path(user)   
-      <br />
+    - for @user in @users
+      = render :partial => "user"
   -else
     No users found with that search criteria
