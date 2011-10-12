@@ -25,7 +25,7 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings/new.xml
   def new
     @bidding = Bidding.new
-
+    @seeker_id = params[:seeker_id]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @bidding }
