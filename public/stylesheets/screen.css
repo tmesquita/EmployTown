@@ -210,31 +210,32 @@ a:hover {
   text-align: center;
   margin-top: 100px;
   font-size: 3.8em;
+  text-shadow: 0 1px #eeeeee;
 }
-/* line 239, sass/screen.sass */
+/* line 240, sass/screen.sass */
 .container .content {
   background: #eeeeee;
   padding: 1em;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 1px 1px #888888;
 }
-/* line 245, sass/screen.sass */
+/* line 246, sass/screen.sass */
 .container .user, .container .bidding {
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 249, sass/screen.sass */
+/* line 250, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 252, sass/screen.sass */
+/* line 253, sass/screen.sass */
 .container .user .options, .container .bidding .options {
   float: right;
   font-weight: 100;
 }
-/* line 255, sass/screen.sass */
+/* line 256, sass/screen.sass */
 .container .user .options a, .container .bidding .options a {
   color: white;
   font-weight: 300;
@@ -253,31 +254,31 @@ a:hover {
   font-size: 0.9em;
   padding: 0.4em 0.7em 0.3em 0.7em;
 }
-/* line 257, sass/screen.sass */
+/* line 258, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 262, sass/screen.sass */
+/* line 263, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 266, sass/screen.sass */
+/* line 267, sass/screen.sass */
 .container .formcontainer {
   width: 60%;
   margin: 70px auto 0 auto;
 }
-/* line 269, sass/screen.sass */
+/* line 270, sass/screen.sass */
 .container .formcontainer .formtitle {
   font-size: 2em;
 }
-/* line 271, sass/screen.sass */
+/* line 272, sass/screen.sass */
 .container .formcontainer .signup {
   margin-top: -20px;
 }
-/* line 274, sass/screen.sass */
+/* line 275, sass/screen.sass */
 .container form {
   margin: 1em 0 1em 0;
   padding: 1em;
@@ -286,7 +287,7 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   -webkit-border-radius: 5px;
 }
-/* line 286, sass/screen.sass */
+/* line 287, sass/screen.sass */
 .container form input[type=text], .container form input[type=password] {
   padding: 0.75em;
   border: solid 0.1em #999999;
@@ -294,12 +295,12 @@ a:hover {
   margin: 0;
   width: 40%;
 }
-/* line 291, sass/screen.sass */
+/* line 292, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 295, sass/screen.sass */
+/* line 296, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;
@@ -308,39 +309,39 @@ a:hover {
   font-size: 1.2em;
 }
 
-/* line 302, sass/screen.sass */
+/* line 303, sass/screen.sass */
 .footer {
   padding: 1em 0 1em 0;
   border-top: solid 0.2em #b1d3eb;
   background-color: #f0f0f0;
   font-weight: 100;
 }
-/* line 307, sass/screen.sass */
+/* line 308, sass/screen.sass */
 .footer .body {
   width: 60%;
 }
-/* line 310, sass/screen.sass */
+/* line 311, sass/screen.sass */
 .footer .triple-column {
   width: 30%;
 }
-/* line 313, sass/screen.sass */
+/* line 314, sass/screen.sass */
 .footer .triple-column ul, .footer .triple-column li {
   margin: 0;
   padding: 0.15em 0 0.15em 0;
 }
-/* line 316, sass/screen.sass */
+/* line 317, sass/screen.sass */
 .footer .triple-column ul {
   list-style: none;
 }
-/* line 319, sass/screen.sass */
+/* line 320, sass/screen.sass */
 .footer #left, .footer #center {
   float: left;
 }
-/* line 322, sass/screen.sass */
+/* line 323, sass/screen.sass */
 .footer #center {
   margin: 0 5%;
 }
-/* line 325, sass/screen.sass */
+/* line 326, sass/screen.sass */
 .footer #right {
   float: right;
 }
