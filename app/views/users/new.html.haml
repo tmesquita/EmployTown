@@ -1,3 +1,9 @@
-%h1 Create a New Username
+.formcontainer
+  .formtitle
+    %h2 Sign Up
+  .signup
+    %h3
+      Already have an account?
+      = link_to 'Login', login_path
 
-= render :partial => 'form'
+  = render :partial => 'form'

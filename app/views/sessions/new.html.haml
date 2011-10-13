@@ -1,12 +1,9 @@
-= form_tag sessions_path do
-  %p
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  %p
-    = label_tag :password
-    = password_field_tag :password
-  %p
-    = check_box_tag :remember_me, 1, params[:remember_me]
-    = label_tag :remember_me
-  %p
-    = submit_tag "Log In"
+.formcontainer
+  .formtitle
+    %h2 Login
+  .signup
+    %h3 
+      Don't have an account?
+      = link_to 'Sign Up', signup_path
+  
+  = render :partial => 'form'
