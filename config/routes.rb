@@ -32,8 +32,9 @@ EmployTown::Application.routes.draw do
   
   namespace :seekers do
     resources :tags
-    resources :biddings
-    #match "biddings/:id/interested", "biddings#interested", :as => "interested_seekers_bidding" 
+    resources :biddings do
+      get 'interested', :on => :member
+    end
     resources :companies, :only => [:show]
     resources :users, :only => [:edit, :show, :update]
     root :to => "seekers#index"
