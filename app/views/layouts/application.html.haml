@@ -16,10 +16,16 @@
 	
   %body
     .header
+      .topnav
+        .navcontainer
+          #logo=link_to 'EmployTown', root_url
+          = quick_nav(current_user)
+      .bottomnav
+        .navcontainer
+          = general_nav(current_user)
       .body
-        %h1#logo=link_to 'EmployTown', root_url
-        = general_nav(current_user)
-        = quick_nav(current_user)
+        -##logo=link_to 'EmployTown', root_url
+        
         = search(current_user)
       .clear
     .container
