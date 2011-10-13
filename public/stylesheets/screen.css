@@ -216,24 +216,25 @@ a:hover {
   background: #eeeeee;
   padding: 1em;
   border-radius: 5px;
+  -webkit-box-shadow: 0 0 1px 1px #888888;
 }
-/* line 244, sass/screen.sass */
+/* line 245, sass/screen.sass */
 .container .user, .container .bidding {
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 248, sass/screen.sass */
+/* line 249, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 251, sass/screen.sass */
+/* line 252, sass/screen.sass */
 .container .user .options, .container .bidding .options {
   float: right;
   font-weight: 100;
 }
-/* line 254, sass/screen.sass */
+/* line 255, sass/screen.sass */
 .container .user .options a, .container .bidding .options a {
   color: white;
   font-weight: 300;
@@ -252,31 +253,31 @@ a:hover {
   font-size: 0.9em;
   padding: 0.4em 0.7em 0.3em 0.7em;
 }
-/* line 256, sass/screen.sass */
+/* line 257, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 261, sass/screen.sass */
+/* line 262, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 265, sass/screen.sass */
+/* line 266, sass/screen.sass */
 .container .formcontainer {
   width: 60%;
   margin: 70px auto 0 auto;
 }
-/* line 268, sass/screen.sass */
+/* line 269, sass/screen.sass */
 .container .formcontainer .formtitle {
   font-size: 2em;
 }
-/* line 270, sass/screen.sass */
+/* line 271, sass/screen.sass */
 .container .formcontainer .signup {
   margin-top: -20px;
 }
-/* line 273, sass/screen.sass */
+/* line 274, sass/screen.sass */
 .container form {
   margin: 1em 0 1em 0;
   padding: 1em;
@@ -285,7 +286,7 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   -webkit-border-radius: 5px;
 }
-/* line 285, sass/screen.sass */
+/* line 286, sass/screen.sass */
 .container form input[type=text], .container form input[type=password] {
   padding: 0.75em;
   border: solid 0.1em #999999;
@@ -293,12 +294,12 @@ a:hover {
   margin: 0;
   width: 40%;
 }
-/* line 290, sass/screen.sass */
+/* line 291, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 294, sass/screen.sass */
+/* line 295, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;
@@ -307,39 +308,39 @@ a:hover {
   font-size: 1.2em;
 }
 
-/* line 301, sass/screen.sass */
+/* line 302, sass/screen.sass */
 .footer {
   padding: 1em 0 1em 0;
   border-top: solid 0.2em #b1d3eb;
   background-color: #f0f0f0;
   font-weight: 100;
 }
-/* line 306, sass/screen.sass */
+/* line 307, sass/screen.sass */
 .footer .body {
   width: 60%;
 }
-/* line 309, sass/screen.sass */
+/* line 310, sass/screen.sass */
 .footer .triple-column {
   width: 30%;
 }
-/* line 312, sass/screen.sass */
+/* line 313, sass/screen.sass */
 .footer .triple-column ul, .footer .triple-column li {
   margin: 0;
   padding: 0.15em 0 0.15em 0;
 }
-/* line 315, sass/screen.sass */
+/* line 316, sass/screen.sass */
 .footer .triple-column ul {
   list-style: none;
 }
-/* line 318, sass/screen.sass */
+/* line 319, sass/screen.sass */
 .footer #left, .footer #center {
   float: left;
 }
-/* line 321, sass/screen.sass */
+/* line 322, sass/screen.sass */
 .footer #center {
   margin: 0 5%;
 }
-/* line 324, sass/screen.sass */
+/* line 325, sass/screen.sass */
 .footer #right {
   float: right;
 }
