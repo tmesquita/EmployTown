@@ -4,232 +4,347 @@
 /* Mixins */
 @font-face {
   font-family: "Aleksandra";
-  src: url(/fonts/AleksandraC_regular.otf); }
+  src: url(/fonts/AleksandraC_regular.otf);
+}
 
 @font-face {
   font-family: "Elega";
-  src: url(/fonts/Elega_Medium.otf); }
+  src: url(/fonts/Elega_Medium.otf);
+}
 
 /* General Page Styles */
+/* line 58, sass/screen.sass */
 html, body {
   margin: 0;
   font-family: Aleksandra, helvetica, arial, sans-serif;
-  background: url(/images/web_pattern3.png); }
+  background: url(/images/web_pattern3.png);
+}
 
+/* line 63, sass/screen.sass */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 100; }
+  font-weight: 100;
+}
 
+/* line 66, sass/screen.sass */
 a {
   color: #0a477a;
-  text-decoration: none; }
-  a:hover {
-    color: #0a477a;
-    text-decoration: underline; }
+  text-decoration: none;
+}
+/* line 69, sass/screen.sass */
+a:hover {
+  color: #0a477a;
+  text-decoration: underline;
+}
 
+/* line 73, sass/screen.sass */
 .clear {
-  clear: both; }
+  clear: both;
+}
 
+/* line 76, sass/screen.sass */
 .right {
-  float: right; }
+  float: right;
+}
 
+/* line 79, sass/screen.sass */
 .left {
-  float: left; }
+  float: left;
+}
 
+/* line 82, sass/screen.sass */
 .body {
   width: 85%;
-  margin: 0 auto; }
-  .body p {
-    line-height: 140%;
-    font-weight: 100; }
+  margin: 0 auto;
+}
+/* line 86, sass/screen.sass */
+.body p {
+  line-height: 140%;
+  font-weight: 100;
+}
 
+/* line 90, sass/screen.sass */
 .header {
   width: 100%;
-  height: 100px; }
-  .header .navcontainer {
-    width: 85%;
-    margin: 0 auto;
-    padding-right: 15px; }
-  .header .topnav {
-    height: 50px;
-    background-image: linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-    background-image: -o-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-    background-image: -moz-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-    background-image: -webkit-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-    background-image: -ms-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-    -moz-box-shadow: 0 0 5px 2px #aaaaaa;
-    -webkit-box-shadow: 0 0 5px 2px #aaaaaa;
-    box-shadow: 0 0 5px 2px #aaaaaa; }
-    .header .topnav #logo {
-      width: 350px;
-      height: 100px;
-      float: left;
-      line-height: 2em;
-      text-align: center;
-      background: #eeeeee;
-      font-family: Elega, helvetica, arial, sans-serif;
-      -moz-box-shadow: 0 0 2px 0.5px #888888;
-      -webkit-box-shadow: 0 0 2px 0.5px #888888;
-      box-shadow: 0 0 2px 0.5px #888888;
-      font-size: 3.4em;
-      border-radius: 0 0 5px 5px; }
-      .header .topnav #logo a {
-        color: #788fa8;
-        text-decoration: none; }
-    .header .topnav .quick-nav {
-      height: 30px;
-      float: right;
-      font-size: 0.9em;
-      margin: 8px 0; }
-      .header .topnav .quick-nav .smallmargin {
-        margin-left: 10px; }
-      .header .topnav .quick-nav .largemargin {
-        margin-left: 20px; }
-      .header .topnav .quick-nav .menuitem {
-        float: left;
-        height: 30px;
-        line-height: 2.2em;
-        font-size: 1.1em; }
-        .header .topnav .quick-nav .menuitem img {
-          width: 30px;
-          height: 30px;
-          opacity: 0.7; }
-          .header .topnav .quick-nav .menuitem img:hover {
-            opacity: 1; }
-        .header .topnav .quick-nav .menuitem a {
-          color: #eeeeee; }
-          .header .topnav .quick-nav .menuitem a:hover {
-            text-decoration: none; }
-  .header ul, .header li {
-    margin: 0;
-    padding: 0; }
-  .header ul {
-    list-style: none; }
-    .header ul li {
-      display: inline-block;
-      font-size: 1.2em;
-      padding: 0 1em;
-      border-right: 1px dashed #0a477a;
-      height: 30px;
-      line-height: 1.7em;
-      text-align: center; }
-    .header ul .noborder {
-      border: none; }
-  .header .nav {
-    padding: 1.8em 0 0 0;
-    float: right; }
-    .header .nav a {
-      color: #0a477a;
-      text-decoration: none;
-      text-shadow: 0 1px 0 #eeeeee;
-      padding: 0 0.5em; }
-      .header .nav a:hover {
-        color: #0a477a;
-        text-shadow: 0 1px 0 #eeeeee;
-        border-bottom: 2px solid #0a477a; }
-  .header .search {
-    position: absolute;
-    bottom: -2.3em;
-    right: 10%; }
-    .header .search input[type=text] {
-      padding: 0.4em;
-      border: solid 0.1em #999999;
-      box-shadow: 0 0 3px #aaaaaa;
-      margin: 0; }
+  height: 100px;
+  margin: 0 0 3em 0;
+}
+/* line 95, sass/screen.sass */
+.header .navcontainer {
+  width: 85%;
+  margin: 0 auto;
+  padding-right: 15px;
+}
+/* line 99, sass/screen.sass */
+.header .topnav {
+  height: 50px;
+  background-image: linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  background-image: -o-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  background-image: -moz-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  background-image: -webkit-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  background-image: -ms-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  -moz-box-shadow: 0 0 5px 2px #aaaaaa;
+  -webkit-box-shadow: 0 0 5px 2px #aaaaaa;
+  box-shadow: 0 0 5px 2px #aaaaaa;
+}
+/* line 109, sass/screen.sass */
+.header .topnav #logo {
+  margin: 32px 0 0 0;
+  width: 350px;
+  float: left;
+  line-height: 2em;
+  text-shadow: 0 1px 1px white;
+  font-family: Elega;
+  font-weight: 100;
+  font-size: 3.8em;
+}
+/* line 123, sass/screen.sass */
+.header .topnav #logo a {
+  color: #0a477a;
+  text-decoration: none;
+}
+/* line 128, sass/screen.sass */
+.header .topnav .quick-nav, .header .topnav .contact-us {
+  height: 30px;
+  float: right;
+  font-size: 0.9em;
+  margin: 18px 0 0 0;
+}
+/* line 139, sass/screen.sass */
+.header .topnav .quick-nav a, .header .topnav .contact-us a {
+  color: #eeeeee;
+  padding: 0 0.3em;
+}
+/* line 142, sass/screen.sass */
+.header .topnav .quick-nav a:hover, .header .topnav .contact-us a:hover {
+  text-decoration: none;
+}
+/* line 144, sass/screen.sass */
+.header .topnav .contact-us {
+  margin: 8px 0 0 0;
+}
+/* line 146, sass/screen.sass */
+.header .topnav .contact-us .smallmargin {
+  margin-left: 10px;
+}
+/* line 148, sass/screen.sass */
+.header .topnav .contact-us .largemargin {
+  margin-left: 20px;
+}
+/* line 150, sass/screen.sass */
+.header .topnav .contact-us .menuitem {
+  margin-left: 10px;
+  float: left;
+  height: 30px;
+  line-height: 2.2em;
+  font-size: 1.1em;
+}
+/* line 156, sass/screen.sass */
+.header .topnav .contact-us .menuitem img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.7;
+}
+/* line 160, sass/screen.sass */
+.header .topnav .contact-us .menuitem img:hover {
+  opacity: 1;
+}
+/* line 170, sass/screen.sass */
+.header ul, .header li {
+  margin: 0;
+  padding: 0;
+}
+/* line 174, sass/screen.sass */
+.header ul {
+  list-style: none;
+}
+/* line 176, sass/screen.sass */
+.header ul li {
+  display: inline-block;
+  font-size: 1.2em;
+  padding: 0 1em;
+  border-right: 1px dashed #0a477a;
+  height: 30px;
+  line-height: 1.7em;
+  text-align: center;
+}
+/* line 185, sass/screen.sass */
+.header ul .noborder {
+  border: none;
+}
+/* line 199, sass/screen.sass */
+.header .nav {
+  padding: 1.8em 0 0 0;
+  float: right;
+}
+/* line 203, sass/screen.sass */
+.header .nav a {
+  color: #0a477a;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #eeeeee;
+  padding: 0 0.5em;
+}
+/* line 208, sass/screen.sass */
+.header .nav a:hover {
+  color: #0a477a;
+  text-shadow: 0 1px 0 #eeeeee;
+  border-bottom: 2px solid #0a477a;
+}
+/* line 222, sass/screen.sass */
+.header .search {
+  position: absolute;
+  bottom: -2.3em;
+  right: 10%;
+}
+/* line 226, sass/screen.sass */
+.header .search input[type=text] {
+  padding: 0.4em;
+  border: solid 0.1em #999999;
+  box-shadow: 0 0 3px #aaaaaa;
+  margin: 0;
+}
 
+/* line 230, sass/screen.sass */
 .container {
   padding: 2em 0 2em 0;
-  margin: 0 0 4em 0; }
-  .container .catchphrase {
-    text-align: center;
-    margin-top: 70px;
-    font-size: 3.5em;
-    text-shadow: 0 1px #eeeeee; }
-  .container .content {
-    background: #eeeeee;
-    padding: 1em;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 1px 1px #888888; }
-  .container .user, .container .bidding {
-    outline: solid 1px #0a477a;
-    padding: 1em;
-    margin: 0.5em 0 0.5em 0; }
-    .container .user p, .container .bidding p {
-      margin: 0;
-      padding: 0; }
-    .container .user .options, .container .bidding .options {
-      float: right;
-      font-weight: 100; }
-      .container .user .options a, .container .bidding .options a {
-        color: white;
-        font-weight: 300;
-        background: #b1d3eb;
-        background: -moz-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b1d3eb), color-stop(100%, #77afdd));
-        background: -webkit-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-        background: -o-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-        background: -ms-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 );
-        background: linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-        border-bottom: solid 1px #529edd;
-        border-radius: 7px;
-        text-shadow: 0 -1px 1px #529edd;
-        box-shadow: 0 1px 3px #b1d3eb;
-        padding: 0.45em 0.7em 0.3em 0.7em;
-        font-size: 0.85em; }
-    .container .user img, .container .bidding img {
-      max-height: 75px;
-      float: left;
-      padding: 0 1em 0 0; }
-  .container h1, .container h2, .container h3 {
-    margin: 0.5em 0 1em 0;
-    padding: 0; }
-  .container .formcontainer {
-    width: 60%;
-    margin: 70px auto 0 auto; }
-    .container .formcontainer .formtitle {
-      font-size: 2em; }
-    .container .formcontainer .signup {
-      margin-top: -20px; }
-  .container form {
-    margin: 1em 0 1em 0;
-    padding: 1em;
-    background: #eeeeee;
-    font-weight: 100;
-    -webkit-box-shadow: 0 0 1px 1px #888888;
-    -webkit-border-radius: 5px; }
-    .container form input[type=text], .container form input[type=password] {
-      padding: 0.75em;
-      border: solid 0.1em #999999;
-      box-shadow: 0 0 3px #aaaaaa;
-      margin: 0;
-      width: 40%; }
-    .container form input[type=submit] {
-      margin-left: 42%;
-      font-size: 1em; }
-    .container form label {
-      text-align: right;
-      padding: 0.25em 1em 0 0;
-      float: left;
-      width: 40%;
-      font-size: 1.2em; }
+  margin: 0 0 4em 0;
+}
+/* line 234, sass/screen.sass */
+.container .catchphrase {
+  text-align: center;
+  margin-top: 70px;
+  font-size: 3em;
+  text-shadow: 0 1px #eeeeee;
+}
+/* line 240, sass/screen.sass */
+.container .content {
+  background: #eeeeee;
+  padding: 1em;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 1px 1px #888888;
+}
+/* line 246, sass/screen.sass */
+.container .user, .container .bidding {
+  outline: solid 1px #0a477a;
+  padding: 1em;
+  margin: 0.5em 0 0.5em 0;
+}
+/* line 250, sass/screen.sass */
+.container .user p, .container .bidding p {
+  margin: 0;
+  padding: 0;
+}
+/* line 253, sass/screen.sass */
+.container .user .options, .container .bidding .options {
+  float: right;
+  font-weight: 100;
+}
+/* line 256, sass/screen.sass */
+.container .user .options a, .container .bidding .options a {
+  color: white;
+  font-weight: 300;
+  background: #b1d3eb;
+  background: -moz-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b1d3eb), color-stop(100%, #77afdd));
+  background: -webkit-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -o-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -ms-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 );
+  background: linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  border-bottom: solid 1px #529edd;
+  border-radius: 7px;
+  text-shadow: 0 -1px 1px #529edd;
+  box-shadow: 0 1px 3px #b1d3eb;
+  padding: 0.45em 0.7em 0.3em 0.7em;
+  font-size: 0.85em;
+}
+/* line 259, sass/screen.sass */
+.container .user img, .container .bidding img {
+  max-height: 75px;
+  float: left;
+  padding: 0 1em 0 0;
+}
+/* line 264, sass/screen.sass */
+.container h1, .container h2, .container h3 {
+  margin: 0.5em 0 1em 0;
+  padding: 0;
+}
+/* line 268, sass/screen.sass */
+.container .formcontainer {
+  width: 60%;
+  margin: 70px auto 0 auto;
+}
+/* line 271, sass/screen.sass */
+.container .formcontainer .formtitle {
+  font-size: 2em;
+}
+/* line 273, sass/screen.sass */
+.container .formcontainer .signup {
+  margin-top: -20px;
+}
+/* line 276, sass/screen.sass */
+.container form {
+  margin: 1em 0 1em 0;
+  padding: 1em;
+  background: #eeeeee;
+  font-weight: 100;
+  -webkit-box-shadow: 0 0 1px 1px #888888;
+  -webkit-border-radius: 5px;
+}
+/* line 288, sass/screen.sass */
+.container form input[type=text], .container form input[type=password] {
+  padding: 0.75em;
+  border: solid 0.1em #999999;
+  box-shadow: 0 0 3px #aaaaaa;
+  margin: 0;
+  width: 40%;
+}
+/* line 293, sass/screen.sass */
+.container form input[type=submit] {
+  margin-left: 42%;
+  font-size: 1em;
+}
+/* line 297, sass/screen.sass */
+.container form label {
+  text-align: right;
+  padding: 0.25em 1em 0 0;
+  float: left;
+  width: 40%;
+  font-size: 1.2em;
+}
 
+/* line 304, sass/screen.sass */
 .footer {
   padding: 1em 0 1em 0;
   border-top: solid 0.2em #b1d3eb;
   background-color: #f0f0f0;
-  font-weight: 100; }
-  .footer .body {
-    width: 60%; }
-  .footer .triple-column {
-    width: 30%; }
-    .footer .triple-column ul, .footer .triple-column li {
-      margin: 0;
-      padding: 0.15em 0 0.15em 0; }
-    .footer .triple-column ul {
-      list-style: none; }
-  .footer #left, .footer #center {
-    float: left; }
-  .footer #center {
-    margin: 0 5%; }
-  .footer #right {
-    float: right; }
+  font-weight: 100;
+}
+/* line 309, sass/screen.sass */
+.footer .body {
+  width: 60%;
+}
+/* line 312, sass/screen.sass */
+.footer .triple-column {
+  width: 30%;
+}
+/* line 315, sass/screen.sass */
+.footer .triple-column ul, .footer .triple-column li {
+  margin: 0;
+  padding: 0.15em 0 0.15em 0;
+}
+/* line 318, sass/screen.sass */
+.footer .triple-column ul {
+  list-style: none;
+}
+/* line 321, sass/screen.sass */
+.footer #left, .footer #center {
+  float: left;
+}
+/* line 324, sass/screen.sass */
+.footer #center {
+  margin: 0 5%;
+}
+/* line 327, sass/screen.sass */
+.footer #right {
+  float: right;
+}
