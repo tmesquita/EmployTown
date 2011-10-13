@@ -53,7 +53,7 @@ a:hover {
 
 /* line 85, sass/screen.sass */
 .body {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 /* line 89, sass/screen.sass */
@@ -69,7 +69,7 @@ a:hover {
 }
 /* line 97, sass/screen.sass */
 .header .navcontainer {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
   padding-right: 15px;
 }
@@ -157,7 +157,7 @@ a:hover {
 /* line 176, sass/screen.sass */
 .header ul li {
   display: inline-block;
-  font-size: 1.3em;
+  font-size: 1.2em;
   padding: 0 1em;
   border-right: 1px dashed #0a477a;
   height: 30px;
@@ -170,7 +170,7 @@ a:hover {
 }
 /* line 199, sass/screen.sass */
 .header .nav {
-  padding: 1.6em 0 0 0;
+  padding: 1.8em 0 0 0;
   float: right;
 }
 /* line 203, sass/screen.sass */
@@ -208,8 +208,8 @@ a:hover {
 /* line 234, sass/screen.sass */
 .container .catchphrase {
   text-align: center;
-  margin-top: 100px;
-  font-size: 3.8em;
+  margin-top: 70px;
+  font-size: 3.5em;
   text-shadow: 0 1px #eeeeee;
 }
 /* line 240, sass/screen.sass */
