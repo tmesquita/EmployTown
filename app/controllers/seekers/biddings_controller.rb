@@ -48,4 +48,28 @@ class Seekers::BiddingsController < Seekers::SeekersController
       format.xml  { head :ok }
     end
   end
+  
+  def interested
+    @bidding = Bidding.find(params[:id])
+    @bidding.interested = true
+    if @bidding.save
+      format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+      format.xml  { head :ok }
+    else
+      format.html { render :action => "edit" }
+      format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+    end
+  end
+  
+  def not_interested
+    @bidding = Bidding.find(params[:id])
+    @bidding.interested = false
+    if @bidding.save
+      format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+      format.xml  { head :ok }
+    else
+      format.html { render :action => "edit" }
+      format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+    end
+  end
 end

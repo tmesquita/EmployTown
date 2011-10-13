@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012185122) do
+ActiveRecord::Schema.define(:version => 20111012233020) do
 
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20111012185122) do
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
     t.integer  "company_id"
+    t.string   "about_me"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

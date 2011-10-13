@@ -115,8 +115,8 @@ a {
         border-radius: 7px;
         text-shadow: 0 -1px 1px #529edd;
         box-shadow: 0 1px 3px #b1d3eb;
-        font-size: 0.9em;
-        padding: 0.4em 0.7em 0.3em 0.7em; }
+        padding: 0.45em 0.7em 0.3em 0.7em;
+        font-size: 0.85em; }
     .container .user img, .container .bidding img {
       max-height: 75px;
       float: left;
