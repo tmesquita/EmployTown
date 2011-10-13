@@ -91,6 +91,7 @@ a
   //background-color: $light
   width: 100%
   height: 100px
+  margin: 0 0 3em 0
   .navcontainer
     width: 85%
     margin: 0 auto
@@ -106,22 +107,25 @@ a
     @include box_shadow
 
     #logo
+      margin: 32px 0 0 0 
       width: 350px
-      height: 100px
       float: left
       line-height: 2em
-      text-align: center
-      background: #EEE
-      font-family: Elega, helvetica, arial, sans-serif
-      @include box_shadow(0, 0, 2px, .5px, #888)
-      font-size: 3.4em
-      border-radius: 0 0 5px 5px
+      //text-align: center
+      //background: #EEE
+      text-shadow: 0 1px 1px #fff
+      //font-family: Elega, helvetica, arial, sans-serif
+      font-family: Elega
+      font-weight: 100
+      //@include box_shadow(0, 0, 2px, .5px, #888)
+      font-size: 3.8em
+      //border-radius: 0 0 5px 5px
       a
-        color: #788fa8
+        color: $dark_accent
         text-decoration: none
         &:hover
           //color: $primary
-    .quick-nav
+    .quick-nav, .contact-us
       //top: 0
       //right: 10%
       height: 30px
@@ -130,13 +134,21 @@ a
       //position: absolute
       //padding: .25em
       //margin: .6em .3em 0 0
-      margin: 8px 0
+      margin: 18px 0 0 0
       //border-bottom: solid .3em $dark_accent
+      a
+        color: #EEE
+        padding: 0 .3em
+        &:hover
+          text-decoration: none
+    .contact-us
+      margin: 8px 0 0 0
       .smallmargin
         margin-left: 10px
       .largemargin
         margin-left: 20px
       .menuitem
+        margin-left: 10px
         float: left
         height: 30px
         line-height: 2.2em
@@ -147,15 +159,6 @@ a
           opacity: .7
           &:hover
             opacity: 1
-      
-        a
-          //padding: 0 .2em 0 .2em
-          //color: $dark_accent
-          //text-shadow: 0 1px 0 #eee
-          color: #EEE
-          &:hover
-            //color: $primary
-            text-decoration: none
   .bottomnav
   //position: relative
   //padding: 1.5em 0 1.5em 0
@@ -231,7 +234,7 @@ a
   .catchphrase
     text-align: center
     margin-top: 70px
-    font-size: 3.5em
+    font-size: 3em
     text-shadow: 0 1px #eee
 
   .content
