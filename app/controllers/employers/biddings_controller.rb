@@ -1,4 +1,6 @@
 class Employers::BiddingsController < Employers::EmployersController
+  before_filter :require_company
+
   # GET /biddings
   # GET /biddings.xml
   def index
@@ -84,3 +86,11 @@ class Employers::BiddingsController < Employers::EmployersController
     end
   end
 end
+
+private
+
+  def require_company
+    if !current_user.belongs_to_company?
+      redirect_to employers_companies_path      
+    end 
+  end
