@@ -1,8 +1,8 @@
 .bidding
   .options
-    =link_to "Interested", interested_seekers_bidding_path(:id => @bidding.id)
+    =link_to "Interested", interested_seekers_bidding_path(@bidding.id)
     =link_to "Not Interested", not_interested_seekers_bidding_path(@bidding.id)
   = image_tag @bidding.employer.photo.url(:thumb)
-  %p= link_to(@bidding.employer.to_s, seekers_user_path(@bidding.employer)) + " @ " + link_to(@bidding.employer.company.name, seekers_company_path(@bidding.employer.company)) + " is interested in your skills."
+  %p= link_to(@bidding.employer.to_s, seekers_user_path(@bidding.employer)) + " @ " + link_to(@bidding.employer.company.to_s, seekers_company_path(@bidding.employer.company)) + " is interested in your skills."
   %p= @bidding.comment
   .clear
