@@ -34,6 +34,7 @@ EmployTown::Application.routes.draw do
     resources :tags
     resources :biddings do
       get 'interested', :on => :member
+      get 'not_interested', :on => :member
     end
     resources :companies, :only => [:show]
     resources :users, :only => [:edit, :show, :update]

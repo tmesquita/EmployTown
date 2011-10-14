@@ -12,13 +12,13 @@ authorization do
     has_permission_on :seekers_users, :to => :update
     has_permission_on :seekers_tags, :to => :manage
     has_permission_on :seekers_seekers, :to => :manage
-    has_permission_on :seekers_biddings, :to => :manage
+    has_permission_on :seekers_biddings, :to => [:manage, :interested, :not_interested]
     has_permission_on :seekers_companies, :to => :read
   end
   
   role :employer do
     has_permission_on :employers_users, :to => :update
-    has_permission_on :employers_biddings, :to => [:manage, :interested]
+    has_permission_on :employers_biddings, :to => :manage
     has_permission_on :employers_companies, :to => :manage
     has_permission_on :employers_employers, :to => :manage
     has_permission_on :employers_search, :to => :read

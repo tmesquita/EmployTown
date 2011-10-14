@@ -51,7 +51,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
   
   def interested
     @bidding = Bidding.find(params[:id])
-    @bidding.interested = true
+    @bidding.interested = 1
     if @bidding.save
       format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
       format.xml  { head :ok }
@@ -63,7 +63,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
   
   def not_interested
     @bidding = Bidding.find(params[:id])
-    @bidding.interested = false
+    @bidding.interested = 0
     if @bidding.save
       format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
       format.xml  { head :ok }
