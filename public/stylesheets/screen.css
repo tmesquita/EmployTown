@@ -1,7 +1,8 @@
 /* Standard Variables */
 /* Color Variables */
-/* Style Variables */
+/* Other Variables */
 /* Mixins */
+/* Fonts Face Declarations */
 @font-face {
   font-family: "Aleksandra";
   src: url(/fonts/AleksandraC_regular.otf);
@@ -13,152 +14,148 @@
 }
 
 /* General Page Styles */
-/* line 58, sass/screen.sass */
+/* line 72, sass/screen.sass */
 html, body {
   margin: 0;
   font-family: Aleksandra, helvetica, arial, sans-serif;
   background: url(/images/web_pattern3.png);
 }
 
-/* line 63, sass/screen.sass */
+/* line 77, sass/screen.sass */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
-/* line 66, sass/screen.sass */
+/* line 80, sass/screen.sass */
 a {
   color: #0a477a;
   text-decoration: none;
 }
-/* line 69, sass/screen.sass */
+/* line 83, sass/screen.sass */
 a:hover {
-  color: #0a477a;
   text-decoration: underline;
 }
 
-/* line 73, sass/screen.sass */
+/* line 86, sass/screen.sass */
 .clear {
   clear: both;
 }
 
-/* line 76, sass/screen.sass */
+/* line 89, sass/screen.sass */
 .right {
   float: right;
 }
 
-/* line 79, sass/screen.sass */
+/* line 92, sass/screen.sass */
 .left {
   float: left;
 }
 
-/* line 82, sass/screen.sass */
+/* line 95, sass/screen.sass */
 .body {
   width: 85%;
   margin: 0 auto;
 }
-/* line 86, sass/screen.sass */
+/* line 99, sass/screen.sass */
 .body p {
   line-height: 140%;
   font-weight: 100;
 }
 
-/* line 90, sass/screen.sass */
+/* line 103, sass/screen.sass */
 .header {
   width: 100%;
-  height: 100px;
+  height: 110px;
   margin: 0 0 3em 0;
 }
-/* line 95, sass/screen.sass */
+/* line 108, sass/screen.sass */
+.header ul, .header li {
+  margin: 0;
+  padding: 0;
+}
+/* line 112, sass/screen.sass */
 .header .navcontainer {
   width: 85%;
   margin: 0 auto;
   padding-right: 15px;
 }
-/* line 99, sass/screen.sass */
+/* line 116, sass/screen.sass */
 .header .topnav {
   height: 50px;
-  background-image: linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-  background-image: -o-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-  background-image: -moz-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-  background-image: -webkit-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
-  background-image: -ms-linear-gradient(bottom, #3d3d3c 15%, #4d4d4c 65%);
+  background: linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
+  background: -o-linear-gradient(top, #4d4d4c 15%, #3d3d3c, 65%);
+  background: -moz-linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
+  background: -webkit-linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
+  background: -webkit-gradient(linear, top, color-stop(15%, #4d4d4c), color-stop(65%, #3d3d3c));
+  background: -ms-linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
   -moz-box-shadow: 0 0 5px 2px #aaaaaa;
   -webkit-box-shadow: 0 0 5px 2px #aaaaaa;
   box-shadow: 0 0 5px 2px #aaaaaa;
 }
-/* line 109, sass/screen.sass */
+/* line 121, sass/screen.sass */
 .header .topnav #logo {
   margin: 32px 0 0 0;
   width: 350px;
-  float: left;
   line-height: 2em;
-  text-shadow: 0 1px 1px white;
-  font-family: Elega;
-  font-weight: 100;
+  text-shadow: 0 1px 1px #eeeeee;
+  font-family: Elega, helvetica, arial, sans-serif;
   font-size: 3.8em;
 }
-/* line 123, sass/screen.sass */
+/* line 128, sass/screen.sass */
 .header .topnav #logo a {
-  color: #0a477a;
   text-decoration: none;
 }
-/* line 128, sass/screen.sass */
-.header .topnav .quick-nav, .header .topnav .contact-us {
+/* line 131, sass/screen.sass */
+.header .topnav #quick-nav {
   height: 30px;
-  float: right;
   font-size: 0.9em;
-  margin: 18px 0 0 0;
+  margin: 10px 0 0 0;
+}
+/* line 135, sass/screen.sass */
+.header .topnav #quick-nav a {
+  color: #eeeeee;
+}
+/* line 137, sass/screen.sass */
+.header .topnav #quick-nav a:hover {
+  text-decoration: none;
 }
 /* line 139, sass/screen.sass */
-.header .topnav .quick-nav a, .header .topnav .contact-us a {
-  color: #eeeeee;
-  padding: 0 0.3em;
-}
-/* line 142, sass/screen.sass */
-.header .topnav .quick-nav a:hover, .header .topnav .contact-us a:hover {
-  text-decoration: none;
-}
-/* line 144, sass/screen.sass */
-.header .topnav .contact-us {
-  margin: 8px 0 0 0;
-}
-/* line 146, sass/screen.sass */
-.header .topnav .contact-us .smallmargin {
+.header .topnav #quick-nav .small-margin-left {
   margin-left: 10px;
 }
-/* line 148, sass/screen.sass */
-.header .topnav .contact-us .largemargin {
-  margin-left: 20px;
+/* line 141, sass/screen.sass */
+.header .topnav #quick-nav .large-margin-left {
+  margin-left: 25px;
 }
-/* line 150, sass/screen.sass */
-.header .topnav .contact-us .menuitem {
-  margin-left: 10px;
-  float: left;
+/* line 143, sass/screen.sass */
+.header .topnav #quick-nav .menuitem {
   height: 30px;
   line-height: 2.2em;
   font-size: 1.1em;
 }
-/* line 156, sass/screen.sass */
-.header .topnav .contact-us .menuitem img {
+/* line 147, sass/screen.sass */
+.header .topnav #quick-nav .menuitem img {
   width: 30px;
   height: 30px;
   opacity: 0.7;
-}
-/* line 160, sass/screen.sass */
-.header .topnav .contact-us .menuitem img:hover {
-  opacity: 1;
-}
-/* line 170, sass/screen.sass */
-.header ul, .header li {
-  margin: 0;
   padding: 0;
 }
-/* line 174, sass/screen.sass */
-.header ul {
+/* line 152, sass/screen.sass */
+.header .topnav #quick-nav .menuitem img:hover {
+  opacity: 1;
+}
+/* line 155, sass/screen.sass */
+.header #main-nav {
+  padding: 2.5em 0 0 0;
+  float: right;
+}
+/* line 158, sass/screen.sass */
+.header #main-nav ul#menu {
   list-style: none;
 }
-/* line 176, sass/screen.sass */
-.header ul li {
+/* line 160, sass/screen.sass */
+.header #main-nav ul#menu li {
   display: inline-block;
   font-size: 1.2em;
   padding: 0 1em;
@@ -167,89 +164,84 @@ a:hover {
   line-height: 1.7em;
   text-align: center;
 }
-/* line 185, sass/screen.sass */
-.header ul .noborder {
+/* line 168, sass/screen.sass */
+.header #main-nav ul#menu .noborder {
   border: none;
 }
-/* line 199, sass/screen.sass */
-.header .nav {
-  padding: 1.8em 0 0 0;
-  float: right;
-}
-/* line 203, sass/screen.sass */
-.header .nav a {
+/* line 171, sass/screen.sass */
+.header #main-nav a {
   color: #0a477a;
   text-decoration: none;
   text-shadow: 0 1px 0 #eeeeee;
   padding: 0 0.5em;
 }
-/* line 208, sass/screen.sass */
-.header .nav a:hover {
-  color: #0a477a;
-  text-shadow: 0 1px 0 #eeeeee;
+/* line 176, sass/screen.sass */
+.header #main-nav a:hover {
   border-bottom: 2px solid #0a477a;
 }
-/* line 222, sass/screen.sass */
+/* line 180, sass/screen.sass */
 .header .search {
   position: absolute;
   bottom: -2.3em;
   right: 10%;
 }
-/* line 226, sass/screen.sass */
+/* line 184, sass/screen.sass */
 .header .search input[type=text] {
   padding: 0.4em;
   border: solid 0.1em #999999;
-  box-shadow: 0 0 3px #aaaaaa;
+  -moz-box-shadow: 0 0 3px 0px #aaaaaa;
+  -webkit-box-shadow: 0 0 3px 0px #aaaaaa;
+  box-shadow: 0 0 3px 0px #aaaaaa;
   margin: 0;
 }
 
-/* line 230, sass/screen.sass */
+/* line 188, sass/screen.sass */
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0;
 }
-/* line 234, sass/screen.sass */
-.container .catchphrase {
+/* line 192, sass/screen.sass */
+.container .catch-phrase {
   text-align: center;
   margin-top: 70px;
   font-size: 3em;
   text-shadow: 0 1px #eeeeee;
 }
-/* line 240, sass/screen.sass */
+/* line 198, sass/screen.sass */
 .container .content {
   background: #eeeeee;
   padding: 1em;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 1px 1px #888888;
 }
-/* line 246, sass/screen.sass */
+/* line 204, sass/screen.sass */
 .container .user, .container .bidding {
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 250, sass/screen.sass */
+/* line 208, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 253, sass/screen.sass */
+/* line 211, sass/screen.sass */
 .container .user .options, .container .bidding .options {
   float: right;
   font-weight: 100;
 }
-/* line 256, sass/screen.sass */
+/* line 214, sass/screen.sass */
 .container .user .options a, .container .bidding .options a {
   color: white;
   font-weight: 300;
   background: #b1d3eb;
-  background: -moz-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b1d3eb), color-stop(100%, #77afdd));
-  background: -webkit-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-  background: -o-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-  background: -ms-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 );
   background: linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -o-linear-gradient(top, #b1d3eb 0%, #77afdd, 100%);
+  background: -moz-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -webkit-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  background: -webkit-gradient(linear, top, color-stop(0%, #b1d3eb), color-stop(100%, #77afdd));
+  background: -ms-linear-gradient(top, #b1d3eb 0%, #77afdd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
   border-bottom: solid 1px #529edd;
   border-radius: 7px;
   text-shadow: 0 -1px 1px #529edd;
@@ -257,31 +249,31 @@ a:hover {
   padding: 0.45em 0.7em 0.3em 0.7em;
   font-size: 0.85em;
 }
-/* line 259, sass/screen.sass */
+/* line 217, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 264, sass/screen.sass */
+/* line 222, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 268, sass/screen.sass */
-.container .formcontainer {
+/* line 226, sass/screen.sass */
+.container .form-container {
   width: 60%;
   margin: 70px auto 0 auto;
 }
-/* line 271, sass/screen.sass */
-.container .formcontainer .formtitle {
+/* line 229, sass/screen.sass */
+.container .form-container .form-title {
   font-size: 2em;
 }
-/* line 273, sass/screen.sass */
-.container .formcontainer .signup {
+/* line 231, sass/screen.sass */
+.container .form-container .signup-login {
   margin-top: -20px;
 }
-/* line 276, sass/screen.sass */
+/* line 234, sass/screen.sass */
 .container form {
   margin: 1em 0 1em 0;
   padding: 1em;
@@ -290,61 +282,26 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   -webkit-border-radius: 5px;
 }
-/* line 288, sass/screen.sass */
+/* line 242, sass/screen.sass */
 .container form input[type=text], .container form input[type=password] {
   padding: 0.75em;
   border: solid 0.1em #999999;
-  box-shadow: 0 0 3px #aaaaaa;
+  -moz-box-shadow: 0 0 3px 0px #aaaaaa;
+  -webkit-box-shadow: 0 0 3px 0px #aaaaaa;
+  box-shadow: 0 0 3px 0px #aaaaaa;
   margin: 0;
   width: 40%;
 }
-/* line 293, sass/screen.sass */
+/* line 247, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 297, sass/screen.sass */
+/* line 251, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;
   float: left;
   width: 40%;
   font-size: 1.2em;
-}
-
-/* line 304, sass/screen.sass */
-.footer {
-  padding: 1em 0 1em 0;
-  border-top: solid 0.2em #b1d3eb;
-  background-color: #f0f0f0;
-  font-weight: 100;
-}
-/* line 309, sass/screen.sass */
-.footer .body {
-  width: 60%;
-}
-/* line 312, sass/screen.sass */
-.footer .triple-column {
-  width: 30%;
-}
-/* line 315, sass/screen.sass */
-.footer .triple-column ul, .footer .triple-column li {
-  margin: 0;
-  padding: 0.15em 0 0.15em 0;
-}
-/* line 318, sass/screen.sass */
-.footer .triple-column ul {
-  list-style: none;
-}
-/* line 321, sass/screen.sass */
-.footer #left, .footer #center {
-  float: left;
-}
-/* line 324, sass/screen.sass */
-.footer #center {
-  margin: 0 5%;
-}
-/* line 327, sass/screen.sass */
-.footer #right {
-  float: right;
 }
