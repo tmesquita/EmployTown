@@ -24,10 +24,10 @@
 -#= link_to 'New Bidding', new_employers_bidding_path
 %p
   -if @interested_biddings.count > 0
-    Interested Bids:
+    Bids you are interested in:
     - @interested_biddings.each do |@bidding|
       = render :partial => "bidding"
   -if @uninterested_biddings.count > 0
-    Uninterested Bids:
+    Bids you are not interested in:
     - @uninterested_biddings.each do |@bidding|
-      = render :partial => "bidding"
+      = render :partial => "uninterestedbidding"
