@@ -1,5 +1,5 @@
 class Bidding < ActiveRecord::Base
-	attr_accessible :interested
+	attr_accessible :interested, :comment
 
 	belongs_to :user
 	belongs_to :company

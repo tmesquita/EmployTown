@@ -33,3 +33,5 @@
     Uninterested Bids:
     - @uninterested_biddings.each do |@bidding|
       = render :partial => "bidding"
+  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0
+    You currently have no bids
