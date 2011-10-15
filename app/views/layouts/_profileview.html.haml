@@ -8,7 +8,7 @@
   = @seeker.about_me
    
 %p
-- if @seeker.resume_file_name.eql? nil
+- if !@seeker.has_resume?
   This User has not Uploaded a resume
 -else
   %p

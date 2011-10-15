@@ -4,7 +4,12 @@
     = link_to "Remove Bid", employers_bidding_path(@bidding), :confirm => 'Are you sure?', :method => :delete
   = image_tag @bidding.seeker.photo.url(:thumb)
   %p= link_to(@bidding.seeker.to_s, employers_seeker_path(@bidding.seeker))
-  %p= link_to("View Resume", @bidding.seeker.resume.url)
-  %p= @bidding.comment
+  - if @bidding.seeker.has_resume?
+    %p= link_to("View Resume", @bidding.seeker.resume.url)
+  - else
+    %p This user has not yet uploaded a resume.
+  %p 
+    Your Comment:
+    = @bidding.comment
   .clear
   

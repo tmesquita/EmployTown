@@ -93,6 +93,10 @@ class User < ActiveRecord::Base
     !self.company_id.eql? nil
   end
 
+  def has_resume?
+    !self.resume_file_name.eql? nil
+  end
+
   protected
   
   def assign_role
