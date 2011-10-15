@@ -5,7 +5,7 @@
 
 %p
   About Me:
-  = @user.about_me
+  = simple_format @user.about_me
  
 %p
   - if current_user.resume_file_name.eql? nil

@@ -1,3 +1,11 @@
+.options
+  - if !@seeker.has_resume?
+    This User has not Uploaded a resume
+  -else
+    = link_to "View My Resume", @seeker.resume.url
+  - if !@seeker.has_bid_from_employer?(current_user)
+    = link_to 'Send Bid', new_employers_bidding_path(:seeker_id => @seeker.id)
+
 %h2= @seeker.to_s + "'s Profile"
 
 %p
@@ -5,11 +13,4 @@
 
 %p
   About Me:
-  = @seeker.about_me
-   
-%p
-- if !@seeker.has_resume?
-  This User has not Uploaded a resume
--else
-  %p
-    = link_to "View My Resume", @seeker.resume.url
+  = simple_format @seeker.about_me

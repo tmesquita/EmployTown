@@ -96,6 +96,10 @@ class User < ActiveRecord::Base
   def has_resume?
     !self.resume_file_name.eql? nil
   end
+  
+  def has_bid_from_employer?(user)
+    Bidding.find(:all, :conditions => {:seeker_id => self.id, :employer_id => user.id}).count > 0
+  end
 
   protected
   
