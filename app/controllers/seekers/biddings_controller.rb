@@ -3,7 +3,8 @@ class Seekers::BiddingsController < Seekers::SeekersController
   # GET /biddings.xml
   def index
     @biddings = current_user.get_my_seeker_biddings
-
+    @interested_biddings = current_user.get_my_interested_biddings
+    @uninterested_biddings = current_user.get_my_uninterested_biddings
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @biddings }
@@ -51,25 +52,29 @@ class Seekers::BiddingsController < Seekers::SeekersController
   
   def interested
     @bidding = Bidding.find(params[:id])
-    @bidding.interested = true
-    if @bidding.save
-      format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
-      format.xml  { head :ok }
-    else
-      format.html { render :action => "edit" }
-      format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+    @bidding.interested = 1
+    respond_to do |format|
+      if @bidding.save
+        format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+      end
     end
   end
   
   def not_interested
     @bidding = Bidding.find(params[:id])
-    @bidding.interested = false
-    if @bidding.save
-      format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
-      format.xml  { head :ok }
-    else
-      format.html { render :action => "edit" }
-      format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+    @bidding.interested = 0
+    respond_to do |format|
+      if @bidding.save
+        format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
+      end
     end
   end
 end

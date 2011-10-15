@@ -67,6 +67,22 @@ class User < ActiveRecord::Base
   def get_my_employer_biddings
     return Bidding.find(:all, :conditions => {:employer_id => self.id})
   end
+
+  def get_my_interested_biddings
+    if self.seeking.eql? "seeker"
+      return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 1})
+    else
+      return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => 1})
+    end
+  end
+
+  def get_my_uninterested_biddings
+    if self.seeking.eql? "seeker"
+      return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 0})
+    else
+      return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => 0})
+    end
+  end
   
   def add_company(company_id)
     self.company_id = company_id

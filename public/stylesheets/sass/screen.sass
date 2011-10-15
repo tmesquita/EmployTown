@@ -1,14 +1,23 @@
 /* Standard Variables */
+$std_weight: 100
+$std_font_family: Aleksandra, helvetica, arial, sans-serif
+
 
 /* Color Variables */
 $primary: #0A477A
 $secondary: #529EDD
-$light_accent: #77AFDD
-$dark_accent: #0A477A
 $light: #B1D3EB
-$background: #f0f0f0
-/* Style Variables */
-$std_weight: 100
+$light_final_gradient: #77AFDD
+$light_initial_gradient: #B1D3EB
+$primary_background: #EEE
+$light_text_accent: #EEE
+$dark_initial_gradient: #4D4D4C
+$dark_final_gradient: #3D3D3C
+
+
+/* Other Variables */
+$secondary_font_family: Elega, helvetica, arial, sans-serif
+
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false)
@@ -20,24 +29,27 @@ $std_weight: 100
     -moz-box-shadow: $x $y $blur $spread $color
     -webkit-box-shadow: $x $y $blur $spread $color
     box-shadow: $x $y $blur $spread $color
+
+@mixin linear_gradient($point, $start_color, $start_percent, $end_color, $end_percent)
+  background: linear-gradient($point, $start_color $start_percent, $end_color $end_percent)
+  background: -o-linear-gradient($point, $start_color $start_percent, $end_color, $end_percent)
+  background: -moz-linear-gradient($point, $start_color $start_percent, $end_color $end_percent)
+  background: -webkit-linear-gradient($point, $start_color $start_percent, $end_color $end_percent)
+  background: -webkit-gradient(linear, $point, color-stop($start_percent, $start_color), color-stop($end_percent, $end_color))
+  background: -ms-linear-gradient($point, $start_color $start_percent, $end_color $end_percent)
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color')
   
-@mixin std_form_input
-  border: solid .1em #999
-  box-shadow: 0 0 3px #aaa
-  margin: 0
+@mixin form_text_input($border: solid .1em #999, $box-shadow: 0 0 3px #aaa, $margin: 0)
+  border: $border
+  @include box_shadow(0, 0, 3px, 0px, #aaa)
+  margin: $margin
   
 @mixin std_button_link
   color: #fff
   font-weight: 300
   
   background: $light
-  background: -moz-linear-gradient(top, $light 0%, $light_accent 100%)
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $light), color-stop(100%, $light_accent))
-  background: -webkit-linear-gradient(top, $light 0%, $light_accent 100%)
-  background: -o-linear-gradient(top, $light 0%, $light_accent 100%)
-  background: -ms-linear-gradient(top, $light 0%, $light_accent 100%)
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d3eb', endColorstr='#77afdd',GradientType=0 )
-  background: linear-gradient(top, $light 0%, $light_accent 100%)
+  @include linear_gradient(top, $light_initial_gradient, 0%, $light_final_gradient, 100%)
   
   border-bottom: solid 1px $secondary
   border-radius: 7px
@@ -46,6 +58,7 @@ $std_weight: 100
   
   padding: .45em .7em .3em .7em
 
+/* Fonts Face Declarations */
 @font-face
   font-family: 'Aleksandra'
   src: url(/fonts/AleksandraC_regular.otf)
@@ -54,10 +67,11 @@ $std_weight: 100
   font-family: 'Elega'
   src: url(/fonts/Elega_Medium.otf)
 
+
 /* General Page Styles */
 html, body
   margin: 0
-  font-family: Aleksandra, helvetica, arial, sans-serif
+  font-family: $std_font_family
   background: url(/images/web_pattern3.png)
 
 h1, h2, h3, h4, h5, h6
@@ -67,7 +81,6 @@ a
   color: $primary
   text-decoration: none
   &:hover
-    color: $dark_accent
     text-decoration: underline
 
 .clear
@@ -88,68 +101,46 @@ a
     font-weight: $std_weight
 
 .header
-  //background-color: $light
   width: 100%
-  height: 100px
+  height: 110px
   margin: 0 0 3em 0
+
+  ul, li
+    margin: 0
+    padding: 0
+
   .navcontainer
     width: 85%
     margin: 0 auto
     padding-right: 15px
   .topnav
     height: 50px
-    //background: #4d4d4c
-    background-image: linear-gradient(bottom, rgb(61,61,60) 15%, rgb(77,77,76) 65%)
-    background-image: -o-linear-gradient(bottom, rgb(61,61,60) 15%, rgb(77,77,76) 65%)
-    background-image: -moz-linear-gradient(bottom, rgb(61,61,60) 15%, rgb(77,77,76) 65%)
-    background-image: -webkit-linear-gradient(bottom, rgb(61,61,60) 15%, rgb(77,77,76) 65%)
-    background-image: -ms-linear-gradient(bottom, rgb(61,61,60) 15%, rgb(77,77,76) 65%)
+    @include linear_gradient(top, $dark_initial_gradient, 15%, $dark_final_gradient, 65%)
     @include box_shadow
 
     #logo
       margin: 32px 0 0 0 
       width: 350px
-      float: left
       line-height: 2em
-      //text-align: center
-      //background: #EEE
-      text-shadow: 0 1px 1px #fff
-      //font-family: Elega, helvetica, arial, sans-serif
-      font-family: Elega
-      font-weight: 100
-      //@include box_shadow(0, 0, 2px, .5px, #888)
+      text-shadow: 0 1px 1px $light_text_accent
+      font-family: $secondary_font_family
       font-size: 3.8em
-      //border-radius: 0 0 5px 5px
       a
-        color: $dark_accent
         text-decoration: none
         &:hover
-          //color: $primary
-    .quick-nav, .contact-us
-      //top: 0
-      //right: 10%
+    #quick-nav
       height: 30px
-      float: right
       font-size: .9em
-      //position: absolute
-      //padding: .25em
-      //margin: .6em .3em 0 0
-      margin: 18px 0 0 0
-      //border-bottom: solid .3em $dark_accent
+      margin: 10px 0 0 0
       a
-        color: #EEE
-        padding: 0 .3em
+        color: $primary_background
         &:hover
           text-decoration: none
-    .contact-us
-      margin: 8px 0 0 0
-      .smallmargin
+      .small-margin-left
         margin-left: 10px
-      .largemargin
-        margin-left: 20px
+      .large-margin-left
+        margin-left: 25px
       .menuitem
-        margin-left: 10px
-        float: left
         height: 30px
         line-height: 2.2em
         font-size: 1.1em
@@ -157,67 +148,34 @@ a
           width: 30px
           height: 30px
           opacity: .7
+          padding: 0
           &:hover
             opacity: 1
-  .bottomnav
-  //position: relative
-  //padding: 1.5em 0 1.5em 0
-  //border-top: solid 5em #3d3d3c
-  //@include box_shadow
-
-  //#3d3d3c
-  
-  ul, li
-    margin: 0
-    padding: 0
-    
-  ul
-    list-style: none
-    li
-      display: inline-block
-      font-size: 1.2em
-      //padding: 0 0 0 2.5em
-      padding: 0 1em
-      border-right: 1px dashed $primary
-      height: 30px
-      line-height: 1.7em
-      text-align: center
-    .noborder
-      border: none
-  //#logo
-  //  width: 400px
-  //  height: 150px
-  //  line-height: 2.1em
-  //  text-align: center
-  //  background: white
-  //  font-size: 4em
-  //  a
-  //    text-decoration: none
-  //    &:hover
-  //      color: $primary
       
-  .nav
-    padding: 1.8em 0 0 0
+  #main-nav
+    padding: 2.5em 0 0 0
     float: right
+    ul#menu
+      list-style: none
+      li
+        display: inline-block
+        font-size: 1.2em
+        padding: 0 1em
+        border-right: 1px dashed $primary
+        height: 30px
+        line-height: 1.7em
+        text-align: center
+      .noborder
+        border: none
     
     a
       color: $primary
       text-decoration: none
-      text-shadow: 0 1px 0 #EEE
+      text-shadow: 0 1px 0 $light_text_accent
       padding: 0 .5em
       &:hover
-        color: $dark_accent
-        text-shadow: 0 1px 0 #eee
         border-bottom: 2px solid $primary
-
-  //h1
-  //  font-size: 3.3em
-  //  padding: 0
-  //  margin: 0
-  //  float: left
-  //  color: $dark_accent
-  //  text-shadow: 0 1px 0 #eee
-  //  font-weight: $std_weight
+    
     
   .search
     position: absolute
@@ -225,20 +183,20 @@ a
     right: 10%
     input[type=text]
       padding: .40em
-      @include std_form_input
+      @include form_text_input
     
 .container 
   padding: 2em 0 2em 0
   margin: 0 0 4em 0
 
-  .catchphrase
+  .catch-phrase
     text-align: center
     margin-top: 70px
     font-size: 3em
     text-shadow: 0 1px #eee
 
   .content
-    background: #EEE
+    background: $primary_background
     padding: 1em
     border-radius: 5px
     -webkit-box-shadow: 0 0 1px 1px #888
@@ -265,29 +223,25 @@ a
     margin: .5em 0 1em 0
     padding: 0
 
-  .formcontainer
+  .form-container
     width: 60%
     margin: 70px auto 0 auto
-    .formtitle
+    .form-title
       font-size: 2em
-    .signup
+    .signup-login
       margin-top: -20px
     
   form
     margin: 1em 0 1em 0
     padding: 1em
-    //width: 60%
-    //background-color: $background
-    background: #EEE
+    background: $primary_background
     font-weight: $std_weight
-    //outline: solid .15em $primary
     -webkit-box-shadow: 0 0 1px 1px #888
     -webkit-border-radius: 5px
-    //margin: 100px auto 0 auto
     
     input[type=text], input[type=password]
       padding: .75em
-      @include std_form_input
+      @include form_text_input
       width: 40%
       
     input[type=submit]
@@ -301,28 +255,28 @@ a
       width: 40%
       font-size: 1.2em
     
-.footer
-  padding: 1em 0 1em 0
-  border-top: solid .2em $light
-  background-color: $background
-  font-weight: $std_weight
-  .body
-    width: 60%
-  
-  .triple-column
-    width: 30%
-    
-    ul, li
-      margin: 0
-      padding: .15em 0 .15em 0
-    ul
-      list-style: none
-      
-  #left, #center
-    float: left
-    
-  #center
-    margin: 0 5%
-    
-  #right
-    float: right
+//.footer
+//  padding: 1em 0 1em 0
+//  border-top: solid .2em $light
+//  background-color: $primary-background
+//  font-weight: $std_weight
+//  .body
+//    width: 60%
+//  
+//  .triple-column
+//    width: 30%
+//    
+//    ul, li
+//      margin: 0
+//      padding: .15em 0 .15em 0
+//    ul
+//      list-style: none
+//      
+//  #left, #center
+//    float: left
+//    
+//  #center
+//    margin: 0 5%
+//    
+//  #right
+//    float: right//

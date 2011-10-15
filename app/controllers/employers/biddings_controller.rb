@@ -1,9 +1,12 @@
 class Employers::BiddingsController < Employers::EmployersController
+  before_filter :require_company
+
   # GET /biddings
   # GET /biddings.xml
   def index
     @biddings = current_user.get_my_employer_biddings
-
+    @interested_biddings = current_user.get_my_interested_biddings
+    @uninterested_biddings = current_user.get_my_uninterested_biddings
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @biddings }
@@ -83,3 +86,11 @@ class Employers::BiddingsController < Employers::EmployersController
     end
   end
 end
+
+private
+
+  def require_company
+    if !current_user.belongs_to_company?
+      redirect_to employers_companies_path      
+    end 
+  end

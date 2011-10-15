@@ -18,16 +18,14 @@
     .header
       .topnav
         .navcontainer
-          #logo=link_to 'EmployTown', root_url
+          #logo.left=link_to 'EmployTown', root_url
           = quick_nav(current_user)
           .clear
       .bottomnav
         .navcontainer
           = general_nav(current_user)
-      .body
-        -##logo=link_to 'EmployTown', root_url
-        
-        = search(current_user)
+      -#.body
+        -#= search(current_user)
       .clear
     .container
       .body
