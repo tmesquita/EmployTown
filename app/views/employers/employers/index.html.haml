@@ -5,5 +5,8 @@
     You Currently Work For:
     = current_user.company
   - else
-    You need to update your company information
-    = link_to 'New Company', new_employers_company_path  
+    You need to update your company information. 
+    %br
+    You will not be able to bid on anyone until you do so
+    %br
+    = link_to 'Update Company Info', employers_companies_path  
