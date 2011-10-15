@@ -1,5 +1,9 @@
 %h2 Welcome Employer!
 
 %p
-  You Currently Work For:
-  = current_user.company
+  - if current_user.belongs_to_company?
+    You Currently Work For:
+    = current_user.company
+  - else
+    You need to update your company information
+    = link_to 'New Company', new_employers_company_path  
