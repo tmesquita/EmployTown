@@ -60,14 +60,14 @@ class User < ActiveRecord::Base
       find(:all, :conditions => ['first_name LIKE UPPER(?) OR last_name LIKE UPPER(?)', "%#{search}%", "%#{search}%"])
   end
 
-  def get_my_seeker_biddings
-    return Bidding.find(:all, :conditions => {:seeker_id => self.id})
+  def get_my_biddings
+    if self.seeking.eql? "seeker"
+      return Bidding.find(:all, :conditions => {:seeker_id => self.id})
+    else
+      return Bidding.find(:all, :conditions => {:employer_id => self.id})
+    end
   end
   
-  def get_my_employer_biddings
-    return Bidding.find(:all, :conditions => {:employer_id => self.id})
-  end
-
   def get_my_interested_biddings
     if self.seeking.eql? "seeker"
       return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 1})

@@ -23,13 +23,19 @@
 -#
 -#= link_to 'New Bidding', new_employers_bidding_path
 %p
+  - if @biddings.count > 0
+    Bids awaiting reply:
+    - @biddings.each do |@bidding|
+      = render :partial => "bidding"
+    %br
   -if @interested_biddings.count > 0
     Bids you are interested in:
     - @interested_biddings.each do |@bidding|
-      = render :partial => "bidding"
+      = render :partial => "interestedbidding"
+    %br
   -if @uninterested_biddings.count > 0
     Bids you are not interested in:
     - @uninterested_biddings.each do |@bidding|
       = render :partial => "uninterestedbidding"
-  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0
+  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
     You currently have no bids
