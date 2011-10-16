@@ -49,7 +49,7 @@ class Employers::BiddingsController < Employers::EmployersController
     @bidding.date = Time.now
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(employers_bidding_path(@bidding), :notice => 'Bidding was successfully created.') }
+        format.html { redirect_to(employers_biddings_path, :notice => 'Bidding was successfully created.') }
         format.xml  { render :xml => @bidding, :status => :created, :location => @bidding }
       else
         format.html { render :action => "new" }
