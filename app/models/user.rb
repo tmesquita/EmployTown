@@ -57,7 +57,11 @@ class User < ActiveRecord::Base
 
   def self.search(search)
       search.upcase
-      find(:all, :conditions => ['first_name LIKE UPPER(?) OR last_name LIKE UPPER(?)', "%#{search}%", "%#{search}%"])
+      if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
+        find(:all, :conditions => ['first_name LIKE UPPER(?) OR last_name LIKE UPPER(?)', "%#{search}%", "%#{search}%"])
+      else
+        find(:all, :conditions => ['first_name ILIKE UPPER(?) OR last_name ILIKE UPPER(?)', "%#{search}%", "%#{search}%"])
+      end
   end
 
   def get_my_biddings
