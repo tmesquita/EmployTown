@@ -134,6 +134,18 @@ a {
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0; }
+  .container .flash.success {
+    padding: 0.3em 0.3em 0.2em 0.3em;
+    background-color: #32cd99;
+    border: solid 1px #28ae7b; }
+  .container .flash.notice {
+    padding: 0.3em 0.3em 0.2em 0.3em;
+    background-color: #b1d3eb;
+    border: solid 1px #529edd; }
+  .container .flash.error {
+    padding: 0.3em 0.3em 0.2em 0.3em;
+    background-color: #fff0f0;
+    border: solid 1px #990000; }
   .container .catch-phrase {
     text-align: center;
     margin-top: 70px;

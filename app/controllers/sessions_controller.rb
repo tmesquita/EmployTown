@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password], params[:remember_me])
       if user
-        flash[:notice] = "You have logged in!"
-        redirect_back_or_to seekers_root_url
+        #flash[:success] = "You have logged in!"
+        redirect_back_or_to home_url_for(user)
       else
         flash.now.alert = "Email or password was invalid"
         render :new
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   
   def destroy
     logout
-      flash[:notice] = "Logged out!"
+      #flash[:error] = "Logged out!"
       redirect_to root_url 
   end
 
