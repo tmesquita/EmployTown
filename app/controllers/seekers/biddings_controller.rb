@@ -55,7 +55,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 1
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(seekers_biddings_path, :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,7 +69,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 0
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(seekers_bidding_path(@bidding), :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(seekers_biddings_path, :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

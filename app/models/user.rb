@@ -66,9 +66,9 @@ class User < ActiveRecord::Base
 
   def get_my_biddings
     if self.seeking.eql? "seeker"
-      return Bidding.find(:all, :conditions => {:seeker_id => self.id})
+      return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => nil})
     else
-      return Bidding.find(:all, :conditions => {:employer_id => self.id})
+      return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => nil})
     end
   end
   
