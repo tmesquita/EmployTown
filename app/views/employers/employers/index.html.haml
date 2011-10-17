@@ -2,8 +2,8 @@
 
 %p
   - if current_user.belongs_to_company?
-    You Currently Work For:
-    = current_user.company
+    You are currently hiring for
+    = link_to current_user.company, edit_employers_company_path(current_user.company)
   - else
     You need to update your company information. 
     %br
