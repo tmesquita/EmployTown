@@ -1,6 +1,6 @@
 class Seekers::UsersController < Seekers::SeekersController
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_user_url(params[:user_url])
   end
   
   def show

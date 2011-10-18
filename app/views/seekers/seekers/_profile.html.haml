@@ -1,0 +1,24 @@
+.options
+  - if current_user.resume_file_name.eql? nil
+    = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
+  -else
+    %p
+      = link_to "View My Resume", @user.resume.url
+
+-#%h2= @user.to_s + "'s Profile"
+
+%p
+  = image_tag @user.photo.url(:regular)
+
+#info_container
+  %p
+    %h2 Personal Info:
+  %p
+    Name:
+    = @user.first_name + " " + @user.last_name
+  %p
+    Email:
+    = @user.email
+  %p
+    URL:
+    = @user.user_url

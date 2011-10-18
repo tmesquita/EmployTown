@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
+  #validates :user_url, :uniqueness => true
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
   
@@ -16,6 +17,8 @@ class User < ActiveRecord::Base
   default_scope :include => :role
   
   before_create :assign_role
+
+  before_create :assign_default_url
   
   has_attached_file :photo, 
                     :styles => { :thumb => "150x150>", :regular => "300x300>" },
@@ -105,9 +108,17 @@ class User < ActiveRecord::Base
     Bidding.find(:all, :conditions => {:seeker_id => self.id, :employer_id => user.id}).count > 0
   end
 
+  def self.has_user_url?
+    !self.user_url.eql? nil
+  end
+
   protected
   
-  def assign_role
-    self.role = Role.find_by_name(self.seeking) if role.nil?
-  end
+    def assign_role
+      self.role = Role.find_by_name(self.seeking) if role.nil?
+    end
+  
+    def assign_default_url
+      self.user_url = rand(2**256).to_s(36)[0..15]
+    end
 end
