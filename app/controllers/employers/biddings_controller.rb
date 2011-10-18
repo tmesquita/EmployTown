@@ -4,7 +4,7 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings
   # GET /biddings.xml
   def index
-    @biddings = current_user.get_my_employer_biddings
+    @biddings = current_user.get_my_biddings
     @interested_biddings = current_user.get_my_interested_biddings
     @uninterested_biddings = current_user.get_my_uninterested_biddings
     respond_to do |format|
@@ -49,7 +49,7 @@ class Employers::BiddingsController < Employers::EmployersController
     @bidding.date = Time.now
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(employers_bidding_path(@bidding), :notice => 'Bidding was successfully created.') }
+        format.html { redirect_to(employers_biddings_path, :notice => 'Bidding was successfully created.') }
         format.xml  { render :xml => @bidding, :status => :created, :location => @bidding }
       else
         format.html { render :action => "new" }

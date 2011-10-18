@@ -179,59 +179,69 @@ a:hover {
 .header #main-nav a:hover {
   border-bottom: 2px solid #0a477a;
 }
-/* line 180, sass/screen.sass */
-.header .search {
-  position: absolute;
-  bottom: -2.3em;
-  right: 10%;
-}
-/* line 184, sass/screen.sass */
-.header .search input[type=text] {
-  padding: 0.4em;
-  border: solid 0.1em #999999;
-  -moz-box-shadow: 0 0 3px 0px #aaaaaa;
-  -webkit-box-shadow: 0 0 3px 0px #aaaaaa;
-  box-shadow: 0 0 3px 0px #aaaaaa;
-  margin: 0;
-}
 
-/* line 188, sass/screen.sass */
+/* line 179, sass/screen.sass */
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0;
 }
-/* line 192, sass/screen.sass */
+/* line 183, sass/screen.sass */
+.container .flash.success {
+  padding: 0.8em 0.8em 0.7em 0.8em;
+  background-color: #32cd99;
+  border: solid 1px #28ae7b;
+}
+/* line 187, sass/screen.sass */
+.container .flash.notice {
+  padding: 0.8em 0.8em 0.7em 0.8em;
+  background-color: #b1d3eb;
+  border: solid 1px #529edd;
+}
+/* line 191, sass/screen.sass */
+.container .flash.error {
+  padding: 0.8em 0.8em 0.7em 0.8em;
+  background-color: #fff0f0;
+  border: solid 1px #990000;
+}
+/* line 196, sass/screen.sass */
 .container .catch-phrase {
   text-align: center;
   margin-top: 70px;
   font-size: 3em;
   text-shadow: 0 1px #eeeeee;
 }
-/* line 198, sass/screen.sass */
+/* line 202, sass/screen.sass */
 .container .content {
   background: #eeeeee;
   padding: 1em;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 1px 1px #888888;
 }
-/* line 204, sass/screen.sass */
+/* line 208, sass/screen.sass */
 .container .user, .container .bidding {
+  background-color: #eeeeee;
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 208, sass/screen.sass */
+/* line 213, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 211, sass/screen.sass */
-.container .user .options, .container .bidding .options {
+/* line 216, sass/screen.sass */
+.container .user img, .container .bidding img {
+  max-height: 75px;
+  float: left;
+  padding: 0 1em 0 0;
+}
+/* line 221, sass/screen.sass */
+.container .options {
   float: right;
   font-weight: 100;
 }
-/* line 214, sass/screen.sass */
-.container .user .options a, .container .bidding .options a {
+/* line 224, sass/screen.sass */
+.container .options a {
   color: white;
   font-weight: 300;
   background: #b1d3eb;
@@ -249,31 +259,29 @@ a:hover {
   padding: 0.45em 0.7em 0.3em 0.7em;
   font-size: 0.85em;
 }
-/* line 217, sass/screen.sass */
-.container .user img, .container .bidding img {
-  max-height: 75px;
-  float: left;
-  padding: 0 1em 0 0;
-}
-/* line 222, sass/screen.sass */
+/* line 228, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 226, sass/screen.sass */
+/* line 233, sass/screen.sass */
+.container .search input[type=submit] {
+  margin: 0;
+}
+/* line 236, sass/screen.sass */
 .container .form-container {
   width: 60%;
   margin: 70px auto 0 auto;
 }
-/* line 229, sass/screen.sass */
+/* line 239, sass/screen.sass */
 .container .form-container .form-title {
   font-size: 2em;
 }
-/* line 231, sass/screen.sass */
+/* line 241, sass/screen.sass */
 .container .form-container .signup-login {
   margin-top: -20px;
 }
-/* line 234, sass/screen.sass */
+/* line 244, sass/screen.sass */
 .container form {
   margin: 1em 0 1em 0;
   padding: 1em;
@@ -282,8 +290,8 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   -webkit-border-radius: 5px;
 }
-/* line 242, sass/screen.sass */
-.container form input[type=text], .container form input[type=password] {
+/* line 252, sass/screen.sass */
+.container form input[type=text], .container form input[type=password], .container form textarea {
   padding: 0.75em;
   border: solid 0.1em #999999;
   -moz-box-shadow: 0 0 3px 0px #aaaaaa;
@@ -292,12 +300,12 @@ a:hover {
   margin: 0;
   width: 40%;
 }
-/* line 247, sass/screen.sass */
+/* line 257, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 251, sass/screen.sass */
+/* line 261, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;

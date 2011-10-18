@@ -1,33 +1,18 @@
-%h1 Listing biddings
-
--#%table
--#  %tr
--#    %th employer 
--#    %th Seeker 
--#    %th Date 
--#    %th Comment
--#    %th Interested 
--#    %th  
--#    %th  
--#
--#  - @biddings.each do |bidding|
--#    %tr
--#      %td= bidding.employer_id  
--#      %td= bidding.seeker_id  
--#      %td= bidding.date  
--#      %td= bidding.comment
--#      %td= bidding.interested
--#      %td= link_to 'Show', employers_bidding_path(bidding)  
--#      %td= link_to 'Edit', edit_employers_bidding_path(bidding)  
--#      %td= link_to 'Destroy', employers_bidding_path(bidding), :confirm => 'Are you sure?', :method => :delete
--#
--#= link_to 'New Bidding', new_employers_bidding_path
+%h1 Bids and Offers
 %p
+  - if @biddings.count > 0
+    Bids awaiting reply:
+    - @biddings.each do |@bidding|
+      = render :partial => "bidding"
+    %br
   -if @interested_biddings.count > 0
     Bids you are interested in:
     - @interested_biddings.each do |@bidding|
-      = render :partial => "bidding"
+      = render :partial => "interestedbidding"
+    %br
   -if @uninterested_biddings.count > 0
     Bids you are not interested in:
     - @uninterested_biddings.each do |@bidding|
       = render :partial => "uninterestedbidding"
+  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
+    You currently have no bids

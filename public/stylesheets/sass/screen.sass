@@ -176,18 +176,22 @@ a
       &:hover
         border-bottom: 2px solid $primary
     
-    
-  .search
-    position: absolute
-    bottom: -2.3em
-    right: 10%
-    input[type=text]
-      padding: .40em
-      @include form_text_input
-    
 .container 
   padding: 2em 0 2em 0
   margin: 0 0 4em 0
+  
+  .flash.success
+    padding: .8em .8em .7em .8em
+    background-color: #32CD99
+    border: solid 1px #28AE7B
+  .flash.notice
+    padding: .8em .8em .7em .8em
+    background-color: $light
+    border: solid 1px $secondary
+  .flash.error
+    padding: .8em .8em .7em .8em
+    background-color: #FFF0F0
+    border: solid 1px #900
 
   .catch-phrase
     text-align: center
@@ -202,26 +206,32 @@ a
     -webkit-box-shadow: 0 0 1px 1px #888
   
   .user, .bidding
+    background-color: $primary_background
     outline: solid 1px $primary
     padding: 1em
     margin: .5em 0 .5em 0
     p
       margin: 0
       padding: 0
-    .options
-      float: right
-      font-weight: $std_weight
-      a
-        @include std_button_link
-        font-size: .85em
     img
       max-height: 75px
       float: left
       padding: 0 1em 0 0
+      
+  .options
+    float: right
+    font-weight: $std_weight
+    a
+      @include std_button_link
+      font-size: .85em
   
   h1, h2, h3
     margin: .5em 0 1em 0
     padding: 0
+    
+  .search
+    input[type=submit]
+      margin: 0
 
   .form-container
     width: 60%
@@ -239,7 +249,7 @@ a
     -webkit-box-shadow: 0 0 1px 1px #888
     -webkit-border-radius: 5px
     
-    input[type=text], input[type=password]
+    input[type=text], input[type=password], textarea
       padding: .75em
       @include form_text_input
       width: 40%

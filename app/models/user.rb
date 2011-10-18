@@ -57,17 +57,21 @@ class User < ActiveRecord::Base
 
   def self.search(search)
       search.upcase
-      find(:all, :conditions => ['first_name LIKE UPPER(?) OR last_name LIKE UPPER(?)', "%#{search}%", "%#{search}%"])
+      if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
+        find(:all, :conditions => ["first_name LIKE UPPER(?) OR last_name LIKE UPPER(?) OR first_name || ' ' || last_name LIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%"])
+      else
+        find(:all, :conditions => ["first_name ILIKE UPPER(?) OR last_name ILIKE UPPER(?) OR first_name || ' ' || last_name ILIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%"])
+      end
   end
 
-  def get_my_seeker_biddings
-    return Bidding.find(:all, :conditions => {:seeker_id => self.id})
+  def get_my_biddings
+    if self.seeking.eql? "seeker"
+      return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => nil})
+    else
+      return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => nil})
+    end
   end
   
-  def get_my_employer_biddings
-    return Bidding.find(:all, :conditions => {:employer_id => self.id})
-  end
-
   def get_my_interested_biddings
     if self.seeking.eql? "seeker"
       return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 1})
@@ -91,6 +95,14 @@ class User < ActiveRecord::Base
   
   def belongs_to_company?
     !self.company_id.eql? nil
+  end
+
+  def has_resume?
+    !self.resume_file_name.eql? nil
+  end
+  
+  def has_bid_from_employer?(user)
+    Bidding.find(:all, :conditions => {:seeker_id => self.id, :employer_id => user.id}).count > 0
   end
 
   protected

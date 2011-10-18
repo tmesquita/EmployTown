@@ -1,5 +1,12 @@
 %h2 Welcome Employer!
 
 %p
-  You Currently Work For:
-  = current_user.company
+  - if current_user.belongs_to_company?
+    You are currently hiring for
+    = link_to current_user.company, edit_employers_company_path(current_user.company)
+  - else
+    You need to update your company information. 
+    %br
+    You will not be able to bid on anyone until you do so
+    %br
+    = link_to 'Update Company Info', employers_companies_path  

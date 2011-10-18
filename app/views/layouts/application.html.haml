@@ -29,7 +29,9 @@
       .clear
     .container
       .body
-        %p{:id => "notice"}= notice 
+        - unless flash.empty?
+          - flash.each do |key, msg|
+            %div{:class => "flash #{key}"}= msg
         = yield
     -#.footer
     -#  .body
