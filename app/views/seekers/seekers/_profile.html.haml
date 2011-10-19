@@ -5,11 +5,20 @@
     %p
       = link_to "View My Resume", @user.resume.url
 
-%h2= @user.to_s + "'s Profile"
+-#%h2= @user.to_s + "'s Profile"
 
 %p
   = image_tag @user.photo.url(:regular)
 
-%p
-  About Me:
-  = simple_format @user.about_me
+#info_container
+  %p
+    %h2 Personal Info:
+  %p
+    Name:
+    = @user.first_name + " " + @user.last_name
+  %p
+    Email:
+    = @user.email
+  %p
+    URL:
+    = @user.user_url

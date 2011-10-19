@@ -1,10 +1,12 @@
-%h1 Search for potential employees
+%h1 Search For Potential Employees
 =render :partial => "layouts/search"
 
 - unless params[:search].blank?
   - if @users.count == 0 and @tags.count == 0
     No users found with that search criteria
   -else
+    %p
+      Displaying #{pluralize(@users.count + @tags.count, 'user')}.
     - unless @users.count == 0
       - for @user in @users
         = render :partial => "user"

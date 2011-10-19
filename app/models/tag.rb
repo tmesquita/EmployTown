@@ -13,4 +13,9 @@ class Tag < ActiveRecord::Base
         find(:all, :conditions => ['tag ILIKE UPPER(?)', "%#{search}%"])
       end
   end
+  
+  protected
+    def remove_duplicates(tags)
+
+    end
 end
