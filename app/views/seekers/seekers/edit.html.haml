@@ -1,0 +1,22 @@
+.options.right
+  - if current_user.resume_file_name.eql? nil
+    = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
+  -else
+    %p
+      = link_to "View My Resume", @user.resume.url
+
+%h1= @user.first_name + ' ' + @user.last_name
+.left-column.left
+
+  = image_tag @user.photo.url(:regular)
+  
+  #info-container
+    %p
+      = @user.email
+    %p
+      = "employtown.com/" + @user.user_url
+
+.right-column.left
+  .right-column-container
+    = render :partial => 'form'
+  .back= link_to 'Back', seekers_root_path

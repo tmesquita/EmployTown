@@ -4,6 +4,34 @@ class Seekers::SeekersController < ApplicationController
   def index
     @user = current_user
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    # Current user being updated
+    @user = User.find(params[:id])
+
+    # Check to see if user with the url of the user_url post parameter exists
+    @user_exists = User.find_by_user_url(params[:user][:user_url])
+
+    # if a record exists and doesn't match current user, throw an error
+    if @user_exists && @user_exists != @user
+      flash[:notice] = 'URL is already taken!'
+      redirect_to seekers_edit_info_path(@user)
+    else
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to(seekers_edit_info_path(@user), :notice => @user.first_name + ' was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
+      end   
+    end 
+  end
   
   protected
 
