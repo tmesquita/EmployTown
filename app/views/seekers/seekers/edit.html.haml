@@ -1,3 +1,6 @@
+- content_for :title do
+  Edit Your Profile
+
 .options.right
   - if current_user.resume_file_name.eql? nil
     = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
