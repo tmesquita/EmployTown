@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20111018193317) do
     t.datetime "resume_updated_at"
     t.integer  "company_id"
     t.string   "about_me"
-    t.text     "experience"
+    t.text     "ideal_role"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

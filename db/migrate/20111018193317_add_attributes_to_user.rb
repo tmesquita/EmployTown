@@ -1,9 +1,9 @@
 class AddAttributesToUser < ActiveRecord::Migration
   def self.up
-    add_column :users, :experience, :text
+    add_column :users, :ideal_role, :text
   end
 
   def self.down
-    drop_column :users, :experience
+    remove_column :users, :ideal_role
   end
 end
