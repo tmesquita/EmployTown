@@ -228,10 +228,10 @@ a
     a
       @include std_button_link
       font-size: 1.2em
-      text-decoration: none
-      text-shadow: 0 1px #EEE
+      //text-decoration: none
+      //text-shadow: 0 1px #EEE
       &:hover
-        border-bottom: 2px solid
+        //border-bottom: 2px solid
   
   h1, h2, h3
     margin: .5em 0 1em 0
@@ -248,15 +248,16 @@ a
       font-size: 2em
     .signup-login
       margin-top: -20px
+  
+  .form
+    padding: 1em
+    background: $primary_background
+    @include box_shadow(0, 0, 1px, 1px, #888)
+    @include border_radius
     
   form
     margin: 1em 0 1em 0
-    padding: 1em
-    background: $primary_background
     font-weight: $std_weight
-    @include box_shadow(0,0, 1px, 1px, #888)
-    @include border_radius
-    
     input[type=text], input[type=password], textarea
       padding: .75em
       @include form_text_input
@@ -265,6 +266,9 @@ a
     input[type=submit]
       margin-left: 42%
       font-size: 1em
+
+    input[type=file]
+      width: 175px
       
     label
       text-align: right
@@ -272,6 +276,8 @@ a
       float: left
       width: 40%
       font-size: 1.2em
+  .edit-profile
+    margin: -10px 0 10px 0
 
   .left-column
     margin-right: 100px

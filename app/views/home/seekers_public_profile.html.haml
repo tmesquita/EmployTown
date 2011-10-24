@@ -1,0 +1,29 @@
+- content_for :title do
+  = @user.first_name + " " + @user.last_name + "'s Profile"
+
+.options.right
+  - if !@user.resume_file_name.eql? nil
+    = link_to "View My Resume", @user.resume.url
+
+
+%h1= @user.first_name + ' ' + @user.last_name
+
+
+.clear
+
+.left-column.left
+  = image_tag @user.photo.url(:regular)
+
+  
+  #info-container
+    %p
+      = @user.email
+
+.right-column.left
+  .right-column-container
+    %p
+      %span.title About Me:
+      = @user.about_me
+    %p
+      %span.title How I Add Value:
+      = @user.ideal_role

@@ -21,14 +21,11 @@ class Seekers::SeekersController < ApplicationController
       flash[:notice] = 'URL is already taken!'
       redirect_to seekers_edit_info_path(@user)
     else
-      respond_to do |format|
-        if @user.update_attributes(params[:user])
-          format.html { redirect_to(seekers_edit_info_path(@user), :notice => @user.first_name + ' was successfully updated.') }
-          format.xml  { head :ok }
-        else
-          format.html { render :action => "edit" }
-          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-        end
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Your profile was sucessfully updated."
+        redirect_to(seekers_edit_info_path(@user))
+      else
+        render :action => "edit"
       end   
     end 
   end

@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
-  #validates :user_url, :uniqueness => true
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
   

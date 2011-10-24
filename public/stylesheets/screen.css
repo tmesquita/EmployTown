@@ -248,12 +248,6 @@ a:hover {
   font-weight: 300;
   padding: 0.45em 0.7em 0.3em 0.7em;
   font-size: 1.2em;
-  text-decoration: none;
-  text-shadow: 0 1px #eeeeee;
-}
-/* line 233, sass/screen.sass */
-.container .options a:hover {
-  border-bottom: 2px solid;
 }
 /* line 236, sass/screen.sass */
 .container h1, .container h2, .container h3 {
@@ -278,11 +272,9 @@ a:hover {
   margin-top: -20px;
 }
 /* line 252, sass/screen.sass */
-.container form {
-  margin: 1em 0 1em 0;
+.container .form {
   padding: 1em;
   background: #eeeeee;
-  font-weight: 100;
   -moz-box-shadow: 0 0 1px 1px #888888;
   -webkit-box-shadow: 0 0 1px 1px #888888;
   box-shadow: 0 0 1px 1px #888888;
@@ -290,7 +282,12 @@ a:hover {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 260, sass/screen.sass */
+/* line 258, sass/screen.sass */
+.container form {
+  margin: 1em 0 1em 0;
+  font-weight: 100;
+}
+/* line 261, sass/screen.sass */
 .container form input[type=text], .container form input[type=password], .container form textarea {
   padding: 0.75em;
   border: solid 0.1em #999999;
@@ -300,12 +297,16 @@ a:hover {
   margin: 0;
   width: 40%;
 }
-/* line 265, sass/screen.sass */
+/* line 266, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 269, sass/screen.sass */
+/* line 270, sass/screen.sass */
+.container form input[type=file] {
+  width: 175px;
+}
+/* line 273, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;
@@ -313,16 +314,20 @@ a:hover {
   width: 40%;
   font-size: 1.2em;
 }
-/* line 276, sass/screen.sass */
+/* line 279, sass/screen.sass */
+.container .edit-profile {
+  margin: -10px 0 10px 0;
+}
+/* line 282, sass/screen.sass */
 .container .left-column {
   margin-right: 100px;
 }
-/* line 279, sass/screen.sass */
+/* line 285, sass/screen.sass */
 .container .right-column {
   width: 60%;
   padding: 0;
 }
-/* line 282, sass/screen.sass */
+/* line 288, sass/screen.sass */
 .container .right-column .right-column-container {
   background: #eeeeee;
   -moz-box-shadow: 0 0 1px 1px #888888;
@@ -333,17 +338,17 @@ a:hover {
   border-radius: 5px;
   padding: 10px;
 }
-/* line 287, sass/screen.sass */
+/* line 293, sass/screen.sass */
 .container .right-column .right-column-container form {
   -moz-box-shadow: 0 0 0 0 #aaaaaa;
   -webkit-box-shadow: 0 0 0 0 #aaaaaa;
   box-shadow: 0 0 0 0 #aaaaaa;
 }
-/* line 289, sass/screen.sass */
+/* line 295, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 291, sass/screen.sass */
+/* line 297, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }
