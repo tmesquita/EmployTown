@@ -30,7 +30,6 @@ EmployTown::Application.routes.draw do
   end
   
   namespace :employers do
-    match 'users/:user_url/edit' => 'users#edit'
     resources :biddings
     resources :companies
     resources :users
@@ -40,7 +39,7 @@ EmployTown::Application.routes.draw do
   end
   
   namespace :seekers do
-    match '/users/:user_url/edit' => 'users#edit'
+    
     resources :tags
     resources :biddings do
       get 'interested', :on => :member
@@ -48,6 +47,8 @@ EmployTown::Application.routes.draw do
     end
     resources :companies, :only => [:show]
     resources :users, :only => [:edit, :show, :update]
+    get '/info/:id/edit' => 'seekers#edit', :as => 'edit_info'
+    match '/users/:id/update' => 'seekers#update'
     root :to => "seekers#index"
   end
 

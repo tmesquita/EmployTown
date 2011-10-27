@@ -1,24 +1,34 @@
-.options
+.options.right
   - if current_user.resume_file_name.eql? nil
     = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
   -else
-    %p
-      = link_to "View My Resume", @user.resume.url
+    
+    = link_to "View My Resume", @user.resume.url
 
--#%h2= @user.to_s + "'s Profile"
 
-%p
+%h1= link_to @user.first_name + ' ' + @user.last_name, @user.user_url, :title => 'View My Profile'
+
+.edit-profile
+  = link_to 'Edit My Profile', seekers_edit_info_path(current_user)
+
+.clear
+
+.left-column.left
   = image_tag @user.photo.url(:regular)
 
-#info_container
-  %p
-    %h2 Personal Info:
-  %p
-    Name:
-    = @user.first_name + " " + @user.last_name
-  %p
-    Email:
-    = @user.email
-  %p
-    URL:
-    = @user.user_url
+  
+  #info-container
+    %p
+      = @user.email
+    %p
+      = "employtown.com/" + @user.user_url
+
+.right-column.left
+  .right-column-container
+    -#.right= link_to 'Edit', seekers_edit_info_path(current_user)
+    %p
+      %span.title About Me:
+      = @user.about_me
+    %p
+      %span.title How I Add Value:
+      = @user.ideal_role

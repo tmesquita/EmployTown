@@ -1,0 +1,40 @@
+- content_for :title do
+  Edit Your Profile
+
+-form_for [:seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
+  
+  %h1= link_to @user.first_name + ' ' + @user.last_name, url_for(:controller => '/home', :action => 'seekers_public_profile', :user_url => @user.user_url), :title => 'View My Profile'
+  .left-column.left
+  
+    = image_tag @user.photo.url(:regular)
+    
+    #info-container
+      = f.file_field :photo
+  
+  .right-column.left
+    .right-column-container
+      %p
+        - if @user.errors.any?
+          - for message in @user.errors.full_messages
+            %li= message
+      
+      %p 
+        = f.label :about_me
+        = f.text_area :about_me, :size => "22x8"  
+    
+      %p
+        = f.label 'How I Add Value'
+        = f.text_area :ideal_role, :size => "22x8"
+
+      %p
+        = f.label :resume
+        = f.file_field :resume
+    
+      %p
+        = f.label :user_url
+        = f.text_field :user_url
+
+      %p
+        = f.submit
+    
+    .back= link_to 'Back', seekers_root_path

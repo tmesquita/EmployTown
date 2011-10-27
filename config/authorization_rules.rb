@@ -27,7 +27,7 @@ authorization do
 end
 
 privileges do
-  privilege :manage, :includes => [:create, :read, :update, :delete, :show]
+  privilege :manage, :includes => [:create, :read, :update, :delete, :show, :update_stuff]
   privilege :read, :includes => [:index, :show]
   privilege :create, :includes => :new
   privilege :update, :includes => [:edit]

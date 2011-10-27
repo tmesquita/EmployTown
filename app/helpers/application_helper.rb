@@ -32,4 +32,16 @@ def search(user)
   end
 end
 
+def logo_link(user)
+  if user
+    if user.is_seeker?
+      seekers_root_url
+    elsif user.is_employer?
+      employers_root_url
+    end
+  else
+    root_url
+  end
+end
+
 end

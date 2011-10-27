@@ -1,3 +1,7 @@
+- content_for :title do
+  Sign Up to Begin Using EmployTown
+
+  
 .form-container
   .form-title
     %h2 Sign Up
@@ -6,4 +10,5 @@
       Already have an account?
       = link_to 'Login', login_path
 
-  = render :partial => 'form'
+  .form
+    = render :partial => 'form'

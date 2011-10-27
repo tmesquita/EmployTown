@@ -1,0 +1,20 @@
+- form_for [:seekers, @user], :url => {:action => 'update'}, :html => { :multipart => true } do |f|
+  %p
+    - if @user.errors.any?
+      - for message in @user.errors.full_messages
+        %li= message
+  
+  %p 
+    = f.label :about_me
+    = f.text_area :about_me, :size => "22x8"  
+
+  %p
+    = f.label :how_i_add_value
+    = f.text_area :ideal_role, :size => "22x8"
+
+  %p
+    = f.label :user_url
+    = f.text_field :user_url
+
+  %p
+    = f.submit
