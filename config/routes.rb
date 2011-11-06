@@ -5,7 +5,7 @@ EmployTown::Application.routes.draw do
   get "search/search"
 
   root :to => "home#index"
-
+  get "about_us" => "home#about_us"
 
   
   get "sessions/new"
