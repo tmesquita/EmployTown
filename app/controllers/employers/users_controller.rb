@@ -1,6 +1,6 @@
 class Employers::UsersController < Employers::EmployersController
   def edit
-    @user = User.find_by_user_url(params[:user_url])
+    @user = User.find_by_id(params[:id])
   end
 
   def show
