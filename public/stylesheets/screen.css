@@ -12,7 +12,7 @@
 
 /* General Page Styles */
 html, body {
-  margin: 0 0 2em 0;
+  margin: 0 0 4em 0;
   font-family: Aleksandra, helvetica, arial, sans-serif;
   background: url(/images/web_pattern3.png); }
 
@@ -163,12 +163,13 @@ a {
       float: left;
       padding: 0 1em 0 0; }
   .container .options {
-    font-weight: 100; }
+    font-weight: 100;
+    float: right; }
     .container .options a {
       color: #0a477a;
       font-weight: 300;
       padding: 0.45em 0.7em 0.3em 0.7em;
-      font-size: 1.2em; }
+      font-size: 0.95em; }
   .container h1, .container h2, .container h3 {
     margin: 0.5em 0 1em 0;
     padding: 0; }
