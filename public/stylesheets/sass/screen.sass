@@ -75,7 +75,7 @@ $secondary_font_family: Elega, helvetica, arial, sans-serif
 
 /* General Page Styles */
 html, body
-  margin: 0
+  margin: 0 0 2em 0
   font-family: $std_font_family
   background: url(/images/web_pattern3.png)
 
@@ -132,7 +132,6 @@ a
       font-size: 3.8em
       a
         text-decoration: none
-        &:hover
     #quick-nav
       height: 30px
       font-size: .9em
@@ -184,6 +183,9 @@ a
 .container 
   padding: 2em 0 2em 0
   margin: 0 0 4em 0
+  
+  .flash
+    margin: 0 0 1em 0
   
   .flash.success
     padding: .8em .8em .7em .8em
@@ -262,6 +264,9 @@ a
       padding: .75em
       @include form_text_input
       width: 40%
+    textarea
+      height: 7em
+      width: 45%
       
     input[type=submit]
       margin-left: 42%

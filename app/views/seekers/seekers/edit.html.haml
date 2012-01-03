@@ -20,11 +20,11 @@
       
       %p 
         = f.label :about_me
-        = f.text_area :about_me, :size => "22x8"  
+        = f.text_area :about_me  
     
       %p
         = f.label 'How I Add Value'
-        = f.text_area :ideal_role, :size => "22x8"
+        = f.text_area :ideal_role
 
       %p
         = f.label :resume
@@ -37,4 +37,4 @@
       %p
         = f.submit
     
-    .back= link_to 'Back', seekers_root_path
+    -#.back= link_to 'Back', seekers_root_path
