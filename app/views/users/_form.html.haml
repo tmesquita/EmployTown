@@ -4,27 +4,32 @@
       - for message in @user.errors.full_messages
         = message
   
-  %p
+  .input
     = f.label :email
+    %br
     = f.text_field :email
   
-  %p
+  .input
     = f.label :password
+    %br
     = f.password_field :password
   
-  %p
+  .input
     = f.label :password_confirmation
+    %br
     = f.password_field :password_confirmation
   
-  %p
+  .input
     = f.label :first_name
+    %br
     = f.text_field :first_name
   
-  %p
+  .input
     = f.label :last_name
+    %br
     = f.text_field :last_name
   
-  %p
+  .input
     = f.label :profile_type
     = f.radio_button :seeking, "seeker", {:checked => true}
     Job Seeker&nbsp;&nbsp;&nbsp;
@@ -32,5 +37,5 @@
     Employer
 
 
-  %p
+  .submit
     = f.submit "Sign up!"
