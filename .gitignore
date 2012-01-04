@@ -7,5 +7,7 @@ log/development.log
 .DS_Store
 tmp/pids/server.pid
 .sass-cache/
-tmp/sass-cache/*
+tmp/**
+*.sassc
+
 
