@@ -16,7 +16,8 @@
 .left-column.left
   = image_tag @user.photo.url(:regular)
 
-  
+  .small-title
+    My Information
   #info-container
     %p
       = @user.email

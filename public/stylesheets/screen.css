@@ -322,12 +322,28 @@ a:hover {
 .container .left-column {
   margin-right: 100px;
 }
-/* line 285, sass/screen.sass */
+/* line 284, sass/screen.sass */
+.container .left-column .small-title {
+  margin: 30px 0 10px;
+  font-size: 1.3em;
+}
+/* line 287, sass/screen.sass */
+.container .left-column #info-container {
+  background: #eeeeee;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  -moz-box-shadow: 0 0 1px 1px #888888;
+  -webkit-box-shadow: 0 0 1px 1px #888888;
+  box-shadow: 0 0 1px 1px #888888;
+}
+/* line 293, sass/screen.sass */
 .container .right-column {
   width: 60%;
   padding: 0;
 }
-/* line 288, sass/screen.sass */
+/* line 296, sass/screen.sass */
 .container .right-column .right-column-container {
   background: #eeeeee;
   -moz-box-shadow: 0 0 1px 1px #888888;
@@ -338,17 +354,17 @@ a:hover {
   border-radius: 5px;
   padding: 10px;
 }
-/* line 293, sass/screen.sass */
+/* line 301, sass/screen.sass */
 .container .right-column .right-column-container form {
   -moz-box-shadow: 0 0 0 0 #aaaaaa;
   -webkit-box-shadow: 0 0 0 0 #aaaaaa;
   box-shadow: 0 0 0 0 #aaaaaa;
 }
-/* line 295, sass/screen.sass */
+/* line 303, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 297, sass/screen.sass */
+/* line 305, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }
