@@ -15,7 +15,7 @@
 /* General Page Styles */
 /* line 77, sass/screen.sass */
 html, body {
-  margin: 0;
+  margin: 0 0 4em 0;
   font-family: Aleksandra, helvetica, arial, sans-serif;
   background: url(/images/web_pattern3.png);
 }
@@ -105,55 +105,55 @@ a:hover {
 .header .topnav #logo a {
   text-decoration: none;
 }
-/* line 136, sass/screen.sass */
+/* line 135, sass/screen.sass */
 .header .topnav #quick-nav {
   height: 30px;
   font-size: 0.9em;
   margin: 10px 0 0 0;
 }
-/* line 140, sass/screen.sass */
+/* line 139, sass/screen.sass */
 .header .topnav #quick-nav a {
   color: #eeeeee;
 }
-/* line 142, sass/screen.sass */
+/* line 141, sass/screen.sass */
 .header .topnav #quick-nav a:hover {
   text-decoration: none;
 }
-/* line 144, sass/screen.sass */
+/* line 143, sass/screen.sass */
 .header .topnav #quick-nav .small-margin-left {
   margin-left: 10px;
 }
-/* line 146, sass/screen.sass */
+/* line 145, sass/screen.sass */
 .header .topnav #quick-nav .large-margin-left {
   margin-left: 25px;
 }
-/* line 148, sass/screen.sass */
+/* line 147, sass/screen.sass */
 .header .topnav #quick-nav .menuitem {
   height: 30px;
   line-height: 2.2em;
   font-size: 1.1em;
 }
-/* line 152, sass/screen.sass */
+/* line 151, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img {
   width: 30px;
   height: 30px;
   opacity: 0.7;
   padding: 0;
 }
-/* line 157, sass/screen.sass */
+/* line 156, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img:hover {
   opacity: 1;
 }
-/* line 160, sass/screen.sass */
+/* line 159, sass/screen.sass */
 .header #main-nav {
   padding: 2.5em 0 0 0;
   float: right;
 }
-/* line 163, sass/screen.sass */
+/* line 162, sass/screen.sass */
 .header #main-nav ul#menu {
   list-style: none;
 }
-/* line 165, sass/screen.sass */
+/* line 164, sass/screen.sass */
 .header #main-nav ul#menu li {
   display: inline-block;
   font-size: 1.2em;
@@ -163,53 +163,57 @@ a:hover {
   line-height: 1.7em;
   text-align: center;
 }
-/* line 173, sass/screen.sass */
+/* line 172, sass/screen.sass */
 .header #main-nav ul#menu .noborder {
   border: none;
 }
-/* line 176, sass/screen.sass */
+/* line 175, sass/screen.sass */
 .header #main-nav a {
   color: #0a477a;
   text-decoration: none;
   text-shadow: 0 1px 0 #eeeeee;
   padding: 0 0.5em;
 }
-/* line 181, sass/screen.sass */
+/* line 180, sass/screen.sass */
 .header #main-nav a:hover {
   border-bottom: 2px solid #0a477a;
 }
 
-/* line 184, sass/screen.sass */
+/* line 183, sass/screen.sass */
 .container {
   padding: 2em 0 2em 0;
   margin: 0 0 4em 0;
 }
-/* line 188, sass/screen.sass */
+/* line 187, sass/screen.sass */
+.container .flash {
+  margin: 0 0 1em 0;
+}
+/* line 190, sass/screen.sass */
 .container .flash.success {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #32cd99;
   border: solid 1px #28ae7b;
 }
-/* line 192, sass/screen.sass */
+/* line 194, sass/screen.sass */
 .container .flash.notice {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #b1d3eb;
   border: solid 1px #529edd;
 }
-/* line 196, sass/screen.sass */
+/* line 198, sass/screen.sass */
 .container .flash.error {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #fff0f0;
   border: solid 1px #990000;
 }
-/* line 201, sass/screen.sass */
+/* line 203, sass/screen.sass */
 .container .catch-phrase {
   text-align: center;
   margin-top: 70px;
-  font-size: 3em;
+  font-size: 1.5em;
   text-shadow: 0 1px #eeeeee;
 }
-/* line 207, sass/screen.sass */
+/* line 209, sass/screen.sass */
 .container .content {
   background: #eeeeee;
   padding: 1em;
@@ -220,58 +224,59 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   box-shadow: 0 0 1px 1px #888888;
 }
-/* line 213, sass/screen.sass */
+/* line 215, sass/screen.sass */
 .container .user, .container .bidding {
   background-color: #eeeeee;
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 218, sass/screen.sass */
+/* line 220, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 221, sass/screen.sass */
+/* line 223, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 226, sass/screen.sass */
+/* line 228, sass/screen.sass */
 .container .options {
   font-weight: 100;
+  float: right;
 }
-/* line 228, sass/screen.sass */
+/* line 231, sass/screen.sass */
 .container .options a {
   color: #0a477a;
   font-weight: 300;
   padding: 0.45em 0.7em 0.3em 0.7em;
-  font-size: 1.2em;
+  font-size: 0.95em;
 }
-/* line 236, sass/screen.sass */
+/* line 239, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 241, sass/screen.sass */
+/* line 244, sass/screen.sass */
 .container .search input[type=submit] {
   margin: 0;
 }
-/* line 244, sass/screen.sass */
+/* line 247, sass/screen.sass */
 .container .form-container {
   width: 60%;
   margin: 70px auto 0 auto;
 }
-/* line 247, sass/screen.sass */
+/* line 250, sass/screen.sass */
 .container .form-container .form-title {
   font-size: 2em;
 }
-/* line 249, sass/screen.sass */
+/* line 252, sass/screen.sass */
 .container .form-container .signup-login {
   margin-top: -20px;
 }
-/* line 252, sass/screen.sass */
+/* line 255, sass/screen.sass */
 .container .form {
   padding: 1em;
   background: #eeeeee;
@@ -282,12 +287,12 @@ a:hover {
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 258, sass/screen.sass */
+/* line 261, sass/screen.sass */
 .container form {
   margin: 1em 0 1em 0;
   font-weight: 100;
 }
-/* line 261, sass/screen.sass */
+/* line 264, sass/screen.sass */
 .container form input[type=text], .container form input[type=password], .container form textarea {
   padding: 0.75em;
   border: solid 0.1em #999999;
@@ -297,16 +302,21 @@ a:hover {
   margin: 0;
   width: 40%;
 }
-/* line 266, sass/screen.sass */
+/* line 268, sass/screen.sass */
+.container form textarea {
+  height: 7em;
+  width: 45%;
+}
+/* line 272, sass/screen.sass */
 .container form input[type=submit] {
   margin-left: 42%;
   font-size: 1em;
 }
-/* line 270, sass/screen.sass */
+/* line 276, sass/screen.sass */
 .container form input[type=file] {
   width: 175px;
 }
-/* line 273, sass/screen.sass */
+/* line 279, sass/screen.sass */
 .container form label {
   text-align: right;
   padding: 0.25em 1em 0 0;
@@ -314,20 +324,20 @@ a:hover {
   width: 40%;
   font-size: 1.2em;
 }
-/* line 279, sass/screen.sass */
+/* line 285, sass/screen.sass */
 .container .edit-profile {
   margin: -10px 0 10px 0;
 }
-/* line 282, sass/screen.sass */
+/* line 288, sass/screen.sass */
 .container .left-column {
   margin-right: 100px;
 }
-/* line 284, sass/screen.sass */
+/* line 290, sass/screen.sass */
 .container .left-column .small-title {
   margin: 30px 0 10px;
   font-size: 1.3em;
 }
-/* line 287, sass/screen.sass */
+/* line 293, sass/screen.sass */
 .container .left-column #info-container {
   background: #eeeeee;
   -moz-border-radius: 5px;
@@ -338,12 +348,12 @@ a:hover {
   -webkit-box-shadow: 0 0 1px 1px #888888;
   box-shadow: 0 0 1px 1px #888888;
 }
-/* line 293, sass/screen.sass */
+/* line 299, sass/screen.sass */
 .container .right-column {
   width: 60%;
   padding: 0;
 }
-/* line 296, sass/screen.sass */
+/* line 302, sass/screen.sass */
 .container .right-column .right-column-container {
   background: #eeeeee;
   -moz-box-shadow: 0 0 1px 1px #888888;
@@ -354,17 +364,17 @@ a:hover {
   border-radius: 5px;
   padding: 10px;
 }
-/* line 301, sass/screen.sass */
+/* line 307, sass/screen.sass */
 .container .right-column .right-column-container form {
   -moz-box-shadow: 0 0 0 0 #aaaaaa;
   -webkit-box-shadow: 0 0 0 0 #aaaaaa;
   box-shadow: 0 0 0 0 #aaaaaa;
 }
-/* line 303, sass/screen.sass */
+/* line 309, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 305, sass/screen.sass */
+/* line 311, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }

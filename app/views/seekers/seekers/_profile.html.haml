@@ -1,8 +1,7 @@
 .options.right
   - if current_user.resume_file_name.eql? nil
-    = link_to 'Please Upload a Resume', edit_seekers_user_path(current_user)
+    = link_to 'Please Upload a Resume', seekers_edit_info_path(current_user)
   -else
-    
     = link_to "View My Resume", @user.resume.url
 
 
@@ -22,7 +21,7 @@
     %p
       = @user.email
     %p
-      = "employtown.com/" + @user.user_url
+      = request.env['HTTP_HOST'].to_s + "/" + @user.user_url
 
 .right-column.left
   .right-column-container

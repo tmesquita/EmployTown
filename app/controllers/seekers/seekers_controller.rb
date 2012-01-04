@@ -17,9 +17,15 @@ class Seekers::SeekersController < ApplicationController
     @user_exists = User.find_by_user_url(params[:user][:user_url])
 
     # if a record exists and doesn't match current user, throw an error
-    if @user_exists && @user_exists != @user
-      flash[:notice] = 'URL is already taken!'
-      redirect_to seekers_edit_info_path(@user)
+    # and checks to make sure the url contains alpha-numeric values 
+    if (@user_exists && @user_exists != @user) || !(params[:user][:user_url].to_s.match(/[^\w]/).eql?(nil))
+      if !params[:user][:user_url].to_s.match(/[^\w]/).eql? nil
+        flash[:notice] = 'URL is invalid. Must be an alpha-numeric character.'
+        redirect_to seekers_edit_info_path(@user)
+      else      
+        flash[:notice] = 'URL is already taken!'
+        redirect_to seekers_edit_info_path(@user)
+      end
     else
       if @user.update_attributes(params[:user])
         flash[:notice] = "Your profile was sucessfully updated."

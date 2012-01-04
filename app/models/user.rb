@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
+  validates_uniqueness_of :user_url
   
   belongs_to :role
   belongs_to :company
