@@ -1,41 +1,46 @@
 - form_for @user do |f|
-  %p
-    - if @user.errors.any?
+  - if @user.errors.any?
+    .error
       - for message in @user.errors.full_messages
-        = message
+        .message
+          = message
+        %br
+  .input-container
+    .left
+      .input
+        = f.label :email
+        %br
+        = f.text_field :email
+      
+      .input
+        = f.label :password
+        %br
+        = f.password_field :password
+      
+      .input
+        = f.label :password_confirmation
+        %br
+        = f.password_field :password_confirmation
+      .submit
+        = f.submit "Sign up!"
+    
+    .right
+      .input
+        = f.label :first_name
+        %br
+        = f.text_field :first_name
+      
+      .input
+        = f.label :last_name
+        %br
+        = f.text_field :last_name
+      
+      .input
+        -#= f.label :profile_type
+        = f.radio_button :seeking, "seeker", {:checked => true}
+        Job Seeker&nbsp;&nbsp;&nbsp;
+        = f.radio_button :seeking, "employer"
+        Employer
+    .clear
+  .clear
   
-  .input
-    = f.label :email
-    %br
-    = f.text_field :email
-  
-  .input
-    = f.label :password
-    %br
-    = f.password_field :password
-  
-  .input
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation
-  
-  .input
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  
-  .input
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
-  
-  .input
-    = f.label :profile_type
-    = f.radio_button :seeking, "seeker", {:checked => true}
-    Job Seeker&nbsp;&nbsp;&nbsp;
-    = f.radio_button :seeking, "employer"
-    Employer
-
-
-  .submit
-    = f.submit "Sign up!"

@@ -15,25 +15,25 @@
     = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
 	
   %body
-    .header
-      .topnav
-        .navcontainer
-          #logo.left= link_to 'EmployTown', logo_link(current_user)
-          = quick_nav(current_user)
-          .clear
-      .bottomnav
-        .navcontainer
-          = general_nav(current_user)
-      -#.body
-        -#= search(current_user)
-      .clear
-    .container
-      .body
-        - unless flash.empty?
-          - flash.each do |key, msg|
-            %div{:class => "flash #{key}"}= msg
-        = yield
-    -#  .body
-    -#    = render :partial => "layouts/footer"
-      -#.clear
-    -#.clear
+    .wrapper
+      .header
+        .topnav
+          .navcontainer
+            #logo.left= link_to 'EmployTown', logo_link(current_user)
+            = quick_nav(current_user)
+            .clear
+        .bottomnav
+          .navcontainer
+            = general_nav(current_user)
+        -#.body
+          -#= search(current_user)
+        .clear
+      .container
+        .body
+          - unless flash.empty?
+            - flash.each do |key, msg|
+              %div{:class => "flash #{key}"}= msg
+          = yield
+    .footer
+      .link-container
+        = render :partial => 'layouts/footer'

@@ -38,5 +38,11 @@ module EmployTown
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # fix for field_with_errors div
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+        include ActionView::Helpers::RawOutputHelper
+        raw %(<span class="filed_with_errors">#{html_tag}</span>)
+    end
   end
 end
