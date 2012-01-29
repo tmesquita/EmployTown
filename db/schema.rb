@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20111018193317) do
 
-
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
     t.integer  "seeker_id"
@@ -29,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20111018193317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
-    t.string   "about"
   end
 
   create_table "roles", :force => true do |t|
