@@ -3,31 +3,35 @@
     - if @user.errors.any?
       - for message in @user.errors.full_messages
         = message
-  
-  .input
-    = f.label :email
-    %br
-    = f.text_field :email
-  
-  .input
-    = f.label :password
-    %br
-    = f.password_field :password
-  
-  .input
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation
-  
-  .input
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  
-  .input
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
+  .input-container
+    .left
+      .input
+        = f.label :email
+        %br
+        = f.text_field :email
+      
+      .input
+        = f.label :password
+        %br
+        = f.password_field :password
+      
+      .input
+        = f.label :password_confirmation
+        %br
+        = f.password_field :password_confirmation
 
-  .input
-    = f.submit
+      .submit
+        = f.submit
+    .right
+      .input
+        = f.label :first_name
+        %br
+        = f.text_field :first_name
+      
+      .input
+        = f.label :last_name
+        %br
+        = f.text_field :last_name
+    
+  
+  .clear
