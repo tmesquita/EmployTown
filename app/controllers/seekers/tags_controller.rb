@@ -49,7 +49,7 @@ class Seekers::TagsController < Seekers::SeekersController
     saved = false
     
     for tag_name in @tags do
-      tag = Tag.new(:user => current_user, :tag => tag_name)
+      tag = Tag.new(:user => current_user, :tag => tag_name.strip)
       saved = true if tag.save   
     end
     
