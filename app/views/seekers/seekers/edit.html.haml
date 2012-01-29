@@ -13,32 +13,33 @@
   
   .right-column.left
     .right-column-container
-      %p
-        - if @user.errors.any?
-          - for message in @user.errors.full_messages
-            %li= message
-      
-      .input 
-        = f.label :about_me
-        %br
-        = f.text_area :about_me  
-    
-      .input
-        = f.label 'How I Add Value'
-        %br
-        = f.text_area :ideal_role
-
-      .input
-        = f.label :resume
-        %br
-        = f.file_field :resume
-    
-      .input
-        = f.label :user_url
-        %br
-        = f.text_field :user_url
-
-      .input
-        = f.submit
+      = render :partial => 'form'
+      -#%p
+      -#   - if @user.errors.any?
+      -#     - for message in @user.errors.full_messages
+      -#       %li= message
+      -# 
+      -# .input 
+      -#   = f.label :about_me
+      -#   %br
+      -#   = f.text_area :about_me  
+      -#
+      -# .input
+      -#   = f.label 'How I Add Value'
+      -#   %br
+      -#   = f.text_area :ideal_role
+      -#
+      -# .input
+      -#   = f.label :resume
+      -#   %br
+      -#   = f.file_field :resume
+      -#
+      -# .input
+      -#   = f.label :user_url
+      -#   %br
+      -#   = f.text_field :user_url
+      -#
+      -# .input
+      -#   = f.submit
     
     -#.back= link_to 'Back', seekers_root_path

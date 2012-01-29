@@ -300,7 +300,6 @@ a
   form
     .input
       margin: 0 auto 25px auto
-
     .error
       margin: 0 0 20px 25px
       color: red
@@ -325,8 +324,8 @@ a
       @include border_radius(2px)
       border: 1px solid #AAA
     textarea
-      height: 7em
-      width: 45%
+      height: 3em
+      width: 370px
       
     input[type=submit]
       font-size: 1em
@@ -368,9 +367,21 @@ a
       //background: $primary_background
       //@include box_shadow(0, 0, 1px, 1px, #888)
       //@include border_radius
-      padding: 10px
+      @include border_radius
+      border: 1px solid #CCC
+      width: 400px
+      background: white
+      input[type=text]
+        width: 370px !important
+      input[type=submit]
+        margin-left: 0
+
+      span.label
+        font-size: 1.1em
+
+      padding: 30px
       form
-        @include box_shadow(0, 0, 0, 0)
+        //@include box_shadow(0, 0, 0, 0)
       span.title
         font-size: 1.1em
     .back
