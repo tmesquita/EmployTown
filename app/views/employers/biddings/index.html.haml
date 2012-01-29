@@ -3,7 +3,7 @@
   - if @interested_biddings.count > 0
     Interested Bids:
     - @interested_biddings.each do |@bidding|
-      = render :partial => "interestedbidding"
+      = render :partial => "bidding"
   - if @biddings.count > 0
     Bids awaiting reply:
     - @biddings.each do |@bidding|
@@ -13,4 +13,4 @@
     - @uninterested_biddings.each do |@bidding|
       = render :partial => "bidding"
   - unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
-    You currently have no bids
+    You currently have placed no bids

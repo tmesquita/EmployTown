@@ -1,13 +1,15 @@
 
 = form_tag sessions_path do
-  %p
+  .input
     = label_tag :email
+    %br
     = text_field_tag :email, params[:email]
-  %p
+  .input
     = label_tag :password
+    %br
     = password_field_tag :password
-  %p
+  .input
     = check_box_tag :remember_me, 1, params[:remember_me]
     = label_tag :remember_me
-  %p
+  .submit
     = submit_tag "Log In"
