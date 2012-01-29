@@ -6,9 +6,6 @@
         - @tag.errors.full_messages.each do |msg|
           %li= msg
   
-  %p
-    = f.label :tag
+  .input
     = f.text_field :tag
-  
-  %p
     = f.submit
