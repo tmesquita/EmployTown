@@ -34,6 +34,7 @@
             - flash.each do |key, msg|
               %div{:class => "flash #{key}"}= msg
           = yield
+        .clear
     .footer
       .link-container
         = render :partial => 'layouts/footer'

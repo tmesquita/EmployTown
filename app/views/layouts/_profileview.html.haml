@@ -6,7 +6,6 @@
   - if !@seeker.has_bid_from_employer?(current_user)
     = link_to 'Send a Bid', new_employers_bidding_path(:seeker_id => @seeker.id)
 
-
 %h1= @seeker.first_name + ' ' + @seeker.last_name
 
 .clear
@@ -32,18 +31,3 @@
       %span.title How I Add Value:
       = @seeker.ideal_role
 
--#.options
--#  - if @seeker.has_resume?
--#    = link_to "View My Resume", @seeker.resume.url
--#  - if !@seeker.has_bid_from_employer?(current_user)
--#    = link_to 'Send a Bid', new_employers_bidding_path(:seeker_id => @seeker.id)
--#
--#%h2= @seeker.to_s + "'s Profile"
--#
--#%p
--#  = image_tag @seeker.photo.url(:regular)
--#
--#%p
--#  About Me:
--#  = simple_format @seeker.about_me
-  
