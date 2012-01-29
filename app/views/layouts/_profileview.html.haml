@@ -6,7 +6,6 @@
   - if !@seeker.has_bid_from_employer?(current_user)
     = link_to 'Send a Bid', new_employers_bidding_path(:seeker_id => @seeker.id)
 
-
 %h1= @seeker.first_name + ' ' + @seeker.last_name
 
 .clear

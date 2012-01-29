@@ -8,7 +8,7 @@ class Employers::SeekersController < Employers::EmployersController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @seeker }
+      format.xml  { render :xml => @user }
     end
   end
 
