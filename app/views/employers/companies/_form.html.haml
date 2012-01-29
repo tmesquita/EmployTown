@@ -8,17 +8,20 @@
           %li= msg
 
 
-  %p
+  .input
     = f.label :name
+    %br	
     = f.text_field :name  
 
-  %p
+  .input
     = f.label :url
+    %br
     = f.text_field :url 
     
-  %p
+  .input
     = f.label :description
+    %br
     = f.text_area :description, :size => "44x8"  
 
-  %p
+  .input
     = f.submit  
