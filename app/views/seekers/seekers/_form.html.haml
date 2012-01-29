@@ -8,6 +8,9 @@
     = f.label :resume
     %br
     = f.file_field :resume
+    - if !@user.resume_file_name.eql? nil
+      %p
+        = link_to "Current resume", @user.resume.url
   .input
     = f.label :user_url
     %br
