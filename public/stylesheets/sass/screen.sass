@@ -367,20 +367,21 @@ a
       //background: $primary_background
       //@include box_shadow(0, 0, 1px, 1px, #888)
       //@include border_radius
-      @include border_radius
-      border: 1px solid #CCC
-      width: 400px
-      background: white
-      input[type=text]
-        width: 370px !important
-      input[type=submit]
-        margin-left: 0
-
-      span.label
-        font-size: 1.1em
-
-      padding: 30px
-      form
+      .right-container-form
+        @include border_radius
+        border: 1px solid #CCC
+        width: 400px
+        background: white
+        input[type=text]
+          width: 370px !important
+        input[type=submit]
+          margin-left: 0
+  
+        span.label
+          font-size: 1.1em
+  
+        padding: 30px
+      //form
         //@include box_shadow(0, 0, 0, 0)
       span.title
         font-size: 1.1em

@@ -13,7 +13,7 @@
   
   .right-column.left
     .right-column-container
-      = render :partial => 'form'
+      = render :partial => 'form', :locals => { :f => f}
       -#%p
       -#   - if @user.errors.any?
       -#     - for message in @user.errors.full_messages
