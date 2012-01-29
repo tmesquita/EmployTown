@@ -324,7 +324,7 @@ a:hover {
 }
 /* line 300, sass/screen.sass */
 .container form {
-  margin: 1em 0 1em 0;
+  margin: 1em auto 1em auto;
   font-weight: 100;
 }
 /* line 301, sass/screen.sass */
