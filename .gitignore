@@ -9,5 +9,6 @@ tmp/pids/server.pid
 .sass-cache/
 tmp/**
 *.sassc
+db/*.sqlite3
 
 
