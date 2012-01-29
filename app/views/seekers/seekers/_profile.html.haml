@@ -5,7 +5,7 @@
     = link_to "View My Resume", @user.resume.url
 
 
-%h1= link_to @user.first_name + ' ' + @user.last_name, @user.user_url, :title => 'View My Profile'
+%h1= @user.first_name + ' ' + @user.last_name
 
 .edit-profile
   = link_to 'Edit My Profile', seekers_edit_info_path(current_user)
