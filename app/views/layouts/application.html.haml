@@ -27,7 +27,7 @@
         .bottomnav
           .navcontainer
             #logo.left= link_to 'EmployTown', logo_link(current_user)
-            -#= general_nav(current_user)
+            = general_nav(current_user)
         -#.body
           -#= search(current_user)
       
@@ -37,7 +37,11 @@
           - unless flash.empty?
             - flash.each do |key, msg|
               %div{:class => "flash #{key}"}= msg
-          = yield
+          - if !current_page? root_path
+            .content_container
+              = yield
+          - else
+            = yield
         .clear
     .footer
       .link-container

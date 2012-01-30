@@ -56,35 +56,40 @@ a:hover {
 .body {
   margin: 0 auto;
 }
-/* line 114, sass/screen.sass */
+/* line 113, sass/screen.sass */
+.body .content_container {
+  width: 1000px;
+  margin: 0 auto;
+}
+/* line 117, sass/screen.sass */
 .body p {
   line-height: 140%;
   font-weight: 100;
 }
 
-/* line 118, sass/screen.sass */
+/* line 121, sass/screen.sass */
 .header {
   width: 100%;
   min-width: 1050px;
   height: 120px;
   margin: 0 0 0 0;
 }
-/* line 125, sass/screen.sass */
+/* line 128, sass/screen.sass */
 .header ul, .header li {
   margin: 0;
   padding: 0;
 }
-/* line 129, sass/screen.sass */
+/* line 132, sass/screen.sass */
 .header hr {
   width: 1000px;
 }
-/* line 131, sass/screen.sass */
+/* line 134, sass/screen.sass */
 .header .navcontainer {
   width: 1000px;
   margin: 0 auto;
   padding-right: 15px;
 }
-/* line 137, sass/screen.sass */
+/* line 140, sass/screen.sass */
 .header #logo {
   width: 350px;
   line-height: 1.5em;
@@ -92,11 +97,11 @@ a:hover {
   font-family: Elega, helvetica, arial, sans-serif;
   font-size: 3.2em;
 }
-/* line 144, sass/screen.sass */
+/* line 147, sass/screen.sass */
 .header #logo a {
   text-decoration: none;
 }
-/* line 146, sass/screen.sass */
+/* line 149, sass/screen.sass */
 .header .topnav {
   height: 50px;
   background: linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
@@ -110,7 +115,7 @@ a:hover {
   -webkit-box-shadow: 0 0 5px 2px #aaaaaa;
   box-shadow: 0 0 5px 2px #aaaaaa;
 }
-/* line 151, sass/screen.sass */
+/* line 154, sass/screen.sass */
 .header .topnav #logo {
   margin: 35px 0 0 20px;
   width: 350px;
@@ -119,59 +124,59 @@ a:hover {
   font-family: Elega, helvetica, arial, sans-serif;
   font-size: 3.2em;
 }
-/* line 158, sass/screen.sass */
+/* line 161, sass/screen.sass */
 .header .topnav #logo a {
   text-decoration: none;
 }
-/* line 160, sass/screen.sass */
+/* line 163, sass/screen.sass */
 .header .topnav #quick-nav {
   height: 30px;
   font-size: 0.9em;
   margin: 10px 2% 0 0;
 }
-/* line 164, sass/screen.sass */
+/* line 167, sass/screen.sass */
 .header .topnav #quick-nav a {
   color: #eeeeee;
 }
-/* line 166, sass/screen.sass */
+/* line 169, sass/screen.sass */
 .header .topnav #quick-nav a:hover {
   text-decoration: none;
 }
-/* line 168, sass/screen.sass */
+/* line 171, sass/screen.sass */
 .header .topnav #quick-nav .small-margin-left {
   margin-left: 10px;
 }
-/* line 170, sass/screen.sass */
+/* line 173, sass/screen.sass */
 .header .topnav #quick-nav .large-margin-left {
   margin-left: 25px;
 }
-/* line 172, sass/screen.sass */
+/* line 175, sass/screen.sass */
 .header .topnav #quick-nav .menuitem {
   height: 30px;
   line-height: 2.2em;
   font-size: 1.1em;
 }
-/* line 176, sass/screen.sass */
+/* line 179, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img {
   width: 30px;
   height: 30px;
   opacity: 0.7;
   padding: 0;
 }
-/* line 181, sass/screen.sass */
+/* line 184, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img:hover {
   opacity: 1;
 }
-/* line 184, sass/screen.sass */
+/* line 187, sass/screen.sass */
 .header #main-nav {
   padding: 1.6em 0 0 0;
   float: right;
 }
-/* line 187, sass/screen.sass */
+/* line 190, sass/screen.sass */
 .header #main-nav ul#menu {
   list-style: none;
 }
-/* line 189, sass/screen.sass */
+/* line 192, sass/screen.sass */
 .header #main-nav ul#menu li {
   display: inline-block;
   font-size: 1.1em;
@@ -181,49 +186,49 @@ a:hover {
   line-height: 1.7em;
   text-align: center;
 }
-/* line 197, sass/screen.sass */
+/* line 200, sass/screen.sass */
 .header #main-nav ul#menu .noborder {
   border: none;
 }
-/* line 200, sass/screen.sass */
+/* line 203, sass/screen.sass */
 .header #main-nav a {
   color: #0a477a;
   text-decoration: none;
   text-shadow: 0 1px 0 #eeeeee;
   padding: 0 0.5em;
 }
-/* line 205, sass/screen.sass */
+/* line 208, sass/screen.sass */
 .header #main-nav a:hover {
   border-bottom: 2px solid #0a477a;
 }
 
-/* line 208, sass/screen.sass */
+/* line 211, sass/screen.sass */
 .container {
   padding: 2em 0 180px 0;
 }
-/* line 217, sass/screen.sass */
+/* line 220, sass/screen.sass */
 .container .flash {
   margin: 0 0 1em 0;
 }
-/* line 220, sass/screen.sass */
+/* line 223, sass/screen.sass */
 .container .flash.success {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #32cd99;
   border: solid 1px #28ae7b;
 }
-/* line 224, sass/screen.sass */
+/* line 227, sass/screen.sass */
 .container .flash.notice {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #b1d3eb;
   border: solid 1px #529edd;
 }
-/* line 228, sass/screen.sass */
+/* line 231, sass/screen.sass */
 .container .flash.error {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #fff0f0;
   border: solid 1px #990000;
 }
-/* line 233, sass/screen.sass */
+/* line 236, sass/screen.sass */
 .container .catch-phrase {
   text-align: center;
   margin: 30px auto 0;
@@ -234,179 +239,180 @@ a:hover {
   border-bottom: 1px solid #aaaaaa;
   padding: 20px 70px;
 }
-/* line 244, sass/screen.sass */
+/* line 247, sass/screen.sass */
 .container .content {
   width: 100%;
+  min-width: 1050px;
   margin: 50px auto;
   background: #e3e3e3;
   border-bottom: 1px solid #cccccc;
   border-top: 1px solid #cccccc;
 }
-/* line 254, sass/screen.sass */
+/* line 258, sass/screen.sass */
 .container .content .content_container {
   width: 1000px;
   margin: 0 auto;
   padding: 30px 0;
 }
-/* line 260, sass/screen.sass */
+/* line 264, sass/screen.sass */
 .container .talking {
   font-size: 2.3em;
   margin: 60px auto 30px;
   text-align: center;
   width: 1000px;
 }
-/* line 265, sass/screen.sass */
+/* line 269, sass/screen.sass */
 .container .talking .quote {
   font-size: 0.6em;
   margin: 20px auto;
   width: 82%;
 }
-/* line 269, sass/screen.sass */
+/* line 273, sass/screen.sass */
 .container .talking .quote span.start {
   font-size: 600%;
   float: left;
   margin-left: 20px;
 }
-/* line 273, sass/screen.sass */
+/* line 277, sass/screen.sass */
 .container .talking .quote span.end {
   font-size: 600%;
   float: right;
 }
-/* line 276, sass/screen.sass */
+/* line 280, sass/screen.sass */
 .container .talking .quote span.small {
   font-size: 0.8em;
   line-height: 2.5em;
 }
-/* line 279, sass/screen.sass */
+/* line 283, sass/screen.sass */
 .container .title {
   font-size: 1.8em;
   text-align: center;
 }
-/* line 283, sass/screen.sass */
+/* line 287, sass/screen.sass */
 .container .explanation {
   font-size: 1.1em;
   text-align: center;
   margin-top: 10px;
 }
-/* line 287, sass/screen.sass */
+/* line 291, sass/screen.sass */
 .container #job_seekers {
   width: 490px;
 }
-/* line 290, sass/screen.sass */
+/* line 294, sass/screen.sass */
 .container #job_seekers ul {
   font-size: 1.2em;
   margin-left: 40px;
 }
-/* line 294, sass/screen.sass */
+/* line 298, sass/screen.sass */
 .container #employers {
   width: 490px;
 }
-/* line 297, sass/screen.sass */
+/* line 301, sass/screen.sass */
 .container #employers ul {
   font-size: 1.2em;
   margin-left: 40px;
 }
-/* line 301, sass/screen.sass */
+/* line 305, sass/screen.sass */
 .container .how_it_works {
   margin: 30px auto;
   width: 940px;
 }
-/* line 304, sass/screen.sass */
+/* line 308, sass/screen.sass */
 .container .how_it_works .title {
   font-size: 2.3em;
 }
-/* line 306, sass/screen.sass */
+/* line 310, sass/screen.sass */
 .container .how_it_works .content {
   background: #f2f2f2;
   margin-top: 0;
   padding: 30px;
   border: none;
 }
-/* line 314, sass/screen.sass */
+/* line 318, sass/screen.sass */
 .container .user, .container .bidding {
   background-color: #eeeeee;
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 319, sass/screen.sass */
+/* line 323, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 322, sass/screen.sass */
+/* line 326, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 327, sass/screen.sass */
+/* line 331, sass/screen.sass */
 .container .options {
   font-weight: 100;
   float: right;
 }
-/* line 330, sass/screen.sass */
+/* line 334, sass/screen.sass */
 .container .options a {
   color: #0a477a;
   font-weight: 300;
   padding: 0.45em 0.7em 0.3em 0.7em;
   font-size: 0.95em;
 }
-/* line 338, sass/screen.sass */
+/* line 342, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 343, sass/screen.sass */
+/* line 347, sass/screen.sass */
 .container .search input[type=submit] {
   margin: 0;
 }
-/* line 346, sass/screen.sass */
+/* line 350, sass/screen.sass */
 .container #login-form-container {
   width: 450px;
   margin: 0px auto 0 auto;
 }
-/* line 349, sass/screen.sass */
+/* line 353, sass/screen.sass */
 .container #login-form-container .input {
   width: 350px;
 }
-/* line 351, sass/screen.sass */
+/* line 355, sass/screen.sass */
 .container #login-form-container .submit {
   margin: 0 auto;
   width: 360px;
 }
-/* line 354, sass/screen.sass */
+/* line 358, sass/screen.sass */
 .container #login-form-container input[type=text], .container #login-form-container input[type=password], .container #login-form-container textarea {
   width: 325px;
 }
-/* line 357, sass/screen.sass */
+/* line 361, sass/screen.sass */
 .container #signup-form-container {
   width: 700px;
   margin: 30px auto 0 auto;
 }
-/* line 360, sass/screen.sass */
+/* line 364, sass/screen.sass */
 .container #signup-form-container .input {
   width: 300px;
   margin-left: 25px;
 }
-/* line 363, sass/screen.sass */
+/* line 367, sass/screen.sass */
 .container #signup-form-container .submit {
   width: 200px;
   margin-left: 18px;
 }
-/* line 366, sass/screen.sass */
+/* line 370, sass/screen.sass */
 .container #signup-form-container input[type=text], .container #signup-form-container input[type=password], .container #signup-form-container textarea {
   width: 250px;
 }
-/* line 369, sass/screen.sass */
+/* line 373, sass/screen.sass */
 .container .form-title {
   font-size: 2em;
 }
-/* line 371, sass/screen.sass */
+/* line 375, sass/screen.sass */
 .container .signup-login {
   margin-top: -20px;
 }
-/* line 374, sass/screen.sass */
+/* line 378, sass/screen.sass */
 .container .form {
   padding: 1em;
   background: white;
@@ -415,16 +421,16 @@ a:hover {
   border-radius: 4px;
   border: 1px solid #cccccc;
 }
-/* line 381, sass/screen.sass */
+/* line 385, sass/screen.sass */
 .container form {
   margin: 1em auto 1em auto;
   font-weight: 100;
 }
-/* line 382, sass/screen.sass */
+/* line 386, sass/screen.sass */
 .container form .input {
   margin: 0 auto 25px auto;
 }
-/* line 384, sass/screen.sass */
+/* line 388, sass/screen.sass */
 .container form .error {
   margin: 0 0 20px 25px;
   color: red;
@@ -436,18 +442,18 @@ a:hover {
   border-radius: 2px;
   width: 595px;
 }
-/* line 392, sass/screen.sass */
+/* line 396, sass/screen.sass */
 .container form .error .message {
   height: 8px;
 }
-/* line 394, sass/screen.sass */
+/* line 398, sass/screen.sass */
 .container form .error .error-icon {
   width: 16px;
   height: 16px;
   position: relative;
   top: 2px;
 }
-/* line 401, sass/screen.sass */
+/* line 405, sass/screen.sass */
 .container form input[type=text], .container form input[type=password], .container form textarea {
   padding: 0.8em;
   font-size: 0.9em;
@@ -458,12 +464,12 @@ a:hover {
   border-radius: 2px;
   border: 1px solid #aaaaaa;
 }
-/* line 407, sass/screen.sass */
+/* line 411, sass/screen.sass */
 .container form textarea {
   height: 3em;
   width: 370px;
 }
-/* line 411, sass/screen.sass */
+/* line 415, sass/screen.sass */
 .container form input[type=submit] {
   font-size: 1em;
   margin-left: 7px;
@@ -475,46 +481,46 @@ a:hover {
   border-radius: 3px;
   color: white;
 }
-/* line 419, sass/screen.sass */
+/* line 423, sass/screen.sass */
 .container form input[type=submit]:hover {
   background: #1faeeb;
   opacity: 0.8;
 }
-/* line 423, sass/screen.sass */
+/* line 427, sass/screen.sass */
 .container form input[type=file] {
   width: 175px;
 }
-/* line 426, sass/screen.sass */
+/* line 430, sass/screen.sass */
 .container form label {
   font-size: 1.2em;
 }
-/* line 430, sass/screen.sass */
+/* line 434, sass/screen.sass */
 .container span.name {
   font-size: 2em;
 }
-/* line 432, sass/screen.sass */
+/* line 436, sass/screen.sass */
 .container .edit-profile {
   margin: -10px 0 10px 0;
 }
-/* line 435, sass/screen.sass */
+/* line 439, sass/screen.sass */
 .container .left-column {
   margin-right: 100px;
 }
-/* line 437, sass/screen.sass */
+/* line 441, sass/screen.sass */
 .container .left-column .small-title {
   margin: 30px 0 10px;
   font-size: 1.3em;
 }
-/* line 440, sass/screen.sass */
+/* line 444, sass/screen.sass */
 .container .left-column #info-container {
   padding: 3px;
 }
-/* line 446, sass/screen.sass */
+/* line 450, sass/screen.sass */
 .container .right-column {
   width: 60%;
   padding: 0;
 }
-/* line 453, sass/screen.sass */
+/* line 457, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -524,76 +530,76 @@ a:hover {
   background: white;
   padding: 30px;
 }
-/* line 458, sass/screen.sass */
+/* line 462, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form input[type=text] {
   width: 370px !important;
 }
-/* line 460, sass/screen.sass */
+/* line 464, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form input[type=submit] {
   margin-left: 0;
 }
-/* line 463, sass/screen.sass */
+/* line 467, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form span.label {
   font-size: 1.1em;
 }
-/* line 469, sass/screen.sass */
+/* line 473, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 471, sass/screen.sass */
+/* line 475, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }
 
-/* line 474, sass/screen.sass */
+/* line 478, sass/screen.sass */
 .footer {
   margin-top: -150px;
   clear: both;
   height: 150px;
-  min-width: 915px;
+  min-width: 1050px;
   background: #e3e3e3;
   border-top: 1px solid #cccccc;
 }
-/* line 481, sass/screen.sass */
+/* line 485, sass/screen.sass */
 .footer .link-container {
   width: 60%;
   margin: 0 auto;
   padding-left: 12%;
 }
-/* line 485, sass/screen.sass */
+/* line 489, sass/screen.sass */
 .footer .link-container .triple-column {
   width: 30%;
   margin: 0 auto 0 auto;
 }
-/* line 489, sass/screen.sass */
+/* line 493, sass/screen.sass */
 .footer .link-container .triple-column ul, .footer .link-container .triple-column li {
   margin: 0;
   padding: 0.15em 0 0.15em 0;
 }
-/* line 492, sass/screen.sass */
+/* line 496, sass/screen.sass */
 .footer .link-container .triple-column ul {
   list-style: none;
 }
-/* line 495, sass/screen.sass */
+/* line 499, sass/screen.sass */
 .footer .link-container #left, .footer .link-container #center {
   float: left;
 }
-/* line 498, sass/screen.sass */
+/* line 502, sass/screen.sass */
 .footer .link-container #center {
   margin: 0 5%;
 }
-/* line 501, sass/screen.sass */
+/* line 505, sass/screen.sass */
 .footer .link-container #right {
   float: right;
 }
 
-/* line 504, sass/screen.sass */
+/* line 508, sass/screen.sass */
 .push {
   height: 120px;
   clear: both;
 }
 
-/* line 508, sass/screen.sass */
+/* line 512, sass/screen.sass */
 .wrapper {
   min-height: 100%;
 }
