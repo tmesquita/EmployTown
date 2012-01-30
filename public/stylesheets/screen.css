@@ -54,7 +54,6 @@ a:hover {
 
 /* line 109, sass/screen.sass */
 .body {
-  width: 85%;
   margin: 0 auto;
 }
 /* line 114, sass/screen.sass */
@@ -66,11 +65,10 @@ a:hover {
 /* line 118, sass/screen.sass */
 .header {
   width: 100%;
-  min-width: 915px;
+  min-width: 1050px;
   height: 120px;
   margin: 0 0 0 0;
-  border-bottom: 1px dashed #cccccc;
-  background: #e3e3e3;
+  border-bottom: 1px solid #cccccc;
 }
 /* line 125, sass/screen.sass */
 .header ul, .header li {
@@ -78,13 +76,28 @@ a:hover {
   padding: 0;
 }
 /* line 129, sass/screen.sass */
+.header hr {
+  width: 1000px;
+}
+/* line 131, sass/screen.sass */
 .header .navcontainer {
-  width: 85%;
-  min-width: 900px;
+  width: 1000px;
   margin: 0 auto;
   padding-right: 15px;
 }
-/* line 134, sass/screen.sass */
+/* line 137, sass/screen.sass */
+.header #logo {
+  width: 350px;
+  line-height: 1.5em;
+  text-shadow: 0 1px 1px #eeeeee;
+  font-family: Elega, helvetica, arial, sans-serif;
+  font-size: 3.2em;
+}
+/* line 144, sass/screen.sass */
+.header #logo a {
+  text-decoration: none;
+}
+/* line 146, sass/screen.sass */
 .header .topnav {
   height: 50px;
   background: linear-gradient(top, #4d4d4c 15%, #3d3d3c 65%);
@@ -98,7 +111,7 @@ a:hover {
   -webkit-box-shadow: 0 0 5px 2px #aaaaaa;
   box-shadow: 0 0 5px 2px #aaaaaa;
 }
-/* line 139, sass/screen.sass */
+/* line 151, sass/screen.sass */
 .header .topnav #logo {
   margin: 35px 0 0 20px;
   width: 350px;
@@ -107,59 +120,59 @@ a:hover {
   font-family: Elega, helvetica, arial, sans-serif;
   font-size: 3.2em;
 }
-/* line 146, sass/screen.sass */
+/* line 158, sass/screen.sass */
 .header .topnav #logo a {
   text-decoration: none;
 }
-/* line 148, sass/screen.sass */
+/* line 160, sass/screen.sass */
 .header .topnav #quick-nav {
   height: 30px;
   font-size: 0.9em;
   margin: 10px 2% 0 0;
 }
-/* line 152, sass/screen.sass */
+/* line 164, sass/screen.sass */
 .header .topnav #quick-nav a {
   color: #eeeeee;
 }
-/* line 154, sass/screen.sass */
+/* line 166, sass/screen.sass */
 .header .topnav #quick-nav a:hover {
   text-decoration: none;
 }
-/* line 156, sass/screen.sass */
+/* line 168, sass/screen.sass */
 .header .topnav #quick-nav .small-margin-left {
   margin-left: 10px;
 }
-/* line 158, sass/screen.sass */
+/* line 170, sass/screen.sass */
 .header .topnav #quick-nav .large-margin-left {
   margin-left: 25px;
 }
-/* line 160, sass/screen.sass */
+/* line 172, sass/screen.sass */
 .header .topnav #quick-nav .menuitem {
   height: 30px;
   line-height: 2.2em;
   font-size: 1.1em;
 }
-/* line 164, sass/screen.sass */
+/* line 176, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img {
   width: 30px;
   height: 30px;
   opacity: 0.7;
   padding: 0;
 }
-/* line 169, sass/screen.sass */
+/* line 181, sass/screen.sass */
 .header .topnav #quick-nav .menuitem img:hover {
   opacity: 1;
 }
-/* line 172, sass/screen.sass */
+/* line 184, sass/screen.sass */
 .header #main-nav {
   padding: 1.6em 0 0 0;
   float: right;
 }
-/* line 175, sass/screen.sass */
+/* line 187, sass/screen.sass */
 .header #main-nav ul#menu {
   list-style: none;
 }
-/* line 177, sass/screen.sass */
+/* line 189, sass/screen.sass */
 .header #main-nav ul#menu li {
   display: inline-block;
   font-size: 1.1em;
@@ -169,151 +182,229 @@ a:hover {
   line-height: 1.7em;
   text-align: center;
 }
-/* line 185, sass/screen.sass */
+/* line 197, sass/screen.sass */
 .header #main-nav ul#menu .noborder {
   border: none;
 }
-/* line 188, sass/screen.sass */
+/* line 200, sass/screen.sass */
 .header #main-nav a {
   color: #0a477a;
   text-decoration: none;
   text-shadow: 0 1px 0 #eeeeee;
   padding: 0 0.5em;
 }
-/* line 193, sass/screen.sass */
+/* line 205, sass/screen.sass */
 .header #main-nav a:hover {
   border-bottom: 2px solid #0a477a;
 }
 
-/* line 196, sass/screen.sass */
+/* line 208, sass/screen.sass */
 .container {
   padding: 2em 0 180px 0;
 }
-/* line 205, sass/screen.sass */
+/* line 217, sass/screen.sass */
 .container .flash {
   margin: 0 0 1em 0;
 }
-/* line 208, sass/screen.sass */
+/* line 220, sass/screen.sass */
 .container .flash.success {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #32cd99;
   border: solid 1px #28ae7b;
 }
-/* line 212, sass/screen.sass */
+/* line 224, sass/screen.sass */
 .container .flash.notice {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #b1d3eb;
   border: solid 1px #529edd;
 }
-/* line 216, sass/screen.sass */
+/* line 228, sass/screen.sass */
 .container .flash.error {
   padding: 0.8em 0.8em 0.7em 0.8em;
   background-color: #fff0f0;
   border: solid 1px #990000;
 }
-/* line 221, sass/screen.sass */
+/* line 233, sass/screen.sass */
 .container .catch-phrase {
   text-align: center;
-  margin-top: 70px;
-  font-size: 1.5em;
+  margin: 30px auto 0;
+  font-size: 3em;
+  width: 40%;
   text-shadow: 0 1px #eeeeee;
 }
-/* line 227, sass/screen.sass */
+/* line 241, sass/screen.sass */
 .container .content {
-  background: #eeeeee;
-  padding: 1em;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-box-shadow: 0 0 1px 1px #888888;
-  -webkit-box-shadow: 0 0 1px 1px #888888;
-  box-shadow: 0 0 1px 1px #888888;
+  width: 100%;
+  margin: 50px auto;
+  background: #e3e3e3;
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
 }
-/* line 233, sass/screen.sass */
+/* line 251, sass/screen.sass */
+.container .content .content_container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+/* line 257, sass/screen.sass */
+.container .talking {
+  font-size: 2.3em;
+  margin: 60px auto 30px;
+  text-align: center;
+  width: 1000px;
+}
+/* line 262, sass/screen.sass */
+.container .talking .quote {
+  font-size: 0.6em;
+  margin: 20px auto;
+  width: 82%;
+}
+/* line 266, sass/screen.sass */
+.container .talking .quote span.start {
+  font-size: 600%;
+  float: left;
+  margin-left: 20px;
+}
+/* line 270, sass/screen.sass */
+.container .talking .quote span.end {
+  font-size: 600%;
+  float: right;
+}
+/* line 273, sass/screen.sass */
+.container .talking .quote span.small {
+  font-size: 0.8em;
+  line-height: 2.5em;
+}
+/* line 276, sass/screen.sass */
+.container .title {
+  font-size: 1.8em;
+  text-align: center;
+}
+/* line 280, sass/screen.sass */
+.container .explanation {
+  font-size: 1.1em;
+  text-align: center;
+  margin-top: 10px;
+}
+/* line 284, sass/screen.sass */
+.container #job_seekers {
+  width: 490px;
+}
+/* line 287, sass/screen.sass */
+.container #job_seekers ul {
+  font-size: 1.2em;
+  margin-left: 40px;
+}
+/* line 291, sass/screen.sass */
+.container #employers {
+  width: 490px;
+}
+/* line 294, sass/screen.sass */
+.container #employers ul {
+  font-size: 1.2em;
+  margin-left: 40px;
+}
+/* line 298, sass/screen.sass */
+.container .how_it_works {
+  margin: 30px auto;
+  width: 940px;
+}
+/* line 301, sass/screen.sass */
+.container .how_it_works .title {
+  font-size: 2.3em;
+}
+/* line 303, sass/screen.sass */
+.container .how_it_works .content {
+  background: #f2f2f2;
+  margin-top: 0;
+  padding: 30px;
+  border: none;
+}
+/* line 311, sass/screen.sass */
 .container .user, .container .bidding {
   background-color: #eeeeee;
   outline: solid 1px #0a477a;
   padding: 1em;
   margin: 0.5em 0 0.5em 0;
 }
-/* line 238, sass/screen.sass */
+/* line 316, sass/screen.sass */
 .container .user p, .container .bidding p {
   margin: 0;
   padding: 0;
 }
-/* line 241, sass/screen.sass */
+/* line 319, sass/screen.sass */
 .container .user img, .container .bidding img {
   max-height: 75px;
   float: left;
   padding: 0 1em 0 0;
 }
-/* line 246, sass/screen.sass */
+/* line 324, sass/screen.sass */
 .container .options {
   font-weight: 100;
   float: right;
 }
-/* line 249, sass/screen.sass */
+/* line 327, sass/screen.sass */
 .container .options a {
   color: #0a477a;
   font-weight: 300;
   padding: 0.45em 0.7em 0.3em 0.7em;
   font-size: 0.95em;
 }
-/* line 257, sass/screen.sass */
+/* line 335, sass/screen.sass */
 .container h1, .container h2, .container h3 {
   margin: 0.5em 0 1em 0;
   padding: 0;
 }
-/* line 262, sass/screen.sass */
+/* line 340, sass/screen.sass */
 .container .search input[type=submit] {
   margin: 0;
 }
-/* line 265, sass/screen.sass */
+/* line 343, sass/screen.sass */
 .container #login-form-container {
   width: 450px;
   margin: 0px auto 0 auto;
 }
-/* line 268, sass/screen.sass */
+/* line 346, sass/screen.sass */
 .container #login-form-container .input {
   width: 350px;
 }
-/* line 270, sass/screen.sass */
+/* line 348, sass/screen.sass */
 .container #login-form-container .submit {
   margin: 0 auto;
   width: 360px;
 }
-/* line 273, sass/screen.sass */
+/* line 351, sass/screen.sass */
 .container #login-form-container input[type=text], .container #login-form-container input[type=password], .container #login-form-container textarea {
   width: 325px;
 }
-/* line 276, sass/screen.sass */
+/* line 354, sass/screen.sass */
 .container #signup-form-container {
   width: 700px;
   margin: 30px auto 0 auto;
 }
-/* line 279, sass/screen.sass */
+/* line 357, sass/screen.sass */
 .container #signup-form-container .input {
   width: 300px;
   margin-left: 25px;
 }
-/* line 282, sass/screen.sass */
+/* line 360, sass/screen.sass */
 .container #signup-form-container .submit {
   width: 200px;
   margin-left: 18px;
 }
-/* line 285, sass/screen.sass */
+/* line 363, sass/screen.sass */
 .container #signup-form-container input[type=text], .container #signup-form-container input[type=password], .container #signup-form-container textarea {
   width: 250px;
 }
-/* line 288, sass/screen.sass */
+/* line 366, sass/screen.sass */
 .container .form-title {
   font-size: 2em;
 }
-/* line 290, sass/screen.sass */
+/* line 368, sass/screen.sass */
 .container .signup-login {
   margin-top: -20px;
 }
-/* line 293, sass/screen.sass */
+/* line 371, sass/screen.sass */
 .container .form {
   padding: 1em;
   background: white;
@@ -322,16 +413,16 @@ a:hover {
   border-radius: 4px;
   border: 1px solid #cccccc;
 }
-/* line 300, sass/screen.sass */
+/* line 378, sass/screen.sass */
 .container form {
   margin: 1em auto 1em auto;
   font-weight: 100;
 }
-/* line 301, sass/screen.sass */
+/* line 379, sass/screen.sass */
 .container form .input {
   margin: 0 auto 25px auto;
 }
-/* line 303, sass/screen.sass */
+/* line 381, sass/screen.sass */
 .container form .error {
   margin: 0 0 20px 25px;
   color: red;
@@ -343,18 +434,18 @@ a:hover {
   border-radius: 2px;
   width: 595px;
 }
-/* line 311, sass/screen.sass */
+/* line 389, sass/screen.sass */
 .container form .error .message {
   height: 8px;
 }
-/* line 313, sass/screen.sass */
+/* line 391, sass/screen.sass */
 .container form .error .error-icon {
   width: 16px;
   height: 16px;
   position: relative;
   top: 2px;
 }
-/* line 320, sass/screen.sass */
+/* line 398, sass/screen.sass */
 .container form input[type=text], .container form input[type=password], .container form textarea {
   padding: 0.8em;
   font-size: 0.9em;
@@ -365,12 +456,12 @@ a:hover {
   border-radius: 2px;
   border: 1px solid #aaaaaa;
 }
-/* line 326, sass/screen.sass */
+/* line 404, sass/screen.sass */
 .container form textarea {
   height: 3em;
   width: 370px;
 }
-/* line 330, sass/screen.sass */
+/* line 408, sass/screen.sass */
 .container form input[type=submit] {
   font-size: 1em;
   margin-left: 7px;
@@ -382,46 +473,46 @@ a:hover {
   border-radius: 3px;
   color: white;
 }
-/* line 338, sass/screen.sass */
+/* line 416, sass/screen.sass */
 .container form input[type=submit]:hover {
   background: #1faeeb;
   opacity: 0.8;
 }
-/* line 342, sass/screen.sass */
+/* line 420, sass/screen.sass */
 .container form input[type=file] {
   width: 175px;
 }
-/* line 345, sass/screen.sass */
+/* line 423, sass/screen.sass */
 .container form label {
   font-size: 1.2em;
 }
-/* line 349, sass/screen.sass */
+/* line 427, sass/screen.sass */
 .container span.name {
   font-size: 2em;
 }
-/* line 351, sass/screen.sass */
+/* line 429, sass/screen.sass */
 .container .edit-profile {
   margin: -10px 0 10px 0;
 }
-/* line 354, sass/screen.sass */
+/* line 432, sass/screen.sass */
 .container .left-column {
   margin-right: 100px;
 }
-/* line 356, sass/screen.sass */
+/* line 434, sass/screen.sass */
 .container .left-column .small-title {
   margin: 30px 0 10px;
   font-size: 1.3em;
 }
-/* line 359, sass/screen.sass */
+/* line 437, sass/screen.sass */
 .container .left-column #info-container {
   padding: 3px;
 }
-/* line 365, sass/screen.sass */
+/* line 443, sass/screen.sass */
 .container .right-column {
   width: 60%;
   padding: 0;
 }
-/* line 372, sass/screen.sass */
+/* line 450, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -431,76 +522,76 @@ a:hover {
   background: white;
   padding: 30px;
 }
-/* line 377, sass/screen.sass */
+/* line 455, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form input[type=text] {
   width: 370px !important;
 }
-/* line 379, sass/screen.sass */
+/* line 457, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form input[type=submit] {
   margin-left: 0;
 }
-/* line 382, sass/screen.sass */
+/* line 460, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form span.label {
   font-size: 1.1em;
 }
-/* line 388, sass/screen.sass */
+/* line 466, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 390, sass/screen.sass */
+/* line 468, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }
 
-/* line 393, sass/screen.sass */
+/* line 471, sass/screen.sass */
 .footer {
   margin-top: -150px;
   clear: both;
   height: 150px;
   min-width: 915px;
   background: #e3e3e3;
-  border-top: 1px dashed #cccccc;
+  border-top: 1px solid #cccccc;
 }
-/* line 400, sass/screen.sass */
+/* line 478, sass/screen.sass */
 .footer .link-container {
   width: 60%;
   margin: 0 auto;
   padding-left: 12%;
 }
-/* line 404, sass/screen.sass */
+/* line 482, sass/screen.sass */
 .footer .link-container .triple-column {
   width: 30%;
   margin: 0 auto 0 auto;
 }
-/* line 408, sass/screen.sass */
+/* line 486, sass/screen.sass */
 .footer .link-container .triple-column ul, .footer .link-container .triple-column li {
   margin: 0;
   padding: 0.15em 0 0.15em 0;
 }
-/* line 411, sass/screen.sass */
+/* line 489, sass/screen.sass */
 .footer .link-container .triple-column ul {
   list-style: none;
 }
-/* line 414, sass/screen.sass */
+/* line 492, sass/screen.sass */
 .footer .link-container #left, .footer .link-container #center {
   float: left;
 }
-/* line 417, sass/screen.sass */
+/* line 495, sass/screen.sass */
 .footer .link-container #center {
   margin: 0 5%;
 }
-/* line 420, sass/screen.sass */
+/* line 498, sass/screen.sass */
 .footer .link-container #right {
   float: right;
 }
 
-/* line 423, sass/screen.sass */
+/* line 501, sass/screen.sass */
 .push {
   height: 120px;
   clear: both;
 }
 
-/* line 427, sass/screen.sass */
+/* line 505, sass/screen.sass */
 .wrapper {
   min-height: 100%;
 }

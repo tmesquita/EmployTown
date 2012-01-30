@@ -107,7 +107,7 @@ a
   float: left
   
 .body
-  width: 85%
+  //width: 1000px
   //margin: 0 auto
   margin: 0 auto
   
@@ -117,20 +117,32 @@ a
 
 .header
   width: 100%
-  min-width: 915px
+  min-width: 1050px
   height: 120px
   margin: 0 0 0 0
-  border-bottom: 1px dashed #CCC
-  background: $dark_grey
+  border-bottom: 1px solid #CCC
+  //background: $dark_grey
   ul, li
     margin: 0
     padding: 0
 
+  hr
+    width: 1000px
   .navcontainer
-    width: 85%
-    min-width: 900px
+    width: 1000px
+    //min-width: 1050px
     margin: 0 auto
     padding-right: 15px
+
+  #logo
+    //margin: 0px 0 0 20px 
+    width: 350px
+    line-height: 1.5em
+    text-shadow: 0 1px 1px $light_text_accent
+    font-family: $secondary_font_family
+    font-size: 3.2em
+    a
+      text-decoration: none
   .topnav
     height: 50px
     @include linear_gradient(top, $dark_initial_gradient, 15%, $dark_final_gradient, 65%)
@@ -220,15 +232,81 @@ a
 
   .catch-phrase
     text-align: center
-    margin-top: 70px
-    font-size: 1.5em
+    margin: 30px auto 0
+    //margin-top: 30px
+    font-size: 3em
+    width: 40%
     text-shadow: 0 1px #eee
 
   .content
-    background: $primary_background
-    padding: 1em
-    @include border_radius
-    @include box_shadow(0, 0, 1px, 1px, #888)
+    //background: $primary_background
+    width: 100%
+    margin: 50px auto
+    background: $dark_grey
+    border-bottom: 1px solid #CCC
+    border-top: 1px solid #CCC
+    //padding: 1em
+    //@include border_radius
+    //@include box_shadow(0, 0, 1px, 1px, #888)
+    .content_container
+      width: 1000px
+      margin: 0 auto
+      padding: 30px 0
+
+
+  .talking
+    font-size: 2.3em
+    margin: 60px auto 30px
+    text-align: center
+    width: 1000px
+    .quote
+      font-size: .6em
+      margin: 20px auto
+      width: 82%
+      span.start
+        font-size: 600%
+        float: left
+        margin-left: 20px
+      span.end
+        font-size: 600%
+        float: right
+      span.small
+        font-size: .8em
+        line-height: 2.5em
+  .title
+    font-size: 1.8em
+    text-align: center
+
+  .explanation
+    font-size: 1.1em
+    text-align: center
+    margin-top: 10px
+  #job_seekers
+    width: 490px
+    //border: 1px solid black
+    ul
+      font-size: 1.2em
+      margin-left: 40px
+    
+  #employers
+    width: 490px
+    //border: 1px solid black
+    ul
+      font-size: 1.2em
+      margin-left: 40px
+
+  .how_it_works
+    margin: 30px auto
+    width: 940px
+    .title
+      font-size: 2.3em
+    .content
+      //background: white
+      background: $light_grey
+      margin-top: 0
+      padding: 30px
+      border: none
+      //text-align: left
   
   .user, .bidding
     background-color: $primary_background
@@ -396,7 +474,7 @@ a
   height: 150px
   min-width: 915px
   background: $dark_grey
-  border-top: 1px dashed #CCC
+  border-top: 1px solid #CCC
   .link-container
     width: 60%
     margin: 0 auto

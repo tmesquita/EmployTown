@@ -19,14 +19,18 @@
       .header
         .topnav
           .navcontainer
-            #logo.left= link_to 'EmployTown', logo_link(current_user)
+            -#- unless current_page?(:controller => 'home', :action => 'index')
+            -##logo.left= link_to 'EmployTown', logo_link(current_user)
             = quick_nav(current_user)
             .clear
+        -#- unless current_page?(:controller => 'home', :action => 'index')
         .bottomnav
           .navcontainer
-            = general_nav(current_user)
+            #logo.left= link_to 'EmployTown', logo_link(current_user)
+            -#= general_nav(current_user)
         -#.body
           -#= search(current_user)
+      
         .clear
       .container
         .body
