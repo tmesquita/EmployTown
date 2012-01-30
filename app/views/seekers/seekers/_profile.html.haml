@@ -30,7 +30,9 @@
     -#.right= link_to 'Edit', seekers_edit_info_path(current_user)
     %p
       %span.title About Me:
-      = @user.about_me
+      %br
+      =h simple_format @user.about_me
     %p
       %span.title How I Add Value:
-      = @user.ideal_role
+      %br
+      =h simple_format @user.ideal_role
