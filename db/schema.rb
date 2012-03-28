@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20111005191302) do
     t.string   "user_url"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "seeking"
     t.integer  "role_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"

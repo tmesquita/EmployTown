@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
-  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :photo_content_type, :company_id, :about_me, :ideal_role
+  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :user_type, :user_url, :photo, :resume, :photo_content_type, :company_id, :about_me, :ideal_role
   
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def get_my_biddings
-    if self.seeking.eql? "seeker"
+    if self.get_role.eql? "seeker"
       return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => nil})
     else
       return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => nil})
@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
   
   def get_my_interested_biddings
-    if self.seeking.eql? "seeker"
+    if self.get_role.eql? "seeker"
       return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 1})
     else
       return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => 1})
@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   end
 
   def get_my_uninterested_biddings
-    if self.seeking.eql? "seeker"
+    if self.get_role.eql? "seeker"
       return Bidding.find(:all, :conditions => {:seeker_id => self.id, :interested => 0})
     else
       return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => 0})

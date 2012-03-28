@@ -6,8 +6,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string :salt,             :default => nil
       t.string :user_url,         :default => nil
       t.string :first_name,       :default => nil
-      t.string :last_name,        :default => nil
-      t.string :seeking,          :default => nil 
+      t.string :last_name,        :default => nil 
       t.integer :role_id
       t.string :photo_file_name
       t.string :photo_content_type
