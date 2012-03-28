@@ -5,6 +5,12 @@ class CreateBiddings < ActiveRecord::Migration
       t.integer :seeker_id
       t.date :date
       t.integer :interested
+      t.string :description
+      t.string :job_title
+      t.string :salary
+      t.string :contact_email
+      t.string :contact_name
+
 
       t.timestamps
     end

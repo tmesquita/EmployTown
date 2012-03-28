@@ -10,27 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222002010) do
+ActiveRecord::Schema.define(:version => 20111005191302) do
 
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
     t.integer  "seeker_id"
     t.date     "date"
     t.integer  "interested"
+    t.string   "description"
+    t.string   "job_title"
+    t.string   "salary"
+    t.string   "contact_email"
+    t.string   "contact_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "comment"
-    t.string   "salary"
-    t.string   "title"
   end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.string   "url"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
-    t.string   "about"
   end
 
   create_table "roles", :force => true do |t|
@@ -58,10 +59,6 @@ ActiveRecord::Schema.define(:version => 20120222002010) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "seeking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
     t.integer  "role_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -74,6 +71,10 @@ ActiveRecord::Schema.define(:version => 20120222002010) do
     t.integer  "company_id"
     t.string   "about_me"
     t.text     "ideal_role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
