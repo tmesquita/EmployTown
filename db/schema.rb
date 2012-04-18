@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20120222002010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
-    t.string   "about"
   end
 
   create_table "roles", :force => true do |t|
