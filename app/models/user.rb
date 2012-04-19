@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   before_create :assign_role
 
   before_create :assign_default_url
+
+  validate :validate_urls
   
   has_attached_file :photo, 
                     :styles => { :thumb => "150x150>", :regular => "300x300>" },
@@ -35,6 +37,26 @@ class User < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
   
+  def validate_urls
+    unless self.facebook.blank?
+      if !self.facebook.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
+        errors.add(:facebook, 'URL must look like a url')
+      end
+    end
+
+    unless self.twitter.blank?
+      if !self.twitter.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
+        errors.add(:twitter, 'URL must look like a url')
+      end
+    end
+
+    unless self.blog_address.blank?
+      if !self.blog_address.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
+        errors.add(:blog_address, 'must look like a url')
+      end
+    end
+  end
+
   def get_role
     self.role.name.downcase
   end
