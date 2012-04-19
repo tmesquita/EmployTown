@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
   attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :photo_content_type, :company_id, :about_me, :ideal_role
+  attr_accessible :facebook_enabled_flag, :twitter_enabled_flag, :blog_enabled_flag, :blog_address, :facebook, :twitter, :contact_email, :contact_phone
   
   validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
@@ -89,6 +90,18 @@ class User < ActiveRecord::Base
     else
       return Bidding.find(:all, :conditions => {:employer_id => self.id, :interested => 0})
     end
+  end
+
+  def has_facebook_enabled?
+    self.facebook_enabled_flag
+  end
+
+  def has_twitter_enabled?
+    self.twitter_enabled_flag
+  end
+
+  def has_blog_enabled?
+    self.blog_enabled_flag
   end
   
   def add_company(company_id)

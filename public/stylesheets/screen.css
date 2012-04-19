@@ -609,32 +609,38 @@ a:hover {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #cccccc;
-  width: 400px;
+  width: 600px;
   background: white;
   padding: 30px;
 }
 /* line 524, sass/screen.sass */
-.container .right-column .right-column-container .right-container-form input[type=text] {
-  width: 370px !important;
+.container .right-column .right-column-container .right-container-form .add_social_media_button {
+  background: none;
+  border: none;
+  color: blue;
 }
-/* line 526, sass/screen.sass */
+/* line 529, sass/screen.sass */
+.container .right-column .right-column-container .right-container-form input[type=text], .container .right-column .right-column-container .right-container-form textarea {
+  width: 250px !important;
+}
+/* line 531, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form input[type=submit] {
   margin-left: 0;
 }
-/* line 529, sass/screen.sass */
+/* line 534, sass/screen.sass */
 .container .right-column .right-column-container .right-container-form span.label {
   font-size: 1.1em;
 }
-/* line 535, sass/screen.sass */
+/* line 540, sass/screen.sass */
 .container .right-column .right-column-container span.title {
   font-size: 1.1em;
 }
-/* line 537, sass/screen.sass */
+/* line 542, sass/screen.sass */
 .container .right-column .back {
   margin-top: 10px;
 }
 
-/* line 540, sass/screen.sass */
+/* line 545, sass/screen.sass */
 .footer {
   margin-top: -150px;
   clear: both;
@@ -643,46 +649,46 @@ a:hover {
   background: #e3e3e3;
   border-top: 1px solid #cccccc;
 }
-/* line 547, sass/screen.sass */
+/* line 552, sass/screen.sass */
 .footer .link-container {
   width: 60%;
   margin: 0 auto;
   padding-left: 12%;
 }
-/* line 551, sass/screen.sass */
+/* line 556, sass/screen.sass */
 .footer .link-container .triple-column {
   width: 30%;
   margin: 0 auto 0 auto;
 }
-/* line 555, sass/screen.sass */
+/* line 560, sass/screen.sass */
 .footer .link-container .triple-column ul, .footer .link-container .triple-column li {
   margin: 0;
   padding: 0.15em 0 0.15em 0;
 }
-/* line 558, sass/screen.sass */
+/* line 563, sass/screen.sass */
 .footer .link-container .triple-column ul {
   list-style: none;
 }
-/* line 561, sass/screen.sass */
+/* line 566, sass/screen.sass */
 .footer .link-container #left, .footer .link-container #center {
   float: left;
 }
-/* line 564, sass/screen.sass */
+/* line 569, sass/screen.sass */
 .footer .link-container #center {
   margin: 0 5%;
 }
-/* line 567, sass/screen.sass */
+/* line 572, sass/screen.sass */
 .footer .link-container #right {
   float: right;
 }
 
-/* line 570, sass/screen.sass */
+/* line 575, sass/screen.sass */
 .push {
   height: 120px;
   clear: both;
 }
 
-/* line 574, sass/screen.sass */
+/* line 579, sass/screen.sass */
 .wrapper {
   min-height: 100%;
 }

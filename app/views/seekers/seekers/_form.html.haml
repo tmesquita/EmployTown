@@ -4,24 +4,60 @@
     .error
       - for message in @user.errors.full_messages
         .message= message
-  .input
-    = f.label :resume
-    %br
-    = f.file_field :resume
-    - if !@user.resume_file_name.eql? nil
-      %p
-        = link_to "Current resume", @user.resume.url
-  .input
-    = f.label :user_url
-    %br
-    = f.text_field :user_url
-  .input
-    = f.label :about_me
-    %br
-    = f.text_area :about_me, :size => "22x4"
-  .input
-    %span.label How I Add Value
-    %br
-    = f.text_area :ideal_role, :size => "22x4"
-  .submit
-    = f.submit  
+  .input-container
+    .left
+      .input
+        = f.label :resume
+        %br
+        = f.file_field :resume
+        - if !@user.resume_file_name.eql? nil
+          %p
+            = link_to "Current resume", @user.resume.url
+      .input
+        = f.label :user_url
+        %br
+        = f.text_field :user_url
+      .input
+        = f.label :about_me
+        %br
+        = f.text_area :about_me, :size => "22x4"
+      .input
+        %span.label How I Add Value
+        %br
+        = f.text_area :ideal_role, :size => "22x4"
+      .submit
+        = f.submit
+    .right
+      .input
+        = f.label :contact_email
+        %br
+        = f.text_field :contact_email
+      .input
+        = f.label :contact_phone
+        %br
+        = f.text_field :contact_phone
+      .input
+        - if !@user.has_facebook_enabled?
+          = link_to 'Add a Facebook URL', seekers_enable_facebook_path
+        - else
+          = f.label :facebook_address
+          = link_to '(Disable)', seekers_disable_facebook_path
+          %br
+          = f.text_field :facebook
+      .input
+        - if !@user.has_twitter_enabled?
+          = link_to 'Add a Twitter URL', seekers_enable_twitter_path
+        - else
+          = f.label :twitter_address
+          = link_to '(Disable)', seekers_disable_twitter_path
+          %br
+          = f.text_field :twitter
+      .input
+        - if !@user.has_blog_enabled?
+          = link_to 'Add your blog URL', seekers_enable_blog_path
+        - else
+          = f.label :blog_address
+          = link_to '(Disable)', seekers_disable_blog_path
+          %br
+          = f.text_field :blog_address
+  .clear

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419072709) do
+ActiveRecord::Schema.define(:version => 20120419082230) do
 
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20120419072709) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                        :null => false
+    t.string   "email",                                           :null => false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "user_url"
@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(:version => 20120419072709) do
     t.integer  "company_id"
     t.string   "about_me"
     t.text     "ideal_role"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.string   "blog_address"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.boolean  "blog_enabled_flag",            :default => false, :null => false
+    t.boolean  "facebook_enabled_flag",        :default => false, :null => false
+    t.boolean  "twitter_enabled_flag",         :default => false, :null => false
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

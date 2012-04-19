@@ -35,6 +35,90 @@ class Seekers::SeekersController < ApplicationController
       end   
     end 
   end
+
+  def enable_facebook
+    @user = User.find(params[:id])
+    @user.facebook_enabled_flag = true
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_facebook
+    @user = User.find(params[:id])
+    @user.facebook_enabled_flag = false
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def enable_twitter
+    @user = User.find(params[:id])
+    @user.twitter_enabled_flag = true
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_twitter
+    @user = User.find(params[:id])
+    @user.twitter_enabled_flag = false
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def enable_blog
+    @user = User.find(params[:id])
+    @user.blog_enabled_flag = true
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_blog
+    @user = User.find(params[:id])
+    @user.blog_enabled_flag = false
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to seekers_edit_info_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
   
   protected
 

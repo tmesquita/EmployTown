@@ -23,7 +23,7 @@
     %p
       = @user.email
     %p
-      = request.env['HTTP_HOST'].to_s + "/" + @user.user_url
+      = link_to request.env['HTTP_HOST'].to_s + "/" + @user.user_url, @user.user_url
 
 .right-column.left
   .right-column-container

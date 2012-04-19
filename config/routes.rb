@@ -49,6 +49,12 @@ EmployTown::Application.routes.draw do
     resources :users, :only => [:edit, :show, :update]
     get '/info/:id/edit' => 'seekers#edit', :as => 'edit_info'
     match '/users/:id/update' => 'seekers#update'
+    match '/users/:id/enable_facebook' => 'seekers#enable_facebook', :as => 'enable_facebook'
+    match '/users/:id/disable_facebook' => 'seekers#disable_facebook', :as => 'disable_facebook'
+    match '/users/:id/enable_twitter' => 'seekers#enable_twitter', :as => 'enable_twitter'
+    match '/users/:id/disable_twitter' => 'seekers#disable_twitter', :as => 'disable_twitter'
+    match '/users/:id/enable_blog' => 'seekers#enable_blog', :as => 'enable_blog'
+    match '/users/:id/disable_blog' => 'seekers#disable_blog', :as => 'disable_blog'
     root :to => "seekers#index"
   end
 
