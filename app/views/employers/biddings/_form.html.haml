@@ -17,8 +17,12 @@
     = f.label :salary
     %br
     = f.text_field :salary
+  .input
+    = f.label :contact_email_address
+    %br
+    = f.text_field :contact_email
 
   %input{:type=>'hidden', :name=>'seeker_id', :value=>@seeker_id}
-  .input
-    = f.submit  
+  .submit
+    = f.submit 'Submit Bid'
 

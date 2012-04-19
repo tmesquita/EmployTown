@@ -1,6 +1,10 @@
 %h1 Search For Potential Employees
 =render :partial => "layouts/search"
 
+- if params[:search].blank?
+  %p.search_phrase
+    Look for potential employees by searching for a tag, a name, or an email address.
+    
 - unless params[:search].blank?
   - if @users.count == 0 and @tags.count == 0
     No users found with that search criteria

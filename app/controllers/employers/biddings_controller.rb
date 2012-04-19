@@ -27,6 +27,7 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings/new
   # GET /biddings/new.xml
   def new
+    @seeker = User.find(params[:seeker_id])
     @bidding = Bidding.new
     @seeker_id = params[:seeker_id]
     respond_to do |format|
