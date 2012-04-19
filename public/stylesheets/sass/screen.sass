@@ -206,6 +206,13 @@ a
       padding: 0 .5em
       &:hover
         border-bottom: 2px solid $primary
+
+#titles
+  width: 795px
+  margin: 50px auto 0
+  padding: 0 65px 0 120px
+  .title
+    font-size: 1.8em
     
 .container 
   //padding: 2em 0 2em 0
@@ -236,18 +243,18 @@ a
     text-align: center
     margin: 30px auto 0
     //margin-top: 30px
-    font-size: 2.1em
-    width: 60%
+    font-size: 2.4em
+    width: 940px
     text-shadow: 0 1px #eee
     //border-top: 1px solid #AAA
     //border-bottom: 1px solid #AAA
-    padding: 20px 70px
+    padding: 20px 30px
 
   .content
     //background: $primary_background
     width: 100%
     min-width: 1050px
-    margin: 50px auto
+    margin: 10px auto
     background: $dark_grey
     border-bottom: 1px solid #CCC
     border-top: 1px solid #CCC
@@ -257,7 +264,7 @@ a
     .content_container
       width: 1000px
       margin: 0 auto
-      padding: 30px 0
+      padding: 20px 0
 
 
   .talking
@@ -268,30 +275,50 @@ a
     .quote
       font-size: .6em
       margin: 20px auto
+      height: 80px
       width: 82%
-      span.start
+      .quote-left
         font-size: 600%
         float: left
-        margin-left: 20px
-      span.end
-        font-size: 600%
+        height: 50px
+        position: relative
+        top: -50px
+      .saying
+        float: left
+        width: 710px
+        margin: 0 auto
+        font-size: 1.1em
+      .quote-right
         float: right
+        font-size: 6em
+        height: 50px
+        position: relative
+        top: -30px
+      //span.start
+      //  font-size: 600%
+      //  float: left
+      //  margin-left: 20px
+      //span.end
+      //  font-size: 600%
+      //  float: right
       span.small
         font-size: .8em
         line-height: 2.5em
   .title
     font-size: 1.8em
     text-align: center
+    //margin: 0 40px
 
   .explanation
-    font-size: 1.1em
+    font-size: 1.3em
     text-align: center
     margin-top: 10px
+    padding-left: 45px
   #job_seekers
     width: 490px
     //border: 1px solid black
     ul
-      font-size: 1.2em
+      font-size: 1.1em
       margin-left: 40px
       li
         margin-bottom: 10px
@@ -300,7 +327,7 @@ a
     width: 490px
     //border: 1px solid black
     ul
-      font-size: 1.2em
+      font-size: 1.1em
       margin-left: 40px
       li
         margin-bottom: 10px

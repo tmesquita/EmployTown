@@ -4,18 +4,23 @@
 .catch-phrase
   Where remarkable people attract amazing companies
 
+#titles
+  .title.left Are you a job seeker?
+  .title.right Are you an employer?
+  .clear
 .content
   .content_container
     #job_seekers.left
-      .title Are you a job seeker?
-      .explanation Create a reverse job application
+      .explanation 
+        Create a reverse job application
+        %br
+        &nbsp;
       %ul
         %li Attract desirable companies to make employment offers.    
         %li Eliminate wasting time sending resumes to job postings that go no where.
         %li Demonstrate your true employable value beyond a paper resume.
     
     #employers.right
-      .title Are you an employer?
       .explanation 
         Scout talent and turn your 
         %br
@@ -31,9 +36,11 @@
   People are talking
   %br
   .quote
-    %span.start &#8220;
-    This is the most innovative concept in the jobs arena in years.
-    %span.end &#8221;
+    -#%span.start &#8220;
+    .quote-left &#8220;
+    .saying This is the most innovative concept in the jobs arena in years.
+    -#%span.end &#8221;
+    .quote-right &#8221;
     %br
     .right
       %span.small - Randy Felton

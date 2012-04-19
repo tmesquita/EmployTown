@@ -8,7 +8,7 @@ def general_nav(user)
       render :partial => "layouts/employernav"
     end
   else
-    render :partial => "layouts/guestnav"
+    #render :partial => "layouts/guestnav"
   end
 end
 
