@@ -1,5 +1,10 @@
 .user
-  .options= link_to 'View Profile', employers_seeker_path(@tag.user)
+  .options
+    = link_to 'View Profile', employers_seeker_path(@tag.user)
+    - if !@tag.user.has_bid_from_employer?(current_user)
+      = link_to 'Send a bid', new_employers_bidding_path(:seeker_id => @tag.user.id)
+    - else
+      = link_to 'View Bid', employers_biddings_path
   = image_tag @tag.user.photo.url(:thumb), :class => 'left'
   .info.left
     %p= @tag.user.to_s
