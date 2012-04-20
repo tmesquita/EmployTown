@@ -1,16 +1,21 @@
 .triple-column{:id => "left"}
-  %h3 About Us
+  %h3 Community
   %ul
-    %li= link_to "Crazy Link 1", root_url
-    %li= link_to "Frantic Link 2", root_url
-    %li= link_to "Party Link 3", root_url
+    %li= link_to "Blog", 'http://blog.employtown.com/', :target => '_blank'
+    %li= link_to "Twitter", 'http://www.twitter.com/EmployTown', :target => '_blank'
+    %li= link_to "Facebook", 'http://www.facebook.com/EmployTown', :target => '_blank'
 .triple-column{:id => "center"}
-  %h3 Contact Us
+  %h3 Support
   %ul
-    %li= link_to "Funny Link 1", root_url
-    %li= link_to "Cougar Link 2", root_url
+    %li= link_to "Contact Us", root_url
+    %li= mail_to "admin@employtown.com", 'Email Us'
 .triple-column{:id => "right"}
-  %h3 Login
+  %h3 &nbsp;
   %ul
-    %li= link_to "Login", login_path
-    %li= link_to "Sign Up", signup_path
+    %li
+      %script
+        (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";   fjs.parentNode.insertBefore(js, fjs); }(    document,     'script', 'facebook-jssdk'));
+      %fb:like{:href => 'http://www.facebook.com/EmployTown', :send => 'false', :layout => 'button_count', :width => '50', :show_faces => 'false', :font => 'lucida grande'}
+    %li
+      =link_to 'Tweet', 'https://twitter.com/share', :class => 'twitter-share-button', "data-count" => 'horizontal', "data-text" => 'Check out EmployTown\'s website!', "data-via" => 'EmployTown'
+      %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
