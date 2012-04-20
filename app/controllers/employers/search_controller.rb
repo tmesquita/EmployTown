@@ -13,6 +13,6 @@ end
 class Array
   def remove_duplicates_by
     seen = Set.new
-    select{ |x| seen.add? (yield(x))}
+    select{ |x| seen.add?(yield(x))}
   end
 end
