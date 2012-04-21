@@ -1,4 +1,7 @@
 class Employers::UsersController < Employers::EmployersController
+
+  before_filter :check_user_is_current_user
+
   def edit
     @user = User.find_by_id(params[:id])
   end
@@ -20,6 +23,15 @@ class Employers::UsersController < Employers::EmployersController
       end
     end
   end
+
+  protected
+
+    def check_user_is_current_user
+      if !User.exists?(params[:id]) or User.find(params[:id]) != current_user
+        flash[:error] = 'You do not have permission to edit that user'
+        redirect_to edit_employers_user_path(current_user)
+      end
+    end
   
   #def update_attributes
   #  @user = User.find(params[:id])

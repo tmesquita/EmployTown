@@ -1,6 +1,7 @@
 class Employers::CompaniesController < Employers::EmployersController
   before_filter :employer_action_redirect, :only => [:index, :show]
-  before_filter :require_login
+  before_filter :check_company_matches_current_users_company, :only => [:edit]
+  
   
   # GET /companies
   # GET /companies.xml
@@ -171,9 +172,20 @@ class Employers::CompaniesController < Employers::EmployersController
   end
   
   protected
+
+    def check_company_matches_current_users_company
+      
+      if !Company.exists?(params[:id]) or Company.find(params[:id]) != current_user.company
+        flash[:error] = "You do not have permission to edit that company"
+        redirect_to edit_employers_company_path(current_user.company)#, :notice => 'You do not have permission to edit that company'
+      #  flash[:error] = "Could not find a company with id of #{params[:id]}"
+      #  redirect_to employers_root_path
+      end
+    end
+
     def employer_action_redirect
       if current_user.belongs_to_company?
-        redirect_to edit_employers_company_path(current_user.company), :notice => "This is the company you currently work for."
+        redirect_to edit_employers_company_path(current_user.company) #, :notice => "This is the company you currently work for."
       else
         redirect_to new_employers_company_path, :notice => "You don't belong to a company, please create a new one."
       end

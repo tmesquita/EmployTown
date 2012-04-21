@@ -1,5 +1,6 @@
 class Employers::EmployersController < ApplicationController
   filter_access_to :all
+  before_filter :require_login
   
   def index
     
@@ -25,7 +26,7 @@ class Employers::EmployersController < ApplicationController
         end
       else
         flash[:error] = 'Please log in to view this page'
-        redirect_to login_path
+        redirect_back_or_to login_path
       end
     end
 end
