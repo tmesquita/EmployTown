@@ -7,7 +7,7 @@
     
 - unless params[:search].blank?
   - if @users.count == 0 and @tags.count == 0
-    No users found with that search criteria
+    %p.search_phrase No users found with that search criteria
   -else
     %p
       Displaying #{pluralize(@users.count + @tags.count, 'user')}.

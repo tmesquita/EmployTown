@@ -1,5 +1,6 @@
 class Employers::CompaniesController < Employers::EmployersController
   before_filter :employer_action_redirect, :only => [:index, :show]
+  before_filter :require_login
   
   # GET /companies
   # GET /companies.xml
@@ -82,6 +83,90 @@ class Employers::CompaniesController < Employers::EmployersController
     respond_to do |format|
       format.html { redirect_to(employers_companies_path) }
       format.xml  { head :ok }
+    end
+  end
+
+  def enable_facebook
+    @company = Company.find(params[:id])
+    @company.facebook_enabled_flag = true
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_facebook
+    @company = Company.find(params[:id])
+    @company.facebook_enabled_flag = false
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def enable_twitter
+    @company = Company.find(params[:id])
+    @company.twitter_enabled_flag = true
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_twitter
+    @company = Company.find(params[:id])
+    @company.twitter_enabled_flag = false
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def enable_blog
+    @company = Company.find(params[:id])
+    @company.blog_enabled_flag = true
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def disable_blog
+    @company = Company.find(params[:id])
+    @company.blog_enabled_flag = false
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to employers_companies_path }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
+      end
     end
   end
   

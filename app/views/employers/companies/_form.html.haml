@@ -7,21 +7,60 @@
         - @company.errors.full_messages.each do |msg|
           %li= msg
 
-
-  .input
-    = f.label :name
-    %br	
-    = f.text_field :name  
-
-  .input
-    = f.label :url
-    %br
-    = f.text_field :url 
+  .input-container
+    .left
+      .input
+        = f.label :name
+        %br	
+        = f.text_field :name  
     
-  .input
-    = f.label :description
-    %br
-    = f.text_area :description, :size => "44x8"  
+      .input
+        = f.label :company_website
+        %br
+        = f.text_field :url 
+      .input
+        = f.label :company_description
+        %br
+        = f.text_area :description, :size => "44x22" 
+      
 
-  .submit
-    = f.submit  
+      .submit
+        = f.submit  
+
+    .right
+      .input
+        = f.label :why_would_you_want_to_work_for_my_company?
+        %br
+        = f.text_area :why_work_for, :size => "44x5"
+
+      .input
+        = f.label :what_i_am_looking_for
+        %br
+        = f.text_area :looking_for, :size => "44x5"
+    
+      
+      .input
+        - if !@company.has_facebook_enabled?
+          = link_to 'Add a Facebook URL', employers_enable_facebook_path
+        - else
+          = f.label :facebook_address
+          = link_to '(Disable)', employers_disable_facebook_path
+          %br
+          = f.text_field :facebook
+      .input
+        - if !@company.has_twitter_enabled?
+          = link_to 'Add a Twitter URL', employers_enable_twitter_path
+        - else
+          = f.label :twitter_address
+          = link_to '(Disable)', employers_disable_twitter_path
+          %br
+          = f.text_field :twitter
+      .input
+        - if !@company.has_blog_enabled?
+          = link_to 'Add a Blog URL', employers_enable_blog_path
+        - else
+          = f.label :blog_address
+          = link_to '(Disable)', employers_disable_blog_path
+          %br
+          = f.text_field :blog_address
+  .clear

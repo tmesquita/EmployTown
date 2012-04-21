@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   before_create :assign_default_url
 
-  validate :validate_urls
+  validate :validate_urls, :on => :update
   
   has_attached_file :photo, 
                     :styles => { :thumb => "150x150>", :regular => "300x300>" },
