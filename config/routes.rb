@@ -42,6 +42,9 @@ EmployTown::Application.routes.draw do
     match '/companies/:id/disable_twitter' => 'companies#disable_twitter', :as => 'disable_twitter'
     match '/companies/:id/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
     match '/companies/:id/disable_blog' => 'companies#disable_blog', :as => 'disable_blog'
+    match '/companies/new/enable_facebook' => 'companies#enable_facebook', :as => 'enable_facebook'
+    match '/companies/new/enable_twitter' => 'companies#enable_twitter', :as => 'enable_twitter'
+    match '/companies/new/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
   end
   
   namespace :seekers do

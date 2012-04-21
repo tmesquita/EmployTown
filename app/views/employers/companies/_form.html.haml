@@ -38,29 +38,29 @@
         %br
         = f.text_area :looking_for, :size => "44x5"
     
-      
-      .input
-        - if !@company.has_facebook_enabled?
-          = link_to 'Add a Facebook URL', employers_enable_facebook_path
-        - else
-          = f.label :facebook_address
-          = link_to '(Disable)', employers_disable_facebook_path
-          %br
-          = f.text_field :facebook
-      .input
-        - if !@company.has_twitter_enabled?
-          = link_to 'Add a Twitter URL', employers_enable_twitter_path
-        - else
-          = f.label :twitter_address
-          = link_to '(Disable)', employers_disable_twitter_path
-          %br
-          = f.text_field :twitter
-      .input
-        - if !@company.has_blog_enabled?
-          = link_to 'Add a Blog URL', employers_enable_blog_path
-        - else
-          = f.label :blog_address
-          = link_to '(Disable)', employers_disable_blog_path
-          %br
-          = f.text_field :blog_address
+      - if !action_name.eql? 'new'
+        .input
+          - if !@company.has_facebook_enabled?
+            = link_to 'Add a Facebook URL', employers_enable_facebook_path
+          - else
+            = f.label :facebook_address
+            = link_to '(Disable)', employers_disable_facebook_path
+            %br
+            = f.text_field :facebook
+        .input
+          - if !@company.has_twitter_enabled?
+            = link_to 'Add a Twitter URL', employers_enable_twitter_path
+          - else
+            = f.label :twitter_address
+            = link_to '(Disable)', employers_disable_twitter_path
+            %br
+            = f.text_field :twitter
+        .input
+          - if !@company.has_blog_enabled?
+            = link_to 'Add a Blog URL', employers_enable_blog_path
+          - else
+            = f.label :blog_address
+            = link_to '(Disable)', employers_disable_blog_path
+            %br
+            = f.text_field :blog_address
   .clear
