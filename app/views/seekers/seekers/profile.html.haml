@@ -1,5 +1,48 @@
 - content_for :title do
-  Profile View
+  My Profile
 
+#profile_info_container.left
+  #profile_info
 
-= render :partial => 'profile'
+    #info.left
+      %strong.title About me
+      %br
+      .attribute{:id => "about_me"}= simple_format(truncate(@user.about_me, :length => 500))
+      .read_more{:id => "about_more"}= more_about_me(@user)
+      %br
+      %strong.title How I Add Value
+      %br
+      .attribute{:id => "add_value"}= simple_format(truncate(@user.ideal_role, :length => 500))
+      .read_more{:id => "value_more"}= more_value(@user)
+
+    .clear
+
+#user_info_container.right
+  %h2
+    My Info
+    = link_to '(edit)', seekers_edit_info_path, :class => 'small_title'
+  #user_info
+    %strong URL:
+    %span.right= link_to request.env['HTTP_HOST'].to_s + "/" + @user.user_url, @user.user_url
+    %br
+    %strong Contact Email:
+    %span.right= @user.contact_email
+    %br
+    %strong Phone:
+    %span.right= number_to_phone @user.contact_phone, :area_code => true
+    %br
+    - if @user.has_facebook_enabled?
+      %strong Facebook:
+      %span.right= @user.facebook
+      %br
+    - if @user.has_twitter_enabled?
+      %strong Twitter:
+      %span.right= @user.twitter
+      %br
+    - if @user.has_blog_enabled?
+      %strong Blog:
+      %span.right= @user.blog_address
+  #photo.left
+    = image_tag @user.photo.url(:regular)
+
+  

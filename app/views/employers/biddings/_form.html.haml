@@ -18,6 +18,10 @@
     %br
     = f.text_field :salary
   .input
+    = f.label :salary_term
+    %br
+    = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
+  .input
     = f.label :contact_email_address
     %br
     = f.text_field :contact_email

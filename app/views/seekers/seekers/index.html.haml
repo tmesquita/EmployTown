@@ -1,18 +1,18 @@
 - content_for :title do
   Profile View
 
-
-=# render :partial => 'profile'
 #home_bids_container.left
-  %h1 Bids waiting for your response
+  - if @bids.count > 0
+    %h2= "#{pluralize(@bids.count, 'bid')} await your response"
+  - else
+    %h2 &nbsp;
   #home_bids
-    %p
-      - if @bids.count > 0
-        - @bids.each do |@bidding|
-          = render :partial => "seekers/biddings/bidding"
-        %br
-      -else
-        %h3 You currently have no new bids
+    - if @bids.count > 0
+      - @bids.each do |@bidding|
+        = render :partial => "bidding"
+      %br
+    -else
+      %h3 You have no new bids
 
 #home_tags_container.right
   %h1 &nbsp;
@@ -42,22 +42,9 @@
       You haven't created any tags!
       = link_to 'Create tags', new_seekers_tag_path
     %br
-    %br
     - if current_user.resume_file_name.eql? nil
       You haven't uploaded a resume yet
       = link_to 'Upload your resume', seekers_edit_info_path
-  -#  = form_for [:seekers, @tag] do |f|
-  -#    -if @tag.errors.any?
-  -#      %div{:id => "error_explanation"}
-  -#        %h2= pluralize(@tag.errors.count, "error") + "prohibited this tag from being saved:"
-  -#        %ul
-  -#          - @tag.errors.full_messages.each do |msg|
-  -#            %li= msg
-  -#  
-  -#    .input
-  -#      = f.text_field :tag
-  -#      = f.submit
-
-
 
 .clear
+= will_paginate @bids

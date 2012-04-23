@@ -3,44 +3,12 @@
 
 - form_for [:seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
   
-  -#%h1= link_to @user.first_name + ' ' + @user.last_name, url_for(:controller => '/home', :action => 'seekers_public_profile', :user_url => @user.user_url), :title => 'View My Profile'
   %h1= @user.first_name + ' ' + @user.last_name
   .left-column.left
-  
     = image_tag @user.photo.url(:regular)
-
     %br
     = f.file_field :photo
   
   .right-column.left
     .right-column-container
       = render :partial => 'form', :locals => { :f => f}
-      -#%p
-      -#   - if @user.errors.any?
-      -#     - for message in @user.errors.full_messages
-      -#       %li= message
-      -# 
-      -# .input 
-      -#   = f.label :about_me
-      -#   %br
-      -#   = f.text_area :about_me  
-      -#
-      -# .input
-      -#   = f.label 'How I Add Value'
-      -#   %br
-      -#   = f.text_area :ideal_role
-      -#
-      -# .input
-      -#   = f.label :resume
-      -#   %br
-      -#   = f.file_field :resume
-      -#
-      -# .input
-      -#   = f.label :user_url
-      -#   %br
-      -#   = f.text_field :user_url
-      -#
-      -# .input
-      -#   = f.submit
-    
-    -#.back= link_to 'Back', seekers_root_path

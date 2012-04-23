@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421003349) do
+ActiveRecord::Schema.define(:version => 20120423065624) do
 
   create_table "biddings", :force => true do |t|
     t.integer  "employer_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120421003349) do
     t.string   "salary"
     t.string   "title"
     t.string   "contact_email"
+    t.string   "salary_term"
   end
 
   create_table "companies", :force => true do |t|

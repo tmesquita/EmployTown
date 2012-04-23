@@ -10,6 +10,7 @@ gem 'compass', ">= 0.11.5"
 gem 'paperclip', "~> 2.4"
 gem 'aws-s3'
 gem 'rmagick'
+gem 'will_paginate', '~> 3.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

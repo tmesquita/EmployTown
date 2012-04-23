@@ -351,6 +351,23 @@ a
       padding: 30px
       border: none
       //text-align: left
+  .pagination
+    a, em.current
+      border: 1px solid #CCC
+      padding: 5px
+    em.current
+      background: $primary
+      color: white
+      font-style: normal
+    .previous_page
+      border: none
+      padding: 5px
+    .next_page
+      border: none
+      padding: 5px
+    .disabled
+      color: #CCC
+    //.previous_page 
   
   .user, .bidding
     background-color: $primary_background
@@ -367,6 +384,39 @@ a
       max-height: 75px
       float: left
       padding: 0 1em 0 0
+
+  .read_more, .less
+    font-size: .8em
+
+  .bid
+    font-size: 1em
+    border-bottom: 1px solid #CCC
+    padding: 20px 0
+    //@include border_radius
+    //background: $primary_background
+    margin-bottom: 20px
+    a, strong
+      font-size: 1.1em
+
+    
+    img
+      max-height: 75px
+      float: right
+      //padding: 0 1em 0 0
+    span.mail
+      font-size: .9em
+    .bid_info
+      width: 75%
+      //.less
+      //  font-size: .8em
+    .choice
+      text-align: right
+      width: 22%
+      .interest_box
+        margin: 10px 0
+        img
+          margin-left: 10px
+
       
   .options
     font-weight: $std_weight
@@ -401,8 +451,8 @@ a
           //background: white
           //width: 360px
           margin: 10px 0 30px
-          overflow: scroll
-          max-height: 200px
+          //overflow: scroll
+          //max-height: 200px
           //@include border_radius
         
 

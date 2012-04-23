@@ -108,6 +108,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.30)
+    will_paginate (3.0.3)
     xml-simple (1.1.0)
 
 PLATFORMS
@@ -126,3 +127,4 @@ DEPENDENCIES
   sass
   sorcery
   sqlite3
+  will_paginate (~> 3.0)

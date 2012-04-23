@@ -3,7 +3,7 @@ class Seekers::SeekersController < ApplicationController
   
   def index
     @user = current_user
-    @bids = current_user.get_my_biddings
+    @bids = Bidding.where(:seeker_id => current_user.id, :interested => nil).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
 
     @tags = Tag.find_all_by_user_id(current_user.id)
     @tag = Tag.new

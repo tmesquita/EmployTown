@@ -1,5 +1,5 @@
 class Bidding < ActiveRecord::Base
-	attr_accessible :interested, :comment, :title, :salary, :contact_email
+	attr_accessible :interested, :comment, :title, :salary, :contact_email, :salary_term
 
 	belongs_to :user
 	belongs_to :company
