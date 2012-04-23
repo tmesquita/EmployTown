@@ -369,7 +369,7 @@ a
       color: #CCC
     //.previous_page 
   
-  .user, .bidding
+  .user
     background-color: $primary_background
     outline: solid 1px $primary
     padding: 1em
@@ -388,6 +388,16 @@ a
   .read_more, .less
     font-size: .8em
 
+  .bid_header
+    ul#bid_menu
+      list-style-type: none
+      li
+        display: inline
+        line-height: 1.8em
+        padding: 0 20px
+        .border
+          border-right: 1px solid #CCC
+
   .bid
     font-size: 1em
     border-bottom: 1px solid #CCC
@@ -399,10 +409,12 @@ a
       font-size: 1.1em
 
     
-    img
+    img.max-height
       max-height: 75px
       float: right
       //padding: 0 1em 0 0
+    img
+      float: right
     span.mail
       font-size: .9em
     .bid_info
@@ -414,6 +426,10 @@ a
       width: 22%
       .interest_box
         margin: 10px 0
+        span
+          font-size: 1.2em
+          margin-bottom: 5px
+          display: block
         img
           margin-left: 10px
 
@@ -655,6 +671,8 @@ a
       //@include border_radius
       //border: 1px solid #CCC
       //padding: 20px
+      h2.center
+        text-align: center
       
 
   #home_tags_container

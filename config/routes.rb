@@ -50,6 +50,8 @@ EmployTown::Application.routes.draw do
   namespace :seekers do
     
     resources :tags
+    match '/biddings/interested_bids' => 'biddings#interested_bids', :as => 'interested_bids'
+    match '/biddings/uninterested_bids' => 'biddings#uninterested_bids', :as => 'uninterested_bids'
     resources :biddings do
       get 'interested', :on => :member
       get 'not_interested', :on => :member

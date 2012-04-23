@@ -12,7 +12,7 @@ authorization do
     has_permission_on :seekers_users, :to => :update
     has_permission_on :seekers_tags, :to => :manage
     has_permission_on :seekers_seekers, :to => [:manage, :enable_disable_social_media, :profile]
-    has_permission_on :seekers_biddings, :to => [:manage, :interested, :not_interested]
+    has_permission_on :seekers_biddings, :to => [:manage, :interested, :not_interested, :interested_bids, :uninterested_bids]
     has_permission_on :seekers_companies, :to => :read
   end
   

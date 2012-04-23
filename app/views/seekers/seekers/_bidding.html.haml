@@ -1,15 +1,4 @@
 .bid
-  -#.options
-  -#  = link_to "Interested", interested_seekers_bidding_path(@bidding.id)
-  -#  = link_to "Not Interested", not_interested_seekers_bidding_path(@bidding.id)
-  -#= image_tag @bidding.employer.photo.url(:thumb)
-  -#%p
-  -#  %span= @bidding.employer.to_s 
-  -#  %span @ 
-  -#  %span= link_to(@bidding.employer.company, seekers_company_path(@bidding.employer.company)) + " is interested in your skills."
-  -#%p= mail_to @bidding.employer.email, "Send an Email"
-  -#%p= @bidding.comment
-  -#.clear
   .bid_info.left
     %strong Company:
     = @bidding.employer.company
@@ -32,7 +21,7 @@
     %strong Contact Email:
     %span.mail= mail_to @bidding.contact_email, @bidding.contact_email
   .choice.right
-    = image_tag @bidding.employer.photo.url(:thumb)
+    = image_tag @bidding.employer.photo.url(:thumb), :class => 'max-height'
     .clear
     .interest_box
       = link_to image_tag('accept_item.png') + 'Interested', interested_seekers_bidding_path(@bidding.id)

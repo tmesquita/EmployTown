@@ -2,13 +2,14 @@ class Seekers::BiddingsController < Seekers::SeekersController
   # GET /biddings
   # GET /biddings.xml
   def index
-    @biddings = current_user.get_my_biddings
-    @interested_biddings = current_user.get_my_interested_biddings
-    @uninterested_biddings = current_user.get_my_uninterested_biddings
+    @bids = Bidding.where(:seeker_id => current_user.id, :interested => nil).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    #@interested_biddings = current_user.get_my_interested_biddings
+    #@uninterested_biddings = current_user.get_my_uninterested_biddings
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @biddings }
+      format.xml  { render :xml => @bids }
     end
+    #session[:return_to] = request.referer
   end
 
   # GET /biddings/1
@@ -55,7 +56,7 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 1
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(seekers_biddings_path, :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1'), :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -69,12 +70,22 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 0
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(seekers_biddings_path, :notice => 'Bidding was successfully updated.') }
+        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1'), :notice => 'Bidding was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @bidding.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def interested_bids
+    @bids = Bidding.where(:seeker_id => current_user.id, :interested => true).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    #session[:return_to] = request.referer
+  end
+
+  def uninterested_bids
+    @bids = Bidding.where(:seeker_id => current_user.id, :interested => false).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    #session[:return_to] = request.referer
   end
 end

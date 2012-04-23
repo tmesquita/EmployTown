@@ -3,7 +3,7 @@
 
 #home_bids_container.left
   - if @bids.count > 0
-    %h2= "#{pluralize(@bids.count, 'bid')} await your response"
+    %h2= "#{pluralize(@bids.count, 'bid')} awaiting your response"
   - else
     %h2 &nbsp;
   #home_bids
@@ -12,7 +12,11 @@
         = render :partial => "bidding"
       %br
     -else
-      %h3 You have no new bids
+      -#%h3 You have no new bids
+      %h2.center 
+        You have no new bids. You may want to work on your
+        = link_to 'profile', seekers_profile_path
+        to attract more potential employers
 
 #home_tags_container.right
   %h1 &nbsp;
@@ -43,6 +47,7 @@
       = link_to 'Create tags', new_seekers_tag_path
     %br
     - if current_user.resume_file_name.eql? nil
+      %br
       You haven't uploaded a resume yet
       = link_to 'Upload your resume', seekers_edit_info_path
 

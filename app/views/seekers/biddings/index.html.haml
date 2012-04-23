@@ -1,21 +1,30 @@
 - content_for :title do
   Bids and Offers
 
-%h1 Bids and Offers
-%p
-  - if @biddings.count > 0
-    Bids awaiting reply:
-    - @biddings.each do |@bidding|
-      = render :partial => "bidding"
-    %br
-  -if @interested_biddings.count > 0
-    Bids you are interested in:
-    - @interested_biddings.each do |@bidding|
-      = render :partial => "interestedbidding"
-    %br
-  -if @uninterested_biddings.count > 0
-    Bids you are not interested in:
-    - @uninterested_biddings.each do |@bidding|
-      = render :partial => "uninterestedbidding"
-  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
-    You currently have no bids
+.bid_header
+  %h2.left Bids and Offers awaiting your reply
+  %ul#bid_menu.right
+    %li.border= link_to 'Interested Bids', seekers_interested_bids_path
+    |
+    %li= link_to 'Uninterested Bids', seekers_uninterested_bids_path
+  .clear
+
+- if @bids.count > 0
+  - @bids.each do |@bidding|
+    = render :partial => "bidding"
+  %br
+- else
+  %h3 You have no bids awaiting your reply
+-#  -if @interested_biddings.count > 0
+-#    Bids you are interested in:
+-#    - @interested_biddings.each do |@bidding|
+-#      = render :partial => "interestedbidding"
+-#    %br
+-#  -if @uninterested_biddings.count > 0
+-#    Bids you are not interested in:
+-#    - @uninterested_biddings.each do |@bidding|
+-#      = render :partial => "uninterestedbidding"
+-#  -unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
+-#    You currently have no bids
+
+= will_paginate @bids
