@@ -7,13 +7,13 @@
     #info.left
       %strong.title About me
       %br
-      .attribute{:id => "about_me"}= simple_format(truncate(@user.about_me, :length => 500))
-      .read_more{:id => "about_more"}= more_about_me(@user)
+      .attribute{:id => "about_me"}= simple_format(truncate(@user.about_me))
+      .more{:id => "about_more"}= more_about_me(@user)
       %br
       %strong.title How I Add Value
       %br
-      .attribute{:id => "add_value"}= simple_format(truncate(@user.ideal_role, :length => 500))
-      .read_more{:id => "value_more"}= more_value(@user)
+      .attribute{:id => "add_value"}= simple_format(truncate(@user.ideal_role, {:length => 500, :omission => '...(continued)'}))
+      .more{:id => "value_more"}= more_value(@user)
 
     .clear
 
