@@ -44,15 +44,15 @@
     .clear
     - if @user.has_facebook_enabled?
       %strong Facebook:
-      %span.right= @user.facebook
+      %span.right= link_to @user.facebook, url_with_protocol(@user.facebook), :target => '_blank'
       %br
     - if @user.has_twitter_enabled?
       %strong Twitter:
-      %span.right= @user.twitter
+      %span.right= link_to @user.twitter, url_with_protocol(@user.twitter), :target => '_blank'
       %br
     - if @user.has_blog_enabled?
       %strong Blog:
-      %span.right= @user.blog_address
+      %span.right= link_to @user.blog_address, url_with_protocol(@user.blog_address), :target => '_blank'
   #photo.left
     = image_tag @user.photo.url(:regular)
 

@@ -507,7 +507,7 @@ a:hover {
 }
 /* line 455, sass/screen.sass */
 .container #user-about {
-  width: 60%;
+  width: 65%;
 }
 /* line 457, sass/screen.sass */
 .container #user-about strong.title {
@@ -525,7 +525,7 @@ a:hover {
 }
 /* line 466, sass/screen.sass */
 .container #user-info {
-  width: 30%;
+  width: 25%;
   padding: 20px;
   background: white;
   border: 1px solid #cccccc;
@@ -535,7 +535,7 @@ a:hover {
 }
 /* line 472, sass/screen.sass */
 .container #user-info .attr {
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-bottom: 5px;
 }
 /* line 475, sass/screen.sass */
