@@ -7,7 +7,7 @@
     #info.left
       %strong.title About me
       %br
-      .attribute{:id => "about_me"}= truncate @user.about_me, :length => 500
+      .attribute{:id => "about_me"}= simple_format(truncate(@user.about_me, :length => 500))
       .more{:id => "about_more"}= more_about_me(@user)
       %br
       %strong.title How I Add Value
