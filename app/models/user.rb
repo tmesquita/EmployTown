@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
       :message => "must be 10 digits long and only contain digits",
       :with => /^[\(\)0-9\- \+\.]{10}$/,
       :allow_nil => true
-
-  validates_uniqueness_of :user_url, :message => 'already taken'
   
   belongs_to :role
   belongs_to :company

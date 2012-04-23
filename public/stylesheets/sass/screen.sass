@@ -469,14 +469,14 @@ a
       width: 325px
 
   #signup-form-container
-    width: 700px
+    width: 660px
     margin: 30px auto 0 auto
     .input
-      width: 300px
-      margin-left: 25px
+      width: 280px
+      //margin-left: 25px
     .submit
-      width: 200px
-      margin-left: 18px
+      //width: 250px
+      margin-left: -7px
     input[type=text], input[type=password], textarea
       width: 250px
 
@@ -486,37 +486,58 @@ a
     margin-top: -20px
   
   .form
-    padding: 1em
+    padding: 30px
     background: $form_background
     //@include box_shadow(0, 0, 1px, 1px, #888)
     @include border_radius
     border: 1px solid #CCC
+  .input-container
+    width: 565px
     
   form
     .input
       margin: 0 auto 25px auto
+
+    .success, .error
+      @include border-radius(2px)
+      width: 565px
+      margin: 0 auto 20px
+      //img
+      //  position: relative
+      //  top 10px
+
     .error
       //margin: 0 0 20px 25px
       color: red
       //background: #ffecce
       background: #fceded
       padding: 5px 15px 15px
-      //border: 1px solid #e9c59b
-      @include border-radius(2px)
-      width: 565px
-      margin-bottom: 20px
+      ///border: 1px solid #e9c59b
+      //include border-radius(2px)
+      //idth: 565px
+      //argin-bottom: 20px
       img
         position: relative
         top: 10px
       .message
         //height: 8px
         margin-left: 40px
+    
+
+    .success
+      background: #e6f8dd
+      color: green
+      padding: 0 15px 15px
+      img
+        position: relative
+        top: 10px
+
       .error-icon
         width: 16px
         height: 16px
         position: relative
         top: 2px
-    margin: 1em auto 1em auto
+    margin: 0 auto 0 auto
     font-weight: $std_weight
     input[type=text], input[type=password], textarea
       padding: .8em

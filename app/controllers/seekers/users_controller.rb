@@ -14,7 +14,8 @@ class Seekers::UsersController < Seekers::SeekersController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(edit_seekers_user_path, :notice => 'User was successfully updated.') }
+        flash[:success] = 'User was successfully updated'
+        format.html { redirect_to(edit_seekers_user_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
