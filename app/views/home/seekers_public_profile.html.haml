@@ -1,29 +1,45 @@
 - content_for :title do
-  = @user.first_name + " " + @user.last_name + "'s Profile"
+  = "#{@user}'s Profile"
 
-.options.right
-  - if !@user.resume_file_name.eql? nil
-    = link_to "View My Resume", @user.resume.url
+-#.options.right
+-#  - if !@user.resume_file_name.eql? nil
+-#    = link_to "View My Resume", @user.resume.url
+-#
+-#
+-#%h1= @user.first_name + ' ' + @user.last_name
+-#
+-#
+-#.clear
+-#
+-#.left-column.left
+-#  = image_tag @user.photo.url(:regular)
+-#
+-#  
+-#  #info-container
+-#    %p
+-#      = @user.email
+-#
+-#.right-column.left
+-#  .right-column-container
+-#    %p
+-#      %span.title About Me:
+-#      = @user.about_me
+-#    %p
+-#      %span.title How I Add Value:
+-#      = @user.ideal_role
 
+#user-about.left
+  #profile-photo.left
+    = image_tag @user.photo.url(:regular)
+    %br
+    .caption= @user
+  %strong.title About Me
+  %br
+  #about_me= simple_format(truncate(@user.about_me, :length => 500, :omission => '... (continued)'))
+  .more{:id => 'about_more'}= more_about_me(@user)
+  %br
+  %strong.title How I Add Value
+  #add_value= simple_format(truncate(@user.ideal_role, :length => 500, :omission => '... (continued)'))
+  .more{:id => 'value_more'}= more_value(@user)
 
-%h1= @user.first_name + ' ' + @user.last_name
-
-
-.clear
-
-.left-column.left
-  = image_tag @user.photo.url(:regular)
-
-  
-  #info-container
-    %p
-      = @user.email
-
-.right-column.left
-  .right-column-container
-    %p
-      %span.title About Me:
-      = @user.about_me
-    %p
-      %span.title How I Add Value:
-      = @user.ideal_role
+#user-info.right
