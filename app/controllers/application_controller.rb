@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :home_url_for
+  helper :url
   protect_from_forgery
   
   def not_authenticated

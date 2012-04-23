@@ -53,10 +53,10 @@
   .attr= number_to_phone @user.contact_phone, :area_code => true
   - if @user.has_facebook_enabled?
     -#.attr= @user.facebook
-    = link_to image_tag('facebook.png'), @user.facebook, :target => '_blank'
+    = link_to image_tag('facebook.png'), url_with_protocol(@user.facebook), :target => '_blank'
   - if @user.has_twitter_enabled?
     -#.attr= @user.twitter
-    = link_to image_tag('twitter.png'), @user.twitter, :target => '_blank'
+    = link_to image_tag('twitter.png'), url_with_protocol(@user.twitter), :target => '_blank'
   - if @user.has_blog_enabled?
     -#.attr= @user.blog_address
-    = link_to image_tag('blog.png'), @user.blog_address, :target => '_blank'
+    = link_to image_tag('blog.png'), url_with_protocol(@user.blog_address), :target => '_blank'
