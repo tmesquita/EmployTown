@@ -8,9 +8,10 @@
 %p
   You can separate your tags by commas to create multiple tags
 %h2 You can use tags to give employers more keywords to find you.<br /> (ex. Computer Science, Rails Pro)
-.tags
-  %ul
-    - @tags.each do |tag|
-      %li
-        = link_to tag.tag.capitalize, edit_seekers_tag_path(tag)
-        = link_to('(delete)', seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete) 
+- if @tags.count > 0
+  .tags
+    %ul
+      - @tags.each do |tag|
+        %li
+          = link_to tag.tag.capitalize, edit_seekers_tag_path(tag)
+          = link_to('(delete)', seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete) 
