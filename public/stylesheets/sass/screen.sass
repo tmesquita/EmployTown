@@ -434,6 +434,15 @@ a
     h2
       margin: 0
       padding: 0
+    .warning
+      background: #ffecce
+      padding: 20px
+      margin-bottom: 20px
+      @include border_radius
+      border: 1px solid #e9c59b
+      img
+        position: relative
+        top: 3px
     #profile_info
       padding: 20px
       background: white
@@ -444,6 +453,12 @@ a
         margin: 0 20px
         .title
           font-size: 1.5em
+        .title_warning
+          color: red
+          font-size: 1.5em
+          background: #fceded
+          padding: 10px
+          font-weight: bold
         .attribute
           //border: 1px solid #CCC
           //padding: 0 20px
@@ -470,6 +485,12 @@ a
       border: 1px solid #CCC
       padding: 20px
       margin: 10px 0
+      .title_warning
+        color: red
+        background: #fceded
+        padding: 5px
+        font-weight: bold
+        margin: 5px 0
 
     #photo
       margin: 10px 0

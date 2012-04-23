@@ -23,7 +23,7 @@
     %br
     %strong Job Description:
     %br
-    .comment{:id => "bid#{@bidding.id}"}= simple_format(truncate(@bidding.comment, :length => 200))
+    .comment{:id => "bid#{@bidding.id}"}= simple_format(truncate(@bidding.comment, :length => 200, :omission => '... (continued)'))
     .read_more{:id => "more#{@bidding.id}"}= more_link(@bidding)
     %br
     %strong Contact Name:

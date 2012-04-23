@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_format_of :contact_phone,
       :message => "must be 10 digits long and only contain digits",
       :with => /^[\(\)0-9\- \+\.]{10}$/,
-      :allow_nil => true
+      :allow_blank => true
   
   belongs_to :role
   belongs_to :company

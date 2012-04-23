@@ -11,7 +11,7 @@ module UsersHelper
 
   def less_about_me(h)
     link_to_function("Less", nil, :id => "1") do |page|
-      page["about_me"].replace_html "#{truncate(h.about_me, :length => 500)}"
+      page["about_me"].replace_html "#{truncate(h.about_me, :length => 500, :omission => '... (continued)')}"
       page.show "about_more"
       page.hide "about_less"
     end
@@ -29,7 +29,7 @@ module UsersHelper
 
   def less_value(h)
     link_to_function("Less", nil, :id => "1") do |page|
-      page["add_value"].replace_html "#{truncate(h.ideal_role, :length => 500)}"
+      page["add_value"].replace_html "#{truncate(h.ideal_role, :length => 500, :omission => '... (continued)')}"
       page.show "value_more"
       page.hide "value_less"
     end

@@ -12,7 +12,7 @@ module BiddingsHelper
 
   def less_link(h)
     link_to_function("Less", nil, :id => "1") do |page|
-      page["bid#{h.id}"].replace_html "#{truncate(h.comment, :length => 200)}"
+      page["bid#{h.id}"].replace_html "#{truncate(h.comment, :length => 200, :omission => '... (continued)')}"
       page.show "more#{h.id}"
       page.hide "less#{h.id}"
     end

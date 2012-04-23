@@ -2,17 +2,25 @@
   My Profile
 
 #profile_info_container.left
+  - if @user.about_me.nil? or @user.about_me.length < 1 or @user.ideal_role.nil? or @user.ideal_role.length < 1 or @user.contact_phone.nil? or @user.contact_phone.length < 1 or @user.contact_email.nil? or @user.contact_email.length < 1
+    .warning
+      = image_tag '25.png'
+      Your profile is incomplete. Please
+      = link_to 'edit', seekers_edit_info_path
+      your profile to complete it.
+      %br
+      =# link_to 'Edit Profile', seekers_edit_info_path
   #profile_info
 
     #info.left
-      %strong.title About me
+      %strong.title About Me
       %br
       .attribute{:id => "about_me"}= simple_format(truncate(@user.about_me, :length => 500))
       .more{:id => "about_more"}= more_about_me(@user)
       %br
       %strong.title How I Add Value
       %br
-      .attribute{:id => "add_value"}= simple_format(truncate(@user.ideal_role, :length => 500, :omission => '...(continued)'))
+      .attribute{:id => "add_value"}= simple_format(truncate(@user.ideal_role, :length => 500, :omission => '... (continued)'))
       .more{:id => "value_more"}= more_value(@user)
 
     .clear
@@ -27,10 +35,13 @@
     %br
     %strong Contact Email:
     %span.right= @user.contact_email
-    %br
+    
+    .clear
     %strong Phone:
-    %span.right= number_to_phone @user.contact_phone, :area_code => true
-    %br
+    - if !@user.contact_phone.nil? and @user.contact_phone.length > 0
+      %span.right= number_to_phone @user.contact_phone, :area_code => true
+      
+    .clear
     - if @user.has_facebook_enabled?
       %strong Facebook:
       %span.right= @user.facebook
