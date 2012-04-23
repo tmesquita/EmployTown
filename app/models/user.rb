@@ -114,6 +114,26 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_unreplied_biddings_count
+    Bidding.count(:conditions => {:seeker_id => self.id, :interested => nil})
+  end
+
+  def get_interested_biddings_count
+    Bidding.count(:conditions => {:seeker_id => self.id, :interested => 1})
+  end
+
+  def get_uninterested_biddings_count
+    Bidding.count(:conditions => {:seeker_id => self.id, :interested => 0})
+  end
+
+  def get_tag_count
+    Tag.count(:conditions => {:user_id => self.id})
+  end
+
+  def get_bid_count
+    Bidding.count(:conditions => {:seeker_id => self.id})
+  end
+
   def has_facebook_enabled?
     self.facebook_enabled_flag
   end

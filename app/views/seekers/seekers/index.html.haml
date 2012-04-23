@@ -2,4 +2,58 @@
   Profile View
 
 
-= render :partial => 'profile'
+=# render :partial => 'profile'
+#home_bids_container.left
+  %h1 Bids waiting for your response
+  #home_bids
+    %p
+      - if @bids.count > 0
+        - @bids.each do |@bidding|
+          = render :partial => "seekers/biddings/bidding"
+        %br
+      -else
+        %h3 You currently have no new bids
+
+#home_tags_container.right
+  %h1 &nbsp;
+  #home_tags
+    - if current_user.get_bid_count > 0
+      You have 
+      = link_to pluralize(current_user.get_bid_count, 'bid'), seekers_biddings_path
+      %ul
+        - if current_user.get_unreplied_biddings_count > 0
+          %li= "#{current_user.get_unreplied_biddings_count} waiting your response"
+        - if current_user.get_interested_biddings_count > 0
+          %li= "#{current_user.get_interested_biddings_count} interested"
+        - if current_user.get_uninterested_biddings_count > 0
+          %li= "#{current_user.get_uninterested_biddings_count} not interested"
+    - else
+      You have 0 bids
+      %br
+      %li.no_decoration 
+        Work on your 
+        = link_to 'profile', seekers_profile_path
+        to attract more bids
+    %br
+    You have created
+    = link_to pluralize(current_user.get_tag_count, 'tag'), new_seekers_tag_path
+    %br
+    %br
+    - if current_user.resume_file_name.eql? nil
+      You haven't uploaded a resume yet
+      = link_to 'Upload your resume', seekers_edit_info_path
+  -#  = form_for [:seekers, @tag] do |f|
+  -#    -if @tag.errors.any?
+  -#      %div{:id => "error_explanation"}
+  -#        %h2= pluralize(@tag.errors.count, "error") + "prohibited this tag from being saved:"
+  -#        %ul
+  -#          - @tag.errors.full_messages.each do |msg|
+  -#            %li= msg
+  -#  
+  -#    .input
+  -#      = f.text_field :tag
+  -#      = f.submit
+
+
+
+.clear

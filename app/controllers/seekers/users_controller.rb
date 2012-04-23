@@ -1,6 +1,7 @@
 class Seekers::UsersController < Seekers::SeekersController
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
   end
   
   def show
@@ -8,11 +9,12 @@ class Seekers::UsersController < Seekers::SeekersController
   end
   
   def update
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(edit_seekers_user_path(@user), :notice => 'User was successfully updated.') }
+        format.html { redirect_to(edit_seekers_user_path, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

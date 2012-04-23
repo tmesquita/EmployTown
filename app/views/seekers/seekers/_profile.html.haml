@@ -1,5 +1,5 @@
 .options.right
-  = link_to 'Edit My Profile', seekers_edit_info_path(current_user)
+  = link_to 'Edit My Profile', seekers_edit_info_path
   |
   - if current_user.resume_file_name.eql? nil
     = link_to 'Please Upload a Resume', seekers_edit_info_path(current_user)

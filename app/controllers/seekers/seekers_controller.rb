@@ -3,15 +3,25 @@ class Seekers::SeekersController < ApplicationController
   
   def index
     @user = current_user
+    @bids = current_user.get_my_biddings
+
+    @tags = Tag.find_all_by_user_id(current_user.id)
+    @tag = Tag.new
   end
 
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
+  end
+
+  def profile
+    @user = current_user
   end
 
   def update
     # Current user being updated
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
 
     # Check to see if user with the url of the user_url post parameter exists
     @user_exists = User.find_by_user_url(params[:user][:user_url])
@@ -21,15 +31,15 @@ class Seekers::SeekersController < ApplicationController
     if (@user_exists && @user_exists != @user) || !(params[:user][:user_url].to_s.match(/[^\w]/).eql?(nil))
       if !params[:user][:user_url].to_s.match(/[^\w]/).eql? nil
         flash[:notice] = 'URL is invalid. Must be an alpha-numeric character.'
-        redirect_to seekers_edit_info_path(@user)
+        redirect_to seekers_edit_info_path
       else      
         flash[:notice] = 'URL is already taken!'
-        redirect_to seekers_edit_info_path(@user)
+        redirect_to seekers_edit_info_path
       end
     else
       if @user.update_attributes(params[:user])
         flash[:notice] = "Your profile was sucessfully updated."
-        redirect_to(seekers_edit_info_path(@user))
+        redirect_to(seekers_edit_info_path)
       else
         render :action => "edit"
       end   
@@ -37,7 +47,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_facebook
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.facebook_enabled_flag = true
     respond_to do |format|
       if @user.save
@@ -51,7 +62,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_facebook
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.facebook_enabled_flag = false
     respond_to do |format|
       if @user.save
@@ -65,7 +77,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_twitter
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.twitter_enabled_flag = true
     respond_to do |format|
       if @user.save
@@ -79,7 +92,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_twitter
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.twitter_enabled_flag = false
     respond_to do |format|
       if @user.save
@@ -93,7 +107,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_blog
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.blog_enabled_flag = true
     respond_to do |format|
       if @user.save
@@ -107,7 +122,8 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_blog
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = current_user
     @user.blog_enabled_flag = false
     respond_to do |format|
       if @user.save
@@ -132,7 +148,7 @@ class Seekers::SeekersController < ApplicationController
             elsif current_user.is_employer?
               redirect_to employers_root_url
             else
-              redirect_ot root_url
+              redirect_to root_url
             end
             }
           format.xml { head :unauthorized }

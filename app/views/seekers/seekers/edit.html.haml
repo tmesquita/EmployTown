@@ -1,7 +1,7 @@
 - content_for :title do
   Edit Your Profile
 
--form_for [:seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
+- form_for [:seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
   
   -#%h1= link_to @user.first_name + ' ' + @user.last_name, url_for(:controller => '/home', :action => 'seekers_public_profile', :user_url => @user.user_url), :title => 'View My Profile'
   %h1= @user.first_name + ' ' + @user.last_name
