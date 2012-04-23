@@ -550,7 +550,7 @@ a:hover {
 }
 /* line 483, sass/screen.sass */
 .container #profile_info_container {
-  width: 62%;
+  width: 57%;
 }
 /* line 485, sass/screen.sass */
 .container #profile_info_container h2 {
@@ -604,7 +604,7 @@ a:hover {
 }
 /* line 525, sass/screen.sass */
 .container #user_info_container {
-  width: 35%;
+  width: 40%;
 }
 /* line 527, sass/screen.sass */
 .container #user_info_container h2 {
