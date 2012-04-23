@@ -43,3 +43,20 @@
   .more{:id => 'value_more'}= more_value(@user)
 
 #user-info.right
+  .title= @user
+  - if !@user.resume_file_name.nil?
+    .attr.center= link_to 'My Resume', @user.resume.url
+  - else
+    .small-text (User has not uploaded a resume)
+  %br
+  .attr= @user.contact_email
+  .attr= number_to_phone @user.contact_phone, :area_code => true
+  - if @user.has_facebook_enabled?
+    -#.attr= @user.facebook
+    = link_to image_tag('facebook.png'), @user.facebook
+  - if @user.has_twitter_enabled?
+    -#.attr= @user.twitter
+    = link_to image_tag('twitter.png'), @user.twitter
+  - if @user.has_blog_enabled?
+    -#.attr= @user.blog_address
+    = link_to image_tag('blog.png'), @user.blog_address
