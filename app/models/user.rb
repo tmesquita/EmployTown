@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
 
   before_create :assign_default_url
 
+  before_update :convert_social_urls_to_http_address
+
   before_validation :remove_non_digits_in_phone
 
   validate :validate_urls, :on => :update
@@ -180,6 +182,20 @@ class User < ActiveRecord::Base
   end
 
   protected
+
+    def convert_social_urls_to_http_address
+      unless self.facebook.blank?
+        self.facebook = 'http://' + self.facebook if !self.facebook.start_with? 'http://'
+      end
+
+      unless self.twitter.blank?
+        self.twitter = 'http://' + self.twitter if !self.twitter.start_with? 'http://'
+      end
+
+      unless self.blog_address.blank?
+        self.blog_address = 'http://' + self.blog_address if !self.blog_address.start_with? 'http://'
+      end
+    end
   
     def remove_non_digits_in_phone
       self.contact_phone.gsub!(/\D/, "") unless self.contact_phone.blank?
