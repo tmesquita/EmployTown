@@ -1,14 +1,14 @@
 - content_for :title do
   Tags
 
-.left
-  %h1 Your Tags
-.right= render 'form'
-.clear
+
+%h1 Your Tags
+= render 'form'
+
 %p
   You can separate your tags by commas to create multiple tags
 %h2 You can use tags to give employers more keywords to find you.<br /> (ex. Computer Science, Rails Pro)
-%p
+.tags
   %ul
     - @tags.each do |tag|
       %li
