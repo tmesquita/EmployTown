@@ -26,11 +26,11 @@
       = link_to pluralize(current_user.get_bid_count, 'bid'), seekers_biddings_path
       %ul
         - if current_user.get_unreplied_biddings_count > 0
-          %li= "#{current_user.get_unreplied_biddings_count} waiting your response"
+          %li= link_to "#{current_user.get_unreplied_biddings_count} waiting your response", seekers_biddings_path
         - if current_user.get_interested_biddings_count > 0
-          %li= "#{current_user.get_interested_biddings_count} interested"
+          %li= link_to "#{current_user.get_interested_biddings_count} interested", seekers_interested_bids_path
         - if current_user.get_uninterested_biddings_count > 0
-          %li= "#{current_user.get_uninterested_biddings_count} not interested"
+          %li= link_to "#{current_user.get_uninterested_biddings_count} not interested", seekers_uninterested_bids_path
     - else
       You don't have any bids
       %br

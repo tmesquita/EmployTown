@@ -6,7 +6,7 @@
   %ul#bid_menu.right
     %li.border= link_to 'Bids Awaiting Response', seekers_biddings_path
     |
-    %li= link_to 'Uninterested Bids', seekers_uninterested_bids_path
+    %li= link_to 'Not Interested Bids', seekers_uninterested_bids_path
   .clear
 -if @bids.count > 0
   - @bids.each do |@bidding|

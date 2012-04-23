@@ -26,7 +26,7 @@
     .interest_box
       = link_to image_tag('accept_item.png') + 'Interested', interested_seekers_bidding_path(@bidding.id)
       %br
-      = link_to image_tag('delete_item.png') + 'Uninterested', not_interested_seekers_bidding_path(@bidding.id)
+      = link_to image_tag('delete_item.png') + 'Not Interested', not_interested_seekers_bidding_path(@bidding.id)
 
   .clear
 
