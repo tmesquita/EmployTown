@@ -2,8 +2,12 @@
 .right-container-form
   - if @user.errors.any?
     .error
+      = image_tag 'Exclamation.png'
+      %strong &nbsp;Please fix the following errors
+      %br
+      %br
       - for message in @user.errors.full_messages
-        .message= message
+        %li.message= message
   .input-container
     .left
       .input

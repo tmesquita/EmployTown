@@ -28,15 +28,19 @@
         - if current_user.get_uninterested_biddings_count > 0
           %li= "#{current_user.get_uninterested_biddings_count} not interested"
     - else
-      You have 0 bids
+      You don't have any bids
       %br
       %li.no_decoration 
         Work on your 
         = link_to 'profile', seekers_profile_path
         to attract more bids
     %br
-    You have created
-    = link_to pluralize(current_user.get_tag_count, 'tag'), new_seekers_tag_path
+    - if current_user.get_tag_count > 0
+      You have created
+      = link_to pluralize(current_user.get_tag_count, 'tag'), new_seekers_tag_path
+    - else
+      You haven't created any tags!
+      = link_to 'Create tags', new_seekers_tag_path
     %br
     %br
     - if current_user.resume_file_name.eql? nil

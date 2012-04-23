@@ -19,31 +19,15 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def update
-    # Current user being updated
     #@user = User.find(params[:id])
     @user = current_user
 
-    # Check to see if user with the url of the user_url post parameter exists
-    @user_exists = User.find_by_user_url(params[:user][:user_url])
-
-    # if a record exists and doesn't match current user, throw an error
-    # and checks to make sure the url contains alpha-numeric values 
-    if (@user_exists && @user_exists != @user) || !(params[:user][:user_url].to_s.match(/[^\w]/).eql?(nil))
-      if !params[:user][:user_url].to_s.match(/[^\w]/).eql? nil
-        flash[:notice] = 'URL is invalid. Must be an alpha-numeric character.'
-        redirect_to seekers_edit_info_path
-      else      
-        flash[:notice] = 'URL is already taken!'
-        redirect_to seekers_edit_info_path
-      end
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Your profile was sucessfully updated."
+      redirect_to(seekers_edit_info_path)
     else
-      if @user.update_attributes(params[:user])
-        flash[:notice] = "Your profile was sucessfully updated."
-        redirect_to(seekers_edit_info_path)
-      else
-        render :action => "edit"
-      end   
-    end 
+      render :action => "edit"
+    end
   end
 
   def enable_facebook

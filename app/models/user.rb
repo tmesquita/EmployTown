@@ -8,7 +8,19 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain']
-  validates_uniqueness_of :user_url
+  validates_presence_of :user_url, :on => :update
+  validates_uniqueness_of :user_url, :on => :update
+  validates_format_of :user_url,
+      :message => 'can only contain numbers, letters, underscores, and periods',
+      :with => /^[\w\.]+$/,
+      :on => :update
+
+  validates_format_of :contact_phone,
+      :message => "must be 10 digits long and only contain digits",
+      :with => /^[\(\)0-9\- \+\.]{10}$/,
+      :allow_nil => true
+
+  validates_uniqueness_of :user_url, :message => 'already taken'
   
   belongs_to :role
   belongs_to :company
@@ -20,6 +32,8 @@ class User < ActiveRecord::Base
   before_create :assign_role
 
   before_create :assign_default_url
+
+  before_validation :remove_non_digits_in_phone
 
   validate :validate_urls, :on => :update
   
@@ -169,6 +183,10 @@ class User < ActiveRecord::Base
 
   protected
   
+    def remove_non_digits_in_phone
+      self.contact_phone.gsub!(/\D/, "") unless self.contact_phone.blank?
+    end
+
     def assign_role
       self.role = Role.find_by_name(self.seeking) if role.nil?
     end

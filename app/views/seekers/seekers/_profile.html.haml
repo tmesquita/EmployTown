@@ -1,38 +1,82 @@
-.options.right
-  = link_to 'Edit My Profile', seekers_edit_info_path
-  |
-  - if current_user.resume_file_name.eql? nil
-    = link_to 'Please Upload a Resume', seekers_edit_info_path(current_user)
-  -else
-    = link_to "View My Resume", @user.resume.url
+-#.options.right
+-#  = link_to 'Edit My Profile', seekers_edit_info_path
+-#  |
+-#  - if current_user.resume_file_name.eql? nil
+-#    = link_to 'Please Upload a Resume', seekers_edit_info_path(current_user)
+-#  -else
+-#    = link_to "View My Resume", @user.resume.url
+-#
+-#
+-#%h1= @user.first_name + ' ' + @user.last_name
+-#
+-#-#.edit-profile
+-#  -#= link_to 'Edit My Profile', seekers_edit_info_path(current_user)
+-#
+-#.clear
+-#
+-#.left-column.left
+-#  = image_tag @user.photo.url(:regular)
+-#
+-#  .small-title
+-#    My Information
+-#  #info-container
+-#    %p
+-#      = @user.email
+-#    %p
+-#      = link_to request.env['HTTP_HOST'].to_s + "/" + @user.user_url, @user.user_url
+-#
+-#.right-column.left
+-#  .right-column-container
+-#    -#.right= link_to 'Edit', seekers_edit_info_path(current_user)
+-#    %p
+-#      %span.title About Me:
+-#      %br
+-#      =h simple_format @user.about_me
+-#    %p
+-#      %span.title How I Add Value:
+-#      %br
+-#      =h simple_format @user.ideal_role
 
+#profile_info_container.left
+  -#%h2 &nbsp;
+  #profile_info
 
-%h1= @user.first_name + ' ' + @user.last_name
-
--#.edit-profile
-  -#= link_to 'Edit My Profile', seekers_edit_info_path(current_user)
-
-.clear
-
-.left-column.left
-  = image_tag @user.photo.url(:regular)
-
-  .small-title
-    My Information
-  #info-container
-    %p
-      = @user.email
-    %p
-      = link_to request.env['HTTP_HOST'].to_s + "/" + @user.user_url, @user.user_url
-
-.right-column.left
-  .right-column-container
-    -#.right= link_to 'Edit', seekers_edit_info_path(current_user)
-    %p
-      %span.title About Me:
+    #info.left
+      %strong.title About me
       %br
-      =h simple_format @user.about_me
-    %p
-      %span.title How I Add Value:
+      .attribute= simple_format @user.about_me
+      %strong.title How I Add Value
       %br
-      =h simple_format @user.ideal_role
+      .attribute= simple_format @user.ideal_role
+
+    .clear
+
+#user_info_container.right
+  %h2
+    My Info
+    = link_to '(edit)', seekers_edit_info_path, :class => 'small_title'
+  #user_info
+    %strong URL:
+    %span.right= link_to request.env['HTTP_HOST'].to_s + "/" + @user.user_url, @user.user_url
+    %br
+    %strong Contact Email:
+    %span.right= @user.contact_email
+    %br
+    %strong Phone:
+    %span.right= number_to_phone @user.contact_phone, :area_code => true
+    %br
+    - if @user.has_facebook_enabled?
+      %strong Facebook:
+      %span.right= @user.facebook
+      %br
+    - if @user.has_twitter_enabled?
+      %strong Twitter:
+      %span.right= @user.twitter
+      %br
+    - if @user.has_blog_enabled?
+      %strong Blog:
+      %span.right= @user.blog_address
+  #photo.left
+    = image_tag @user.photo.url(:regular)
+
+  

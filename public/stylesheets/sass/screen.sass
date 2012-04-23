@@ -378,6 +378,52 @@ a
       //text-shadow: 0 1px #EEE
       &:hover
         //border-bottom: 2px solid
+
+  #profile_info_container
+    width: 62%
+    h2
+      margin: 0
+      padding: 0
+    #profile_info
+      padding: 20px
+      background: white
+      border: 1px solid #CCC
+      @include border_radius
+      margin-top: 5px
+      #info
+        margin: 0 20px
+        .title
+          font-size: 1.5em
+        .attribute
+          //border: 1px solid #CCC
+          //padding: 0 20px
+          //background: white
+          //background: white
+          //width: 360px
+          margin: 10px 0 30px
+          overflow: scroll
+          max-height: 200px
+          //@include border_radius
+        
+
+  #user_info_container
+    width: 35%
+    h2
+      margin: 0
+      padding: 0
+      //text-align: right
+      .small_title
+        font-size: .6em
+    #user_info
+      background: white
+      @include border_radius
+      border: 1px solid #CCC
+      padding: 20px
+      margin: 10px 0
+
+    #photo
+      margin: 10px 0
+
   
   h1, h2, h3
     margin: .5em 0 1em 0
@@ -450,15 +496,21 @@ a
     .input
       margin: 0 auto 25px auto
     .error
-      margin: 0 0 20px 25px
+      //margin: 0 0 20px 25px
       color: red
-      background: #ffecce
-      padding: 1em 0 .5em 1em
-      border: 1px solid #e9c59b
+      //background: #ffecce
+      background: #fceded
+      padding: 5px 15px 15px
+      //border: 1px solid #e9c59b
       @include border-radius(2px)
-      width: 595px
+      width: 565px
+      margin-bottom: 20px
+      img
+        position: relative
+        top: 10px
       .message
-        height: 8px
+        //height: 8px
+        margin-left: 40px
       .error-icon
         width: 16px
         height: 16px
