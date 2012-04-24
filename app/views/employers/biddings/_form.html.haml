@@ -1,32 +1,40 @@
-= form_for [:employers, @bidding] do |f|  
+= form_for [:employers, @bidding], :url => {:action => 'create', :seeker_id => params[:seeker_id]} do |f|  
   - if @bidding.errors.any?  
-    %div{:id => "error_explanation"}
-      %h2= pluralize(@bidding.errors.count, "error") + "prohibited this bidding from being saved:"
-      %ul
+    .error
+      = image_tag 'Exclamation.png'
+      %strong &nbsp;Please fix the following errors
+      %br
+      %br
         - @bidding.errors.full_messages.each do |msg|  
-          %li= msg 
-  .input
-    = f.label :title, "Job Title"
-    %br
-    = f.text_field :title
-  .input
-    = f.label :comment, "Description"
-    %br
-    = f.text_area :comment, :size => "30x8"  
-  .input
-    = f.label :salary
-    %br
-    = f.text_field :salary
-  .input
-    = f.label :salary_term
-    %br
-    = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
-  .input
-    = f.label :contact_email_address
-    %br
-    = f.text_field :contact_email
+          %li.message= msg 
 
-  %input{:type=>'hidden', :name=>'seeker_id', :value=>@seeker_id}
-  .submit
-    = f.submit 'Submit Bid'
+  .input-container
+    .left
+      .input
+        = f.label :title, "Job Title"
+        %br
+        = f.text_field :title
+      .input
+        = f.label :comment, "Description"
+        %br
+        = f.text_area :comment, :size => "30x8" 
+      %input{:type => 'hidden', :name => 'seeker_id', :value => @seeker_id}
+      .submit
+        = f.submit 'Submit Bid' 
+    .right
+      .input
+        = f.label :salary
+        %br
+        = f.text_field :salary
+      .input
+        = f.label :salary_term
+        %br
+        = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
+      .input
+        = f.label :contact_email_address
+        %br
+        = f.text_field :contact_email
+    .clear
+  
+    
 

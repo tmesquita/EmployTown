@@ -1,6 +1,8 @@
 - content_for :title do
   Profile View
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 #home_bids_container.left
   - if @bids.count > 0
     %h2= "#{pluralize(@bids.count, 'bid')} awaiting your response"

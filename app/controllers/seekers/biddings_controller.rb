@@ -56,7 +56,8 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 1
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1'), :notice => 'Bidding was successfully updated.') }
+        flash[:success] = 'You are now interested this bid.'
+        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -70,7 +71,8 @@ class Seekers::BiddingsController < Seekers::SeekersController
     @bidding.interested = 0
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1'), :notice => 'Bidding was successfully updated.') }
+        flash[:success] = 'You are no longer interested in this bid.'
+        format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

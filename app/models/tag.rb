@@ -1,5 +1,7 @@
 class Tag < ActiveRecord::Base
   belongs_to :user
+
+  validates :tag, :presence => true
   
   def to_s
     self.tag.titleize + ", "

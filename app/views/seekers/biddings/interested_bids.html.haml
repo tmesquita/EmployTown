@@ -1,6 +1,8 @@
 - content_for :title do
   Interested Bids
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 .bid_header
   %h2.left Bids you are interested in
   %ul#bid_menu.right

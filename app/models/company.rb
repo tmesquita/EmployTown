@@ -1,9 +1,13 @@
 class Company < ActiveRecord::Base
 
+  attr_accessible :name, :url, :description, :looking_for, :why_work_for, :facebook_enabled_flag, :facebook, :twitter_enabled_flag, :twitter, :blog_enabled_flag, :blog_address
+
 	has_many :biddings
 	has_many :users
 
   validate :validate_urls, :on => :update
+
+  validates :name, :presence => true
 	
 	def to_s
 	  self.name.titleize

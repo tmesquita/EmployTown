@@ -1,6 +1,8 @@
 - content_for :title do
   Uninterested Bids
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 .bid_header
   %h2.left Bids with no interest
   %ul#bid_menu.right

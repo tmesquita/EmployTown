@@ -28,6 +28,7 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings/new
   # GET /biddings/new.xml
   def new
+    puts params[:seeker_id]
     @seeker = User.find(params[:seeker_id])
     @bidding = Bidding.new
     @seeker_id = params[:seeker_id]
@@ -45,13 +46,15 @@ class Employers::BiddingsController < Employers::EmployersController
   # POST /biddings
   # POST /biddings.xml
   def create
+    @seeker = User.find(params[:seeker_id]) unless params[:seeker_id].nil?
     @bidding = Bidding.new(params[:bidding])
     @bidding.seeker_id = params[:seeker_id]
     @bidding.employer_id = current_user.id
     @bidding.date = Time.now
     respond_to do |format|
       if @bidding.save
-        format.html { redirect_to(employers_biddings_path, :notice => 'Bidding was successfully created.') }
+        flash[:success] = 'Bid was sent sucessfully.'
+        format.html { redirect_to(employers_biddings_path) }
         format.xml  { render :xml => @bidding, :status => :created, :location => @bidding }
       else
         format.html { render :action => "new" }
@@ -83,6 +86,7 @@ class Employers::BiddingsController < Employers::EmployersController
     @bidding.destroy
 
     respond_to do |format|
+      flash[:success] = 'You have successfully deleted the bid.'
       format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1')) }
       format.xml  { head :ok }
     end

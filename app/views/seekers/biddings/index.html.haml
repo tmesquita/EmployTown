@@ -1,6 +1,8 @@
 - content_for :title do
   Bids and Offers
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 .bid_header
   %h2.left Bids and Offers awaiting your reply
   %ul#bid_menu.right

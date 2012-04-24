@@ -15,7 +15,8 @@ class Employers::UsersController < Employers::EmployersController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(edit_employers_user_path(@user), :notice => 'User was successfully updated.') }
+        flash[:success] = 'Information has been successfully updated.'
+        format.html { redirect_to(edit_employers_user_path(@user)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,6 +1,7 @@
 - content_for :title do
   Tags
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
 
 %h1 Your Tags
 = render 'form'

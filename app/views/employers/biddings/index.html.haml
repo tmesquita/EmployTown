@@ -1,6 +1,8 @@
 - content_for :title do
   Bids Awaiting Response
 
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 .bid_header
   %h2.left Bids Awaiting Response
   %ul#bid_menu.right

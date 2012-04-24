@@ -1,11 +1,18 @@
 = form_for [:employers, @company] do |f|
   -if @company.errors.any? 
-    %div{:id => "error_explanation"}
-      %h2= pluralize(@company.errors.count, "error") + "prohibited this company from being saved:"
-
-      %ul
-        - @company.errors.full_messages.each do |msg|
-          %li= msg
+    .error
+      = image_tag 'Exclamation.png'
+      %strong &nbsp; Please fix the following errors
+      %br
+      %br
+      - @company.errors.full_messages.each do |msg|
+        %li.message= msg
+  - if flash[:success]
+    .success
+      = image_tag 'checkmark.png'
+      - flash.each do |key, msg|
+        &nbsp;
+        = msg
 
   .input-container
     .left

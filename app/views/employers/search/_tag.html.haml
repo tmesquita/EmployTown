@@ -22,6 +22,8 @@
     .bid_box
       = link_to image_tag('search_magnifier.png') + 'View Profile', @tag.user.user_url
       %br
-      = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_bidding_path(:seeker_id => @tag.user.id)
-
+      - if !@tag.user.has_bid_from_employer?(current_user)
+        = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_bidding_path(:seeker_id => @tag.user.id)
+      - else
+        = link_to image_tag('search_magnifier.png') + 'View Bid', employers_biddings_path
   .clear

@@ -234,17 +234,34 @@ a
     margin: 0 0 1em 0
   
   .flash.success
-    padding: .8em .8em .7em .8em
-    background-color: #32CD99
+    padding: 0 10px 15px
+    //background-color: #32CD99
+    @include border_radius
     border: solid 1px #28AE7B
+    background: #e6f8dd
+    color: green
+    margin: 0 auto
+    width: 980px
+    img
+      position: relative
+      top: 10px
   .flash.notice
-    padding: .8em .8em .7em .8em
+    padding: 10px
     background-color: $light
     border: solid 1px $secondary
+    margin: 0 auto
+    width: 980px
+    @include border_radius
   .flash.error
-    padding: .8em .8em .7em .8em
+    padding: 0 10px 15px
     background-color: #FFF0F0
     border: solid 1px #900
+    margin: 0 auto
+    width: 980px
+    @include border_radius
+    img
+      position: relative
+      top: 10px
 
   .catch-phrase
     text-align: center
@@ -603,28 +620,44 @@ a
       margin: 0
 
   #edit-company-container
-    width: 900px
+    width: 660px
     margin: 30px auto 0 auto
+    .input-container
+      width: 595px
     .input
-      width: 400px
-      margin-left: 25px
+      width: 290px
+      //margin-left: 25px
     .submit
-      //margin: 0 auto
-      margin-left: 18px
-      width: 200px
+      margin: -7px
+      //margin-left: 18px
+      //width: 200px
     input[type=text], textarea
-      width: 350px
+      width: 260px
+
+  #edit-user-container
+    width: 660px
+    margin: 30px auto 0 auto
+    .input-container
+      width: 595px
+    .input
+      width: 290px
+    .submit
+      margin: -7px
+    input[type=text], input[type=password], textarea
+      width: 260px
 
   #new-bidding-container
-    width: 450px
+    width: 660px
     margin: 0 auto
+    .input-container
+      width: 595px
     .input
-      width: 350px
+      width: 290px
     .submit
-      margin: 0 auto
-      width: 360px
+      margin: -7px
+      //width: 360px
     input[type=text], textarea
-      width: 325px
+      width: 260px
 
   #login-form-container
     width: 450px

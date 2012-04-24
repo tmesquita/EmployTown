@@ -1,4 +1,10 @@
+- content_for :title do
+  Employer Home
+  
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 %h2 Welcome Employer!
+
 
 %p
   - if current_user.belongs_to_company?

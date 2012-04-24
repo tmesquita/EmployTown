@@ -55,10 +55,13 @@ class Seekers::TagsController < Seekers::SeekersController
     
     respond_to do |format|
       if saved
-        format.html { redirect_to new_seekers_tag_path, :notice => 'Tag(s) were successfully created'}
+        flash[:success] = 'You have successfully added new tags.'
+        format.html { redirect_to new_seekers_tag_path}
         #format.xml { render :xml => @tag, :status }
       else
-        format.html { render :action => "new" }
+        flash[:error] = 'There were problems saving your tag'
+        format.html { redirect_to new_seekers_tag_path }
+        #format.html { render :action => "new" }
       end
     end
     #respond_to do |format|
@@ -95,6 +98,7 @@ class Seekers::TagsController < Seekers::SeekersController
     @tag.destroy
 
     respond_to do |format|
+      flash[:success] = 'You have successfully deleted that tag.'
       format.html { redirect_to(new_seekers_tag_path) }
       format.xml  { head :ok }
     end

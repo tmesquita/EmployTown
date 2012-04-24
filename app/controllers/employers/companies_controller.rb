@@ -39,6 +39,7 @@ class Employers::CompaniesController < Employers::EmployersController
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    #@company = current_user.company
   end
 
   # POST /companies
@@ -62,11 +63,13 @@ class Employers::CompaniesController < Employers::EmployersController
   # PUT /companies/1.xml
   def update
     @company = Company.find(params[:id])
+    #@company = current_user.company
     
     current_user.add_company(params[:id])
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.html { redirect_to(employers_company_path(@company), :notice => 'Company was successfully updated.') }
+        flash[:success] = "#{@company.name} was successfully updated."
+        format.html { redirect_to(employers_company_path(@company)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -89,6 +92,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def enable_facebook
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.facebook_enabled_flag = true
     respond_to do |format|
       if @company.save
@@ -103,6 +107,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def disable_facebook
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.facebook_enabled_flag = false
     respond_to do |format|
       if @company.save
@@ -117,6 +122,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def enable_twitter
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.twitter_enabled_flag = true
     respond_to do |format|
       if @company.save
@@ -131,6 +137,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def disable_twitter
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.twitter_enabled_flag = false
     respond_to do |format|
       if @company.save
@@ -145,6 +152,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def enable_blog
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.blog_enabled_flag = true
     respond_to do |format|
       if @company.save
@@ -159,6 +167,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def disable_blog
     @company = Company.find(params[:id])
+    #@company = current_user.company
     @company.blog_enabled_flag = false
     respond_to do |format|
       if @company.save
@@ -185,6 +194,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
     def employer_action_redirect
       if current_user.belongs_to_company?
+        flash[:success] = flash[:success] unless flash[:success].nil?
         redirect_to edit_employers_company_path(current_user.company) #, :notice => "This is the company you currently work for."
       else
         redirect_to new_employers_company_path, :notice => "You don't belong to a company, please create a new one."

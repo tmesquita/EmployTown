@@ -1,0 +1,8 @@
+- unless flash.empty?
+  - flash.each do |key, msg|
+    %div{:class => "flash #{key}"}
+      - if key.eql? :success
+        = image_tag 'checkmark.png'
+      - elsif key.eql? :error
+        = image_tag 'Exclamation.png'
+      = msg

@@ -32,9 +32,9 @@
         .clear
       .container
         .body
-          - unless flash.empty?
-            - flash.each do |key, msg|
-              %div{:class => "flash #{key}"}= msg
+          -#- unless flash.empty?
+          -#  - flash.each do |key, msg|
+          -#    %div{:class => "flash #{key}"}= msg
           - if !current_page? root_path
             .content_container
               = yield

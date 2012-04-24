@@ -38,15 +38,20 @@ EmployTown::Application.routes.draw do
     resources :seekers
     resources :search, :to => "search#index"
     root :to => "employers#index"
+    #match '/companies/edit' => 'companies#edit', :as => 'edit_company'
+    #match '/companies/update' => 'companies#update', :as => 'update'
     match '/companies/:id/enable_facebook' => 'companies#enable_facebook', :as => 'enable_facebook'
     match '/companies/:id/disable_facebook' => 'companies#disable_facebook', :as => 'disable_facebook'
     match '/companies/:id/enable_twitter' => 'companies#enable_twitter', :as => 'enable_twitter'
     match '/companies/:id/disable_twitter' => 'companies#disable_twitter', :as => 'disable_twitter'
     match '/companies/:id/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
     match '/companies/:id/disable_blog' => 'companies#disable_blog', :as => 'disable_blog'
-    match '/companies/new/enable_facebook' => 'companies#enable_facebook', :as => 'enable_facebook'
-    match '/companies/new/enable_twitter' => 'companies#enable_twitter', :as => 'enable_twitter'
-    match '/companies/new/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
+    #match '/companies/enable_facebook' => 'companies#enable_facebook', :as => 'enable_facebook'
+    #match '/companies/disable_facebook' => 'companies#disable_facebook', :as => 'disable_facebook'
+    #match '/companies/enable_twitter' => 'companies#enable_twitter', :as => 'enable_twitter'
+    #match '/companies/disable_twitter' => 'companies#disable_twitter', :as => 'disable_twitter'
+    #match '/companies/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
+    #match '/companies/disable_blog' => 'companies#disable_blog', :as => 'disable_blog'
     match '/:user_url', :to => redirect {|params| "/#{params[:user_url]}"}
   end
   
