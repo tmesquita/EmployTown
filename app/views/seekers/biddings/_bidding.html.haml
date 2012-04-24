@@ -20,6 +20,11 @@
     %br
     %strong Contact Email:
     %span.mail= mail_to @bidding.contact_email, @bidding.contact_email
+    %br
+    - unless @bidding.employer.company.nil?
+      %strong Company Website:
+      %span.mail= link_to @bidding.employer.company.url, url_with_protocol(@bidding.employer.company.url), :target => '_blank'
+      %br
   .choice.right
     = image_tag @bidding.employer.photo.url(:regular)
     .clear

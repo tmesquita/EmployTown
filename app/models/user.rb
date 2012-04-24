@@ -131,15 +131,27 @@ class User < ActiveRecord::Base
   end
 
   def get_unreplied_biddings_count
-    Bidding.count(:conditions => {:seeker_id => self.id, :interested => nil})
+    if self.seeking.eql? 'seeker'
+      Bidding.count(:conditions => {:seeker_id => self.id, :interested => nil})
+    else
+      Bidding.count(:conditions => {:employer_id => self.id, :interested => nil})
+    end
   end
 
   def get_interested_biddings_count
-    Bidding.count(:conditions => {:seeker_id => self.id, :interested => 1})
+    if self.seeking.eql? 'seeker'
+      Bidding.count(:conditions => {:seeker_id => self.id, :interested => 1})
+    else
+      Bidding.count(:conditions => {:employer_id => self.id, :interested => 1})
+    end
   end
 
   def get_uninterested_biddings_count
-    Bidding.count(:conditions => {:seeker_id => self.id, :interested => 0})
+    if self.seeking.eql? 'seeker'
+      Bidding.count(:conditions => {:seeker_id => self.id, :interested => 0})
+    else
+      Bidding.count(:conditions => {:employer_id => self.id, :interested => 0})
+    end
   end
 
   def get_tag_count
@@ -147,7 +159,11 @@ class User < ActiveRecord::Base
   end
 
   def get_bid_count
-    Bidding.count(:conditions => {:seeker_id => self.id})
+    if self.seeking.eql? 'seeker'
+      Bidding.count(:conditions => {:seeker_id => self.id})
+    else
+      Bidding.count(:conditions => {:employer_id => self.id})
+    end
   end
 
   def has_facebook_enabled?

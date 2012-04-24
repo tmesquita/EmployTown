@@ -1,5 +1,5 @@
 #quick-nav.right
   .menuitem.left= link_to current_user.to_s, edit_employers_user_path(current_user)
   - if !current_user.company.nil? and !current_user.company.blank?
-    .menuitem.left.large-margin-left= link_to current_user.company, employers_companies_path
+    .menuitem.left.large-margin-left= link_to current_user.company, edit_employers_company_path(current_user.company)
   .menuitem.left.large-margin-left= link_to "Logout", logout_path

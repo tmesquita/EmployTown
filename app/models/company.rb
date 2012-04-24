@@ -43,5 +43,11 @@ class Company < ActiveRecord::Base
         errors.add(:blog_address, 'must look like a url')
       end
     end
+
+    unless self.url.blank?
+      if !self.url.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
+        errors.add(:url, 'must look like a url')
+      end
+    end
   end
 end

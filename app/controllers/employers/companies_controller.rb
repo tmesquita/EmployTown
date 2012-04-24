@@ -39,7 +39,8 @@ class Employers::CompaniesController < Employers::EmployersController
     respond_to do |format|
       if @company.save
         current_user.add_company(@company.id)
-        format.html { redirect_to(employers_company_path(@company), :notice => 'Company was successfully created.') }
+        flash[:success] = 'Company was successfully created.'
+        format.html { redirect_to(edit_employers_company_path(@company))}
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
         format.html { render :action => "new" }
@@ -55,7 +56,7 @@ class Employers::CompaniesController < Employers::EmployersController
     respond_to do |format|
       if @company.update_attributes(params[:company])
         flash[:success] = "#{@company.name} was successfully updated."
-        format.html { redirect_to(employers_company_path(@company)) }
+        format.html { redirect_to(edit_employers_company_path(@company)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
