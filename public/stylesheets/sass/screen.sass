@@ -369,21 +369,21 @@ a
       color: #CCC
     //.previous_page 
   
-  .user
-    background-color: $primary_background
-    outline: solid 1px $primary
-    padding: 1em
-    margin: .5em 0 .5em 0
-    font-size: 1.1em
-    .info
-      width: 60%
-    p
-      margin: 0
-      padding: 0
-    img
-      max-height: 75px
-      float: left
-      padding: 0 1em 0 0
+  //.user
+  //  background-color: $primary_background
+  //  outline: solid 1px $primary
+  //  padding: 1em
+  //  margin: .5em 0 .5em 0
+  //  font-size: 1.1em
+  //  .info
+  //    width: 60%
+  //  p
+  //    margin: 0
+  //    padding: 0
+  //  img
+  //    max-height: 75px
+  //    float: left
+  //    padding: 0 1em 0 0
 
   .read_more, .less
     font-size: .8em
@@ -397,6 +397,44 @@ a
         padding: 0 20px
         .border
           border-right: 1px solid #CCC
+  
+  .user
+    border-bottom: 1px solid #CCC
+    font-size: 1em
+    padding: 20px 0
+    margin-bottom: 20px
+    a, strong
+      font-size: 1.1em
+
+    .user_info
+      width: 70%
+      span.name
+        font-size: 1.5em
+    .bid_choice
+      width: 20%
+      text-align: right
+      .bid_box
+        margin: 10px 0
+        img
+          margin-left: 10px
+
+    .more, .about_less
+      font-size: .8em
+
+
+    img
+      max-height: 100px
+      float: right
+
+  .search_box
+    h2
+      //margin: 10px 0
+      padding: 0
+      margin: 10px 0 !important
+    hr
+      margin: 0
+      padding: 0
+      border: 1px solid #CCC
 
   .bid
     font-size: 1em
@@ -421,9 +459,11 @@ a
       width: 75%
       //.less
       //  font-size: .8em
+    .small-text
+      font-size: .8em
     .choice
       text-align: right
-      width: 22%
+      width: 23%
       .interest_box
         margin: 10px 0
         span
@@ -463,8 +503,15 @@ a
         font-weight: bold
         font-size: 1.2em
 
+  #user-info-container
+    width: 29%
+
+    #send-bid
+      text-align: center
+      margin: 20px 0
+      font-size: 1.3em
   #user-info
-    width: 25%
+    //width: 25%
     padding: 20px
     background: white
     border: 1px solid #CCC

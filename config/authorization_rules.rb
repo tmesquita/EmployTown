@@ -18,7 +18,7 @@ authorization do
   
   role :employer do
     has_permission_on :employers_users, :to => :update
-    has_permission_on :employers_biddings, :to => :manage
+    has_permission_on :employers_biddings, :to => [:manage, :interested_bids, :uninterested_bids]
     has_permission_on :employers_companies, :to => [:manage, :enable_disable_social_media]
     has_permission_on :employers_employers, :to => :manage
     has_permission_on :employers_search, :to => :read

@@ -1,28 +1,16 @@
 .bid
-  -#.options
-  -#  = link_to "Interested", interested_seekers_bidding_path(@bidding.id)
-  -#  = link_to "Not Interested", not_interested_seekers_bidding_path(@bidding.id)
-  -#= image_tag @bidding.employer.photo.url(:thumb)
-  -#%p
-  -#  %span= @bidding.employer
-  -#  %span @ 
-  -#  %span= link_to(@bidding.employer.company, seekers_company_path(@bidding.employer.company)) + " is interested in your skills."
-  -#%p= mail_to @bidding.employer.email, "Send an Email"
-  -#%p= simple_format(truncate(@bidding.comment, :length => 200))
-  -#.read_more{:id => "more#{@bidding.id}"}= more_link(@bidding)
-  -#.clear
   .bid_info.left
     %strong Company:
     = @bidding.employer.company
     %br
-    %strong Job Title
+    %strong Job Title:
     = @bidding.title
     %br
-    %strong Salary Offered
+    %strong Salary Offered:
     = "#{number_to_currency @bidding.salary, :precision => 0} / #{@bidding.salary_term}"
     %br
     %br
-    %strong Job Description
+    %strong Job Description:
     %br
     .comment{:id => "bid#{@bidding.id}"}= simple_format(truncate(@bidding.comment, :length => 200, :omission => '... (continued)'))
     .read_more{:id => "more#{@bidding.id}"}= more_link(@bidding)

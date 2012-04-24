@@ -30,6 +30,8 @@ EmployTown::Application.routes.draw do
   end
   
   namespace :employers do
+    match '/biddings/interested_bids' => 'biddings#interested_bids', :as => 'interested_bids'
+    match '/biddings/uninterested_bids' => 'biddings#uninterested_bids', :as => 'uninterested_bids'
     resources :biddings
     resources :companies
     resources :users
@@ -45,6 +47,7 @@ EmployTown::Application.routes.draw do
     match '/companies/new/enable_facebook' => 'companies#enable_facebook', :as => 'enable_facebook'
     match '/companies/new/enable_twitter' => 'companies#enable_twitter', :as => 'enable_twitter'
     match '/companies/new/enable_blog' => 'companies#enable_blog', :as => 'enable_blog'
+    match '/:user_url', :to => redirect {|params| "/#{params[:user_url]}"}
   end
   
   namespace :seekers do

@@ -1,0 +1,18 @@
+- content_for :title do
+  Uninterested Bids
+
+.bid_header
+  %h2.left Bids with no interest
+  %ul#bid_menu.right
+    %li.border= link_to 'Bids Awaiting Response', employers_biddings_path
+    |
+    %li= link_to 'Interested Bids', employers_interested_bids_path
+  .clear
+-if @bids.count > 0
+  - @bids.each do |@bidding|
+    = render :partial => "bidding"
+  %br
+- else
+  %h3 You have no bids to display
+
+= will_paginate @bids

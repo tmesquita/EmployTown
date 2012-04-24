@@ -15,22 +15,27 @@
   #add_value= simple_format(truncate(@user.ideal_role, :length => 500, :omission => '... (continued)'))
   .more{:id => 'value_more'}= more_value(@user)
 
-#user-info.right
-  .title= @user
-  - if !@user.resume_file_name.nil?
-    .attr.center= link_to 'My Resume', @user.resume.url
-  - else
-    .small-text (User has not uploaded a resume)
-  %br
-  - if (@user.contact_email.nil? or @user.contact_email.blank?) and (@user.contact_phone.nil? or @user.contact_phone.blank?)
-    .small-text (User has not given any contact info)
-  - unless @user.contact_email.nil? or @user.contact_email.blank?
-    .attr= mail_to @user.contact_email, @user.contact_email
-  - unless @user.contact_phone.nil? or @user.contact_phone.blank?
-    .attr= number_to_phone @user.contact_phone, :area_code => true
-  - if @user.has_facebook_enabled?
-    = link_to image_tag('facebook.png'), url_with_protocol(@user.facebook), :target => '_blank'
-  - if @user.has_twitter_enabled?
-    = link_to image_tag('twitter.png'), url_with_protocol(@user.twitter), :target => '_blank'
-  - if @user.has_blog_enabled?
-    = link_to image_tag('blog.png'), url_with_protocol(@user.blog_address), :target => '_blank'
+#user-info-container.right
+  #user-info
+    .title= @user
+    - if !@user.resume_file_name.nil?
+      .attr.center= link_to 'My Resume', @user.resume.url
+    - else
+      .small-text (User has not uploaded a resume)
+    %br
+    - if (@user.contact_email.nil? or @user.contact_email.blank?) and (@user.contact_phone.nil? or @user.contact_phone.blank?)
+      .small-text (User has not given any contact info)
+    - unless @user.contact_email.nil? or @user.contact_email.blank?
+      .attr= mail_to @user.contact_email, @user.contact_email
+    - unless @user.contact_phone.nil? or @user.contact_phone.blank?
+      .attr= number_to_phone @user.contact_phone, :area_code => true
+    - if @user.has_facebook_enabled?
+      = link_to image_tag('facebook.png'), url_with_protocol(@user.facebook), :target => '_blank'
+    - if @user.has_twitter_enabled?
+      = link_to image_tag('twitter.png'), url_with_protocol(@user.twitter), :target => '_blank'
+    - if @user.has_blog_enabled?
+      = link_to image_tag('blog.png'), url_with_protocol(@user.blog_address), :target => '_blank'
+
+  - if current_user.is_employer? and !@user.has_bid_from_employer?(current_user)
+    #send-bid
+      = link_to 'Send a Bid', new_employers_bidding_path(:seeker_id => @user.id)

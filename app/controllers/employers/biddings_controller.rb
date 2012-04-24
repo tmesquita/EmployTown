@@ -4,7 +4,8 @@ class Employers::BiddingsController < Employers::EmployersController
   # GET /biddings
   # GET /biddings.xml
   def index
-    @biddings = current_user.get_my_biddings
+    #@biddings = current_user.get_my_biddings
+    @bids = Bidding.where(:employer_id => current_user.id, :interested => nil).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
     @interested_biddings = current_user.get_my_interested_biddings
     @uninterested_biddings = current_user.get_my_uninterested_biddings
     respond_to do |format|
@@ -82,11 +83,22 @@ class Employers::BiddingsController < Employers::EmployersController
     @bidding.destroy
 
     respond_to do |format|
-      format.html { redirect_to(employers_biddings_path) }
+      format.html { redirect_to(request.referer.sub(/(\?page=)[0-9]+/, '?page=1')) }
       format.xml  { head :ok }
     end
   end
+
+  def interested_bids
+    @bids = Bidding.where(:employer_id => current_user.id, :interested => true).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    #session[:return_to] = request.referer
+  end
+
+  def uninterested_bids
+    @bids = Bidding.where(:employer_id => current_user.id, :interested => false).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    #session[:return_to] = request.referer
+  end
 end
+
 
 private
 

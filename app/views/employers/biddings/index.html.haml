@@ -1,16 +1,32 @@
-%h1 Listing Your Current Bids
-%p
-  - if @interested_biddings.count > 0
-    Interested Bids:
-    - @interested_biddings.each do |@bidding|
-      = render :partial => "bidding"
-  - if @biddings.count > 0
-    Bids awaiting reply:
-    - @biddings.each do |@bidding|
-      = render :partial => "bidding"
-  - if @uninterested_biddings.count > 0
-    Uninterested Bids:
-    - @uninterested_biddings.each do |@bidding|
-      = render :partial => "bidding"
-  - unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
-    You currently have placed no bids
+- content_for :title do
+  Bids Awaiting Response
+
+.bid_header
+  %h2.left Bids Awaiting Response
+  %ul#bid_menu.right
+    %li.border= link_to 'Interested Bids', employers_interested_bids_path
+    |
+    %li= link_to 'Not Interested Bids', employers_uninterested_bids_path
+  .clear
+
+- if @bids.count > 0
+  - @bids.each do |@bidding|
+    = render :partial => 'bidding'
+- else
+  %h3 You have no bids to display
+-#- if @interested_biddings.count > 0
+-#  Interested Bids:
+-#  - @interested_biddings.each do |@bidding|
+-#    = render :partial => "bidding"
+-#- if @biddings.count > 0
+-#  Bids awaiting reply:
+-#  - @biddings.each do |@bidding|
+-#    = render :partial => "bidding"
+-#- if @uninterested_biddings.count > 0
+-#  Uninterested Bids:
+-#  - @uninterested_biddings.each do |@bidding|
+-#    = render :partial => "bidding"
+-#- unless @uninterested_biddings.count > 0 or @interested_biddings.count > 0 or @biddings.count > 0
+-#  You currently have placed no bids
+
+= will_paginate @bids

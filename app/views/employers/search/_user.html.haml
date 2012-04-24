@@ -1,16 +1,42 @@
 .user
-  .options
-    = link_to 'View Profile', employers_seeker_path(@user)
-    - if !@user.has_bid_from_employer?(current_user)
-      = link_to 'Send a bid', new_employers_bidding_path(:seeker_id => @user.id)
+  -#.options
+  -#  = link_to 'View Profile', @user.user_url
+  -#  - if !@user.has_bid_from_employer?(current_user)
+  -#    = link_to 'Send a bid', new_employers_bidding_path(:seeker_id => @user.id)
+  -#  - else
+  -#    = link_to 'View Bid', employers_biddings_path
+  -#= image_tag @user.photo.url(:thumb), :class => 'left'
+  -#.info.left
+  -#  %p= @user.to_s
+  -#  %p= @user.email
+  -#  %p
+  -#    %b Tags:
+  -#    - for tag in @user.tags
+  -#      = tag.to_s
+  -#.clear
+  .user_info.left
+    %span.name= @user
+    %br
+    - unless @user.contact_email.nil? or @user.contact_email.blank?
+      = mail_to @user.contact_email, @user.contact_email
     - else
-      = link_to 'View Bid', employers_biddings_path
-  = image_tag @user.photo.url(:thumb), :class => 'left'
-  .info.left
-    %p= @user.to_s
-    %p= @user.email
-    %p
-      %b Tags:
-      - for tag in @user.tags
-        = tag.to_s
+      (User has not provided a contact email address)
+
+    %br
+    - unless @user.contact_phone.nil? or @user.contact_phone.blank?
+      = number_to_phone @user.contact_phone, :area_code => true
+    %br
+    %strong About
+    .about_me{:id => "about_me#{@user.id}"}= simple_format(truncate(@user.about_me, :length => 100, :omission => '... (continued)'))
+    .more{:id => "about_more#{@user.id}"}= more_about_with_id(@user, 100)
+
+
+  .bid_choice.right
+    = image_tag @user.photo.url(:thumb)
+    .clear
+    .bid_box
+      = link_to image_tag('search_magnifier.png') + 'View Profile', @user.user_url
+      %br
+      = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_bidding_path(:seeker_id => @user.id)
+
   .clear
