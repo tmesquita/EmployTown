@@ -1,18 +1,3 @@
--#.bidding
--#  .options
--#    Change your mind?
--#    =link_to "Interested", interested_seekers_bidding_path(@bidding.id)
--#    -#=link_to "Not Interested", not_interested_seekers_bidding_path(@bidding.id)
--#  = image_tag @bidding.employer.photo.url(:thumb)
--#  %p
--#    %span= @bidding.employer.to_s 
--#    %span @ 
--#    %span= link_to(@bidding.employer.company, seekers_company_path(@bidding.employer.company)) + " is interested in your skills."
--#  = mail_to @bidding.employer.email, "Send an Email"
--#  .bid{:id => "bid#{@bidding.id}"}= simple_format(truncate(@bidding.comment, :length => 200))
--#  .read_more{:id => "more#{@bidding.id}"}= more_link(@bidding)
--#  .clear
-
 .bid
   .bid_info.left
     %strong Company:

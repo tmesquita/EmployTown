@@ -8,9 +8,10 @@ class UsersController < ApplicationController
     if @user.save
       user = login(params[:user][:email], params[:user][:password], false)
       if user
-        redirect_back_or_to home_url_for(@user), :notice => "Successfully signed up for EmployTown!"
+        flash[:success] = 'Successfully signed up for EmployTown!'
+        redirect_back_or_to home_url_for(@user)
       else
-        flash.now.alert = "There was a problem signing you up. Try filling out the signup form again."
+        flash[:error] = "There was a problem signing you up. Try filling out the signup form again."
         redirect_to root_url
       end
     else

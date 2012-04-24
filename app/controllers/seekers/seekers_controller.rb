@@ -1,5 +1,6 @@
 class Seekers::SeekersController < ApplicationController
   filter_access_to :all
+  before_filter :require_login
   
   def index
     @user = current_user
@@ -10,7 +11,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def edit
-    #@user = User.find(params[:id])
     @user = current_user
   end
 
@@ -19,7 +19,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def update
-    #@user = User.find(params[:id])
     @user = current_user
 
     if @user.update_attributes(params[:user])
@@ -31,7 +30,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_facebook
-    #@user = User.find(params[:id])
     @user = current_user
     @user.facebook_enabled_flag = true
     respond_to do |format|
@@ -46,7 +44,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_facebook
-    #@user = User.find(params[:id])
     @user = current_user
     @user.facebook_enabled_flag = false
     respond_to do |format|
@@ -61,7 +58,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_twitter
-    #@user = User.find(params[:id])
     @user = current_user
     @user.twitter_enabled_flag = true
     respond_to do |format|
@@ -76,7 +72,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_twitter
-    #@user = User.find(params[:id])
     @user = current_user
     @user.twitter_enabled_flag = false
     respond_to do |format|
@@ -91,7 +86,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def enable_blog
-    #@user = User.find(params[:id])
     @user = current_user
     @user.blog_enabled_flag = true
     respond_to do |format|
@@ -106,7 +100,6 @@ class Seekers::SeekersController < ApplicationController
   end
 
   def disable_blog
-    #@user = User.find(params[:id])
     @user = current_user
     @user.blog_enabled_flag = false
     respond_to do |format|
@@ -127,13 +120,14 @@ class Seekers::SeekersController < ApplicationController
       if current_user
         respond_to do |format|
           format.html { 
-            if current_user.is_seeker?
-              redirect_to seekers_root_url
-            elsif current_user.is_employer?
-              redirect_to employers_root_url
-            else
-              redirect_to root_url
-            end
+            #if current_user.is_seeker?
+            #  redirect_to seekers_root_url
+            #elsif current_user.is_employer?
+            #  redirect_to employers_root_url
+            #else
+            #  redirect_to root_url
+            #end
+            redirect_to home_url_for(current_user)
             }
           format.xml { head :unauthorized }
           format.js { head :unauthorized }

@@ -6,9 +6,9 @@ class Employers::UsersController < Employers::EmployersController
     @user = User.find_by_id(params[:id])
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  #def show
+  #  @user = User.find(params[:id])
+  #end
   
   def update
     @user = User.find(params[:id])

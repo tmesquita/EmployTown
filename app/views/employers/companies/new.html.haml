@@ -1,3 +1,9 @@
+- content_for :title do
+  Create Your Company Details
+
+- if flash[:error]
+  = render :partial => 'layouts/flash', :locals => {:flash => flash}
+
 #edit-company-container
   .form-title Add your company details
   %br

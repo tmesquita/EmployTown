@@ -1,19 +1,4 @@
 .user
-  -#.options
-  -#  = link_to 'View Profile', @user.user_url
-  -#  - if !@user.has_bid_from_employer?(current_user)
-  -#    = link_to 'Send a bid', new_employers_bidding_path(:seeker_id => @user.id)
-  -#  - else
-  -#    = link_to 'View Bid', employers_biddings_path
-  -#= image_tag @user.photo.url(:thumb), :class => 'left'
-  -#.info.left
-  -#  %p= @user.to_s
-  -#  %p= @user.email
-  -#  %p
-  -#    %b Tags:
-  -#    - for tag in @user.tags
-  -#      = tag.to_s
-  -#.clear
   .user_info.left
     %span.name= @user
     %br

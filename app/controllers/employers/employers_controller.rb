@@ -13,13 +13,14 @@ class Employers::EmployersController < ApplicationController
       if current_user
         respond_to do |format|
           format.html { 
-            if current_user.is_seeker? 
-              redirect_to seekers_root_url
-            elsif current_user.is_employer?
-              redirect_to employers_root_url
-            else
-              redirect_to root_url
-            end
+            #if current_user.is_seeker? 
+            #  redirect_to seekers_root_url
+            #elsif current_user.is_employer?
+            #  redirect_to employers_root_url
+            #else
+            #  redirect_to root_url
+            #end
+            redirect_to home_url_for(current_user)
             }
           format.xml { head :unauthorized }
           format.js { head :unauthorized }

@@ -1,25 +1,4 @@
 .bid
-  -#.options
-  -#  = link_to "View Profile", employers_seeker_path(@bidding.seeker)
-  -#  = link_to "Remove Bid", employers_bidding_path(@bidding), :confirm => 'Are you sure?', :method => :delete
-  -#= image_tag @bidding.seeker.photo.url(:thumb), :class => 'left'
-  -#.info.left
-  -#  %p= link_to(@bidding.seeker.to_s, employers_seeker_path(@bidding.seeker))+'  for ' + @bidding.title
-  -#  - if @bidding.seeker.has_resume?
-  -#    %p= link_to("View Resume", @bidding.seeker.resume.url)
-  -#  - else
-  -#    %p This user has not yet uploaded a resume.
-  -#  %p#comment 
-  -#    Your Comment:
-  -#    = @bidding.comment
-  -#  %p
-  -#    Offered Salary:
-  -#    = @bidding.salary
-  -#  %p
-  -#    Contact Email:
-  -#    = @bidding.contact_email
-  -#.clear
-  -#
   .bid_info.left
     %strong Candidate:
     = @bidding.seeker

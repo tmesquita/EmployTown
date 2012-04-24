@@ -4,7 +4,8 @@
     .login-error
       = image_tag 'Exclamation.png'
       - flash.each do |key, msg|  
-        %strong.message= msg
+        &nbsp;
+        %span.message= msg
   .input
     = label_tag :email
     %br
