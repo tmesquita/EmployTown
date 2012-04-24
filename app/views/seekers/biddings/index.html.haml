@@ -6,9 +6,15 @@
 .bid_header
   %h2.left Bids and Offers awaiting your reply
   %ul#bid_menu.right
-    %li.border= link_to 'Interested Bids', seekers_interested_bids_path
+    %li.border
+      = link_to 'Interested Bids', seekers_interested_bids_path
+      - if current_user.get_interested_biddings_count > 0
+        %span.notification= current_user.get_interested_biddings_count
     |
-    %li= link_to 'Not Interested Bids', seekers_uninterested_bids_path
+    %li
+      = link_to 'Not Interested Bids', seekers_uninterested_bids_path
+      - if current_user.get_uninterested_biddings_count > 0
+        %span.notification= current_user.get_uninterested_biddings_count
   .clear
 
 - if @bids.count > 0

@@ -24,7 +24,7 @@
       = link_to 'Update Company Info', edit_employers_company_path(current_user.company)
 
   - if @bids.count > 0
-    %h2= "#{@bids.count} of your bids #{@bids.count == 1? 'has' : 'have'} interest"
+    %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"
     - @bids.each do |@bidding|
       = render :partial => "bidding"
     %br
