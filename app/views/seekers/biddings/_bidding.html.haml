@@ -25,6 +25,12 @@
       %strong Company Website:
       %span.mail= link_to @bidding.employer.company.url, url_with_protocol(@bidding.employer.company.url), :target => '_blank'
       %br
+    - if @bidding.employer.company.has_facebook_enabled? and !@bidding.employer.company.facebook.nil? and !@bidding.employer.company.facebook.blank?
+      .left= link_to image_tag('facebook.png'), url_with_protocol(@bidding.employer.company.facebook)
+    - if @bidding.employer.company.has_twitter_enabled? and !@bidding.employer.company.twitter.nil? and !@bidding.employer.company.twitter.blank?
+      .left= link_to image_tag('twitter.png'), url_with_protocol(@bidding.employer.company.twitter)
+    - if @bidding.employer.company.has_blog_enabled? and !@bidding.employer.company.blog_address.nil? and !@bidding.employer.company.blog_address.blank?
+      .left= link_to image_tag('blog.png'), url_with_protocol(@bidding.employer.company.blog_address)
   .choice.right
     = image_tag @bidding.employer.photo.url(:regular)
     .clear

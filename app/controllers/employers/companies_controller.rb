@@ -80,7 +80,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.facebook_enabled_flag = true
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -94,7 +94,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.facebook_enabled_flag = false
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -108,7 +108,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.twitter_enabled_flag = true
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -122,7 +122,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.twitter_enabled_flag = false
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -136,7 +136,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.blog_enabled_flag = true
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -150,7 +150,7 @@ class Employers::CompaniesController < Employers::EmployersController
     @company.blog_enabled_flag = false
     respond_to do |format|
       if @company.save
-        format.html { redirect_to employers_companies_path }
+        format.html { redirect_to edit_employers_company_path(current_user.company) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
