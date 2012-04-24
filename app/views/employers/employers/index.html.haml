@@ -36,8 +36,8 @@
 
   .clear
 
-#home_tags_container.right
-  #home_tags
+#home_right_container.right
+  #home_right
     - if current_user.get_bid_count > 0
       You have 
       = link_to pluralize(current_user.get_bid_count, 'bid'), employers_biddings_path
