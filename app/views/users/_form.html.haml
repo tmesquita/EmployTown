@@ -1,49 +1,48 @@
-- form_for @user do |f|
-  - if @user.errors.any?
-    .error
-      = image_tag 'Exclamation.png'
-      %strong &nbsp;Please fix the following errors
-      %br
-      %br
-      - for message in @user.errors.full_messages
-        %li.message= message
-        
-  .input-container
-    .left
-      .input
-        = f.label :email
-        %br
-        = f.text_field :email
-      
-      .input
-        = f.label :password
-        %br
-        = f.password_field :password
-      
-      .input
-        = f.label :password_confirmation
-        %br
-        = f.password_field :password_confirmation
-      .submit
-        = f.submit "Sign up!"
-    
-    .right
-      .input
-        = f.label :first_name
-        %br
-        = f.text_field :first_name
-      
-      .input
-        = f.label :last_name
-        %br
-        = f.text_field :last_name
-      
-      .input
-        -#= f.label :profile_type
-        = f.radio_button :seeking, "seeker", {:checked => true}
-        Job Seeker&nbsp;&nbsp;&nbsp;
-        = f.radio_button :seeking, "employer"
-        Employer
-    .clear
-  .clear
+= form_for @user do |f|
+  - unless flash.empty?
+    = render 'layouts/flash', flash: flash
+  .input
+    %label 
+      Email
+      %span.caption Enter your email address
+    = f.text_field :email
+  
+  .input
+    %label 
+      Password
+      %span.caption Enter your password
+    = f.password_field :password
+  
+  .input
+    %label 
+      Password Confirmation
+      %span.caption Confirm your password
+    = f.password_field :password_confirmation
+
+  .input
+    %label
+      First Name
+      %span.caption Enter your first name
+    = f.text_field :first_name
+  
+  .input
+    %label
+      Last Name
+      %span.caption Enter your last name
+    = f.text_field :last_name
+  
+  .input.radioButton
+    %label
+      Job Seeker
+      %span.caption Sign up as a job seeker
+    = radio_button_tag :role, 'job_seeker', true
+
+  .input.radioButton
+    %label
+      Employer
+      %span.caption Sign up as an employer
+    = radio_button_tag :role, 'employer'
+
+  .submit.marginTop20.sign-up
+    = f.submit "Sign Up"
   

@@ -5,16 +5,27 @@ class Role < ActiveRecord::Base
   validates_uniqueness_of :name
   
   has_many :users
+  before_create :downcase_name
   
   def to_s
-    self.name
+    name
   end
 
-  def after_initialize
-    self.name = name.downcase.strip unless name.nil?
+  def self.job_seeker
+    where(:name => 'job_seeker').first
   end
-    
-  def name=(name)
-    self[:name] = name.strip.downcase
+
+  def self.employer
+    where(:name => 'employer').first
   end
+
+  def self.administrator
+    where(:name => 'administrator').first
+  end
+
+  private
+
+    def downcase_name
+      self.name = self.name.downcase.strip
+    end
 end

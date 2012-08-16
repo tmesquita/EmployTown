@@ -1,0 +1,54 @@
+= form_for [:job_seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
+  = render 'layouts/flash', flash: flash
+
+  .right
+    = image_tag @user.photo.url(:regular)
+    %br
+    = f.file_field :photo
+  .input
+    %label
+      Resume
+      %span.caption Upload your Resume
+    = f.file_field :resume
+    - if !@user.resume_file_name.eql? nil
+      %p
+        = link_to "Current resume", @user.resume.url
+  .input
+    %span.url-label= "http://#{request.host}/"
+    = f.text_field :user_url
+    %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'This is your public URL and will be used to direct visitors to your profile.'}
+  .input
+    %span.url-label http://www.facebook.com/
+    = f.text_field :facebook, placeholder: 'john.doe'
+  .input
+    %span.url-label http://www.twitter.com/
+    = f.text_field :twitter, placeholder: 'john.doe'
+  .input
+    %label 
+      Contact Email
+      %span.caption Input your contact email
+    = f.text_field :contact_email
+  .input
+    %label
+      Contact Phone
+      %span.caption Input your contact phone number
+    = f.text_field :contact_phone
+  .input
+    %label
+      Blog Address
+      %span.caption Input your blog address
+    = f.text_field :blog_address, placeholder: 'http://'
+  .input
+    %label
+      About Me
+      %span.caption Tell us about yourself
+    = f.text_area :about_me, :size => "22x4"
+  .input
+    %label
+      How I Add Value
+      %span.caption What are your strengths?
+    = f.text_area :ideal_role, :size => "22x4"
+  .submit
+    = f.submit 'Update Profile', class: 'button'
+
+  .clear

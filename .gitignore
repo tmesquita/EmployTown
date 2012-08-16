@@ -10,5 +10,6 @@ tmp/pids/server.pid
 tmp/**
 *.sassc
 db/*.sqlite3
+public/assets/
 
 

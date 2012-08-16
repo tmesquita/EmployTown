@@ -1,4 +1,4 @@
-= form_for [:employers, @company] do |f|
+= form_for [:employers, @company], :url => employers_company_path do |f|
   -if @company.errors.any? 
     .error
       = image_tag 'Exclamation.png'
@@ -24,13 +24,11 @@
       .input
         = f.label :company_website
         %br
-        = f.text_field :url 
+        = f.text_field :company_url 
       .input
         = f.label :company_description
         %br
         = f.text_area :description, :size => "44x22" 
-      
-
       .submit
         = f.submit  
 
@@ -48,26 +46,26 @@
       - if !action_name.eql? 'new'
         .input
           - if !@company.has_facebook_enabled?
-            = link_to 'Add a Facebook URL', employers_enable_facebook_path
+            = link_to 'Add a Facebook URL', enable_media_employers_company_path(social_flag: :facebook_flag)
           - else
             = f.label :facebook_address
-            = link_to '(Disable)', employers_disable_facebook_path
+            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :facebook_flag)
             %br
             = f.text_field :facebook
         .input
           - if !@company.has_twitter_enabled?
-            = link_to 'Add a Twitter URL', employers_enable_twitter_path
+            = link_to 'Add a Twitter URL', enable_media_employers_company_path(social_flag: :twitter_flag)
           - else
             = f.label :twitter_address
-            = link_to '(Disable)', employers_disable_twitter_path
+            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :twitter_flag)
             %br
             = f.text_field :twitter
         .input
           - if !@company.has_blog_enabled?
-            = link_to 'Add a Blog URL', employers_enable_blog_path
+            = link_to 'Add a Blog URL', enable_media_employers_company_path(social_flag: :blog_flag)
           - else
             = f.label :blog_address
-            = link_to '(Disable)', employers_disable_blog_path
+            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :blog_flag)
             %br
             = f.text_field :blog_address
   .clear

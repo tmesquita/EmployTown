@@ -1,7 +1,7 @@
 - content_for :title do
   Employer Home
   
-= render :partial => 'layouts/flash', :locals => {:flash => flash}
+= render 'layouts/flash', :flash => flash
 
 #bid_container.left
   - if @user.company.nil?
@@ -25,10 +25,10 @@
 
   - if @bids.count > 0
     %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"
-    - @bids.each do |@bidding|
-      = render :partial => "bidding"
+    - @bids.each do |bid|
+      = render 'bid'
     %br
-  -else
+  - else
     %h2.center 
       You have no bids with interest. You may want to
       = link_to 'search', '/employers/search'
@@ -38,7 +38,7 @@
 
 #home_right_container.right
   #home_right
-    - if current_user.get_bid_count > 0
+    - if current_user.bids.not_responded.count > 0
       You have 
       = link_to pluralize(current_user.get_bid_count, 'bid'), employers_biddings_path
       %ul

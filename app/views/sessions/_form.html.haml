@@ -1,21 +1,19 @@
 
 = form_tag sessions_path do
-  - if flash[:error]  
-    .login-error
-      = image_tag 'Exclamation.png'
-      - flash.each do |key, msg|  
-        &nbsp;
-        %span.message= msg
+  - unless flash.empty?
+    = render 'layouts/flash', flash: flash
   .input
-    = label_tag :email
-    %br
+    %label
+      Email
+      %span.caption Enter your email address
     = text_field_tag :email, params[:email]
   .input
-    = label_tag :password
-    %br
+    %label
+      Password
+      %span.caption Enter your password
     = password_field_tag :password
-  -#.input
-  -#  = check_box_tag :remember_me, 1, params[:remember_me]
-  -#  = label_tag :remember_me
+  .input
+    %label Remember Me
+    = check_box_tag :remember_me
   .submit
     = submit_tag "Log In"

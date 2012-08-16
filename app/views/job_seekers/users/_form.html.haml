@@ -1,0 +1,47 @@
+- form_for [:seekers, @user], :url => { :action => 'update' }, :html => { :multipart => true } do |f|
+
+  - if @user.errors.any?
+    .error
+      = image_tag 'Exclamation.png'
+      %strong &nbsp;Please fix the following errors
+      %br
+      %br
+      - for message in @user.errors.full_messages
+        %li.message= message
+  - if flash[:success]
+    .success
+      = image_tag 'checkmark.png'
+      - flash.each do |key, msg|
+        &nbsp;
+        = msg
+
+  .left
+    .input
+      = f.label :email
+      %br
+      = f.text_field :email
+    
+    .input
+      = f.label :password
+      %br
+      = f.password_field :password
+    
+    .input
+      = f.label :password_confirmation
+      %br
+      = f.password_field :password_confirmation
+    .submit
+      = f.submit
+  .right
+    .input
+      = f.label :first_name
+      %br
+      = f.text_field :first_name
+    
+    .input
+      = f.label :last_name
+      %br
+      = f.text_field :last_name
+  
+
+  .clear

@@ -1,0 +1,8 @@
+%h1 Company Information Page
+%h2= @company.name
+
+%h3= link_to @company.url, @company.url, :target => "_blank"
+  
+%p
+  %b About: 
+  = " \"" + @company.description + " \""

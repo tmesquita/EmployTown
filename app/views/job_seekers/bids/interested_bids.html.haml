@@ -1,0 +1,26 @@
+- content_for :title do
+  Interested Bids
+
+= render 'layouts/flash', :flash => flash
+
+.bid_header
+  %h2.left Bids you are interested in
+  %ul#bid_menu.right
+    %li.border
+      = link_to 'Bids Awaiting Response', job_seekers_bids_path
+      - if @not_responded_bids_count > 0
+        %span.notification= @not_responded_bids_count
+    |
+    %li
+      = link_to 'Not Interested Bids', uninterested_bids_job_seekers_bids_path
+      - if @not_interested_bids_count > 0
+        %span.notification= @interested_bids_count
+  .clear
+-if @bids.count > 0
+  - @bids.each do |bid|
+    = render 'interested_bid', bid: bid
+  %br
+- else
+  %h3 You have no bids to display
+
+= will_paginate @bids

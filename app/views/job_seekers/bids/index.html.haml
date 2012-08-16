@@ -1,0 +1,26 @@
+- content_for :title do
+  Bids and Offers
+
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
+.bid_header
+  %h2.left Bids awaiting your reply
+  %ul#bid_menu.right
+    %li.border
+      = link_to 'Interested Bids', interested_bids_job_seekers_bids_path
+      - if @interested_bids_count > 0
+        %span.notification= @interested_bids_count
+    |
+    %li
+      = link_to 'Not Interested Bids', uninterested_bids_job_seekers_bids_path
+      - if @not_interested_bids_count > 0
+        %span.notification= @not_uninterested_bids_count
+  .clear
+
+- if @bids.count > 0
+  = render @bids
+  %br
+- else
+  %h3 You have no bids awaiting your reply
+
+= will_paginate @bids

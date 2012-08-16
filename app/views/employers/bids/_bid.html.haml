@@ -1,0 +1,30 @@
+.bid
+  .bid_info.left
+    %strong Candidate:
+    = bid.job_seeker
+    - if bid.job_seeker.has_resume?
+      %span.small-text= link_to '(Resume)', bid.job_seeker.resume.url
+    - else
+      %span.small-text= "(#{bid.job_seeker} has not uploaded a resume)"
+    %br
+    %strong Job Title:
+    = bid.job_title
+    %br
+    %strong Salary Offered:
+    = "#{number_to_currency bid.salary, :precision => 0} / #{bid.salary_term}"
+    %br
+    %br
+    %strong Job Description:
+    %br
+    .comment{:id => "bid#{bid.id}"}= simple_format(truncate(bid.job_description, :length => 200, :omission => '... (continued)'))
+    .read_more{:id => "more#{bid.id}"}= more_link(bid)
+    %br
+  .choice.right
+    = image_tag bid.job_seeker.photo.url(:regular)
+    .clear
+    .interest_box
+      = link_to image_tag('search_magnifier.png') + 'View Profile', bid.job_seeker.user_url
+      %br
+      = link_to image_tag('delete_item.png') + 'Remove Bid', employers_job_seeker_bid_path(bid.job_seeker, bid), :confirm => 'Are you sure?', :method => :delete
+
+  .clear

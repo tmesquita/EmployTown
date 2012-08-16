@@ -1,14 +1,11 @@
 class HomeController < ApplicationController
   before_filter :require_login, :only => :secret
-  before_filter :require_user_url, :only => :seekers_public_profile
-  
-  #filter_access_to :all
+  before_filter :require_user_url, :only => :job_seekers_public_profile
   
   def index
-    
   end
 
-  def seekers_public_profile
+  def job_seekers_public_profile
     @user = User.find_by_user_url(params[:user_url])
   end
 

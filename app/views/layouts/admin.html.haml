@@ -1,0 +1,22 @@
+!!! XML
+!!!
+%html{ :'xml:lang' => "en", :lang => "en" }
+  %head
+    %title
+      = h(yield(:title) || "EmployTown")
+
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = csrf_meta_tag
+    = javascript_include_tag 'application', :media => 'all'
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Exo'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Advent+Pro'
+  
+  %body.admin
+    .wrapper
+      = render 'layouts/admin_header'
+      .container
+        = yield
+      .clear
+    .footer
+      = render :partial => 'layouts/admin_footer'

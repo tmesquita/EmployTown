@@ -1,53 +1,31 @@
 class Company < ActiveRecord::Base
 
-  attr_accessible :name, :url, :description, :looking_for, :why_work_for, :facebook_enabled_flag, :facebook, :twitter_enabled_flag, :twitter, :blog_enabled_flag, :blog_address
+  attr_accessible :name, :description, :looking_for, :why_work_for, :facebook_flag, :facebook, :twitter_flag, :twitter, :blog_flag, :blog_address, :company_url
 
-	has_many :biddings
-	has_many :users
-
-  validate :validate_urls, :on => :update
+	has_many :bids
+	has_many :employers
 
   validates :name, :presence => true
+
+  validates_format_of :facebook, :twitter, :blog_address, :company_url,
+      :message => 'URL must look like a url',
+      :with => /(www\.)*[a-zA-Z0-9]+\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/,
+      :allow_blank => true,
+      :on => :update
 	
 	def to_s
 	  self.name.titleize
   end
 
   def has_facebook_enabled?
-    self.facebook_enabled_flag
+    self.facebook_flag
   end
 
   def has_twitter_enabled?
-    self.twitter_enabled_flag
+    self.twitter_flag
   end
 
   def has_blog_enabled?
-    self.blog_enabled_flag
-  end
-
-  def validate_urls
-    unless self.facebook.blank?
-      if !self.facebook.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
-        errors.add(:facebook, 'URL must look like a url')
-      end
-    end
-
-    unless self.twitter.blank?
-      if !self.twitter.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
-        errors.add(:twitter, 'URL must look like a url')
-      end
-    end
-
-    unless self.blog_address.blank?
-      if !self.blog_address.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
-        errors.add(:blog_address, 'must look like a url')
-      end
-    end
-
-    unless self.url.blank?
-      if !self.url.match( /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/)
-        errors.add(:url, 'must look like a url')
-      end
-    end
+    self.blog_flag
   end
 end

@@ -1,8 +1,5 @@
 - unless flash.empty?
   - flash.each do |key, msg|
-    %div{:class => "flash #{key}"}
-      - if key.eql? :success
-        = image_tag 'checkmark.png'
-      - elsif key.eql? :error
-        = image_tag 'Exclamation.png'
+    %div{:class => "alert alert-#{key}"}
+      %button.close{'data-dismiss' => 'alert'} &times;
       = msg

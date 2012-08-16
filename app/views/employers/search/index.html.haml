@@ -21,8 +21,8 @@
         %hr
         %h2 Users matching user attributes
         %hr
-        - for @user in @users
-          = render :partial => "user"
+        - @users.each do |user|
+          = render 'user', user: user
         = will_paginate @users, :param_name => :users_page
         %br
         %br
@@ -32,7 +32,7 @@
       .search_box
         %h2 Users matching tags
         %hr
-        - for @tag in @tags
-          = render :partial => "tag"
+        - @tags.each do |tag|
+          = render 'tag', tag: tag
         = will_paginate @tags, :param_name => :tags_page
   

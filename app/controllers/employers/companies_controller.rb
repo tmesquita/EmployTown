@@ -1,15 +1,17 @@
 class Employers::CompaniesController < Employers::EmployersController
-  before_filter :employer_action_redirect, :only => [:index, :show]
-  before_filter :check_company_matches_current_users_company, :only => [:edit]
+  before_filter :check_nil_company, :only => :edit
+  before_filter :check_for_company, :only => :new
+  before_filter :get_company, :except => [:new, :create]
+  # before_filter :check_company_matches_current_users_company, :only => [:edit]
   
-  #def index
+  # def index
   #  @companies = Company.all
   #
   #  respond_to do |format|
   #    format.html # index.html.erb
   #    format.xml  { render :xml => @companies }
   #  end
-  #end
+  # end
 
   #def show
   #  @company = Company.find(params[:id])
@@ -22,158 +24,59 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def new
     @company = Company.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @company }
-    end
-  end
-
-  def edit
-    @company = Company.find(params[:id])
   end
 
   def create
     @company = Company.new(params[:company])
 
-    respond_to do |format|
-      if @company.save
-        current_user.add_company(@company.id)
-        flash[:success] = 'Company was successfully created.'
-        format.html { redirect_to(edit_employers_company_path(@company))}
-        format.xml  { render :xml => @company, :status => :created, :location => @company }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
+    if @company.save
+      current_user.add_company(@company.id)
+      flash[:success] = 'Company was successfully created.'
+      redirect_to edit_employers_company_path
+    else
+      render :action => "new"
     end
   end
 
   def update
-    @company = Company.find(params[:id])
-    
-    current_user.add_company(params[:id])
-    respond_to do |format|
-      if @company.update_attributes(params[:company])
-        flash[:success] = "#{@company.name} was successfully updated."
-        format.html { redirect_to(edit_employers_company_path(@company)) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
+    if @company.update_attributes(params[:company])
+      flash[:success] = "#{@company.name} was successfully updated."
+      redirect_to edit_employers_company_path
+    else
+      render :edit
     end
   end
 
-  #def destroy
-  #  @company = Company.find(params[:id])
-  #  @company.destroy
-  #
-  #  respond_to do |format|
-  #    format.html { redirect_to(employers_companies_path) }
-  #    format.xml  { head :ok }
-  #  end
-  #end
-
-  def enable_facebook
-    @company = Company.find(params[:id]) 
-    @company.facebook_enabled_flag = true
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
+  def enable_media
+    if @company.update_attributes(params[:social_flag] => true)
+      puts 'true'
+      redirect_to edit_employers_company_path
+    else
+      puts 'false'
+      render :edit
     end
   end
 
-  def disable_facebook
-    @company = Company.find(params[:id])
-    @company.facebook_enabled_flag = false
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def enable_twitter
-    @company = Company.find(params[:id])
-    @company.twitter_enabled_flag = true
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def disable_twitter
-    @company = Company.find(params[:id])
-    @company.twitter_enabled_flag = false
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def enable_blog
-    @company = Company.find(params[:id])
-    @company.blog_enabled_flag = true
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  def disable_blog
-    @company = Company.find(params[:id])
-    @company.blog_enabled_flag = false
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to edit_employers_company_path(current_user.company) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-      end
+  def disable_media
+    if @company.update_attributes(params[:social_flag] => false)
+      redirect_to edit_employers_company_path
+    else
+      render :edit
     end
   end
   
   protected
 
-    def check_company_matches_current_users_company
-      
-      if !Company.exists?(params[:id]) or Company.find(params[:id]) != current_user.company
-        flash[:error] = "You do not have permission to edit that company"
-        redirect_to edit_employers_company_path(current_user.company)
-      end
+    def get_company
+      @company = current_user.company
     end
 
-    def employer_action_redirect
-      if current_user.belongs_to_company?
-        flash[:success] = flash[:success] unless flash[:success].nil?
-        redirect_to edit_employers_company_path(current_user.company)
-      else
+    def check_for_company
+      redirect_to edit_employers_company_path if current_user.belongs_to_company?
+    end
+
+    def check_nil_company
+      unless current_user.belongs_to_company?
         flash[:error] = "You don't belong to a company. Please create one to continue."
         redirect_to new_employers_company_path
       end

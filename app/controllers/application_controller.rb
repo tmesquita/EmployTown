@@ -3,19 +3,21 @@ class ApplicationController < ActionController::Base
   helper :url
   protect_from_forgery
   
-  def not_authenticated
-    redirect_to login_url, :alert => "First login to access this page."
-  end
-  
   protected
+
+    def not_authenticated
+      flash[:error] = "First login to access this page"
+      redirect_to login_url
+    end
   
     def home_url_for(user)
       return root_url if user.nil?
-      user.is_employer? ? employers_root_url : seekers_root_url
+      return employers_root_path if user.is_employer?
+      job_seekers_root_path
     end
     
     def permission_denied
       flash[:error] = "Sorry, you are not allowed to access that page."
-      redirect_to root_url
+      redirect_to login_path
     end
 end

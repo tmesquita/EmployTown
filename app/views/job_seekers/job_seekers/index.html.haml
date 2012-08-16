@@ -1,0 +1,53 @@
+- content_for :title do
+  Home
+
+= render :partial => 'layouts/flash', :locals => {:flash => flash}
+
+#home_bids_container.left
+  - if @bids.count > 0
+    %h2= "#{pluralize(@bids.count, 'bid')} awaiting your response"
+  - else
+    %h2 &nbsp;
+  #home_bids
+    - if @bids.count > 0
+      - @bids.each do |bid|
+        = render 'bid', bid: bid
+      %br
+    -else
+      %h2.center 
+        You have no new bids. You may want to work on your
+        = link_to 'profile', job_seekers_profile_path
+        to attract more potential employers
+
+#home_tags_container.right
+  %h1 &nbsp;
+  #home_tags
+    - if current_user.bids.count > 0
+      You have 
+      = link_to pluralize(current_user.bids.count, 'bid'), job_seekers_bids_path
+      %ul
+        %li= link_to "#{@not_responded_bids_count} waiting your response", job_seekers_bids_path if @not_responded_bids_count > 0
+        %li= link_to "#{@interested_bids_count} interested", interested_bids_job_seekers_bids_path if @interested_bids_count > 0
+        %li= link_to "#{@not_interested_bids_count} not interested", uninterested_bids_job_seekers_bids_path if @not_interested_bids_count > 0
+    - else
+      You don't have any bids
+      %br
+      %li.no_decoration 
+        Work on your 
+        = link_to 'profile', job_seekers_profile_path
+        to attract more bids
+    %br
+    - if current_user.get_tag_count > 0
+      You have created
+      = link_to pluralize(current_user.get_tag_count, 'tag'), new_job_seekers_tag_path
+    - else
+      You haven't created any tags!
+      = link_to 'Create tags', new_job_seekers_tag_path
+    %br
+    - if current_user.resume_file_name.eql? nil
+      %br
+      You haven't uploaded a resume yet
+      = link_to 'Upload your resume', job_seekers_edit_info_path
+
+.clear
+= will_paginate @bids

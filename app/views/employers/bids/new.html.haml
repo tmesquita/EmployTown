@@ -1,0 +1,8 @@
+- content_for :title do
+  = "Creating a New Bid For #{@job_seeker}"
+
+#new-bidding-container
+  .form-title= "New Bid for #{@job_seeker.first_name} #{@job_seeker.last_name}"
+  %br
+  .form
+    = render 'form'

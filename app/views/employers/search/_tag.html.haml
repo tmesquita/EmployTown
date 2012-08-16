@@ -1,29 +1,29 @@
 .user
   .user_info.left
-    %span.name= @tag.user
+    %span.name= tag.user
     %br
-    - unless @tag.user.contact_email.nil? or @tag.user.contact_email.blank?
-      = mail_to @tag.user.contact_email, @tag.user.contact_email
+    - unless tag.user.contact_email.nil? or tag.user.contact_email.blank?
+      = mail_to tag.user.contact_email, tag.user.contact_email
     - else
       (User has not provided a contact email address)
 
     %br
-    - unless @tag.user.contact_phone.nil? or @user.contact_phone.blank?
-      = number_to_phone @tag.user.contact_phone, :area_code => true
+    - unless tag.user.contact_phone.nil? or tag.user.contact_phone.blank?
+      = number_to_phone tag.user.contact_phone, :area_code => true
     %br
     %strong About
-    .about_me{:id => "about_me#{@tag.user.id}#{@tag.id}"}= simple_format(truncate(@tag.user.about_me, :length => 100, :omission => '... (continued)'))
-    .more{:id => "about_more#{@tag.user.id}#{@tag.id}"}= more_about_tag(@tag.user, @tag, 100)
+    .about_me{:id => "about_me#{tag.user.id}#{tag.id}"}= simple_format(truncate(tag.user.about_me, :length => 100, :omission => '... (continued)'))
+    .more{:id => "about_more#{tag.user.id}#{tag.id}"}= more_about_tag(tag.user, tag, 100)
 
 
   .bid_choice.right
-    = image_tag @tag.user.photo.url(:thumb)
+    = image_tag tag.user.photo.url(:thumb)
     .clear
     .bid_box
-      = link_to image_tag('search_magnifier.png') + 'View Profile', @tag.user.user_url
+      = link_to image_tag('search_magnifier.png') + 'View Profile', tag.user.user_url
       %br
-      - if !@tag.user.has_bid_from_employer?(current_user)
-        = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_bidding_path(:seeker_id => @tag.user.id)
+      - if !tag.user.has_bid_from_employer?(current_user)
+        = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_job_seeker_bid_path(tag.user)
       - else
         = link_to image_tag('search_magnifier.png') + 'View Bid', employers_biddings_path
   .clear

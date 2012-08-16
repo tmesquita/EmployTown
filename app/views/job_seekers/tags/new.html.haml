@@ -1,0 +1,18 @@
+- content_for :title do
+  Tags
+
+= render 'layouts/flash', :flash => flash
+
+%h1 Your Tags
+= render 'form'
+
+%p
+  You can separate your tags by commas to create multiple tags
+%h2 You can use tags to give employers more keywords to find you.<br /> (ex. Computer Science, Rails Pro)
+- if @tags.count > 0
+  .tags
+    %ul
+      - @tags.each do |tag|
+        %li
+          = link_to tag.tag.capitalize, edit_job_seekers_tag_path(tag)
+          = link_to('(delete)', job_seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete) 

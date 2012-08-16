@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-EmployTown::Application.config.secret_token = 'b31f717934e244cdfe76e966fbcf23f0e9c21903d82ad4ea8ef8f49df357e9ec42c1311fd5bf42c0ea07d235ccbd31562ddfe4a000d91cb53feaf6a4d94f6447'
+Employtown::Application.config.secret_token = '12a4fbd6ef561d83e46f1c9a822c780e5f2d067e5ce904acb7240f064ac62f5039d7e4898adafd06dcb0989766479de462847d293f41f337b378719589d9590f'

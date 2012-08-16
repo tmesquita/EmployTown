@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,44 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423110217) do
+ActiveRecord::Schema.define(:version => 20120711072948) do
 
-  create_table "biddings", :force => true do |t|
+  create_table "bids", :force => true do |t|
     t.integer  "employer_id"
-    t.integer  "seeker_id"
-    t.date     "date"
-    t.integer  "interested"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "comment"
+    t.integer  "job_seeker_id"
+    t.text     "job_description"
+    t.string   "job_title"
     t.string   "salary"
-    t.string   "title"
-    t.string   "contact_email"
     t.string   "salary_term"
+    t.boolean  "interested_flag"
+    t.string   "contact_email"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "description"
+    t.string   "company_url"
+    t.text     "description"
     t.text     "looking_for"
     t.text     "why_work_for"
-    t.boolean  "facebook_enabled_flag", :default => false, :null => false
-    t.boolean  "twitter_enabled_flag",  :default => false, :null => false
-    t.boolean  "blog_enabled_flag",     :default => false, :null => false
+    t.boolean  "facebook_flag", :default => false, :null => false
+    t.boolean  "twitter_flag",  :default => false, :null => false
+    t.boolean  "blog_flag",     :default => false, :null => false
     t.string   "facebook"
     t.string   "twitter"
     t.string   "blog_address"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "roles", :force => true do |t|
-    t.string   "name",                       :null => false
+    t.string   "name",        :null => false
     t.string   "description"
-    t.integer  "users_count", :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
@@ -55,23 +54,30 @@ ActiveRecord::Schema.define(:version => 20120423110217) do
   create_table "tags", :force => true do |t|
     t.integer  "user_id"
     t.string   "tag"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                                          :null => false
+    t.string   "email",                                           :null => false
+    t.string   "type"
     t.string   "crypted_password"
     t.string   "salt"
+    t.integer  "company_id"
+    t.integer  "role_id"
     t.string   "user_url"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "seeking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
-    t.integer  "role_id"
+    t.text     "ideal_role"
+    t.text     "about_me"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.string   "blog_address"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.boolean  "blog_flag",                    :default => false, :null => false
+    t.boolean  "facebook_flag",                :default => false, :null => false
+    t.boolean  "twitter_flag",                 :default => false, :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -80,17 +86,10 @@ ActiveRecord::Schema.define(:version => 20120423110217) do
     t.string   "resume_content_type"
     t.integer  "resume_file_size"
     t.datetime "resume_updated_at"
-    t.integer  "company_id"
-    t.text     "about_me",                     :limit => 255
-    t.text     "ideal_role"
-    t.string   "contact_email"
-    t.string   "contact_phone"
-    t.string   "blog_address"
-    t.string   "facebook"
-    t.string   "twitter"
-    t.boolean  "blog_enabled_flag",                           :default => false, :null => false
-    t.boolean  "facebook_enabled_flag",                       :default => false, :null => false
-    t.boolean  "twitter_enabled_flag",                        :default => false, :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

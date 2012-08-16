@@ -1,4 +1,4 @@
 .search 
-  - form_tag '/employers/search', :method => 'get' do
+  = form_tag '/employers/search', :method => 'get' do
     = text_field_tag :search, params[:search], :value => "Search by Keywords", :class => 'grey_text', :onfocus => "if (this.value == 'Search by Keywords') {this.value = ''; this.className = ''}", :onblur => "if (this.value == '') {this.value = 'Search by Keywords'; this.className = 'grey_text'}", :id => 'emp_search'
     = submit_tag "Search", :name => nil

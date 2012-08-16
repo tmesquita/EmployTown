@@ -7,5 +7,5 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 Role.create!(:name => 'developer', :description => 'The system developer. There is no higher access level.')
 Role.create!(:name => 'administrator', :description => 'A system administrator. Full access to all features.')
-Role.create!(:name => 'seeker', :description => 'A typical job seeker on the site.')
-Role.create!(:name => 'employer', :description => 'A typical employer on the site.')
+Role.create!(:name => 'job_seeker', :description => 'A job seeker on the site.')
+Role.create!(:name => 'employer', :description => 'A employer on the site.')

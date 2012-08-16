@@ -1,28 +1,28 @@
 module ApplicationHelper
 
-def general_nav(user)
-  if user
-    if user.is_seeker?
-      render :partial => "layouts/seekernav"
-    elsif user.is_employer?
-      render :partial => "layouts/employernav"
-    end
-  else
-    #render :partial => "layouts/guestnav"
-  end
-end
+# def general_nav(user)
+#   if user
+#     if user.is_job_seeker?
+#       render :partial => "layouts/seekernav"
+#     elsif user.is_employer?
+#       render :partial => "layouts/employernav"
+#     end
+#   else
+#     render :partial => "layouts/guestnav"
+#   end
+# end
 
-def quick_nav(user)
-  if user
-    if user.is_seeker?
-      render :partial => "layouts/seekerquicknav"
-    elsif user.is_employer?
-      render :partial => "layouts/employerquicknav"
-    end
-  else
-    render :partial => "layouts/guestquicknav"
-  end
-end
+# def quick_nav(user)
+#   if user
+#     if user.is_job_seeker?
+#       render :partial => "layouts/seekerquicknav"
+#     elsif user.is_employer?
+#       render :partial => "layouts/employerquicknav"
+#     end
+#   else
+#     render :partial => "layouts/guestquicknav"
+#   end
+# end
 
 def search(user)
   if user
@@ -32,18 +32,15 @@ def search(user)
   end
 end
 
-def logo_link(user)
-  if user
-    if user.is_seeker?
-      root_url
-      #seekers_root_url
-    elsif user.is_employer?
-      root_url
-      #employers_root_url
-    end
-  else
-    root_url
-  end
+def root_path_for(user)
+  return job_seekers_root_path if user.is_job_seeker?
+  return employers_root_path if user.is_employer?
+  root_path
 end
+
+# def flash_heading(flash)
+#   return 'Success' if flash[:success]
+#   return 'Error!' if flash[:error]
+# end
 
 end

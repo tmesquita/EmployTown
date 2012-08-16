@@ -1,0 +1,42 @@
+.bid
+  .bid_info.left
+    %strong Company:
+    = bid.employer.company
+    %br
+    %strong Job Title: 
+    = bid.job_title
+    %br
+    %strong Salary Offered:
+    = "#{number_to_currency bid.salary, :precision => 0} / #{bid.salary_term}"
+    %br
+    %br
+    %strong Job Description:
+    %br
+    .comment{:id => "bid#{bid.id}"}= simple_format(truncate(bid.job_description, :length => 200, :omission => '... (continued)'))
+    .read_more{:id => "more#{bid.id}"}= more_link(bid)
+    %br
+    %strong Contact Name:
+    = bid.employer
+    %br
+    %strong Contact Email:
+    %span.mail= mail_to bid.contact_email, bid.contact_email
+    %br
+    - unless bid.employer.company.nil?
+      %strong Company Website:
+      %span.mail= link_to bid.employer.company.company_url, url_with_protocol(bid.employer.company.company_url), :target => '_blank'
+      %br
+    - if bid.employer.company.has_facebook_enabled? and !bid.employer.company.facebook.nil? and !bid.employer.company.facebook.blank?
+      .left= link_to image_tag('facebook.png'), url_with_protocol(bid.employer.company.facebook)
+    - if bid.employer.company.has_twitter_enabled? and !bid.employer.company.twitter.nil? and !bid.employer.company.twitter.blank?
+      .left= link_to image_tag('twitter.png'), url_with_protocol(bid.employer.company.twitter)
+    - if bid.employer.company.has_blog_enabled? and !bid.employer.company.blog_address.nil? and !bid.employer.company.blog_address.blank?
+      .left= link_to image_tag('blog.png'), url_with_protocol(bid.employer.company.blog_address)
+  .choice.right
+    = image_tag bid.employer.photo.url(:thumb)
+    .clear
+    .interest_box
+      %span Change Your Mind?
+      -#%br
+      = link_to image_tag('delete_item.png') + 'Interested', interested_job_seekers_bid_path(bid)
+
+  .clear

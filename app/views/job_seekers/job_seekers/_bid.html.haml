@@ -1,0 +1,32 @@
+.bid
+  .bid_info.left
+    %strong Company:
+    = bid.employer.company
+    %br
+    %strong Job Title: 
+    = bid.job_title
+    %br
+    %strong Salary Offered:
+    = "#{number_to_currency bid.salary, :precision => 0} / #{bid.salary_term}"
+    %br
+    %br
+    %strong Job Description:
+    %br
+    .comment{:id => "bid#{bid.id}"}= simple_format(truncate(bid.job_description, :length => 200, :omission => '... (continued)'))
+    .read_more{:id => "more#{bid.id}"}= more_link(bid)
+    %br
+    %strong Contact Name:
+    = bid.employer
+    %br
+    %strong Contact Email:
+    %span.mail= mail_to bid.contact_email, bid.contact_email
+  .choice.right
+    = image_tag bid.employer.photo.url(:thumb), :class => 'max-height'
+    .clear
+    .interest_box
+      = link_to image_tag('accept_item.png') + 'Interested', interested_job_seekers_bid_path(bid)
+      %br
+      = link_to image_tag('delete_item.png') + 'Not Interested', not_interested_job_seekers_bid_path(bid)
+
+  .clear
+

@@ -1,30 +1,30 @@
 .user
   .user_info.left
-    %span.name= @user
+    %span.name= user
     %br
-    - unless @user.contact_email.nil? or @user.contact_email.blank?
-      = mail_to @user.contact_email, @user.contact_email
+    - unless user.contact_email.nil? or user.contact_email.blank?
+      = mail_to user.contact_email, user.contact_email
     - else
       (User has not provided a contact email address)
 
     %br
-    - unless @user.contact_phone.nil? or @user.contact_phone.blank?
-      = number_to_phone @user.contact_phone, :area_code => true
+    - unless user.contact_phone.nil? or user.contact_phone.blank?
+      = number_to_phone user.contact_phone, :area_code => true
     %br
     %strong About
-    .about_me{:id => "about_me#{@user.id}"}= simple_format(truncate(@user.about_me, :length => 100, :omission => '... (continued)'))
-    .more{:id => "about_more#{@user.id}"}= more_about_with_id(@user, 100)
+    .about_me{:id => "about_me#{user.id}"}= simple_format(truncate(user.about_me, :length => 100, :omission => '... (continued)'))
+    .more{:id => "about_more#{user.id}"}= more_about_with_id(user, 100)
 
 
   .bid_choice.right
-    = image_tag @user.photo.url(:thumb)
+    = image_tag user.photo.url(:thumb)
     .clear
     .bid_box
-      = link_to image_tag('search_magnifier.png') + 'View Profile', @user.user_url
+      = link_to image_tag('search_magnifier.png') + 'View Profile', user.user_url
       %br
-      - if !@user.has_bid_from_employer?(current_user)
-        = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_bidding_path(:seeker_id => @user.id)
-      - else
+      - if user.has_bid_from_employer?(current_user)
         = link_to image_tag('search_magnifier.png') + 'View Bid', employers_biddings_path
+      - else
+        = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_job_seeker_bid_path(user)
 
   .clear

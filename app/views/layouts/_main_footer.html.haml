@@ -1,0 +1,22 @@
+.footer-container
+  .left
+    .company
+      Employ
+      %span.bold Town
+    .slogan
+      %em Finding the right job. One bid at a time.
+  .right
+    %ul.links
+      %li.email
+        %i.icon-envelope
+        = mail_to 'admin@employtown.com', 'EMAIL us'
+      %li.facebook
+        = image_tag 'facebook-logo-small.png'
+        = link_to 'Follow us on FACEBOOK', 'http://www.facebook.com/employtown', target: '_blank'
+      %li.twitter
+        = image_tag 'twitter-bird-dark-bgs-small.png'
+        = link_to 'Follow us on TWITTER', 'http://www.twitter.com/employtown', target: '_blank'
+
+
+.small-footer
+  &copy; 2012 EmployTown; All Rights Reserved
