@@ -2,4 +2,9 @@
   - flash.each do |key, msg|
     %div{:class => "alert alert-#{key}"}
       %button.close{'data-dismiss' => 'alert'} &times;
-      = msg
+      - if msg.is_a? Array
+        - msg.each do |item|
+          = item
+          %br
+      - else
+        = msg

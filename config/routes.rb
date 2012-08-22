@@ -24,7 +24,7 @@ Employtown::Application.routes.draw do
       get :uninterested_bids, :on => :collection
     end
     controller :job_seekers do
-      get :edit_info
+      get :edit_profile
       get :profile
       get :edit
       get :enable_media

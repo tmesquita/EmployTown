@@ -1,17 +1,21 @@
 class JobSeekers::JobSeekersController < ApplicationController
   layout 'admin'
   before_filter :require_login, :get_user
-  before_filter :get_request_path, :only => [:edit, :edit_info]
+  before_filter :get_request_path, :only => [:edit, :edit_profile]
   
   def index
-    @bids = current_user.bids.not_responded.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+    @bids = current_user.bids
 
-    @not_responded_bids_count = current_user.bids.not_responded.count
-    @interested_bids_count = current_user.bids.interested.count
-    @not_interested_bids_count = current_user.bids.not_interested.count
+    @not_responded_bids_count = @bids.not_responded.count
+    @interested_bids_count = @bids.interested.count
+    @not_interested_bids_count = @bids.not_interested.count
+
+    @bids = @bids.not_responded.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
 
     @tags = Tag.find_all_by_user_id(current_user.id)
     @tag = Tag.new
+
+    flash.now[:info] = "You have no new bids. You may want to work on your <a href='#{job_seekers_edit_profile_path}'>profile</a> to attract more employers".html_safe if current_user.bids.not_responded.count < 1
   end
 
   def update
@@ -21,7 +25,7 @@ class JobSeekers::JobSeekersController < ApplicationController
       flash[:success] = "Your profile was sucessfully updated."
       redirect_to session[:return_to]
     else
-      flash[:error] = @user.errors.full_messages
+      flash.now[:error] = @user.errors.full_messages
       render action
     end
   end
@@ -30,7 +34,7 @@ class JobSeekers::JobSeekersController < ApplicationController
     if @user.update_attributes(params[:social_flag] => true)
       redirect_to job_seekers_edit_info_path
     else
-      render :edit_info
+      render :edit_profile
     end
   end
 
@@ -38,7 +42,7 @@ class JobSeekers::JobSeekersController < ApplicationController
     if @user.update_attributes(params[:social_flag] => false)
       redirect_to job_seekers_edit_info_path
     else
-      render :edit_info
+      render :edit_profile
     end
   end
   

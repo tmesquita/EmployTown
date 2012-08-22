@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   before_filter :require_user_url, :only => :job_seekers_public_profile
   
   def index
+    redirect_to home_url_for(current_user) if current_user
   end
 
   def job_seekers_public_profile

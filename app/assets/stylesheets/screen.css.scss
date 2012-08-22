@@ -159,13 +159,6 @@ body.main {
       .form-spacer {
         width: 214px;
       }
-      input[type=text], input[type=password], textarea {
-        padding: 10px;
-        font-size: 16px;
-        // @include form_text_input;
-        @include border_radius(2px);
-        border: 1px solid #AAA;
-      }
       .input {
         margin-bottom: 20px;
         label, .caption {
@@ -304,7 +297,7 @@ body.main {
     }
   }
   .container {
-    padding-bottom: 200px;
+    // padding-bottom: 200px;
     background: white;
     border: 1px solid #DDD;
     @include border_radius(2px);
@@ -375,6 +368,9 @@ body.main {
       line-height: 50px;
       margin: 10px 120px 0 0;
     }
+  }
+  .push {
+    height: 198px;
   }
   .footer {
     margin-top: -200px;
@@ -456,6 +452,13 @@ body.main {
   }
   .form-body {
     padding: 15px 0;
+    input[type=text], input[type=password], textarea {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 0;
+      @include border_radius(2px);
+      border: 1px solid #AAA;
+    }
   }
 }
 
@@ -464,7 +467,6 @@ body.main {
 }
 
 body.admin .footer, .small-footer {
-  clear: both;
   height: 50px;
   background: $dark_background;
   text-align: center;

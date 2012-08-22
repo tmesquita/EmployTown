@@ -1,10 +1,9 @@
 = form_for [:job_seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
   = render 'layouts/flash', flash: flash
-
-  .right
+  .right.photo
     = image_tag @user.photo.url(:regular)
-    %br
-    = f.file_field :photo
+    .input.photo-field
+      = f.file_field :photo
   .input
     %label
       Resume
@@ -42,12 +41,12 @@
     %label
       About Me
       %span.caption Tell us about yourself
-    = f.text_area :about_me, :size => "22x4"
+    = f.text_area :about_me, :size => "22x7"
   .input
     %label
       How I Add Value
       %span.caption What are your strengths?
-    = f.text_area :ideal_role, :size => "22x4"
+    = f.text_area :ideal_role, :size => "22x7"
   .submit
     = f.submit 'Update Profile', class: 'button'
 

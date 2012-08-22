@@ -53,6 +53,14 @@ class User < ActiveRecord::Base
                     :path => "#{Rails.root}/public/assets/:class/:attachment/:id/:style.:extension",
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml"
+
+  HUMANIZED_ATTRIBUTES = {
+    :user_url => "Profile URL"
+  }
+
+  def self.human_attribute_name(attr, options = {})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
   
   def is_job_seeker?
     self.is_a? JobSeeker
