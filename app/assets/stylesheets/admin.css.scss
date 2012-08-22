@@ -19,6 +19,7 @@ $dark_grey: #E3E3E3;
 $button: #1FAEEB;
 $button_border: #118EC3;
 $dark_background: #181818;
+$red_error: #b94a48;
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
@@ -120,6 +121,15 @@ body.admin {
       }
       textarea {
         width: 450px;
+      }
+      .field_with_errors {
+        display: inline;
+        input {
+          border: 1px solid $red_error;
+        }
+      }
+      .field_with_errors + label, .field_with_errors + .url-label {
+        color: $red_error;
       }
     }
     input[type=text], input[type=password] {

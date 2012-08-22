@@ -6,7 +6,6 @@
 #bid_container.left
   - if @user.company.nil?
     .warning
-      = image_tag '25.png'
       You need to
       = link_to 'update', new_employers_company_path
       your company information. 
@@ -15,7 +14,6 @@
       = link_to 'Update Company Info', new_employers_company_path
   - elsif @user.company.name.nil? or @user.company.name.blank? or @user.company.description.nil? or @user.company.description.blank? or @user.company.looking_for.nil? or @user.company.looking_for.blank? or @user.company.why_work_for.nil? or @user.company.why_work_for.blank?
     .warning
-      = image_tag '25.png'
       Your company information is incomplete. Please
       = link_to 'update', edit_employers_company_path(current_user.company)
       your company information to complete your profile.
