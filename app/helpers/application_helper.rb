@@ -1,16 +1,16 @@
 module ApplicationHelper
 
-# def general_nav(user)
-#   if user
-#     if user.is_job_seeker?
-#       render :partial => "layouts/seekernav"
-#     elsif user.is_employer?
-#       render :partial => "layouts/employernav"
-#     end
-#   else
-#     render :partial => "layouts/guestnav"
-#   end
-# end
+def general_nav(user)
+  if user
+    if user.is_job_seeker?
+      render :partial => "layouts/seekernav"
+    elsif user.is_employer?
+      render :partial => "layouts/employernav"
+    end
+  else
+    render :partial => "layouts/guestnav"
+  end
+end
 
 # def quick_nav(user)
 #   if user

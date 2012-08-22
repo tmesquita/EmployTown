@@ -1,0 +1,99 @@
+$std_weight: 100;
+$std_font_family: Exo, helvetica, arial, sans-serif;
+$secondary_font_family: 'Advent Pro', helvetica, arial, sans-serif;
+
+/* Color Variables */
+$body_background: #F2F2F2;
+$form_background: #FFF;
+$primary: #0A477A;
+$secondary: #529EDD;
+$light: #B1D3EB;
+$light_final_gradient: #77AFDD;
+$light_initial_gradient: #B1D3EB;
+$primary_background: #EEE;
+$light_text_accent: #EEE;
+$dark_initial_gradient: #4D4D4C;
+$dark_final_gradient: #3D3D3C;
+$light_grey: #F2F2F2;
+$dark_grey: #E3E3E3;
+$button: #1FAEEB;
+$button_border: #118EC3;
+$dark_background: #181818;
+
+/* Mixins */
+@mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
+  @if $inset {
+    -moz-box-shadow: $x $y $blur $spread $color inset;
+    -webkit-box-shadow: $x $y $blur $spread $color inset;
+    box-shadow: $x $y $blur $spread $color inset;
+  } @else {
+    -moz-box-shadow: $x $y $blur $spread $color;
+    -webkit-box-shadow: $x $y $blur $spread $color;
+    box-shadow: $x $y $blur $spread $color;
+  }
+}
+
+@mixin border_radius($radius: 4px) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin linear_gradient($point, $start_color, $start_percent, $end_color, $end_percent) {
+  background: linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
+  background: -o-linear-gradient($point, $start_color $start_percent, $end_color, $end_percent);
+  background: -moz-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
+  background: -webkit-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
+  background: -webkit-gradient(linear, $point, color-stop($start_percent, $start_color), color-stop($end_percent, $end_color));
+  background: -ms-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
+}
+
+body.admin {
+  .header {
+    background: $dark_background;
+    .header-container {
+      width: 1000px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    .logo {
+      font-size: 30px;
+      line-height: 30px;
+      font-family: $secondary_font_family;
+      a {
+        color: #666;
+        &:hover {
+          color: #666;
+          text-decoration: none;
+        }
+      }
+    }
+    /* Nav Styles */
+    .navbar {
+      margin-bottom: 0;
+      position: relative;
+      top: 6px;
+      .dropdown-toggle {
+        color: #666;
+        padding: 0 0 7px 0 !important;
+        font-size: 20px;
+        &:hover {
+          color: #CCC;
+        }
+      }
+      .dropdown {
+        .dropdown-menu {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+  .container {
+    width: 1000px;
+    margin: 20px auto;
+  }
+  .footer {
+    margin-top: -50px;
+  }
+}

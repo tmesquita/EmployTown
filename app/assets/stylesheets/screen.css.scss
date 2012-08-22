@@ -54,11 +54,11 @@ $dark_background: #181818;
 //   margin: $margin;
 // }
   
-@mixin std_button_link {
-  color: $primary;
-  font-weight: 300;
-  padding: .45em .7em .3em .7em;
-}
+// @mixin std_button_link {
+//   color: $primary;
+//   font-weight: 300;
+//   padding: .45em .7em .3em .7em;
+// }
 
 /* General Page Styles */
 html, body {
@@ -444,55 +444,6 @@ body.main {
   }
 }
 
-body.admin {
-  .header {
-    background: $dark_background;
-    .header-container {
-      width: 1000px;
-      margin: 0 auto;
-      padding: 15px;
-    }
-    .logo {
-      font-size: 30px;
-      line-height: 30px;
-      font-family: $secondary_font_family;
-      a {
-        color: #666;
-        &:hover {
-          color: #666;
-          text-decoration: none;
-        }
-      }
-    }
-    /* Nav Styles */
-    .navbar {
-      margin-bottom: 0;
-      position: relative;
-      top: 6px;
-      .dropdown-toggle {
-        color: #666;
-        padding: 0 0 7px 0 !important;
-        font-size: 20px;
-        &:hover {
-          color: #CCC;
-        }
-      }
-      .dropdown {
-        .dropdown-menu {
-          padding: 5px 0;
-        }
-      }
-    }
-  }
-  .container {
-    width: 1000px;
-    margin: 20px auto;
-  }
-  .footer {
-    margin-top: -50px;
-  }
-}
-
 /* Common Styles */
 .form-container {
   background: white;
@@ -511,6 +462,7 @@ body.admin {
 .footer {
   clear: both;
 }
+
 body.admin .footer, .small-footer {
   clear: both;
   height: 50px;
