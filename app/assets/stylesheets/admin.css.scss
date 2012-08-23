@@ -20,6 +20,7 @@ $button: #1FAEEB;
 $button_border: #118EC3;
 $dark_background: #181818;
 $red_error: #b94a48;
+$border_color: #DDD;
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
@@ -91,7 +92,7 @@ body.admin {
     }
   }
   .form-container {
-    border: 1px solid #DDD;
+    border: 1px solid $border_color;
     @include border-radius(2px);
 
     .input {
@@ -164,6 +165,11 @@ body.admin {
   .container {
     width: 1000px;
     margin: 20px auto;
+  }
+  .bids {
+    width: 600px;
+    border-right: 1px solid #BBB;
+    height: 200px;
   }
   .footer {
     margin-top: -50px;

@@ -40,6 +40,12 @@
       = f.text_field :blog_address, placeholder: 'http://'
     .input
       %label
+        Tags
+        %span.caption Input keywords separated by comma
+      = text_field_tag :tags, current_user.tags.join(', '), placeholder: 'ex. programmer, teacher'
+      %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'This will allow your profile to be more easily searchable when employers search for job seekers by keyword.'}
+    .input
+      %label
         About Me
         %span.caption Tell us about yourself
       = f.text_area :about_me, :size => "22x7"

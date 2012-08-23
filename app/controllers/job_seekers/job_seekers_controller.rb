@@ -21,6 +21,10 @@ class JobSeekers::JobSeekersController < ApplicationController
   def update
     action = session[:return_to].split('/').last
 
+    @user.tags.destroy_all
+    @user.tags = params[:tags].split(',').map(&:strip).uniq.map{ |tag_name| Tag.new(name: tag_name, user: current_user) }
+    @user.save
+
     if @user.update_attributes(params[:job_seeker])
       flash[:success] = "Your profile was sucessfully updated."
       redirect_to session[:return_to]

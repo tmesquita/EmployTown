@@ -14,5 +14,5 @@
     %ul
       - @tags.each do |tag|
         %li
-          = link_to tag.tag.capitalize, edit_job_seekers_tag_path(tag)
+          = link_to tag.name.capitalize, edit_job_seekers_tag_path(tag)
           = link_to('(delete)', job_seekers_tag_path(tag), :confirm => 'Are you sure?', :method => :delete) 
