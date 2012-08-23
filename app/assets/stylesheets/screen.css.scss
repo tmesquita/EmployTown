@@ -48,17 +48,6 @@ $dark_background: #181818;
   background: -ms-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
 }
-  
-// @mixin form_text_input($border: solid 1px #999, $box-shadow: 0 0 3px #aaa, $margin: 0) {
-//   border: $border;
-//   margin: $margin;
-// }
-  
-// @mixin std_button_link {
-//   color: $primary;
-//   font-weight: 300;
-//   padding: .45em .7em .3em .7em;
-// }
 
 /* General Page Styles */
 html, body {

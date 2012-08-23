@@ -10,5 +10,7 @@
         Employ
         %span.bold Town
     .nav.right
-      = general_nav(current_user)
+      %ul.menu
+        %li.left= link_to "Login", login_path
+        %li.left= link_to "Sign Up", signup_path, class: 'button'
     .clear
