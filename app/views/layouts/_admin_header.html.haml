@@ -1,11 +1,5 @@
 .header
   .header-container
     .logo.left= link_to 'EmployTown', root_path_for(current_user)
-    .navbar.pull-right
-      %ul.nav
-        %li.dropdown
-          %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
-            = current_user
-            %b.caret
-          = dropdown_menu_for(current_user)
+    = navbar_for(current_user)
     .clear

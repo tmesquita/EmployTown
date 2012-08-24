@@ -1,55 +1,23 @@
 = form_for [:employers, @user], :html => { :multipart => true } do |f|
-  -if @user.errors.any? 
-    .error
-      = image_tag 'Exclamation.png'
-      %strong &nbsp; Please fix the following errors
-      %br
-      %br
-      - @user.errors.full_messages.each do |msg|
-        %li.message= msg
-  - if flash[:success]
-    .success
-      = image_tag 'checkmark.png'
-      - flash.each do |key, msg|
-        &nbsp;
-        = msg
+  = render 'layouts/flash', flash: flash
+  .input
+    %label
+      Email
+      %span.caption The email used to login
+    = f.text_field :email
+  .input
+    = f.label :first_name
+    = f.text_field :first_name
   
-  .input-container
-    .left
-      .input
-        = f.label :email
-        %br
-        = f.text_field :email
-      
-      .input
-        = f.label :password
-        %br
-        = f.password_field :password
-      
-      .input
-        = f.label :password_confirmation
-        %br
-        = f.password_field :password_confirmation
-
-      .submit
-        = f.submit
-
-    .right
-      .input
-        = f.label :first_name
-        %br
-        = f.text_field :first_name
-      
-      .input
-        = f.label :last_name
-        %br
-        = f.text_field :last_name
-        
-      .input
-        = f.label :photo
-        %br
-        = f.file_field :photo
-
-    .clear
-
-  
+  .input
+    = f.label :last_name
+    = f.text_field :last_name
+  .input
+    = f.label :password
+    = f.password_field :password
+  .input
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  .submit
+    = f.submit 'Update', class: 'button'
+  .clear

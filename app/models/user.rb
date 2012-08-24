@@ -4,15 +4,16 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :tags
   
-  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :photo_content_type, :company_id, :about_me, :ideal_role
+  attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :company_id, :about_me, :ideal_role
   attr_accessible :facebook_flag, :twitter_flag, :blog_flag, :blog_address, :facebook, :twitter, :contact_email, :contact_phone
 
   before_validation :remove_non_digits_in_phone
   
-  validates :password, :confirmation => true, :presence => true, :on => :create
   validates :email, :presence => true, :uniqueness => true
-  validates_attachment :photo, :content_type => { content_type: 'image/jpeg', content_type: 'image/jpg', content_type: 'image/png', content_type: 'image/gif'}
-  validates_attachment :resume, :content_type => { content_type: 'application/msword', content_type: 'application/pdf', content_type: 'application/rtf', content_type: 'text/plain'}
+  validates :password, :confirmation => true, :presence => true, :on => :create
+  validates_presence_of :first_name, :last_name
+  validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
   validates :user_url, :presence => true, :uniqueness => true, :on => :update
 
   default_scope :include => :role
@@ -41,16 +42,16 @@ class User < ActiveRecord::Base
       :on => :update
 
   has_attached_file :photo, 
-                    :styles => { :thumb => "150x150>", :regular => "300x300>" },
+                    :styles => { :thumb => "50x50>", :small => "150x150>", :regular => "300x300>" },
                     :url => "/assets/:class/:attachment/:id/:style.:extension",
-                    :path => "#{Rails.root}/public/assets/:class/:attachment/:id/:style.:extension",
+                    :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
                     :default_url => "default_profile.jpg",
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml"
                     
   has_attached_file :resume,
                     :url => "/assets/:class/:attachment/:id/:style.:extension",
-                    :path => "#{Rails.root}/public/assets/:class/:attachment/:id/:style.:extension",
+                    :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml"
 
@@ -78,12 +79,12 @@ class User < ActiveRecord::Base
     [role.name.downcase.to_sym]
   end
 
-  def self.search(search, page)
+  def self.search(search)
       search.upcase
       if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
-        where(type: 'JobSeeker').where("first_name LIKE UPPER(?) OR last_name LIKE UPPER(?) OR first_name || ' ' || last_name LIKE UPPER(?) OR email LIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").paginate(:page => page, :per_page => 2)
+        where(type: 'JobSeeker').where("first_name LIKE UPPER(?) OR last_name LIKE UPPER(?) OR first_name || ' ' || last_name LIKE UPPER(?) OR email LIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
       else
-        where(type: 'JobSeeker').where("first_name ILIKE UPPER(?) OR last_name ILIKE UPPER(?) OR first_name || ' ' || last_name ILIKE UPPER(?) OR email ILIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").paginate(:page => page, :per_page => 2)
+        where(type: 'JobSeeker').where("first_name ILIKE UPPER(?) OR last_name ILIKE UPPER(?) OR first_name || ' ' || last_name ILIKE UPPER(?) OR email ILIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
       end
   end
 

@@ -1,0 +1,7 @@
+.navbar.pull-right
+  %ul.nav
+    %li.dropdown
+      %a.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
+        = current_user
+        %b.caret
+      = dropdown_menu_for(current_user)

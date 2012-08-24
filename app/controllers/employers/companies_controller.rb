@@ -34,6 +34,7 @@ class Employers::CompaniesController < Employers::EmployersController
       flash[:success] = 'Company was successfully created.'
       redirect_to edit_employers_company_path
     else
+      flash[:error] = @company.errors.full_messages
       render :action => "new"
     end
   end

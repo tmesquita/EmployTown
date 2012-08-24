@@ -76,15 +76,25 @@ body.admin {
       margin-bottom: 0;
       position: relative;
       top: 6px;
-      .dropdown-toggle {
+      a.navitem, .dropdown-toggle {
         color: #666;
-        padding: 0 0 7px 0 !important;
         font-size: 20px;
         &:hover {
           color: #CCC;
         }
       }
+      a.navitem {
+        margin: 0 0 0 0;
+        padding: 3px 20px 3px 0 !important;
+        border-right: 1px solid #333;
+      }
+      .dropdown-toggle {
+        margin: 0;
+        padding: 0 0 0 0 !important;
+      }
       .dropdown {
+        padding: 3px 0;
+        margin-left: 20px;
         .dropdown-menu {
           padding: 5px 0;
         }
@@ -157,9 +167,56 @@ body.admin {
       padding: 15px 15px 5px;
       position: relative;
       bottom: 15px;
+      min-height: 120px;
     }
     .submit {
       margin-left: 230px;
+    }
+  }
+  .search {
+    margin-bottom: 20px;
+  }
+  .records-count {
+    font-size: 20px;
+  }
+  .records-count.border-bottom {
+    border-bottom: 1px solid $border_color;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .result {
+    padding: 10px 20px;
+    background: white;
+    @include border-radius(2px);
+    border: 1px solid $border_color;
+    margin-bottom: 20px;
+    font-size: 20px;
+    .info {
+      margin-top: 16px;
+    }
+    .detailsBox {
+      padding: 20px 0 0;
+      .photo {
+        margin-bottom: 10px;
+      }
+      table {
+        border-top: 1px solid $border_color;
+        width: 80%;
+        margin-top: 10px;
+        td {
+          padding: 10px;
+        }
+        td.border {
+          border-right: 1px solid $border_color;
+          padding: 0;
+        }
+        td.border-bottom {
+          border-bottom: 1px solid $border_color;
+        }
+        td.no-left-padding {
+          padding-left: 0;
+        }
+      }
     }
   }
   .container {

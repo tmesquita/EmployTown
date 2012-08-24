@@ -3,7 +3,12 @@
     = link_to employers_edit_path do
       %i.icon-pencil
       Edit User Info
-  - unless current_user.company.nil? || current_user.company.blank?
+  - if current_user.company.blank?
+    %li
+      = link_to new_employers_company_path do
+        %i.icon-home
+        Create Company
+  - else
     %li
       = link_to edit_employers_company_path do
         %i.icon-home

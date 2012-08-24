@@ -4,22 +4,14 @@
 = render 'layouts/flash', :flash => flash
 
 #bid_container.left
-  - if @user.company.nil?
-    .warning
-      You need to
-      = link_to 'update', new_employers_company_path
-      your company information. 
-      %p
-        You will not be able to bid on any potential employees until your company is created.
-      = link_to 'Update Company Info', new_employers_company_path
-  - elsif @user.company.name.nil? or @user.company.name.blank? or @user.company.description.nil? or @user.company.description.blank? or @user.company.looking_for.nil? or @user.company.looking_for.blank? or @user.company.why_work_for.nil? or @user.company.why_work_for.blank?
-    .warning
-      Your company information is incomplete. Please
-      = link_to 'update', edit_employers_company_path(current_user.company)
-      your company information to complete your profile.
-      %br
-      %br
-      = link_to 'Update Company Info', edit_employers_company_path(current_user.company)
+  / - elsif @user.company.name.nil? or @user.company.name.blank? or @user.company.description.nil? or @user.company.description.blank? or @user.company.looking_for.nil? or @user.company.looking_for.blank? or @user.company.why_work_for.nil? or @user.company.why_work_for.blank?
+  /   .warning
+  /     Your company information is incomplete. Please
+  /     = link_to 'update', edit_employers_company_path(current_user.company)
+  /     your company information to complete your profile.
+  /     %br
+  /     %br
+  /     = link_to 'Update Company Info', edit_employers_company_path(current_user.company)
 
   - if @bids.count > 0
     %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"

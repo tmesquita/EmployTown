@@ -19,6 +19,7 @@ $dark_grey: #E3E3E3;
 $button: #1FAEEB;
 $button_border: #118EC3;
 $dark_background: #181818;
+$arrow_color: #555;
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
@@ -106,6 +107,10 @@ i {
   }
 }
 
+.required {
+  color: red;
+}
+
 .alert {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -130,6 +135,25 @@ a.button {
   &:hover {
     text-decoration: none;
   }
+}
+
+/* Arrows */
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid $arrow_color;
+  margin: 4px 15px 0 0;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-top: 5px solid $arrow_color;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  margin: 7px 10px 0 0;
 }
 
 /* Form styles */
@@ -207,7 +231,7 @@ body.main {
   }
   .form-container.single-column.wide-label {
     label, .caption {
-      width: 170px;
+      width: 180px;
     }
   }
   .right-container {

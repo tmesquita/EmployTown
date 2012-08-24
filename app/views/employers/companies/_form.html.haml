@@ -1,71 +1,52 @@
 = form_for [:employers, @company], :url => employers_company_path do |f|
-  -if @company.errors.any? 
-    .error
-      = image_tag 'Exclamation.png'
-      %strong &nbsp; Please fix the following errors
-      %br
-      %br
-      - @company.errors.full_messages.each do |msg|
-        %li.message= msg
-  - if flash[:success]
-    .success
-      = image_tag 'checkmark.png'
-      - flash.each do |key, msg|
-        &nbsp;
-        = msg
 
-  .input-container
-    .left
-      .input
-        = f.label :name
-        %br	
-        = f.text_field :name  
-    
-      .input
-        = f.label :company_website
-        %br
-        = f.text_field :company_url 
-      .input
-        = f.label :company_description
-        %br
-        = f.text_area :description, :size => "44x22" 
-      .submit
-        = f.submit  
+  .right.photo
+    = image_tag @company.logo.url(:medium)
+    .input.photo-field
+      = f.file_field :logo
 
-    .right
-      .input
-        = f.label :why_would_you_want_to_work_for_my_company?
-        %br
-        = f.text_area :why_work_for, :size => "44x5"
+  .left
+    = render 'layouts/flash', flash: flash
+    .input
+      %label
+        Company Name
+        %span.caption Enter your company name
+      = f.text_field :name
 
-      .input
-        = f.label :what_i_am_looking_for
-        %br
-        = f.text_area :looking_for, :size => "44x5"
-    
-      - if !action_name.eql? 'new'
-        .input
-          - if !@company.has_facebook_enabled?
-            = link_to 'Add a Facebook URL', enable_media_employers_company_path(social_flag: :facebook_flag)
-          - else
-            = f.label :facebook_address
-            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :facebook_flag)
-            %br
-            = f.text_field :facebook
-        .input
-          - if !@company.has_twitter_enabled?
-            = link_to 'Add a Twitter URL', enable_media_employers_company_path(social_flag: :twitter_flag)
-          - else
-            = f.label :twitter_address
-            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :twitter_flag)
-            %br
-            = f.text_field :twitter
-        .input
-          - if !@company.has_blog_enabled?
-            = link_to 'Add a Blog URL', enable_media_employers_company_path(social_flag: :blog_flag)
-          - else
-            = f.label :blog_address
-            = link_to '(Disable)', disable_media_employers_company_path(social_flag: :blog_flag)
-            %br
-            = f.text_field :blog_address
+  .input
+    %label
+      Company Website
+      %span.caption Enter your company's website
+    = f.text_field :company_url, placeholder: 'www.company.com'
+  .input
+    %span.url-label http://facebook.com/
+    = f.text_field :facebook, placeholder: 'my.company'
+  .input
+    %span.url-label http://twitter.com/
+    = f.text_field :twitter, placeholder: 'my.company'
+  .input
+    %label
+      Blog Address
+      %span.caption Input your blog address
+    = f.text_field :blog_address, placeholder: 'http://'
+  .input
+    %label
+      Company Description
+      %span.caption Tell us a little more about your company
+    = f.text_area :description, :size => "44x5"
+
+  .input
+    %label
+      Why My Company Rocks
+      %span.caption Tell us why someone should work for your company
+    = f.text_area :why_work_for, :size => "44x5"
+
+  .input
+    %label
+      What I Am Looking For
+      %span.caption Tell us what you are looking for in a potential employee
+    = f.text_area :looking_for, :size => "44x5"
+
+  .submit
+    = f.submit submit_button_text, class: 'button'
   .clear

@@ -14,16 +14,16 @@ class JobSeekers::JobSeekersController < ApplicationController
 
     @tags = Tag.find_all_by_user_id(current_user.id)
     @tag = Tag.new
-
-    flash.now[:info] = "You have no new bids. You may want to work on your <a href='#{job_seekers_edit_profile_path}'>profile</a> to attract more employers".html_safe if current_user.bids.not_responded.count < 1
   end
 
   def update
     action = session[:return_to].split('/').last
 
-    @user.tags.destroy_all
-    @user.tags = params[:tags].split(',').map(&:strip).uniq.map{ |tag_name| Tag.new(name: tag_name, user: current_user) }
-    @user.save
+    if params[:tags]
+      @user.tags.destroy_all
+      @user.tags = params[:tags].split(',').map(&:strip).uniq.map{ |tag_name| Tag.new(name: tag_name, user: current_user) }
+      @user.save
+    end
 
     if @user.update_attributes(params[:job_seeker])
       flash[:success] = "Your profile was sucessfully updated."

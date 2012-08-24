@@ -11,11 +11,11 @@ class Tag < ActiveRecord::Base
     name.downcase
   end
 
-  def self.search(search, page)
+  def self.search(search)
     if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
-      where('tag LIKE UPPER(?)', "%#{search}%").paginate(:per_page => 2, :page => page).select('DISTINCT user_id')
+      where('name LIKE UPPER(?)', "%#{search}%")
     else
-      where('tag ILIKE UPPER(?)', "%#{search}%").paginate(:per_page => 2, :page => page)
+      where('name ILIKE UPPER(?)', "%#{search}%")
     end
   end
 

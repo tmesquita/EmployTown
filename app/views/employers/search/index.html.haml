@@ -1,38 +1,17 @@
 - content_for :title do
   Search for Potential Employees
-  
-%h1 Search For Potential Employees
-=render :partial => "layouts/search"
 
-- if params[:search].blank?
-  %p.search_phrase
-    Look for potential employees by searching for a tag, a name, or an email address.
+.form-container.search
+  .form-header Search For Potential Employees
+  .form-body
+    = render 'form'
+    - if params[:search].blank?
+      %p Look for potential employees by searching for a tag, a name, or an email address.
+    - else
+      = link_to 'Clear', employers_search_path
+
     
 - unless params[:search].blank?
-  - if @users.count == 0 and @tags.count == 0
-    %p.search_phrase No users found with that search criteria
-  -else
-    %br
-    Displaying #{pluralize(@users.count + @tags.count, 'user')}.
-    %br
-    %br
-    - unless @users.count == 0
-      .search_box
-        %hr
-        %h2 Users matching user attributes
-        %hr
-        - @users.each do |user|
-          = render 'user', user: user
-        = will_paginate @users, :param_name => :users_page
-        %br
-        %br
-        %br
-        %hr
-    - unless @tags.count == 0
-      .search_box
-        %h2 Users matching tags
-        %hr
-        - @tags.each do |tag|
-          = render 'tag', tag: tag
-        = will_paginate @tags, :param_name => :tags_page
-  
+  .records-count{class: @users.count > 0 ? 'border-bottom' : ''}= "#{pluralize(@users.count, 'user')} found matching that criteria."
+  - @users.each do |user|
+    = render 'user', user: user

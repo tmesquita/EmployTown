@@ -20,14 +20,6 @@ class SorceryCore < ActiveRecord::Migration
       t.boolean  :blog_flag,             :default => false, :null => false
       t.boolean  :facebook_flag,         :default => false, :null => false
       t.boolean  :twitter_flag,          :default => false, :null => false
-      t.string   :photo_file_name,       :default => nil    
-      t.string   :photo_content_type,    :default => nil
-      t.integer  :photo_file_size,       :default => nil
-      t.datetime :photo_updated_at,      :default => nil
-      t.string   :resume_file_name,      :default => nil
-      t.string   :resume_content_type,   :default => nil
-      t.integer  :resume_file_size,      :default => nil
-      t.datetime :resume_updated_at,     :default => nil
 
       t.timestamps
     end
