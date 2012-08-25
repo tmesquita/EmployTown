@@ -1,7 +1,7 @@
 = form_for [:employers, @company], :url => employers_company_path do |f|
 
   .right.photo
-    = image_tag @company.logo.url(:medium)
+    = image_tag @company.logo.url(:regular)
     .input.photo-field
       = f.file_field :logo
 

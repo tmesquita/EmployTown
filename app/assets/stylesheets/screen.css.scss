@@ -267,6 +267,7 @@ body.main {
       padding-bottom: 10px;
       .social-icon {
         opacity: .5;
+        margin-left: 10px;
         -webkit-transition: opacity .5s;
         -moz-transition: opacity .5s;
         -o-transition: opacity .5s;
@@ -279,6 +280,7 @@ body.main {
 
     .bottomnav {
       padding: 0 5px;
+      margin-top: 10px;
       a, #logo {
         color: #888;
         &:hover {

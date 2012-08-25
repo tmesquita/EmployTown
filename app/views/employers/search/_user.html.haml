@@ -1,39 +1,20 @@
-/ .user
-/   .user_info.left
-/     %span.name= user
-/     %br
-/     - unless user.contact_email.nil? or user.contact_email.blank?
-/       = mail_to user.contact_email, user.contact_email
-/     - else
-/       (User has not provided a contact email address)
-
-/     %br
-/     - unless user.contact_phone.nil? or user.contact_phone.blank?
-/       = number_to_phone user.contact_phone, :area_code => true
-/     %br
-/     %strong About
-/     .about_me{:id => "about_me#{user.id}"}= simple_format(truncate(user.about_me, :length => 100, :omission => '... (continued)'))
-/     .more{:id => "about_more#{user.id}"}= more_about_with_id(user, 100)
-
-
-/   .bid_choice.right
-/     = image_tag user.photo.url(:thumb)
-/     .clear
-/     .bid_box
-/       = link_to image_tag('search_magnifier.png') + 'View Profile', user.user_url
-/       %br
-/       - if user.has_bid_from_employer?(current_user)
-/         = link_to image_tag('search_magnifier.png') + 'View Bid', employers_biddings_path
-/       - else
-/         = link_to image_tag('dollar_currency_sign.png') + 'Send a Bid', new_employers_job_seeker_bid_path(user)
-
-/   .clear
 .result
   .info.left
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
-    %span.name.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 500, 'data-title' => "Click to view #{user}'s profile"}= link_to user, "/#{user.user_url}"
-  .thumb.right= image_tag user.photo.url(:thumb)
+    %span.name.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{user}'s profile"}= link_to user, user_path(user)
+    - unless user.facebook.blank?
+      = link_to image_tag('facebook-logo-small.png', class: 'social'), "http://www.facebook.com/#{user.facebook}", target: '_blank'
+    - unless user.twitter.blank?
+      = link_to image_tag('twitter-bird-dark-bgs-small.png', class: 'social'), "http://www.twitter.com/#{user.twitter}", target: '_blank'
+    - unless user.blog_address.blank?
+      = link_to image_tag('blog-icon-black-20.png', class: 'social'), "http://#{user.blog_address}", target: '_blank'
+    - if current_user.company.nil? 
+      %span.bid.disabled.bootstrapTooltip{rel: 'tooltip', 'data-title' => "Add your company to bid on #{user}", 'data-delay' => 800}= link_to 'Send a bid', '#', class: 'button', style: 'cursor: not-allowed'
+    -  else
+      %span.bid= link_to 'Send a bid', new_employers_bid_path, class: 'button'
+  .thumb.right
+    = image_tag user.photo.url(:thumb)
   .detailsBox.hide
     .photo.right
       = image_tag user.photo.url(:small)
@@ -47,11 +28,25 @@
         %td.border
         %td= number_to_phone user.contact_phone, area_code: true
       %tr
+        %td.border-bottom.no-left-padding Resume
+        %td.border
+        %td
+          - if user.has_resume?
+            = link_to 'View my resume', user.resume.url
+          - else
+            No resume uploaded
+      %tr
         %td.border-bottom.no-left-padding About Me
         %td.border
-        %td= simple_format user.about_me
+        %td
+          = simple_format truncate(user.about_me, length: 200)
+          - if user.about_me.length > 200
+            = link_to 'Read more', user_path(user), class: 'small-link'
       %tr
         %td.no-left-padding Ideal Role
         %td.border
-        %td= simple_format user.ideal_role
+        %td
+          = simple_format truncate(user.ideal_role, length: 200)
+          - if user.ideal_role.length > 200
+            = link_to 'Read more', user_path(user), class: 'small-link'
   .clear

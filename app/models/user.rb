@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   default_scope :include => :role
   before_create :assign_default_url
 
+  before_save :remove_http_from_blog
+
   validates_format_of :contact_email,
       :message => 'must look like an email address',
       :with => /\b[a-zA-Z0-9._%-]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,4}\b/,
@@ -26,8 +28,8 @@ class User < ActiveRecord::Base
       :allow_blank => true
   
   validates_format_of :user_url,
-      :message => 'can only contain numbers, letters, underscores, and periods',
-      :with => /^[\w\.]+$/,
+      :message => 'can only contain numbers, letters, and underscores',
+      :with => /^[\w]+$/,
       :on => :update
 
   validates_format_of :contact_phone,
@@ -35,11 +37,11 @@ class User < ActiveRecord::Base
       :with => /^[\(\)0-9\- \+\.]{10}$/,
       :allow_blank => true
 
-  validates_format_of :facebook, :twitter, :blog_address,
-      :message => 'URL must look like a url',
-      :with => /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/,
-      :allow_blank => true,
-      :on => :update
+  # validates_format_of :facebook, :twitter, :blog_address,
+  #     :message => 'URL must look like a url',
+  #     :with => /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/,
+  #     :allow_blank => true,
+  #     :on => :update
 
   has_attached_file :photo, 
                     :styles => { :thumb => "50x50>", :small => "150x150>", :regular => "300x300>" },
@@ -113,6 +115,10 @@ class User < ActiveRecord::Base
   end
 
   protected
+
+    def remove_http_from_blog
+      self.blog_address.gsub!('http://', '') unless self.blog_address.blank?
+    end
   
     def remove_non_digits_in_phone
       self.contact_phone.gsub!(/\D/, "") unless self.contact_phone.blank?

@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+  def show
+    @user = User.find_by_user_url(params[:id])
+    redirect_to '/404' unless @user
+  end
   
   def create
     @user = Employer.new(params[:user]) if params[:role].eql? 'employer'

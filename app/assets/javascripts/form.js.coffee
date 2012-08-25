@@ -1,14 +1,5 @@
 $(document).ready ->
 
-  $window_height_original = $(window).height()
-
-  $container_offset = $('.container').offset()
-  $footer_offset = $('.footer').offset()
-  $height = $footer_offset.top - $container_offset.top
-  # $('.container').height($height)
-  # $('.form-container').height($height - 40)
-
-
   unless Modernizr.input.placeholder
     $('[placeholder]').focus ->
       input = $(@)

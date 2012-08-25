@@ -4,14 +4,11 @@ Employtown::Application.routes.draw do
   root :to => "home#index"
 
   get "about_us" => "home#about_us"
-
-  get "users/new"
   
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  resources :users
   resources :sessions
 
   namespace :job_seekers do
@@ -30,7 +27,6 @@ Employtown::Application.routes.draw do
       get :enable_media
       get :disable_media
     end
-    match '/:user_url', :to => redirect { |params| "/#{params[:user_url]}" }
     root :to => "job_seekers#index"
   end
   
@@ -39,7 +35,7 @@ Employtown::Application.routes.draw do
     resources :job_seekers do
       resources :bids, :only => [:new, :create, :destroy]
     end
-    resources :bids, :only => :index do
+    resources :bids do
       get :interested, :on => :collection
       get :not_interested, :on => :collection
     end
@@ -50,38 +46,9 @@ Employtown::Application.routes.draw do
       get :enable_media
       get :disable_media
     end
-    # resources :seekers, :only => [:index, :edit, :update]
     match '/search', :to => "search#index"
-    match '/:user_url', :to => redirect {|params| "/#{params[:user_url]}"}
     root :to => "employers#index"
   end
 
-  # resources :users
-  # resources :sessions
-  # resources :home
-  # resources :biddings
-  # resources :companies
-
-  
-  # namespace :administrators do
-  #   resources :users
-  # end
-  
-  # namespace :seekers do
-  
-  #   match '/biddings/interested_bids' => 'biddings#interested_bids', :as => 'interested_bids'
-  #   match '/biddings/uninterested_bids' => 'biddings#uninterested_bids', :as => 'uninterested_bids'
-  #   resources :biddings, :only => [:index] do
-  #     get 'interested', :on => :member
-  #     get 'not_interested', :on => :member
-  #   end
-  #   #resources :companies, :only => [:show]
-  #   resource :user, :only => [:edit, :show, :update]
-  #   match '/info/update' => 'seekers#update', :as => 'update'
-  #   match '/:user_url', :to => redirect {|params| "/#{params[:user_url]}"} 
-  #   root :to => "seekers#index"
-  # end
-
-  match 'error' => 'home#error'
-  get '/:user_url' => 'home#job_seekers_public_profile'
+  resources :users, :path => '/', :only => :show
 end

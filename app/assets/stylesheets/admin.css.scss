@@ -51,6 +51,15 @@ $border_color: #DDD;
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
+:-moz-placeholder {
+  font-style: italic;
+  font-weight: 100;
+}
+
 body.admin {
   .header {
     background: $dark_background;
@@ -85,12 +94,12 @@ body.admin {
       }
       a.navitem {
         margin: 0 0 0 0;
-        padding: 3px 20px 3px 0 !important;
+        padding: 3px 20px 3px 20px !important;
         border-right: 1px solid #333;
       }
       .dropdown-toggle {
         margin: 0;
-        padding: 0 0 0 0 !important;
+        padding: 0 !important;
       }
       .dropdown {
         padding: 3px 0;
@@ -192,7 +201,28 @@ body.admin {
     margin-bottom: 20px;
     font-size: 20px;
     .info {
-      margin-top: 16px;
+      padding: 15px 0;
+      span.bid {
+        margin-left: 20px;
+        position: relative;
+        top: 1px;
+      }
+      img.social{
+        margin-left: 8px;
+        position: relative;
+        top: -2px;
+        opacity: .5;
+        -webkit-transition: opacity .5s;
+        -moz-transition: opacity .5s;
+        -o-transition: opacity .5s;
+        transition: opacity .5s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .thumb {
+      line-height: 50px;
     }
     .detailsBox {
       padding: 20px 0 0;
@@ -205,6 +235,9 @@ body.admin {
         margin-top: 10px;
         td {
           padding: 10px;
+          a.small-link {
+            font-size: 16px;
+          }
         }
         td.border {
           border-right: 1px solid $border_color;
