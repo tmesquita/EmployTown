@@ -5,14 +5,8 @@
     .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.job_seeker}'s profile"}
       = link_to bid.employer, user_path(bid.job_seeker)
   .image.right= image_tag bid.employer.company.logo.url(:thumb)
-  %span.action-button.main.right
-    = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
-      %i.icon-remove-sign.icon-white
-      Decline
-  %span.action-button.main.right
-    = link_to employers_bid_path(bid), class: 'button green' do
-      %i.icon-ok-sign.icon-white
-      Accept
+  = bid.decline_button('main right')
+  = bid.accept_button('main right')
   .detailsBox.hide
     .photo.right
       = image_tag bid.employer.company.logo.url(:small)
@@ -24,18 +18,12 @@
       %tr
         %td.border-bottom.no-left-padding Salary Offered
         %td.border
-        %td= "#{number_to_currency(bid.salary)} / #{bid.salary_term}"
+        %td= bid.salary
       %tr
         %td.no-left-padding Job Description
         %td.border
         %td= simple_format truncate(bid.job_description, length: 200)
 
-    %span.action-button
-      = link_to employers_bid_path(bid), method: :delete, class: 'button green' do
-        %i.icon-ok-sign.icon-white
-        Accept
-    %span.action-button
-      = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
-        %i.icon-remove-sign.icon-white
-        Decline
+    = bid.accept_button
+    = bid.decline_button
   .clear

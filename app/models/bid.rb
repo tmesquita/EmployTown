@@ -21,4 +21,16 @@ class Bid < ActiveRecord::Base
   def self.not_interested
     where(:interested_flag => false)
   end
+
+  def accepted?
+    interested_flag
+  end
+
+  def declined?
+    !interested_flag && !interested_flag.nil?
+  end
+
+  def not_responded?
+    interested_flag.nil?
+  end
 end

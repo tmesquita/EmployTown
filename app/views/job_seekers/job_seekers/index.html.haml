@@ -7,9 +7,9 @@
   .filter-title Filter Bids
   %ul
     = filter_link 'All', job_seekers_root_path, nil
-    = filter_link 'Not Responded', job_seekers_root_path, 'sent'
-    = filter_link 'Interested', job_seekers_root_path, 'interested'
-    = filter_link 'Not Interested', job_seekers_root_path, 'declined'
+    = filter_link 'Not Responded', job_seekers_root_path, 'not_responded'
+    = filter_link 'Accepted', job_seekers_root_path, 'accepted'
+    = filter_link 'Declined', job_seekers_root_path, 'declined'
 
 .bids.right
   - unless @bids.count > 0

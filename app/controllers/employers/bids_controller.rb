@@ -7,7 +7,7 @@ class Employers::BidsController < Employers::EmployersController
 
     case bid_filter
     when 'sent' then @bids = @bids.not_responded
-    when 'interested' then @bids = @bids.interested
+    when 'accepted' then @bids = @bids.interested
     when 'declined' then @bids = @bids.not_interested
     end
 

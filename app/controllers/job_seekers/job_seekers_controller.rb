@@ -2,9 +2,19 @@ class JobSeekers::JobSeekersController < ApplicationController
   layout 'admin'
   before_filter :require_login, :get_user
   before_filter :get_request_path, :only => [:edit, :edit_profile]
+  helper_method :bid_filter
   
   def index
-    @bids = current_user.bids.order('created_at DESC')
+    @bids = current_user.bids
+
+    case bid_filter
+    when 'not_responded' then @bids = @bids.not_responded
+    when 'accepted' then @bids = @bids.interested
+    when 'declined' then @bids = @bids.not_interested
+    end
+
+    @bids = @bids.order('created_at DESC')
+    @bids = BidDecorator.decorate(@bids)
   end
 
   def update
@@ -54,6 +64,10 @@ class JobSeekers::JobSeekersController < ApplicationController
     end
 
   private
+
+    def bid_filter
+      params[:filter] unless params[:filter].blank?
+    end
 
     def get_user
       @user = current_user

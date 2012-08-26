@@ -8,8 +8,8 @@
   %ul
     = filter_link 'All', employers_bids_path, nil
     = filter_link 'Sent', employers_bids_path, 'sent'
-    = filter_link 'Interested', employers_bids_path, 'interested'
-    = filter_link 'Not Interested', employers_bids_path, 'declined'
+    = filter_link 'Accepted', employers_bids_path, 'accepted'
+    = filter_link 'Declined', employers_bids_path, 'declined'
 
 .bids.right
   - unless @bids.count > 0
