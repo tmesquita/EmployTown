@@ -37,11 +37,11 @@ class User < ActiveRecord::Base
       :with => /^[\(\)0-9\- \+\.]{10}$/,
       :allow_blank => true
 
-  # validates_format_of :facebook, :twitter, :blog_address,
-  #     :message => 'URL must look like a url',
-  #     :with => /[a-zA-Z0-9]+[^w\.]\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/,
-  #     :allow_blank => true,
-  #     :on => :update
+  validates_format_of :blog_address,
+      :message => 'URL must look like a url',
+      :with => /(http:\/\/www\.|http:\/\/|www\.)?.*\..*/,
+      :allow_blank => true,
+      :on => :update
 
   has_attached_file :photo, 
                     :styles => { :thumb => "50x50>", :small => "150x150>", :regular => "300x300>" },

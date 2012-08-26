@@ -17,7 +17,11 @@ $dark_final_gradient: #3D3D3C;
 $light_grey: #F2F2F2;
 $dark_grey: #E3E3E3;
 $button: #1FAEEB;
+$button_red: #FF7373;
+$button_green: #5CCC5C;
 $button_border: #118EC3;
+$button_border_red: #BF3030;
+$button_border_green: #5A995A;
 $dark_background: #181818;
 $arrow_color: #555;
 
@@ -126,6 +130,14 @@ i {
   &:hover {
     opacity: .8;
   }
+}
+.button.red {
+  background: $button_red;
+  border: 1px solid $button_border_red;
+}
+.button.green {
+  background: $button_green;
+  border: 1px solid $button_border_green;
 }
 input[type=submit] {
   font-family: $std_font_family;

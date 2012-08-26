@@ -17,11 +17,11 @@ class Company < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml"
 
-  # validates_format_of :facebook, :twitter, :blog_address, :company_url,
-  #     :message => 'URL must look like a url',
-  #     :with => /(www\.)*[a-zA-Z0-9]+\.[a-zA-Z0-9]+\/?[a-zA-Z0-9]*/,
-  #     :allow_blank => true,
-  #     :on => :update
+  validates_format_of :blog_address, :company_url,
+      :message => 'URL must look like a url',
+      :with => /(http:\/\/www\.|http:\/\/|www\.)?.*\..*/,
+      :allow_blank => true,
+      :on => :update
 
   HUMANIZED_ATTRIBUTES = {
     :name => 'Company name'

@@ -3,43 +3,34 @@
   
 = render 'layouts/flash', :flash => flash
 
-#bid_container.left
-  / - elsif @user.company.name.nil? or @user.company.name.blank? or @user.company.description.nil? or @user.company.description.blank? or @user.company.looking_for.nil? or @user.company.looking_for.blank? or @user.company.why_work_for.nil? or @user.company.why_work_for.blank?
-  /   .warning
-  /     Your company information is incomplete. Please
-  /     = link_to 'update', edit_employers_company_path(current_user.company)
-  /     your company information to complete your profile.
-  /     %br
-  /     %br
-  /     = link_to 'Update Company Info', edit_employers_company_path(current_user.company)
 
-  - if @bids.count > 0
-    %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"
-    - @bids.each do |bid|
-      = render 'bid'
-    %br
-  - else
-    %h2.center 
-      You have no bids with interest. You may want to
-      = link_to 'search', '/employers/search'
-      for more potential employees.
+/ - if @bids.count > 0
+/   %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"
+/   - @bids.each do |bid|
+/     = render 'bid'
+/   %br
+/ - else
+/   %h2.center 
+/     You have no bids with interest. You may want to
+/     = link_to 'search', '/employers/search'
+/     for more potential employees.
 
-  .clear
+/ .clear
 
-#home_right_container.right
-  #home_right
-    - if current_user.bids.not_responded.count > 0
-      You have 
-      = link_to pluralize(current_user.get_bid_count, 'bid'), employers_biddings_path
-      %ul
-        - if current_user.get_unreplied_biddings_count > 0
-          %li= link_to "#{current_user.get_unreplied_biddings_count} waiting for response", employers_biddings_path
-        - if current_user.get_interested_biddings_count > 0
-          %li= link_to "#{current_user.get_interested_biddings_count} interested", employers_interested_bids_path
-        - if current_user.get_uninterested_biddings_count > 0
-          %li= link_to "#{current_user.get_uninterested_biddings_count} not interested", employers_uninterested_bids_path
-    - else
-      You don't have any bids
-      %br
+/ #home_right_container.right
+/   / #home_right
+/     / - if current_user.bids.not_responded.count > 0
+/     /   You have 
+/       / = link_to pluralize(current_user.bids, 'bid'), employers_biddings_path
+/     /   %ul
+/     /     - if current_user.get_unreplied_biddings_count > 0
+/     /       %li= link_to "#{current_user.get_unreplied_biddings_count} waiting for response", employers_biddings_path
+/     /     - if current_user.get_interested_biddings_count > 0
+/     /       %li= link_to "#{current_user.get_interested_biddings_count} interested", employers_interested_bids_path
+/     /     - if current_user.get_uninterested_biddings_count > 0
+/     /       %li= link_to "#{current_user.get_uninterested_biddings_count} not interested", employers_uninterested_bids_path
+/     / - else
+/     /   You don't have any bids
+/     /   %br
 
-= will_paginate @bids
+/     / = will_paginate @bids

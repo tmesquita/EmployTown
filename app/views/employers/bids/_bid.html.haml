@@ -1,30 +1,35 @@
 .bid
-  .bid_info.left
-    %strong Candidate:
-    = bid.job_seeker
-    - if bid.job_seeker.has_resume?
-      %span.small-text= link_to '(Resume)', bid.job_seeker.resume.url
-    - else
-      %span.small-text= "(#{bid.job_seeker} has not uploaded a resume)"
-    %br
-    %strong Job Title:
-    = bid.job_title
-    %br
-    %strong Salary Offered:
-    = "#{number_to_currency bid.salary, :precision => 0} / #{bid.salary_term}"
-    %br
-    %br
-    %strong Job Description:
-    %br
-    .comment{:id => "bid#{bid.id}"}= simple_format(truncate(bid.job_description, :length => 200, :omission => '... (continued)'))
-    .read_more{:id => "more#{bid.id}"}= more_link(bid)
-    %br
-  .choice.right
-    = image_tag bid.job_seeker.photo.url(:regular)
-    .clear
-    .interest_box
-      = link_to image_tag('search_magnifier.png') + 'View Profile', bid.job_seeker.user_url
-      %br
-      = link_to image_tag('delete_item.png') + 'Remove Bid', employers_job_seeker_bid_path(bid.job_seeker, bid), :confirm => 'Are you sure?', :method => :delete
+  .info.left
+    .arrow.arrow-down.left.hide
+    .arrow.arrow-right.left
+    .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.job_seeker}'s profile"}
+      = link_to bid.job_seeker, user_path(bid.job_seeker)
+      \-
+      = bid.job_seeker.contact_email
+  .image.right= image_tag bid.job_seeker.photo.url(:thumb)
+  %span.action-button.main.right
+    = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
+      %i.icon-trash.icon-white
+      Cancel Bid
+  .detailsBox.hide
+    .photo.right
+      = image_tag bid.job_seeker.photo.url(:small)
+    %table
+      %tr
+        %td.border-bottom.no-left-padding{ width: '180px' } Job Title
+        %td.border{ width: '1px' }
+        %td= bid.job_title
+      %tr
+        %td.border-bottom.no-left-padding Salary Offered
+        %td.border
+        %td= "#{number_to_currency(bid.salary)} / #{bid.salary_term}"
+      %tr
+        %td.no-left-padding Job Description
+        %td.border
+        %td= simple_format truncate(bid.job_description, length: 200)
 
+    %span.action-button
+      = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
+        %i.icon-trash.icon-white
+        Cancel Bid
   .clear

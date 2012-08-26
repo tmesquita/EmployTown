@@ -1,5 +1,5 @@
 class Bid < ActiveRecord::Base
-	attr_accessible :interested_flag, :comment, :job_title, :salary, :contact_email, :salary_term
+	attr_accessible :interested_flag, :comment, :job_title, :salary, :contact_email, :salary_term, :job_description
 
 	belongs_to :user
   belongs_to :employer

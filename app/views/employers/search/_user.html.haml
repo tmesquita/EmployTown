@@ -9,16 +9,24 @@
       = link_to image_tag('twitter-bird-dark-bgs-small.png', class: 'social'), "http://www.twitter.com/#{user.twitter}", target: '_blank'
     - unless user.blog_address.blank?
       = link_to image_tag('blog-icon-black-20.png', class: 'social'), "http://#{user.blog_address}", target: '_blank'
-    - if current_user.company.nil? 
-      %span.bid.disabled.bootstrapTooltip{rel: 'tooltip', 'data-title' => "Add your company to bid on #{user}", 'data-delay' => 800}= link_to 'Send a bid', '#', class: 'button', style: 'cursor: not-allowed'
-    -  else
-      %span.bid= link_to 'Send a bid', new_employers_bid_path, class: 'button'
-  .thumb.right
-    = image_tag user.photo.url(:thumb)
+  .image.right= image_tag user.photo.url(:thumb)
+  - if current_user.company.nil?
+    %span.right.action-button.main.disabled.bootstrapTooltip{rel: 'tooltip', 'data-title' => "Add your company to bid on #{user}", 'data-delay' => 800}= link_to 'Send a bid', '#', class: 'button', style: 'cursor: not-allowed'
+  -  else
+    - if user.has_bid_from_employer? current_user
+      %span.action-button.main.right
+        = link_to new_employers_job_seeker_bid_path(user.id), class: 'button red' do
+          %i.icon-trash.icon-white
+          Cancel Bid
+    - else
+      %span.action-button.main.right
+        = link_to new_employers_job_seeker_bid_path(user.id), class: 'button' do
+          %i.icon-envelope.icon-white
+          Send a Bid
   .detailsBox.hide
     .photo.right
       = image_tag user.photo.url(:small)
-    %table.left
+    %table
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Email
         %td.border{ width: '1px' }
@@ -49,4 +57,9 @@
           = simple_format truncate(user.ideal_role, length: 200)
           - if user.ideal_role.length > 200
             = link_to 'Read more', user_path(user), class: 'small-link'
+
+    %span.action-button
+      = link_to '#', class: 'button' do
+        %i.icon-envelope.icon-white
+        Send a Bid
   .clear

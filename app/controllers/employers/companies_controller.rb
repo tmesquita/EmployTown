@@ -2,25 +2,6 @@ class Employers::CompaniesController < Employers::EmployersController
   before_filter :check_nil_company, :only => :edit
   before_filter :check_for_company, :only => :new
   before_filter :get_company, :except => [:new, :create]
-  # before_filter :check_company_matches_current_users_company, :only => [:edit]
-  
-  # def index
-  #  @companies = Company.all
-  #
-  #  respond_to do |format|
-  #    format.html # index.html.erb
-  #    format.xml  { render :xml => @companies }
-  #  end
-  # end
-
-  #def show
-  #  @company = Company.find(params[:id])
-  #
-  #  respond_to do |format|
-  #    format.html # show.html.erb
-  #    format.xml  { render :xml => @company }
-  #  end
-  #end
 
   def new
     @company = Company.new
@@ -44,6 +25,7 @@ class Employers::CompaniesController < Employers::EmployersController
       flash[:success] = "#{@company.name} was successfully updated."
       redirect_to edit_employers_company_path
     else
+      flash[:error] = @company.errors.full_messages
       render :edit
     end
   end

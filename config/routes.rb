@@ -13,13 +13,6 @@ Employtown::Application.routes.draw do
 
   namespace :job_seekers do
     resource :job_seeker, :only => [:show, :update]
-    resources :tags, :except => [:index, :show]
-    resources :bids, :only => :index do
-      get :interested, :on => :member
-      get :not_interested, :on => :member
-      get :interested_bids, :on => :collection
-      get :uninterested_bids, :on => :collection
-    end
     controller :job_seekers do
       get :edit_profile
       get :profile
@@ -32,20 +25,17 @@ Employtown::Application.routes.draw do
   
   namespace :employers do
     resource :employer, :only => [:show, :update]
-    resources :job_seekers do
+    resources :job_seekers, :only => :none do
       resources :bids, :only => [:new, :create, :destroy]
     end
-    resources :bids do
+    resources :bids, :except => :new do
       get :interested, :on => :collection
       get :not_interested, :on => :collection
     end
     controller :employers do
       get :edit
     end
-    resource :company do
-      get :enable_media
-      get :disable_media
-    end
+    resource :company, :except => :destroy
     match '/search', :to => "search#index"
     root :to => "employers#index"
   end

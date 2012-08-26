@@ -1,40 +1,28 @@
-= form_for [:employers, @bid], :url => {:action => 'create', :seeker_id => params[:seeker_id]} do |f|  
-  - if @bid.errors.any?  
-    .error
-      = image_tag 'Exclamation.png'
-      %strong &nbsp;Please fix the following errors
-      %br
-      %br
-        - @bid.errors.full_messages.each do |msg|
-          %li.message= "&nbsp;#{msg}"
+= form_for [:employers, @bid], :url => {:action => 'create'} do |f|
+  = render 'layouts/flash', flash: flash
+  .input.no-caption
+    %label
+      Job Title
+    = f.text_field :job_title
+  .input.no-caption
+    %label
+      Salary Offered
+    = f.text_field :salary
+  .input.no-caption.select
+    %label
+      Salary Term
+    = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
+  .input.no-caption
+    %label
+      Contact Email
+    = f.text_field :contact_email
+  .input
+    %label
+      Job Description
+    = f.text_area :job_description, :size => "30x8"
+  .submit
+    = f.submit 'Submit Bid', class: 'button'
+  .clear
 
-  .input-container
-    .left
-      .input
-        = f.label :title, "Job Title"
-        %br
-        = f.text_field :job_title
-      .input
-        = f.label :job_description, "Description"
-        %br
-        = f.text_area :job_description, :size => "30x8" 
-      %input{:type => 'hidden', :name => 'job_seeker_id', :value => @job_seeker_id}
-      .submit
-        = f.submit 'Submit Bid' 
-    .right
-      .input
-        = f.label :salary
-        %br
-        = f.text_field :salary
-      .input
-        = f.label :salary_term
-        %br
-        = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
-      .input
-        = f.label :contact_email_address
-        %br
-        = f.text_field :contact_email
-    .clear
   
-    
 

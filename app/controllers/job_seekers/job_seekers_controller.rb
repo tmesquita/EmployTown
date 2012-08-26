@@ -4,16 +4,7 @@ class JobSeekers::JobSeekersController < ApplicationController
   before_filter :get_request_path, :only => [:edit, :edit_profile]
   
   def index
-    @bids = current_user.bids
-
-    @not_responded_bids_count = @bids.not_responded.count
-    @interested_bids_count = @bids.interested.count
-    @not_interested_bids_count = @bids.not_interested.count
-
-    @bids = @bids.not_responded.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
-
-    @tags = Tag.find_all_by_user_id(current_user.id)
-    @tag = Tag.new
+    @bids = current_user.bids.order('created_at DESC')
   end
 
   def update

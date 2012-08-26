@@ -1,3 +1,6 @@
 = form_tag employers_search_path, :method => 'get' do
   = text_field_tag :search, params[:search], placeholder: 'Search by keywords'
   = submit_tag 'Search', class: 'button'
+  .input.checkbox
+    = check_box_tag :exclude, :exclude, params[:exclude]
+    Exclude users you have sent bids to

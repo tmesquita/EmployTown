@@ -1,25 +1,17 @@
 - content_for :title do
-  Bids Awaiting Response
+  Bids
 
-= render :partial => 'layouts/flash', :locals => {:flash => flash}
+= render 'layouts/flash', flash: flash
 
-.bid_header
-  %h2.left Bids Awaiting Response
-  %ul#bid_menu.right
-    %li.border
-    = link_to 'Interested Bids', interested_employers_bids_path
-    - if @interested_bids_count > 0
-      %span.notification= @interested_bids_count
-    |
-    %li
-      = link_to 'Not Interested Bids', not_interested_employers_bids_path
-      - if @not_interested_bids_count > 0
-        %span.notification= @not_interested_bids_count
-  .clear
+.filters.left
+  .filter-title Filter Bids
+  %ul
+    = filter_link 'All', employers_bids_path, nil
+    = filter_link 'Sent', employers_bids_path, 'sent'
+    = filter_link 'Interested', employers_bids_path, 'interested'
+    = filter_link 'Not Interested', employers_bids_path, 'declined'
 
-- if @bids.count > 0
+.bids.right
+  - unless @bids.count > 0
+    .no-bids There are no bids to display
   = render @bids
-- else
-  %h3 You have no bids to display
-  
-= will_paginate @bids
