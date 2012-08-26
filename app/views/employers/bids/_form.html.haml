@@ -12,9 +12,15 @@
     %label
       Salary Term
     = f.select :salary_term, options_for_select([['Year', 'year'], ['Hour', 'hour']])
-  .input.no-caption
+  .input
+    %label
+      Contact
+      %span.caption The name of your company contact
+    = f.text_field :contact_name
+  .input
     %label
       Contact Email
+      %span.caption The email of your contact
     = f.text_field :contact_email
   .input
     %label

@@ -3,29 +3,13 @@
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
     %span.name.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{user}'s profile"}= link_to user, user_path(user)
-    - unless user.facebook.blank?
-      = link_to image_tag('facebook-logo-small.png', class: 'social'), "http://www.facebook.com/#{user.facebook}", target: '_blank'
-    - unless user.twitter.blank?
-      = link_to image_tag('twitter-bird-dark-bgs-small.png', class: 'social'), "http://www.twitter.com/#{user.twitter}", target: '_blank'
-    - unless user.blog_address.blank?
-      = link_to image_tag('blog-icon-black-20.png', class: 'social'), "http://#{user.blog_address}", target: '_blank'
+    = user.facebook
+    = user.twitter
+    = user.blog
   .image.right= image_tag user.photo.url(:thumb)
-  - if current_user.company.nil?
-    %span.right.action-button.main.disabled.bootstrapTooltip{rel: 'tooltip', 'data-title' => "Add your company to bid on #{user}", 'data-delay' => 800}= link_to 'Send a bid', '#', class: 'button', style: 'cursor: not-allowed'
-  -  else
-    - if user.has_bid_from_employer? current_user
-      %span.action-button.main.right
-        = link_to new_employers_job_seeker_bid_path(user.id), class: 'button red' do
-          %i.icon-trash.icon-white
-          Cancel Bid
-    - else
-      %span.action-button.main.right
-        = link_to new_employers_job_seeker_bid_path(user.id), class: 'button' do
-          %i.icon-envelope.icon-white
-          Send a Bid
+  = user.send_bid_button('main right')
   .detailsBox.hide
-    .photo.right
-      = image_tag user.photo.url(:small)
+    .photo.right= image_tag user.photo.url(:small)
     %table
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Email
@@ -34,32 +18,18 @@
       %tr
         %td.border-bottom.no-left-padding Phone
         %td.border
-        %td= number_to_phone user.contact_phone, area_code: true
+        %td= user.phone
       %tr
         %td.border-bottom.no-left-padding Resume
         %td.border
-        %td
-          - if user.has_resume?
-            = link_to 'View my resume', user.resume.url
-          - else
-            No resume uploaded
+        %td= user.resume
       %tr
         %td.border-bottom.no-left-padding About Me
         %td.border
-        %td
-          = simple_format truncate(user.about_me, length: 200)
-          - if user.about_me.length > 200
-            = link_to 'Read more', user_path(user), class: 'small-link'
+        %td= user.about
       %tr
         %td.no-left-padding Ideal Role
         %td.border
-        %td
-          = simple_format truncate(user.ideal_role, length: 200)
-          - if user.ideal_role.length > 200
-            = link_to 'Read more', user_path(user), class: 'small-link'
-
-    %span.action-button
-      = link_to '#', class: 'button' do
-        %i.icon-envelope.icon-white
-        Send a Bid
+        %td= user.ideal_role
+    = user.send_bid_button
   .clear

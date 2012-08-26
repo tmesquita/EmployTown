@@ -4,7 +4,16 @@ class Employers::EmployersController < ApplicationController
   before_filter :get_user
   
   def index
-    @bids = current_user.bids.interested.paginate(:page => params[:page], :per_page => 2).order('updated_at DESC')
+    @bids = current_user.bids
+
+    case bid_filter
+    when 'sent' then @bids = @bids.not_responded
+    when 'accepted' then @bids = @bids.interested
+    when 'declined' then @bids = @bids.not_interested
+    end
+
+    @bids = @bids.order('created_at DESC')
+    @bids = BidDecorator.decorate(@bids)
     flash.now[:error] = "You are currently not associated with a company. Please <a href='#{new_employers_company_path}'>update</a> your company info. You will not be allowed to bid on any potential employees until your company is created".html_safe if current_user.company.nil?
   end
 

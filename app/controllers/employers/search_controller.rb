@@ -6,6 +6,8 @@ class Employers::SearchController < Employers::EmployersController
       @users = (@users + tags.map(&:user)).uniq
       @users = @users.reject { |user| user.is_employer? }
       @users = @users.reject { |user| user.has_bid_from_employer? current_user } if params[:exclude]
+
+      @users = UserDecorator.decorate(@users)
     end
   end
 

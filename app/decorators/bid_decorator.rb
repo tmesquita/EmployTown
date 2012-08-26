@@ -25,6 +25,23 @@ class BidDecorator < Draper::Base
     end
   end
 
+  def cancel_button(extra_classes = nil)
+    content_tag :span, class: "action-button #{extra_classes}" do
+      link_to employers_bid_path(bid), method: :delete, class: 'button red' do
+        content_tag(:i, '', class: 'icon-trash icon-white') +
+        'Cancel Bid'
+      end
+    end
+  end
+
+  def company_website
+    if model.employer.company.company_url.present?
+      link_to model.employer, url_with_protocol(model.employer.company.company_url)
+    else
+      model.employer
+    end
+  end
+
   def salary 
     "#{number_to_currency(model.salary)} / #{model.salary_term}"
   end

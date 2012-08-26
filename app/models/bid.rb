@@ -1,5 +1,5 @@
 class Bid < ActiveRecord::Base
-	attr_accessible :interested_flag, :comment, :job_title, :salary, :contact_email, :salary_term, :job_description
+	attr_accessible :interested_flag, :comment, :job_title, :salary, :contact_name, :contact_email, :salary_term, :job_description
 
 	belongs_to :user
   belongs_to :employer
@@ -9,6 +9,7 @@ class Bid < ActiveRecord::Base
   validates :job_title, :presence => true
   validates :salary, :presence => true, :numericality => true
   validates :contact_email, :presence => true
+  validates :contact_name, :presence => true
 
   def self.not_responded
     where(:interested_flag => nil)
@@ -32,5 +33,11 @@ class Bid < ActiveRecord::Base
 
   def not_responded?
     interested_flag.nil?
+  end
+
+  def status
+    return 'Waiting for response' if not_responded?
+    return 'Accepted' if accepted?
+    return 'Declined' if declined?
   end
 end

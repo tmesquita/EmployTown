@@ -7,10 +7,7 @@
       \-
       = bid.job_seeker.contact_email
   .image.right= image_tag bid.job_seeker.photo.url(:thumb)
-  %span.action-button.main.right
-    = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
-      %i.icon-trash.icon-white
-      Cancel Bid
+  = bid.cancel_button('main right')
   .detailsBox.hide
     .photo.right
       = image_tag bid.job_seeker.photo.url(:small)
@@ -22,14 +19,10 @@
       %tr
         %td.border-bottom.no-left-padding Salary Offered
         %td.border
-        %td= "#{number_to_currency(bid.salary)} / #{bid.salary_term}"
+        %td= bid.salary
       %tr
         %td.no-left-padding Job Description
         %td.border
         %td= simple_format truncate(bid.job_description, length: 200)
-
-    %span.action-button
-      = link_to employers_bid_path(bid), method: :delete, class: 'button red' do
-        %i.icon-trash.icon-white
-        Cancel Bid
+    = bid.cancel_button
   .clear

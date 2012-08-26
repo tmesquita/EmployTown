@@ -3,7 +3,7 @@
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
     .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.job_seeker}'s profile"}
-      = link_to bid.employer, user_path(bid.job_seeker)
+      = bid.company_website
   .image.right= image_tag bid.employer.company.logo.url(:thumb)
   = bid.decline_button('main right')
   = bid.accept_button('main right')
@@ -20,10 +20,17 @@
         %td.border
         %td= bid.salary
       %tr
-        %td.no-left-padding Job Description
+        %td.border-bottom.no-left-padding Job Description
         %td.border
         %td= simple_format truncate(bid.job_description, length: 200)
-
+      %tr
+        %td.border-bottom.no-left-padding Company Contact
+        %td.border
+        %td= bid.contact_name
+      %tr
+        %td.no-left-padding Contact Email
+        %td.border
+        %td= mail_to bid.contact_email, bid.contact_email, subject: 'Your Employtown Bid'
     = bid.accept_button
     = bid.decline_button
   .clear

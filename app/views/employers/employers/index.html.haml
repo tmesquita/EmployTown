@@ -1,36 +1,17 @@
 - content_for :title do
   Employer Home
   
-= render 'layouts/flash', :flash => flash
+= render 'layouts/flash', flash: flash
 
+.filters.left
+  .filter-title Filter Bids
+  %ul
+    = filter_link 'All', employers_root_path, nil
+    = filter_link 'Sent', employers_root_path, 'sent'
+    = filter_link 'Accepted', employers_root_path, 'accepted'
+    = filter_link 'Declined', employers_root_path, 'declined'
 
-/ - if @bids.count > 0
-/   %h2= "#{@bids.count} of your bids #{@bids .count == 1? 'has' : 'have'} interest"
-/   - @bids.each do |bid|
-/     = render 'bid'
-/   %br
-/ - else
-/   %h2.center 
-/     You have no bids with interest. You may want to
-/     = link_to 'search', '/employers/search'
-/     for more potential employees.
-
-/ .clear
-
-/ #home_right_container.right
-/   / #home_right
-/     / - if current_user.bids.not_responded.count > 0
-/     /   You have 
-/       / = link_to pluralize(current_user.bids, 'bid'), employers_biddings_path
-/     /   %ul
-/     /     - if current_user.get_unreplied_biddings_count > 0
-/     /       %li= link_to "#{current_user.get_unreplied_biddings_count} waiting for response", employers_biddings_path
-/     /     - if current_user.get_interested_biddings_count > 0
-/     /       %li= link_to "#{current_user.get_interested_biddings_count} interested", employers_interested_bids_path
-/     /     - if current_user.get_uninterested_biddings_count > 0
-/     /       %li= link_to "#{current_user.get_uninterested_biddings_count} not interested", employers_uninterested_bids_path
-/     / - else
-/     /   You don't have any bids
-/     /   %br
-
-/     / = will_paginate @bids
+.bids.right
+  - unless @bids.count > 0
+    .no-bids There are no bids to display
+  = render @bids

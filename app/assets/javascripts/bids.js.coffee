@@ -1,5 +1,8 @@
 $(document).ready ->
 
+  $('body').on 'click', '.bid a', (e) ->
+    e.stopPropogation();
+
   $('body').on 'click', '.bid', ->
     $arrows = $(@).find('.arrow')
     $detailsBox = $(@).find('.detailsBox')

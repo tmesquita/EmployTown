@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
 
-  attr_accessible :name, :description, :looking_for, :why_work_for, :facebook_flag, :facebook, :twitter, :blog_address, :company_url, :logo
+  attr_accessible :name, :description, :looking_for, :why_work_for, :facebook, :twitter, :blog_address, :company_url, :logo
 
 	has_many :bids
 	has_many :employers
