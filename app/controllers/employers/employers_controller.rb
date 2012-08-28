@@ -28,6 +28,10 @@ class Employers::EmployersController < ApplicationController
   
   protected
 
+    def bid_filter
+      params[:filter] unless params[:filter].blank?
+    end
+
     def get_user
       @user = current_user
     end

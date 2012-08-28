@@ -2,8 +2,8 @@
   .info.left
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
-    .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.job_seeker}'s profile"}
-      = bid.company_website
+    = bid.status
+    .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.employer}'s company website"}= bid.company_website
   .image.right= image_tag bid.employer.company.logo.url(:thumb)
   = bid.decline_button('main right')
   = bid.accept_button('main right')
@@ -22,7 +22,10 @@
       %tr
         %td.border-bottom.no-left-padding Job Description
         %td.border
-        %td= simple_format truncate(bid.job_description, length: 200)
+        %td
+          = simple_format truncate(bid.job_description, length: 200)
+          - if bid.job_description.length > 200
+            = link_to 'Read More', '#', class: 'small-link read-more', 'data-bid-id' => bid.id
       %tr
         %td.border-bottom.no-left-padding Company Contact
         %td.border

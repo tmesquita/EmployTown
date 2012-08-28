@@ -8,12 +8,13 @@ Employtown::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
+  resources :users, :only => :create
 
   resources :sessions
 
   namespace :job_seekers do
     resource :job_seeker, :only => [:show, :update]
-    resources :bids, :only => :none do
+    resources :bids, :only => :show do
       get :accept
       get :decline
     end
