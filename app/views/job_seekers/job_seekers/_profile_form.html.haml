@@ -1,8 +1,10 @@
 = form_for [:job_seekers, @user], :url => {:action => 'update'}, :html => {:multipart => true} do |f|
-  .right.photo
-    = image_tag @user.photo.url(:regular)
-    .input.photo-field
-      = f.file_field :photo
+  .right
+    .photo
+      = image_tag @user.photo.url(:regular)
+      .input.photo-field
+        = f.file_field :photo
+    = link_to 'View my profile', user_path(current_user)
 
   .left
     = render 'layouts/flash', flash: flash
@@ -13,7 +15,7 @@
       = f.file_field :resume
       - if !@user.resume_file_name.eql? nil
         %p
-          = link_to "Current resume", @user.resume.url
+          = link_to "Current resume", @user.resume.url, target: '_blank'
     .input
       %span.url-label= "http://#{request.host}/"
       = f.text_field :user_url

@@ -1,32 +1,50 @@
 - content_for :title do
   = "#{@user}'s Profile"
 
-#user-about.left
-  #profile-photo.left= image_tag @user.photo.url(:regular)
-  %strong.title About Me
-  %br
-  #about_me= simple_format truncate(@user.about_me, :length => 500, :omission => '... (continued)')
-  .more#about_more= more_about_me(@user)
-  %br
-  %strong.title How I Add Value
-  #add_value= simple_format truncate(@user.ideal_role, :length => 500, :omission => '... (continued)')
-  .more#value_more= more_value(@user)
+.profile
+  .photo.left
+    = image_tag @user.photo.url(:regular)
+  .info
+    .name
+      = @user
+      = @user.facebook
+      = @user.twitter
+      = @user.blog
+    %hr
+    = @user.user_contact_email
+    = @user.contact_phone
+    .title About Me
+    .about= simple_format @user.about_me
+    .title My Ideal Role
+    .ideal-role= simple_format @user.ideal_role
 
-#user-info-container.right
-  #user-info
-    .title= @user
-    - if @user.resume_file_name.nil?
-      .small-text (User has not uploaded a resume)
-    - else
-      .attr.center= link_to 'My Resume', @user.resume.url
-    %br
-    - if @user.contact_email.blank? && @user.contact_phone.blank?
-      .small-text (User has not given any contact info)
-    .attr= mail_to @user.contact_email, @user.contact_email unless @user.contact_email.nil? or @user.contact_email.blank?
-    .attr= number_to_phone @user.contact_phone, :area_code => true unless @user.contact_phone.nil? or @user.contact_phone.blank?
-    = link_to image_tag('facebook.png'), url_with_protocol(@user.facebook), :target => '_blank'
-    = link_to image_tag('twitter.png'), url_with_protocol(@user.twitter), :target => '_blank'
-    = link_to image_tag('blog.png'), url_with_protocol(@user.blog_address), :target => '_blank'
-  - if current_user && current_user.is_employer? && !@user.has_bid_from_employer?(current_user)
-    #send-bid
-      = link_to 'Send a Bid', new_employers_job_seeker_bid_path(@user.id)
+  .clear
+/ #user-about.left
+/   #profile-photo.left= image_tag @user.photo.url(:regular)
+/   %strong.title About Me
+/   %br
+/   #about_me= simple_format truncate(@user.about_me, :length => 500, :omission => '... (continued)')
+/   .more#about_more= more_about_me(@user)
+/   %br
+/   %strong.title How I Add Value
+/   #add_value= simple_format truncate(@user.ideal_role, :length => 500, :omission => '... (continued)')
+/   .more#value_more= more_value(@user)
+
+/ #user-info-container.right
+/   #user-info
+/     .title= @user
+/     - if @user.resume_file_name.nil?
+/       .small-text (User has not uploaded a resume)
+/     - else
+/       .attr.center= link_to 'My Resume', @user.resume.url
+/     %br
+/     - if @user.contact_email.blank? && @user.contact_phone.blank?
+/       .small-text (User has not given any contact info)
+/     .attr= mail_to @user.contact_email, @user.contact_email unless @user.contact_email.nil? or @user.contact_email.blank?
+/     .attr= number_to_phone @user.contact_phone, :area_code => true unless @user.contact_phone.nil? or @user.contact_phone.blank?
+/     = link_to image_tag('facebook.png'), url_with_protocol(@user.facebook), :target => '_blank'
+/     = link_to image_tag('twitter.png'), url_with_protocol(@user.twitter), :target => '_blank'
+/     = link_to image_tag('blog.png'), url_with_protocol(@user.blog_address), :target => '_blank'
+/   - if current_user && current_user.is_employer? && !@user.has_bid_from_employer?(current_user)
+/     #send-bid
+/       = link_to 'Send a Bid', new_employers_job_seeker_bid_path(@user.id)

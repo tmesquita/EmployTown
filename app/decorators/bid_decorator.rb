@@ -42,6 +42,11 @@ class BidDecorator < Draper::Base
     end
   end
 
+  def job_description
+    simple_format(truncate(model.job_description, length: 200)) +
+    link_to('Read more', '#', class: 'small-link read-more', 'data-bid-id' => model.id) if model.job_description
+  end
+
   def status
     return content_tag :div, '', class: 'bulb accepted bootstrapTooltip', rel: 'tooltip', 'data-title' => 'Bid has been accepted' if model.accepted?
     return content_tag :div, '', class: 'bulb declined bootstrapTooltip', rel: 'tooltip', 'data-title' => 'Bid has been declined' if model.declined?

@@ -22,6 +22,7 @@ class Employers::EmployersController < ApplicationController
       flash[:success] = 'Information has been successfully updated.'
       redirect_to employers_edit_path
     else
+      flash.now[:error] = @user.errors.full_messages
       render :action => "edit"
     end
   end

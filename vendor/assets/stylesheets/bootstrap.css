@@ -83,7 +83,6 @@ select,
 textarea {
   margin: 0;
   font-size: 100%;
-  vertical-align: middle;
 }
 
 button,
@@ -756,7 +755,6 @@ select,
 textarea {
   font-size: 13px;
   font-weight: normal;
-  line-height: 18px;
 }
 
 input,

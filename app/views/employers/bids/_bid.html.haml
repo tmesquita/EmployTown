@@ -16,14 +16,14 @@
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Job Title
         %td.border{ width: '1px' }
-        %td= bid.job_title
+        %td.content= bid.job_title
       %tr
         %td.border-bottom.no-left-padding Salary Offered
         %td.border
-        %td= bid.salary
+        %td.content= bid.salary
       %tr
         %td.no-left-padding Job Description
         %td.border
-        %td= simple_format truncate(bid.job_description, length: 200)
+        %td.content= simple_format truncate(bid.job_description, length: 200)
     = bid.cancel_button
   .clear

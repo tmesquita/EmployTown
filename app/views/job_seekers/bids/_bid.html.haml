@@ -14,26 +14,23 @@
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Job Title
         %td.border{ width: '1px' }
-        %td= bid.job_title
+        %td.content= bid.job_title
       %tr
         %td.border-bottom.no-left-padding Salary Offered
         %td.border
-        %td= bid.salary
+        %td.content= bid.salary
       %tr
         %td.border-bottom.no-left-padding Job Description
         %td.border
-        %td
-          = simple_format truncate(bid.job_description, length: 200)
-          - if bid.job_description.length > 200
-            = link_to 'Read More', '#', class: 'small-link read-more', 'data-bid-id' => bid.id
+        %td.content= bid.job_description
       %tr
         %td.border-bottom.no-left-padding Company Contact
         %td.border
-        %td= bid.contact_name
+        %td.content= bid.contact_name
       %tr
         %td.no-left-padding Contact Email
         %td.border
-        %td= mail_to bid.contact_email, bid.contact_email, subject: 'Your Employtown Bid'
+        %td.content= mail_to bid.contact_email, bid.contact_email, subject: 'Your Employtown Bid'
     = bid.accept_button
     = bid.decline_button
   .clear

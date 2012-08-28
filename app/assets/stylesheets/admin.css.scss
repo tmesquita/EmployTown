@@ -136,6 +136,11 @@ body.admin {
       }
     }
   }
+  .profile {
+    background: white;
+    border: 1px solid $border_color;
+    @include border_radius(2px);
+  }
   .form-container {
     border: 1px solid $border_color;
     @include border-radius(2px);
@@ -287,6 +292,9 @@ body.admin {
         }
         td.no-left-padding {
           padding-left: 0;
+        }
+        td.content {
+          font-size: 16px;
         }
       }
     }

@@ -25,7 +25,7 @@ class Employers::CompaniesController < Employers::EmployersController
       flash[:success] = "#{@company.name} was successfully updated."
       redirect_to edit_employers_company_path
     else
-      flash[:error] = @company.errors.full_messages
+      flash.now[:error] = @company.errors.full_messages
       render :edit
     end
   end

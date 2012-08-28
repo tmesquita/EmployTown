@@ -1,7 +1,7 @@
 class UserDecorator < Draper::Base
   decorates :user
   include Draper::LazyHelpers
-  denies :blog_address, :about_me
+  denies :blog_address
 
   def facebook
     link_to image_tag('facebook-logo-small.png', class: 'social'), "http://www.facebook.com/#{model.facebook}", target: '_blank' if model.facebook.present?
@@ -27,17 +27,31 @@ class UserDecorator < Draper::Base
     end
   end
 
-  def ideal_role
+  def my_ideal_role
     simple_format(truncate(model.ideal_role, length: 200)) +
-    if model.ideal_role.length > 200
-      link_to 'Read more', user_path(model), class: 'small-link'
-    end
+    link_to('Read more', user_path(model), class: 'small-link') if model.ideal_role.length > 200
   end
 
   def about
     simple_format(truncate(model.about_me, length: 200)) +
-    if model.about_me.length > 200
-      link_to 'Read more', user_path(model), class: 'small-link'
+    link_to('Read more', user_path(model), class: 'small-link') if model.about_me.length > 200
+  end
+
+  def user_contact_email
+    if current_user
+      content_tag :div, class: 'contact-email' do
+        content_tag(:span, 'Contact Email', class: 'title') +
+        raw(": #{mail_to model.contact_email, model.contact_email}")
+      end
+    end
+  end
+
+  def contact_phone
+    if current_user
+      content_tag :div, class: 'contact-phone' do
+        content_tag(:span, 'Contact Phone', class: 'title') +
+        ": #{number_to_phone(model.contact_phone, area_code: true)}"
+      end
     end
   end
 

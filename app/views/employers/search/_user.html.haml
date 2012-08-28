@@ -14,22 +14,22 @@
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Email
         %td.border{ width: '1px' }
-        %td= mail_to user.contact_email, user.contact_email
+        %td.content= mail_to user.contact_email, user.contact_email
       %tr
         %td.border-bottom.no-left-padding Phone
         %td.border
-        %td= user.phone
+        %td.content= user.phone
       %tr
         %td.border-bottom.no-left-padding Resume
         %td.border
-        %td= user.resume
+        %td.content= user.resume
       %tr
         %td.border-bottom.no-left-padding About Me
         %td.border
-        %td= user.about
+        %td.content= user.about
       %tr
         %td.no-left-padding Ideal Role
         %td.border
-        %td= user.ideal_role
+        %td.content= user.my_ideal_role
     = user.send_bid_button
   .clear

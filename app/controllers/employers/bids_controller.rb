@@ -28,7 +28,7 @@ class Employers::BidsController < Employers::EmployersController
       flash[:success] = 'Bid was sent sucessfully.'
       redirect_to employers_root_path
     else
-      flash[:error] = @bid.errors.full_messages
+      flash.now[:error] = @bid.errors.full_messages
       render :action => "new"
     end
   end

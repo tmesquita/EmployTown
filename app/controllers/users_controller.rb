@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-  # layout 'admin', :only => :show
+  layout :get_layout, :only => :show
+
   def new
     @user = User.new
   end
 
   def show
     @user = User.find_by_user_url(params[:id])
+    @user = UserDecorator.decorate(@user)
     redirect_to '/404' unless @user
   end
   
@@ -27,6 +29,13 @@ class UsersController < ApplicationController
       redirect_to signup_path
     end
   end
+
+  private
+
+    def get_layout
+      return 'admin' if current_user
+      'application'
+    end
 end
 
 

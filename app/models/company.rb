@@ -10,7 +10,7 @@ class Company < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   has_attached_file :logo,
-                    :styles => { :thumb => "50x50>", :small => "150x150>", :regular => "300x300>" },
+                    :styles => { :thumb => "50x50>", :small => "150x150>", :medium => "230x230>", :regular => "300x300>" },
                     :url => "/assets/:class/:attachment/:id/:style.:extension",
                     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
                     :default_url => "default_profile.jpg",

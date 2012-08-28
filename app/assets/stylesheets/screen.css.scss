@@ -25,6 +25,7 @@ $button_border_red: #BF3030;
 $button_border_green: #5A995A;
 $dark_background: #181818;
 $arrow_color: #555;
+$border_color: #DDD;
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
@@ -77,6 +78,11 @@ a {
   }
 }
 
+hr {
+  border-bottom: 1px solid $border_color;
+  border-top: 0;
+}
+
 i {
   margin-top: 3px;
 }
@@ -122,7 +128,7 @@ i {
 }
 
 .button {
-  font-size: 1em;
+  font-size: 16px;
   background: $button;
   border: 1px solid $button_border;
   padding: 7px 10px;
@@ -167,6 +173,49 @@ a.button {
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   margin: 7px 10px 0 0;
+}
+
+/* Profile Styles */
+.profile {
+  padding: 20px 20px 0 0;
+  .photo {
+     border-right: 1px solid $border_color;
+     padding-right: 20px;
+     margin: 0 20px 20px 20px;
+  }
+  .info {
+    padding-left: 20px;
+    .title {
+      font-weight: bold;
+      padding-bottom: 5px;
+      font-size: 18px;
+    }
+    .name {
+      font-size: 30px;
+      margin: 5px 0 10px;
+    }
+    .about, .ideal-role {
+      margin-bottom: 20px;
+    }
+    .contact-phone, .contact-email {
+      padding: 5px 0;
+    }
+    .contact-phone {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.social {
+  opacity: .5;
+  margin-left: 10px;
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* Form styles */
@@ -278,17 +327,6 @@ body.main {
     .topnav {
       width: 100%;
       padding-bottom: 10px;
-      .social-icon {
-        opacity: .5;
-        margin-left: 10px;
-        -webkit-transition: opacity .5s;
-        -moz-transition: opacity .5s;
-        -o-transition: opacity .5s;
-        transition: opacity .5s;
-        &:hover {
-          opacity: 1;
-        }
-      }
     }
 
     .bottomnav {
