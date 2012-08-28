@@ -2,6 +2,7 @@
   .info.left
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
+    = bid.status
     .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.job_seeker}'s profile"}
       = link_to bid.job_seeker, user_path(bid.job_seeker)
       \-

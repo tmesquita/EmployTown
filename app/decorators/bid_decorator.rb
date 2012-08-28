@@ -27,7 +27,7 @@ class BidDecorator < Draper::Base
 
   def cancel_button(extra_classes = nil)
     content_tag :span, class: "action-button #{extra_classes}" do
-      link_to employers_bid_path(bid), method: :delete, class: 'button red' do
+      link_to employers_bid_path(bid), :data => { :confirm => 'Are you sure you want to cancel this bid? This cannot be undone' }, method: :delete, class: 'button red cancel' do
         content_tag(:i, '', class: 'icon-trash icon-white') +
         'Cancel Bid'
       end
@@ -36,10 +36,16 @@ class BidDecorator < Draper::Base
 
   def company_website
     if model.employer.company.company_url.present?
-      link_to model.employer, url_with_protocol(model.employer.company.company_url)
+      link_to model.employer, url_with_protocol(model.employer.company.company_url), target: '_blank'
     else
       model.employer
     end
+  end
+
+  def status
+    return content_tag :div, '', class: 'bulb accepted bootstrapTooltip', rel: 'tooltip', 'data-title' => 'Bid has been accepted' if model.accepted?
+    return content_tag :div, '', class: 'bulb declined bootstrapTooltip', rel: 'tooltip', 'data-title' => 'Bid has been declined' if model.declined?
+    return content_tag :div, '', class: 'bulb not-responded bootstrapTooltip', rel: 'tooltip', 'data-title' => 'Bid is waiting on a response' if model.not_responded?
   end
 
   def salary 

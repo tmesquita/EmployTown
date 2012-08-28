@@ -21,6 +21,11 @@ $button_border: #118EC3;
 $dark_background: #181818;
 $red_error: #b94a48;
 $border_color: #DDD;
+$bulb_red: #FF5240;
+$bulb_green: #30C150;
+$bulb_border_red: #BF3D30;
+$bulb_border_green: #5A995A;
+$bulb_grey: #CCC;
 
 /* Mixins */
 @mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
@@ -39,6 +44,7 @@ $border_color: #DDD;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
   border-radius: $radius;
+  behavior: url(PIE.htc);
 }
 
 @mixin linear_gradient($point, $start_color, $start_percent, $end_color, $end_percent) {
@@ -58,6 +64,26 @@ $border_color: #DDD;
 :-moz-placeholder {
   font-style: italic;
   font-weight: 100;
+}
+
+.bulb {
+  height: 10px;
+  width: 10px;
+  float: left;
+  margin: 3px 10px 0 0;
+  @include border_radius(50%);
+}
+.bulb.accepted {
+  background: $bulb_green;
+  border: 1px solid $bulb_border_green
+}
+.bulb.declined {
+  background: $bulb_red;
+  border: 1px solid $bulb_border_red
+}
+.bulb.not-responded {
+  background: $bulb_grey;
+  border: 1px solid #AAA;
 }
 
 body.admin {

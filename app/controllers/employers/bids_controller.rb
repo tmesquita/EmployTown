@@ -26,7 +26,7 @@ class Employers::BidsController < Employers::EmployersController
     @bid.employer = current_user
     if @bid.save
       flash[:success] = 'Bid was sent sucessfully.'
-      redirect_to employers_bids_path
+      redirect_to employers_root_path
     else
       flash[:error] = @bid.errors.full_messages
       render :action => "new"
@@ -38,7 +38,7 @@ class Employers::BidsController < Employers::EmployersController
     @bid.destroy
 
     flash[:success] = 'You have successfully deleted the bid.'
-    redirect_to request.referer.sub(/(\?page=)[0-9]+/, '?page=1')
+    redirect_to employers_root_path
   end
 
   def interested
