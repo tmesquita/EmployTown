@@ -1,8 +1,22 @@
-%h1 Company Information Page
-%h2= @company.name
+- content_for :title do
+  = "#{@company}'s Company Information"
 
-%h3= link_to @company.url, @company.url, :target => "_blank"
-  
-%p
-  %b About: 
-  = " \"" + @company.description + " \""
+.profile
+  .photo.left
+    = image_tag @company.logo.url(:regular)
+  .info
+    .name
+      = @company
+      = @company.facebook
+      = @company.twitter
+      = @company.blog
+    %hr
+    = @company.website
+    .title= "About #{@company}"
+    .about= simple_format @company.description
+    .title Why We Rock
+    .work-for= simple_format @company.why_work_for
+    .title What We Are Looking For
+    .ideal-role= simple_format @company.looking_for
+
+  .clear

@@ -1,6 +1,6 @@
 class JobSeekers::JobSeekersController < ApplicationController
   layout 'admin'
-  before_filter :require_login, :get_user
+  before_filter :require_login, :get_user, :require_job_seeker
   before_filter :get_request_path, :only => [:edit, :edit_profile]
   helper_method :bid_filter
   
@@ -34,22 +34,6 @@ class JobSeekers::JobSeekersController < ApplicationController
       render action
     end
   end
-
-  def enable_media
-    if @user.update_attributes(params[:social_flag] => true)
-      redirect_to job_seekers_edit_info_path
-    else
-      render :edit_profile
-    end
-  end
-
-  def disable_media
-    if @user.update_attributes(params[:social_flag] => false)
-      redirect_to job_seekers_edit_info_path
-    else
-      render :edit_profile
-    end
-  end
   
   protected
 
@@ -75,5 +59,12 @@ class JobSeekers::JobSeekersController < ApplicationController
 
     def get_request_path
       session[:return_to] = request.path
+    end
+
+    def require_job_seeker
+      unless current_user.is_job_seeker?
+        flash[:error] = 'You do not have permission to access that page'
+        redirect_to home_url_for(current_user)
+      end
     end
 end

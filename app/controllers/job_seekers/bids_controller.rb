@@ -2,7 +2,6 @@ class JobSeekers::BidsController < JobSeekers::JobSeekersController
 
   def show
     @bid = Bid.find(params[:id])
-
     render json: @bid
   end
 

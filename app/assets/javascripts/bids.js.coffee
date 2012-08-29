@@ -1,7 +1,5 @@
 $(document).ready ->
 
-  # @original_text = ''
-
   $('body').on 'click', '.bid a', (e) ->
     unless $(@).hasClass('cancel')
       e.stopPropagation()

@@ -1,9 +1,8 @@
 class Tag < ActiveRecord::Base
-  belongs_to :user
-
-  validates :name, :presence => true
-
   attr_accessible :name, :user
+
+  belongs_to :user
+  validates :name, :presence => true
 
   before_save :downcase_name
   

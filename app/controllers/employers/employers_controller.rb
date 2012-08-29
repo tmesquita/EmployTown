@@ -1,6 +1,6 @@
 class Employers::EmployersController < ApplicationController
   layout 'admin'
-  before_filter :require_login
+  before_filter :require_login, :require_employer
   before_filter :get_user
   
   def index
@@ -44,6 +44,15 @@ class Employers::EmployersController < ApplicationController
       else
         flash[:error] = 'Please log in to view this page'
         redirect_back_or_to login_path
+      end
+    end
+
+  private
+
+    def require_employer
+      unless current_user.is_employer?
+        flash[:error] = 'You do not have permission to access that page'
+        redirect_to home_url_for(current_user)
       end
     end
 end

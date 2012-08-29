@@ -1,21 +1,6 @@
-$std_weight: 100;
-$std_font_family: Exo, helvetica, arial, sans-serif;
 $secondary_font_family: 'Advent Pro', helvetica, arial, sans-serif;
 
 /* Color Variables */
-$body_background: #F2F2F2;
-$form_background: #FFF;
-$primary: #0A477A;
-$secondary: #529EDD;
-$light: #B1D3EB;
-$light_final_gradient: #77AFDD;
-$light_initial_gradient: #B1D3EB;
-$primary_background: #EEE;
-$light_text_accent: #EEE;
-$dark_initial_gradient: #4D4D4C;
-$dark_final_gradient: #3D3D3C;
-$light_grey: #F2F2F2;
-$dark_grey: #E3E3E3;
 $button: #1FAEEB;
 $button_border: #118EC3;
 $dark_background: #181818;
@@ -28,33 +13,11 @@ $bulb_border_green: #5A995A;
 $bulb_grey: #CCC;
 
 /* Mixins */
-@mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
-  @if $inset {
-    -moz-box-shadow: $x $y $blur $spread $color inset;
-    -webkit-box-shadow: $x $y $blur $spread $color inset;
-    box-shadow: $x $y $blur $spread $color inset;
-  } @else {
-    -moz-box-shadow: $x $y $blur $spread $color;
-    -webkit-box-shadow: $x $y $blur $spread $color;
-    box-shadow: $x $y $blur $spread $color;
-  }
-}
-
 @mixin border_radius($radius: 4px) {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
   border-radius: $radius;
   behavior: url(PIE.htc);
-}
-
-@mixin linear_gradient($point, $start_color, $start_percent, $end_color, $end_percent) {
-  background: linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -o-linear-gradient($point, $start_color $start_percent, $end_color, $end_percent);
-  background: -moz-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -webkit-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -webkit-gradient(linear, $point, color-stop($start_percent, $start_color), color-stop($end_percent, $end_color));
-  background: -ms-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
 }
 
 .disabled {
@@ -144,23 +107,12 @@ body.admin {
   .form-container {
     border: 1px solid $border_color;
     @include border-radius(2px);
-
     .input {
-      margin-bottom: 20px;
       label, .url-label, .caption {
         width: 220px;
       }
       label, .caption {
-        display: block;
-        text-align: right;
-        float: left;
         margin-right: 10px;
-      }
-      label { 
-        font-size: 16px;
-      }
-      .caption {
-        font-size: 13px;
       }
       .url-label {
         display: block;
@@ -172,15 +124,6 @@ body.admin {
       }
       textarea {
         width: 450px;
-      }
-      .field_with_errors {
-        display: inline;
-        input {
-          border: 1px solid $red_error;
-        }
-      }
-      .field_with_errors + label, .field_with_errors + .url-label {
-        color: $red_error;
       }
     }
     input[type=text], input[type=password] {
@@ -217,6 +160,7 @@ body.admin {
       position: relative;
       bottom: 15px;
       min-height: 120px;
+      max-width: 300px;
     }
     .submit {
       margin-left: 230px;

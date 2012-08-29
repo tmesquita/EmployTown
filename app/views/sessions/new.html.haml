@@ -3,26 +3,9 @@
 
 .form-container.single-column.left
   .form-header Login
-  .form-body
-    = render :partial => 'form'
+  .form-body= render :partial => 'form'
 .right-container.right
   .title 
     Don't have an account? &nbsp;&nbsp;
     = link_to 'Sign Up', signup_path, class: 'button'
-  / .body
-  /   .title
-  /     %em Job Seekers
-  /     .section
-  /       Gain access to the network of employers waiting to hire you
-  /   %ul
-  /     %li Create a profile to gain the attention of employers
-  /     %li Receive offers from employers for jobs
-  /     %li Upload resumes
-  /   %br
-  /   .title
-  /     %em Employers
-  /   %ul
-  /     %li Bid on employees
-  /     %li Recruit those suitable for your needs
-  /     %li Create a company profile to gain the attention of job seekers
 

@@ -29,24 +29,6 @@ class Employers::CompaniesController < Employers::EmployersController
       render :edit
     end
   end
-
-  def enable_media
-    if @company.update_attributes(params[:social_flag] => true)
-      puts 'true'
-      redirect_to edit_employers_company_path
-    else
-      puts 'false'
-      render :edit
-    end
-  end
-
-  def disable_media
-    if @company.update_attributes(params[:social_flag] => false)
-      redirect_to edit_employers_company_path
-    else
-      render :edit
-    end
-  end
   
   protected
 

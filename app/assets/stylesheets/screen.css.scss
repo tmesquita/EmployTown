@@ -1,19 +1,9 @@
-$std_weight: 100;
-$std_font_family: Exo, helvetica, arial, sans-serif;
+$font_weight: 100;
+$primary_font_family: Exo, helvetica, arial, sans-serif;
 $secondary_font_family: 'Advent Pro', helvetica, arial, sans-serif;
 
 /* Color Variables */
-$body_background: #F2F2F2;
-$form_background: #FFF;
 $primary: #0A477A;
-$secondary: #529EDD;
-$light: #B1D3EB;
-$light_final_gradient: #77AFDD;
-$light_initial_gradient: #B1D3EB;
-$primary_background: #EEE;
-$light_text_accent: #EEE;
-$dark_initial_gradient: #4D4D4C;
-$dark_final_gradient: #3D3D3C;
 $light_grey: #F2F2F2;
 $dark_grey: #E3E3E3;
 $red_error: #b94a48;
@@ -28,38 +18,16 @@ $arrow_color: #555;
 $border_color: #DDD;
 
 /* Mixins */
-@mixin box_shadow($x: 0, $y: 0, $blur: 5px, $spread: 2px, $color: #aaa, $inset: false) {
-  @if $inset {
-    -moz-box-shadow: $x $y $blur $spread $color inset;
-    -webkit-box-shadow: $x $y $blur $spread $color inset;
-    box-shadow: $x $y $blur $spread $color inset;
-  } @else {
-    -moz-box-shadow: $x $y $blur $spread $color;
-    -webkit-box-shadow: $x $y $blur $spread $color;
-    box-shadow: $x $y $blur $spread $color;
-  }
-}
-
 @mixin border_radius($radius: 4px) {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
   border-radius: $radius;
 }
 
-@mixin linear_gradient($point, $start_color, $start_percent, $end_color, $end_percent) {
-  background: linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -o-linear-gradient($point, $start_color $start_percent, $end_color, $end_percent);
-  background: -moz-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -webkit-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  background: -webkit-gradient(linear, $point, color-stop($start_percent, $start_color), color-stop($end_percent, $end_color));
-  background: -ms-linear-gradient($point, $start_color $start_percent, $end_color $end_percent);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$start_color', endColorstr='$end_color');
-}
-
 /* General Page Styles */
 html, body {
   margin: 0;
-  font-family: $std_font_family;
+  font-family: $primary_font_family;
   background: $light_grey;
   height: 100%;
   width: 100%;
@@ -67,7 +35,7 @@ html, body {
 }
 
 h1, h2, h3, h5, h6 {
-  font-weight: $std_weight;
+  font-weight: $font_weight;
 }
 
 a {
@@ -114,7 +82,7 @@ i {
   
   p {
     line-height: 140%;
-    font-weight: $std_weight;
+    font-weight: $font_weight;
   }
 }
 
@@ -147,7 +115,7 @@ i {
   border: 1px solid $button_border_green;
 }
 input[type=submit] {
-  font-family: $std_font_family;
+  font-family: $primary_font_family;
 }
 a.button {
   color: white !important;
@@ -200,7 +168,7 @@ a.button {
     .contact-phone, .contact-email {
       padding: 5px 0;
     }
-    .contact-phone {
+    .contact-phone, .website {
       margin-bottom: 10px;
     }
   }
@@ -219,67 +187,51 @@ a.button {
 }
 
 /* Form styles */
+.field_with_errors {
+  display: inline;
+  input {
+    border: 1px solid $red_error !important;
+  }
+}
+.field_with_errors + label, .field_with_errors + .url-label {
+  color: $red_error;
+}
+
 body.main {
-  .form-container {
-    background: white;
-    padding: 0 20px;
-    .form-header {
-      font-size: 25px;
-      text-align: center;
-      padding: 20px 0 15px;
-      border-bottom: 1px solid #BBB;
+  .input {
+    label, .caption {
+      width: 200px;
     }
-    .form-body {
-      padding: 15px 0;
-      .form-spacer {
-        width: 214px;
-      }
-      .input {
-        margin-bottom: 20px;
-        label, .caption {
-          display: block;
-          width: 200px;
-          text-align: right;
-          float: left;
-        }
-        label { 
-          font-size: 1em;
-        }
-        .caption {
-          font-size: .8em;
-        }
-        input, textarea {
-          margin-left: 20px;
-          margin-right: 5px;
-        }
-        textarea {
-          width: 435px;
-        }
-        .url-label {
-          font-size: 1em;
-          width: 195px;
-          display: inline-block;
-          text-align: right;
-        }
-      }
-      .input.radioButton {
-        margin-bottom: 40px;
-      }
-      input[type=submit] {
-        font-size: 17px;
-        background: $button;
-        border: 1px solid $button_border;
-        padding: 10px 8px;
-        @include border_radius(3px);
-        color: white;
-        &:hover {
-          opacity: .8;
-        }
-      }
-      .submit {
-        margin-left: 87px;
-      }
+    input, textarea {
+      margin-left: 20px;
+      margin-right: 5px;
     }
+    textarea {
+      width: 435px;
+    }
+    .url-label {
+      font-size: 1em;
+      width: 195px;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+  .input.radioButton {
+    margin-bottom: 40px;
+  }
+  input[type=submit] {
+    font-size: 16px;
+    background: $button;
+    border: 1px solid $button_border;
+    padding: 10px 8px;
+    @include border_radius(3px);
+    color: white;
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .submit {
+    margin-left: 170px;
   }
   .form-container.single-column {
     width: 450px;
@@ -294,6 +246,9 @@ body.main {
   .form-container.single-column.wide-label {
     label, .caption {
       width: 180px;
+    }
+    .submit {
+      margin-left: 200px;
     }
   }
   .right-container {
@@ -363,7 +318,6 @@ body.main {
     }
   }
   .container {
-    // padding-bottom: 200px;
     background: white;
     border: 1px solid #DDD;
     @include border_radius(2px);
@@ -518,12 +472,26 @@ body.main {
   }
   .form-body {
     padding: 15px 0;
-    input[type=text], input[type=password], textarea {
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 0;
-      @include border_radius(2px);
-      border: 1px solid #AAA;
+    .input {
+      margin-bottom: 20px;
+      label, .caption {
+        display: block;
+        text-align: right;
+        float: left;
+      }
+      label {
+        font-size: 16px;
+      }
+      .caption {
+        font-size: 13px;
+      }
+      input[type=text], input[type=password], textarea {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 0;
+        @include border_radius(2px);
+        border: 1px solid #AAA;
+      }
     }
   }
 }
@@ -543,502 +511,3 @@ body.admin .footer, .small-footer {
 .wrapper {
   min-height: 100%;
 }
-// .pagination {
-//   a, em.current {
-//     border: 1px solid #CCC;
-//     padding: 5px;
-//   }
-//   em.current {
-//     background: $primary;
-//     color: white;
-//     font-style: normal;
-//   }
-//   .previous_page {
-//     border: none;
-//     padding: 5px;
-//   }
-//   .next_page {
-//     border: none;
-//     padding: 5px;
-//   }
-//   .disabled {
-//     color: #CCC;
-//   }
-// }
-// .read_more, .less {
-//   font-size: .8em;
-// }
-// .bid_header {
-//   ul#bid_menu {
-//     list-style-type: none;
-//     li {
-//       display: inline;
-//       line-height: 1.8em;
-//       padding: 0 20px;
-//       .border {
-//         border-right: 1px solid #CCC;
-//       }
-//     }
-//   }
-// }
-// .user {
-//   border-bottom: 1px solid #CCC;
-//   font-size: 1em;
-//   padding: 20px 0;
-//   margin-bottom: 20px;
-//   a, strong {
-//     font-size: 1.1em;
-//   }
-//   .user_info {
-//     width: 70%;
-//     span.name {
-//       font-size: 1.5em;
-//     }
-//   }
-//   .bid_choice {
-//     width: 20%;
-//     text-align: right;
-//     .bid_box {
-//       margin: 10px 0;
-//       img {
-//         margin-left: 10px;
-//       }
-//     }
-//   }
-//   .more, .about_less {
-//     font-size: .8em;
-//   }
-//   img {
-//     max-height: 100px;
-//     float: right;
-//   }
-// }
-// .search_box {
-//   h2 {
-//     padding: 0;
-//     margin: 10px 0 !important;
-//   }
-//   hr {
-//     margin: 0;
-//     padding: 0;
-//     border: 1px solid #CCC;
-//   }
-// }
-// span.notification {
-//   padding: 5px;
-//   font-size: .8em;
-//   background: #FFCA88;
-//   color: white;
-// }
-// .bid {
-//   font-size: 1em;
-//   border-bottom: 1px solid #CCC;
-//   padding: 20px 0;
-//   margin-bottom: 20px;
-//   a, strong {
-//     font-size: 1.1em;
-//   }
-//   img.max-height {
-//     max-height: 75px;
-//     float: right;
-//   }
-//   img {
-//     float: right;
-//   }
-//   span.mail {
-//     font-size: .9em;
-//   }
-//   .bid_info {
-//     width: 75%;
-//     img {
-//       margin: 10px 10px 0 0;
-//     }
-//   }
-//   .small-text {
-//     font-size: .8em;
-//   }
-//   .choice {
-//     text-align: right;
-//     width: 23%;
-//     .interest_box {
-//       margin: 10px 0;
-//       span {
-//         font-size: 1.2em;
-//         margin-bottom: 5px;
-//         display: block;
-//       }
-//       img {
-//         margin-left: 10px;
-//       }
-//     }
-//   }
-// } 
-// .options {
-//   font-weight: $std_weight;
-//   float: right;
-//   a {
-//     @include std_button_link;
-//     font-size: .95em;
-//     &:hover {
-//     }
-//   }
-// }
-// .tags {
-//   background: white;
-//   width: 30%;
-//   padding: 20px;
-//   border: 1px solid #CCC;
-//   @include border_radius;
-// }
-// #user-about {
-//   width: 65%;
-//   strong.title {
-//     font-size: 1.3em;
-//   }
-//   #profile-photo {
-//     margin: 0 20px 20px 0;
-//     .caption {
-//       text-align: center;
-//       font-weight: bold;
-//       font-size: 1.2em;
-//     }
-//   }
-// }
-// #user-info-container {
-//   width: 29%;
-//   #send-bid {
-//     text-align: center;
-//     margin: 20px 0;
-//     font-size: 1.3em;
-//   }
-// }
-// #user-info {
-//   padding: 20px;
-//   background: white;
-//   border: 1px solid #CCC;
-//   @include border_radius;
-//   .attr {
-//     font-size: 1.2em;
-//     margin-bottom: 5px;
-//   }
-//   .center {
-//     text-align: center;
-//   }
-//   .small-text {
-//     font-size: .9em;
-//     text-align: center;
-//     margin-bottom: 10px;
-//   }
-// }
-// #bid_container {
-//   width: 65%;
-//   h2.center {
-//     text-align: center;
-//   }
-//   .warning {
-//     background: #ffecce;
-//     padding: 20px;
-//     margin-bottom: 20px;
-//     @include border_radius;
-//     border: 1px solid #e9c59b;
-//     img {
-//       position: relative;
-//       top: 3px;
-//     }
-//   }
-// }
-// #profile_info_container {
-//   width: 57%;
-//   h2 {
-//     margin: 0;
-//     padding: 0;
-//   }
-//   .warning {
-//     background: #ffecce;
-//     padding: 20px;
-//     margin-bottom: 20px;
-//     @include border_radius;
-//     border: 1px solid #e9c59b;
-//     img {
-//       position: relative;
-//       top: 3px;
-//     }
-//   }
-//   #profile_info {
-//     padding: 20px;
-//     background: white;
-//     border: 1px solid #CCC;
-//     @include border_radius;
-//     margin-top: 5px;
-//     #info {
-//       margin: 0 20px;
-//       .title {
-//         font-size: 1.5em;
-//       }
-//       .title_warning {
-//         color: red;
-//         font-size: 1.5em;
-//         background: #fceded;
-//         padding: 10px;
-//         font-weight: bold;
-//       }
-//       .attribute  {
-//         margin: 10px 0 30px;
-//       }
-//     }
-//   }
-// }
-// #user_info_container {
-//   width: 40%;
-//   h2 {
-//     margin: 0;
-//     padding: 0;
-//     .small_title {
-//       font-size: .6em;
-//     }
-//   }
-//   #user_info {
-//     background: white;
-//     @include border_radius;
-//     border: 1px solid #CCC;
-//     padding: 20px;
-//     margin: 10px 0;
-//     .title_warning {
-//       color: red;
-//       background: #fceded;
-//       padding: 5px;
-//       font-weight: bold;
-//       margin: 5px 0;
-//     }
-//   }
-//   #photo {
-//     margin: 10px 0;
-//   }
-// }
-// h1, h2, h3 {
-//   margin: .5em 0 1em 0;
-//   padding: 0;
-// }
-// .search {
-//   input[type=submit] {
-//     margin: 0;
-//   }
-// }
-
-// #edit-company-container {
-//   width: 660px;
-//   margin: 30px auto 0 auto;
-//   .input-container {
-//     width: 595px;
-//   }
-//   .input {
-//     width: 290px;
-//   }
-//   .submit {
-//     margin: -7px;
-//   }
-//   input[type=text], textarea {
-//     width: 260px;
-//   }
-// }
-// #edit-user-container {
-//   width: 660px;
-//   margin: 30px auto 0 auto;
-//   .input-container {
-//     width: 595px;
-//   }
-//   .input {
-//     width: 290px;
-//   }
-//   .submit {
-//     margin: -7px;
-//   }
-//   input[type=text], input[type=password], textarea {
-//     width: 260px;
-//   }
-// }
-// #new-bidding-container {
-//   width: 660px;
-//   margin: 0 auto;
-//   .input-container {
-//     width: 595px;
-//   }
-//   .input {
-//     width: 290px;
-//   }
-//   .submit {
-//     margin: -7px;
-//   }
-//   input[type=text], textarea {
-//     width: 260px;
-//   }
-// }
-// #login-form-container {
-//   width: 450px;
-//   margin: 0px auto 0 auto;
-//   .input {
-//     width: 350px;
-//   }
-//   .submit {
-//     margin: 0 auto;
-//     width: 360px;
-//   }
-//   input[type=text], input[type=password], textarea {
-//     width: 325px;
-//   }
-// }
-// #signup-form-container {
-//   width: 660px;
-//   margin: 30px auto 0 auto;
-//   .input-container {
-//     width: 595px;
-//   }
-//   .input {
-//     width: 290px;
-//   }
-//   .submit {
-//     margin-left: -7px;
-//   }
-//   input[type=text], input[type=password], textarea {
-//     width: 260px;
-//   }
-// }
-// .form-title {
-//   font-size: 2em;
-// }
-// .signup-login {
-//   margin-top: -20px;
-// }
-// .form {
-//   padding: 30px;
-//   background: $form_background;
-//   @include border_radius;
-//   border: 1px solid #CCC;
-// }
-// .input-container {
-//   width: 565px;
-// }
-// form {
-//   // .input {
-//   //   margin: 0 auto 25px auto;
-//   // }
-//   // .success, .error {
-//   //   @include border-radius(2px);
-//   //   width: 565px;
-//   //   margin: 0 auto 20px;
-//   // }
-//   // .login-error {
-//   //   color: red;
-//   //   background: #fceded;
-//   //   padding: 0 10px 15px;
-//   //   margin: 0 auto 20px;
-//   //   width: 330px;
-//   //   img {
-//   //     position: relative;
-//   //     top: 10px;
-//   //   }
-//   // }
-//   // .error {
-//   //   color: red;
-//   //   background: #fceded;
-//   //   padding: 5px 15px 15px;
-//   //   img {
-//   //     position: relative;
-//   //     top: 10px;
-//   //   }
-//   //   .message {
-//   //     margin-left: 40px;
-//   //   }
-//   // }
-//   // .success {
-//   //   background: #e6f8dd;
-//   //   color: green;
-//   //   padding: 0 15px 15px;
-//   //   img {
-//   //     position: relative;
-//   //     top: 10px;
-//   //   }
-//   //   .error-icon {
-//   //     width: 16px;
-//   //     height: 16px;
-//   //     position: relative;
-//   //     top: 2px;
-//   //   }
-//   // }
-//   // margin: 0 auto 0 auto;
-//   // font-weight: $std_weight;
-//   textarea {
-//     width: 370px;
-//   }
-//   // input[type=submit] {
-//   //   font-size: 1em;
-//   //   margin-left: 7px;
-//   //   background: #1FAEEB;
-//   //   border: 1px solid #118EC3;
-//   //   padding: 10px .5em;
-//   //   @include border_radius(3px);
-//   //   color: white;
-//   //   &:hover {
-//   //     background: #1FAEEB;
-//   //     opacity: .8;
-//   //   }
-//   // }
-//   input[type=file] {
-//     width: 175px;
-//   }
-    
-//   label {
-//     font-size: 1.2em;
-//   }
-// }
-// span.name {
-//   font-size: 2em;
-// }
-// #home_bids, #home_tags {
-//   margin-top: 10px;
-// }
-// #home_bids_container {
-//   width: 65%;
-//   h1, h2, h3 {
-//     padding: 0;
-//     margin: 0;
-//   }
-//   #home_bids {
-//     h2.center {
-//       text-align: center;
-//     }
-//   }
-// }
-// #home_right_container {
-//   width: 30%;
-//   #home_right {
-//     background: white;
-//     padding: 20px;
-//     @include border_radius;
-//     border: 1px solid #CCC;
-//     li.no_decoration {
-//       list-style-type: none;
-//       margin-left: 20px;
-//     }
-//   }
-// }
-// #home_tags_container {
-//   width: 30%;
-//   h1, h2, h3 {
-//     padding: 0;
-//     margin: 0;
-//     #home_tags {
-//       background: white;
-//       padding: 20px;
-//       @include border_radius;
-//       border: 1px solid #CCC;
-//       li.no_decoration {
-//         list-style-type: none;
-//         margin-left: 20px;
-//       }
-//     }
-//   }
-//   .edit-profile {
-//     margin: -10px 0 10px 0;
-//   }
-// }

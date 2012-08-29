@@ -44,7 +44,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    declarative_authorization (0.5.5)
     draper (0.17.0)
       actionpack (~> 3.2)
       activesupport (~> 3.2)
@@ -150,7 +149,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.3.4)
   coffee-rails (~> 3.2.1)
-  declarative_authorization
   draper
   haml
   jquery-rails

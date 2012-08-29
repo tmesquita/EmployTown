@@ -7,15 +7,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_user_url(params[:id])
+    redirect_to '/404' and return unless @user
+
     @user = UserDecorator.decorate(@user)
-    redirect_to '/404' unless @user
   end
   
   def create
-    @user = Employer.new(params[:user]) if params[:role].eql? 'employer'
-    @user = JobSeeker.new(params[:user]) if params[:role].eql? 'job_seeker'
+    @user = User.new(params[:user])
 
-    if @user.save
+    if @user.valid?
+      # Run validations before the user is saved. This allows the render 'new' to work as well as adds 'fields with errors' divs to the form
+      @user = Employer.new(params[:user]) if params[:role].eql? 'employer'
+      @user = JobSeeker.new(params[:user]) if params[:role].eql? 'job_seeker'
+      @user.save
+
       user = login(params[:user][:email], params[:user][:password], false)
       if user
         flash[:success] = 'Successfully signed up for EmployTown!'
@@ -26,7 +31,7 @@ class UsersController < ApplicationController
       end
     else
       flash[:error] = @user.errors.full_messages
-      redirect_to signup_path
+      render :new
     end
   end
 

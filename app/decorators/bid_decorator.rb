@@ -34,11 +34,9 @@ class BidDecorator < Draper::Base
     end
   end
 
-  def company_website
-    if model.employer.company.company_url.present?
-      link_to model.employer, url_with_protocol(model.employer.company.company_url), target: '_blank'
-    else
-      model.employer
+  def show_company
+    content_tag :div, class: 'name left bootstrapTooltip', rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view more about #{model.employer.company}" do
+      link_to model.employer.company, job_seekers_company_path(model.employer.company)
     end
   end
 

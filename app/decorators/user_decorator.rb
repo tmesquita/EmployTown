@@ -12,7 +12,7 @@ class UserDecorator < Draper::Base
   end
 
   def blog
-    link_to image_tag('blog-icon-black-20.png', class: 'social'), url_with_protocol(model.blog_address), target: '_blank'
+    link_to image_tag('blog-icon-black-20.png', class: 'social'), url_with_protocol(model.blog_address), target: '_blank' if model.blog_address.present?
   end
 
   def phone
@@ -28,13 +28,17 @@ class UserDecorator < Draper::Base
   end
 
   def my_ideal_role
-    simple_format(truncate(model.ideal_role, length: 200)) +
-    link_to('Read more', user_path(model), class: 'small-link') if model.ideal_role.length > 200
+    unless model.ideal_role.nil?
+      simple_format(truncate(model.ideal_role, length: 200)) +
+      link_to('Read more', user_path(model), class: 'small-link') if model.ideal_role.length > 200
+    end
   end
 
   def about
-    simple_format(truncate(model.about_me, length: 200)) +
-    link_to('Read more', user_path(model), class: 'small-link') if model.about_me.length > 200
+    unless model.about_me.nil?
+      simple_format(truncate(model.about_me, length: 200)) +
+      link_to('Read more', user_path(model), class: 'small-link') if model.about_me.length > 200
+    end
   end
 
   def user_contact_email
@@ -58,7 +62,10 @@ class UserDecorator < Draper::Base
   def send_bid_button(extra_classes = nil)
     if current_user.company.nil?
       content_tag :span, class: "action-button disabled bootstrapTooltip #{extra_classes}", rel: 'tooltip', 'data-title' => "Add your company to bid on #{user}", 'data-delay' => 800 do
-        link_to 'Send a bid', '#', class: 'button', style: 'cursor: not-allowed'
+        link_to('#', class: 'button', style: 'cursor: not-allowed') do
+          content_tag(:i, '', class: 'icon-envelope icon-white') +
+          ' Send a bid'
+        end
       end
     else
       if model.has_bid_from_employer? current_user

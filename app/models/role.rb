@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  attr_accessible :name, :description, :users_count
+  attr_accessible :name, :description
   
   validates_length_of :name, :minimum => 1
   validates_uniqueness_of :name

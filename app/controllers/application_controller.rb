@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     end
   
     def home_url_for(user)
-      return root_url if user.nil?
+      return job_seekers_root_path if user.is_job_seeker?
       return employers_root_path if user.is_employer?
-      job_seekers_root_path
+      root_path
     end
     
     def permission_denied

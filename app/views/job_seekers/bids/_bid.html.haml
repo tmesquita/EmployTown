@@ -3,7 +3,7 @@
     .arrow.arrow-down.left.hide
     .arrow.arrow-right.left
     = bid.status
-    .name.left.bootstrapTooltip{rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view #{bid.employer}'s company website"}= bid.company_website
+    = bid.show_company
   .image.right= image_tag bid.employer.company.logo.url(:thumb)
   = bid.decline_button('main right')
   = bid.accept_button('main right')

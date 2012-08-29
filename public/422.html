@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>EmployTown - The change you wanted was rejected (422)</title>
+  <link href="http://fonts.googleapis.com/css?family=Advent+Pro" media="screen" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Exo" media="screen" rel="stylesheet" type="text/css">
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    body { background-color: #F2F2F2;
+      color: #333;
+      text-align: center;
+      font-family: Exo, helvetica, arial, sans-serif;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    a, .logo {
+      color: #888;
+      text-decoration: none;
+      font-size: 60px;
+    }
+    .logo {
+      font-family: 'Advent Pro', helvetica, arial, sans-serif;
+      margin-top: 10%;
+    }
+    .bold {
+      font-weight: bold;
+      color: #666;
+    }
+    .error-message {
+      margin: 0 auto;
+      text-align: center;
+      width: 940px;
+      font-size: 20px;
+      background: white;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      border: 1px solid #DDD;
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+    .error-message p {
+      font-size: 25px;
+    }
+    hr {
+      border-bottom: 1px solid #DDD;
+      border-top: 0;
+      width: 70%;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
+  <div class="logo">
+    <a href="/">
+      Employ<span class="bold">Town</span>
+    </a>
+  </div>
+  <div class="error-message">
+    <h2>The change you wanted was rejected</h2>
+    <hr/>
+    <p>Maybe you tried to change something you didn't have access to</p>
   </div>
 </body>
 </html>

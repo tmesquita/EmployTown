@@ -2,7 +2,6 @@ class Company < ActiveRecord::Base
 
   attr_accessible :name, :description, :looking_for, :why_work_for, :facebook, :twitter, :blog_address, :company_url, :logo
 
-	has_many :bids
 	has_many :employers
 
   validates :name, :presence => true
@@ -33,17 +32,5 @@ class Company < ActiveRecord::Base
 	
 	def to_s
 	  self.name.titleize
-  end
-
-  def has_facebook_enabled?
-    self.facebook_flag
-  end
-
-  def has_twitter_enabled?
-    self.twitter_flag
-  end
-
-  def has_blog_enabled?
-    self.blog_flag
   end
 end

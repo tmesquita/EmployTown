@@ -9,4 +9,8 @@ class Employer < User
   def add_company(company_id)
     update_attributes(company_id: company_id)
   end
+
+  def belongs_to_company?
+    !company.nil?
+  end
 end

@@ -5,12 +5,13 @@ class User < ActiveRecord::Base
   has_many :tags
   
   attr_accessible :email, :password, :password_confirmation, :role_id, :first_name, :last_name, :seeking, :user_url, :photo, :resume, :company_id, :about_me, :ideal_role
-  attr_accessible :facebook_flag, :twitter_flag, :blog_flag, :blog_address, :facebook, :twitter, :contact_email, :contact_phone
+  attr_accessible :blog_address, :facebook, :twitter, :contact_email, :contact_phone
 
   before_validation :remove_non_digits_in_phone
   
   validates :email, :presence => true, :uniqueness => true
   validates :password, :confirmation => true, :presence => true, :on => :create
+  validates :password, :confirmation => true, :on => :update, :unless => lambda { self.password.blank? }
   validates_presence_of :first_name, :last_name
   validates_attachment_content_type :resume, :content_type => ['application/msword', 'application/pdf', 'application/rtf', 'text/plain', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
@@ -26,6 +27,11 @@ class User < ActiveRecord::Base
       :with => /\b[a-zA-Z0-9._%-]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,4}\b/,
       :on => :update,
       :allow_blank => true
+
+  validates_format_of :email,
+      :message => 'must look like an email address',
+      :with => /\b[a-zA-Z0-9._%-]+@[a-zA-Z0-9_.-]+\.[a-zA-Z]{2,4}\b/,
+      :allow_blank => false
   
   validates_format_of :user_url,
       :message => 'can only contain numbers, letters, and underscores',
@@ -88,26 +94,6 @@ class User < ActiveRecord::Base
       else
         where(type: 'JobSeeker').where("first_name ILIKE UPPER(?) OR last_name ILIKE UPPER(?) OR first_name || ' ' || last_name ILIKE UPPER(?) OR email ILIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
       end
-  end
-
-  def get_tag_count
-    Tag.count(:conditions => {:user_id => self.id})
-  end
-
-  def has_facebook_enabled?
-    facebook_flag
-  end
-
-  def has_twitter_enabled?
-    twitter_flag
-  end
-
-  def has_blog_enabled?
-    blog_flag
-  end
-  
-  def belongs_to_company?
-    !company.nil?
   end
 
   def has_resume?
