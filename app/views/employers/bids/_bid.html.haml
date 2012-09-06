@@ -24,6 +24,6 @@
       %tr
         %td.no-left-padding Job Description
         %td.border
-        %td.content= simple_format truncate(bid.job_description, length: 200)
+        %td.content= bid.job_description
     = bid.cancel_button
   .clear

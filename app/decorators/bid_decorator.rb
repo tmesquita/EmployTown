@@ -42,7 +42,9 @@ class BidDecorator < Draper::Base
 
   def job_description
     simple_format(truncate(model.job_description, length: 200)) +
-    link_to('Read more', '#', class: 'small-link read-more', 'data-bid-id' => model.id) if model.job_description
+    if model.job_description.length > 200
+      link_to('Read more', '#', class: 'small-link read-more', 'data-bid-id' => model.id, 'data-user' => current_user.role) if model.job_description
+    end
   end
 
   def status

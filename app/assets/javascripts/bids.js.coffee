@@ -6,10 +6,11 @@ $(document).ready ->
 
   $('body').on 'click', '.bid .read-more', ->
     id = $(@).data('bid-id')
+    user_type = $(@).data('user')
     $read_more = $(@)
     @original_text = $read_more.parent().find('p').text().replace(/\n/g, "<br/>")
     $.ajax
-      url: "job_seekers/bids/#{id}"
+      url: "#{user_type}s/bids/#{id}"
       dataType: 'json'
       type: 'GET'
       success: (data) ->

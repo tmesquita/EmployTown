@@ -29,7 +29,7 @@ Employtown::Application.routes.draw do
     resources :job_seekers, :only => :none do
       resources :bids, :only => [:new, :create]
     end
-    resources :bids, :only => :destroy
+    resources :bids, :only => [:destroy, :show]
     resource :company, :except => [:destroy, :show]
     match '/search', :to => "search#index"
     root :to => "employers#index"

@@ -7,6 +7,11 @@ class Employers::BidsController < Employers::EmployersController
     @bid = Bid.new
   end
 
+  def show
+    @bid = Bid.find(params[:id])
+    render json: @bid
+  end
+
   def create
     @job_seeker = JobSeeker.find(params[:job_seeker_id])
     @bid = Bid.new(params[:bid])
