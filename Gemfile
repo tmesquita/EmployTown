@@ -10,11 +10,10 @@ gem 'will_paginate'
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk', '~> 1.3.4'
 gem 'draper'
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -30,6 +29,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development do
+  gem 'sqlite3'
+end
 
 group :production do
   gem 'pg'
