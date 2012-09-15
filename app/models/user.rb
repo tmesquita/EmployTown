@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   before_create :assign_default_url
 
   before_save :remove_http_from_blog
+  after_save :notify_signup
 
   validates_format_of :contact_email,
       :message => 'must look like an email address',
@@ -112,5 +113,11 @@ class User < ActiveRecord::Base
   
     def assign_default_url
       self.user_url = rand(2**256).to_s(36)[0..15]
+    end
+
+  private
+
+    def notify_signup
+      UserMailer.notify_signup(self.email).deliver
     end
 end
