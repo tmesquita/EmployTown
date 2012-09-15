@@ -8,6 +8,7 @@ gem 'rmagick'
 gem 'will_paginate'
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk', '~> 1.3.4'
+# gem "paperclip-dropbox"
 gem 'draper'
 
 # Bundle edge Rails instead:
@@ -22,6 +23,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
+  gem 'execjs'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -30,10 +32,12 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'
+  gem 'letter_opener'
 end
 
 group :production do
   gem 'pg'
+  # gem 'mysql2'
 end
 
 # To use ActiveModel has_secure_password
