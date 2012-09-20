@@ -15,7 +15,7 @@ class Tag < ActiveRecord::Base
       where('name LIKE UPPER(?)', "%#{search}%")
     # else
       # where('name LIKE UPPER(?)', "%#{search}%")
-    end
+    # end
   end
 
   private
