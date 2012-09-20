@@ -18,10 +18,10 @@ class User < ActiveRecord::Base
   validates :user_url, :presence => true, :uniqueness => true, :on => :update
 
   default_scope :include => :role
-  before_create :assign_default_url
 
+  before_create :assign_default_url
+  after_create :notify_signup
   before_save :remove_http_from_blog
-  after_save :notify_signup
 
   validates_format_of :contact_email,
       :message => 'must look like an email address',

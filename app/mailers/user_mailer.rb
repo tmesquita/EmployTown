@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def notify_signup(email)
     @email = email
-    mail to: 'jerelmiller@gmail.com', subject: 'A new user has signed up for EmployTown!'
+    mail to: 'scott.balster@gmail.com', subject: 'A new user has signed up for EmployTown!'
   end
 end

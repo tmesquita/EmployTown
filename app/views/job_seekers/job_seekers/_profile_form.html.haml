@@ -3,7 +3,8 @@
     .photo
       = image_tag @user.photo.url(:regular)
       .input.photo-field
-        = f.file_field :photo
+        /= f.file_field :photo
+        %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'Profile pictures are currently disabled. We are actively developing this feature so check back soon!'}
     = link_to 'View my profile', user_path(current_user)
 
   .left
@@ -12,14 +13,16 @@
       %label
         Resume
         %span.caption Upload your Resume
-      = f.file_field :resume
-      - if !@user.resume_file_name.eql? nil
-        %p
-          = link_to "Current resume", @user.resume.url, target: '_blank'
-    .input
-      %span.url-label= "http://#{request.host}/"
-      = f.text_field :user_url, style: 'position: relative; z-index: 9'
-      %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'This is your public URL and will be used to direct visitors to your profile.'}
+      / = f.file_field :resume
+      %div{style: 'width: 320px; float: left;'}
+        %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'Resume uploads are currently disabled. We are actively developing this feature so check back soon!'}
+        - if !@user.resume_file_name.eql? nil
+          %p
+            = link_to "Current resume", @user.resume.url, target: '_blank'
+  .input
+    %span.url-label= "http://#{request.host}/"
+    = f.text_field :user_url, style: 'position: relative; z-index: 9'
+    %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'This is your public URL and will be used to direct visitors to your profile.'}
   .input
     %span.url-label http://www.facebook.com/
     = f.text_field :facebook, placeholder: 'johndoe'
