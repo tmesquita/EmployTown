@@ -11,10 +11,10 @@ class Tag < ActiveRecord::Base
   end
 
   def self.search(search)
-    if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
+    # if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
       where('name LIKE UPPER(?)', "%#{search}%")
-    else
-      where('name ILIKE UPPER(?)', "%#{search}%")
+    # else
+      # where('name LIKE UPPER(?)', "%#{search}%")
     end
   end
 
