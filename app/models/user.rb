@@ -88,15 +88,6 @@ class User < ActiveRecord::Base
     [role.name.downcase.to_sym]
   end
 
-  def self.search(search)
-      search.upcase
-      # if ActiveRecord::Base.connection.instance_variable_get(:@config)[:database].split('/').last.eql? "development.sqlite3"
-        where(type: 'JobSeeker').where("first_name LIKE UPPER(?) OR last_name LIKE UPPER(?) OR first_name || ' ' || last_name LIKE UPPER(?) OR email LIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-      # else
-        # where(type: 'JobSeeker').where("first_name LIKE UPPER(?) OR last_name LIKE UPPER(?) OR first_name || ' ' || last_name LIKE UPPER(?) OR email LIKE UPPER(?)", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-      # end
-  end
-
   def has_resume?
     !resume_file_name.nil?
   end
