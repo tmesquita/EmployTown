@@ -52,17 +52,20 @@ class User < ActiveRecord::Base
 
   has_attached_file :photo, 
                     :styles => { :thumb => "50x50>", :small => "150x150>", :regular => "300x300>" },
-                    :url => "/assets/:class/:attachment/:id/:style.:extension",
-                    :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
-                    :default_url => "default_profile.jpg",
-                    :storage => :s3,
-                    :s3_credentials => "#{Rails.root}/config/s3.yml"
+                    :storage => :dropbox,
+                    :dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
+                    :dropbox_options => {
+                      path: proc { |style| "users/#{id}/#{style}/#{id}_#{photo.original_filename}"},
+                      unique_filename: true
+                    }
                     
   has_attached_file :resume,
-                    :url => "/assets/:class/:attachment/:id/:style.:extension",
-                    :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
-                    :storage => :s3,
-                    :s3_credentials => "#{Rails.root}/config/s3.yml"
+                    :storage => :dropbox,
+                    :dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
+                    :dropbox_options => {
+                      path: proc { |style| "users/#{id}/resume/#{id}_#{resume.original_filename}"},
+                      unique_filename: true
+                    }
 
   HUMANIZED_ATTRIBUTES = {
     :user_url => "Profile URL"

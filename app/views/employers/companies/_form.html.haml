@@ -1,11 +1,12 @@
 = form_for [:employers, @company], :url => employers_company_path do |f|
 
   .right.photo
-    = image_tag @company.logo.url(:medium)
+    - if @company.logo_file_name
+      = image_tag @company.logo.url(:medium)
+    - else
+      = image_tag 'default_profile.jpg'
     .input.photo-field
-      / = f.file_field :logo
-      %i.icon-question-sign.bootstrapTooltip{rel: 'tooltip', 'data-title' => 'Company logos are currently disabled. We are actively developing this feature so check back soon!'}
-
+      = f.file_field :logo
   .left
     = render 'layouts/flash', flash: flash
     .input

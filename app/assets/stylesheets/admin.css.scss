@@ -108,6 +108,9 @@ body.admin {
     border: 1px solid $border_color;
     @include border-radius(2px);
     .input {
+      #job_seeker_resume {
+        width: 325px;
+      }
       label, .url-label, .caption {
         width: 220px;
       }

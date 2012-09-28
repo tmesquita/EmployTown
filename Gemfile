@@ -7,8 +7,7 @@ gem 'squeel'
 gem 'rmagick'
 gem 'will_paginate'
 gem 'paperclip', "~> 3.0"
-gem 'aws-sdk', '~> 1.3.4'
-# gem "paperclip-dropbox"
+gem "paperclip-dropbox"
 gem 'draper'
 
 # Bundle edge Rails instead:

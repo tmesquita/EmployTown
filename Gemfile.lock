@@ -30,11 +30,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    aws-sdk (1.3.9)
-      httparty (~> 0.7)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
-      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cocaine (0.3.0)
@@ -48,6 +43,8 @@ GEM
     draper (0.17.0)
       actionpack (~> 3.2)
       activesupport (~> 3.2)
+    dropbox-sdk (1.5.1)
+      json
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -55,9 +52,6 @@ GEM
       multipart-post (~> 1.1)
     haml (3.1.7)
     hike (1.2.1)
-    httparty (0.9.0)
-      multi_json (~> 1.0)
-      multi_xml
     httpauth (0.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -76,10 +70,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
-    multi_xml (0.5.1)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
-    nokogiri (1.5.5)
     oauth (0.4.7)
     oauth2 (0.6.1)
       faraday (~> 0.7)
@@ -91,6 +83,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
+    paperclip-dropbox (1.0.0)
+      dropbox-sdk (~> 1.3)
+      paperclip (~> 3.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -149,14 +144,12 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    uuidtools (2.1.3)
     will_paginate (3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 1.3.4)
   coffee-rails (~> 3.2.1)
   draper
   execjs
@@ -165,6 +158,7 @@ DEPENDENCIES
   letter_opener
   mysql2
   paperclip (~> 3.0)
+  paperclip-dropbox
   rails (= 3.2.6)
   rmagick
   sass-rails (~> 3.2.3)
