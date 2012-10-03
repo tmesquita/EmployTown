@@ -6,10 +6,10 @@
     = user.facebook
     = user.twitter
     = user.blog
-  .image.right= image_tag user.photo.url(:thumb)
+  .image.right= user.photo(:thumb)
   = user.send_bid_button('main right')
   .detailsBox.hide
-    .photo.right= image_tag user.photo.url(:small)
+    .photo.right= user.photo(:small)
     %table
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Email

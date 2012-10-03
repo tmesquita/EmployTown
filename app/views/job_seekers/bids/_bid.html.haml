@@ -4,12 +4,11 @@
     .arrow.arrow-right.left
     = bid.status
     = bid.show_company
-  .image.right= image_tag bid.employer.company.logo.url(:thumb)
+  .image.right= bid.photo(:thumb, 'employer')
   = bid.decline_button('main right')
   = bid.accept_button('main right')
   .detailsBox.hide
-    .photo.right
-      = image_tag bid.employer.company.logo.url(:small)
+    .photo.right= bid.photo(:small, 'employer')
     %table
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Job Title

@@ -81,6 +81,14 @@ class UserDecorator < Draper::Base
     end
   end
 
+  def photo(size)
+    if model.photo_file_name
+      image_tag model.photo.url(size)
+    else
+      image_tag 'default_profile.jpg'
+    end
+  end
+
   def to_s
     model.to_s
   end

@@ -2,8 +2,7 @@
   = "EmployTown - #{@user}'s Profile"
 
 .profile
-  .photo.left
-    = image_tag @user.photo.url(:regular)
+  .photo.left= @user.photo(:regular)
   .info
     .name
       = @user

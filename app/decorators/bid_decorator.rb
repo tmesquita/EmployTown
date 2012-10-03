@@ -34,6 +34,16 @@ class BidDecorator < Draper::Base
     end
   end
 
+  def photo(size, user_type)
+    if user_type.eql? 'job_seeker' and model.job_seeker.photo_file_name
+      image_tag model.job_seeker.photo(size)
+    elsif user_type.eql? 'employer' and model.employer.company.logo_file_name
+      image_tag model.employer.company.logo(size)
+    else
+      image_tag 'default_profile.jpg'
+    end
+  end
+
   def show_company
     content_tag :div, class: 'name left bootstrapTooltip', rel: 'tooltip', 'data-delay' => 800, 'data-title' => "Click to view more about #{model.employer.company}" do
       link_to model.employer.company, job_seekers_company_path(model.employer.company)

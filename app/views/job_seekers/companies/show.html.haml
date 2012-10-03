@@ -2,8 +2,7 @@
   = "#{@company}'s Company Information"
 
 .profile
-  .photo.left
-    = image_tag @company.logo.url(:regular)
+  .photo.left= @company.logo
   .info
     .name
       = @company

@@ -15,6 +15,14 @@ class CompanyDecorator < Draper::Base
     link_to image_tag('blog-icon-black-20.png', class: 'social'), url_with_protocol(model.blog_address), target: '_blank' if model.blog_address.present?
   end
 
+  def logo(size = :regular)
+    if model.logo_file_name
+      image_tag model.logo.url(size)
+    else
+      image_tag 'default_profile.jpg'
+    end
+  end
+
   def website
     unless model.company_url.blank?
       content_tag :div, class: 'website' do

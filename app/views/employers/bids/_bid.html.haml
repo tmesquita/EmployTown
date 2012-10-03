@@ -7,11 +7,10 @@
       = link_to bid.job_seeker, user_path(bid.job_seeker)
       \-
       = bid.job_seeker.contact_email
-  .image.right= image_tag bid.job_seeker.photo.url(:thumb)
+  .image.right= bid.photo(:thumb, 'job_seeker')
   = bid.cancel_button('main right')
   .detailsBox.hide
-    .photo.right
-      = image_tag bid.job_seeker.photo.url(:small)
+    .photo.right= bid.photo(:small, 'job_seeker')
     %table
       %tr
         %td.border-bottom.no-left-padding{ width: '180px' } Job Title
